@@ -1,34 +1,67 @@
 package ru.job4j.oop;
 
 /**
- * Класс {@code Cat} представляет собой простую модель кошки.
- * В этом примере создаются два экземпляра кошки в методе {@code main}.
+ * Класс {@code Cat} представляет собой простую модель кота.
+ * У каждого кота есть кличка ({@code name}) и еда ({@code food}), которую он съел.
+ * В методе {@code main} создаются два экземпляра котов и демонстрируется их поведение.
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  * @since 2025-03-30
  */
 public class Cat {
 
     /**
-     * Метод {@code sound} возвращает звук, который издаёт кошка.
-     *
-     * @return Строка, представляющая звук кошки.
+     * Поле {@code name} используется для хранения клички кота.
      */
-    public String sound() {
-        String voice = "may-may";
-        return voice;
+    private String name;
+
+    /**
+     * Поле {@code food} используется для хранения съеденной еды.
+     */
+    private String food;
+
+    /**
+     * Метод {@code show} выводит в консоль информацию о кличке кота и съеденной им еде.
+     */
+    public void show() {
+        System.out.println(this.name + " ate " + this.food + ".");
     }
 
     /**
-     * Метод {@code main} создаёт два экземпляра класса {@code Cat}: {@code peppy} и {@code sparky}.
-     * Затем получает звук, который издаёт кошка.
+     * Метод {@code giveNick} устанавливает кличку кота в поле name.
      *
-     * @param args Аргументы командной строки (не используются в этом примере).
+     * @param nick Кличка кота.
+     */
+    public void giveNick(String nick) {
+        this.name = nick;
+    }
+
+    /**
+     * Метод {@code eat} устанавливает еду в поле food.
+     *
+     * @param meat Название еды.
+     */
+    public void eat(String meat) {
+        this.food = meat;
+    }
+
+    /**
+     * Метод {@code main} демонстрирует работу класса {@code Cat}.
+     * Создаются два объекта: {@code gav} и {@code black}, которым задаются клички и еда.
+     *
+     * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
-        Cat peppy  = new Cat();
-        String say = peppy.sound();
-        Cat sparky = new Cat();
+        System.out.println("There is gav's food.");
+        Cat gav = new Cat();
+        gav.giveNick("Gav");
+        gav.eat("cutlet");
+        gav.show();
+        System.out.println("There is black's food.");
+        Cat black = new Cat();
+        black.giveNick("Black");
+        black.eat("fish");
+        black.show();
     }
 }
