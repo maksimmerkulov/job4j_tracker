@@ -5,6 +5,7 @@ package ru.job4j.checkstyle;
  *
  * @author Maksim Merkulov
  * @version 1.0
+ * @since 2025-03-27
  */
 public class Broken {
     public static final int DEFAULT_EMPTY_SIZE = 10;

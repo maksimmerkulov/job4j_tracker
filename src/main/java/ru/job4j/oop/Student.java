@@ -6,6 +6,7 @@ package ru.job4j.oop;
  *
  * @author Maksim Merkulov
  * @version 1.0
+ * @since 2025-03-28
  */
 public class Student {
 
