@@ -11,7 +11,7 @@ package ru.job4j.oop;
 public class Ball {
 
     /**
-     * Метод {@code tryRun} определяет судьбу Колобка.
+     * Метод {@code tryRun(boolean condition)} определяет судьбу Колобка.
      *
      * @param condition Значение {@code true} - Колобок съеден;
      *                  значение {@code false} - Колобок сбежал.

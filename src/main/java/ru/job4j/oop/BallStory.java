@@ -19,7 +19,7 @@ package ru.job4j.oop;
 public class BallStory {
 
     /**
-     * Метод {@code main} запускает историю.
+     * Метод {@code main(String[] args)} запускает историю.
      *
      * @param args Аргументы командной строки (не используются).
      */

@@ -11,7 +11,7 @@ package ru.job4j.oop;
 public class Jukebox {
 
     /**
-     * Метод {@code music} воспроизводит песню в зависимости от переданной позиции.
+     * Метод {@code music(int position)} воспроизводит песню в зависимости от переданной позиции.
      *
      * @param position Номер песни для воспроизведения:
      *                 1 — "Пусть бегут неуклюже",
@@ -20,14 +20,14 @@ public class Jukebox {
      */
     public void music(int position) {
         switch (position) {
-            case 1 -> System.out.println("Пусть бегут неуклюже");
-            case 2 -> System.out.println("Спокойной ночи");
+            case 1  -> System.out.println("Пусть бегут неуклюже");
+            case 2  -> System.out.println("Спокойной ночи");
             default -> System.out.println("Песня не найдена");
         }
     }
 
     /**
-     * Метод {@code main} демонстрирует работу класса {@code Jukebox}
+     * Метод {@code main(String[] args)} демонстрирует работу класса {@code Jukebox}
      * путем воспроизведения песен с различными позициями.
      *
      * @param args Аргументы командной строки (не используются).

@@ -3,7 +3,7 @@ package ru.job4j.oop;
 /**
  * Класс {@code Cat} представляет собой простую модель кота.
  * У каждого кота есть кличка ({@code name}) и еда ({@code food}), которую он съел.
- * В методе {@code main} создаются два экземпляра котов и демонстрируется их поведение.
+ * В методе {@code main(String[] args)} создаются два экземпляра котов и демонстрируется их поведение.
  *
  * @author Maksim Merkulov
  * @version 1.2
@@ -22,14 +22,14 @@ public class Cat {
     private String food;
 
     /**
-     * Метод {@code show} выводит в консоль информацию о кличке кота и съеденной им еде.
+     * Метод {@code show()} выводит в консоль информацию о кличке кота и съеденной им еде.
      */
     public void show() {
         System.out.println(this.name + " ate " + this.food + ".");
     }
 
     /**
-     * Метод {@code giveNick} устанавливает кличку кота в поле name.
+     * Метод {@code giveNick(String nick)} устанавливает кличку кота в поле name.
      *
      * @param nick Кличка кота.
      */
@@ -38,7 +38,7 @@ public class Cat {
     }
 
     /**
-     * Метод {@code eat} устанавливает еду в поле food.
+     * Метод {@code eat(String meat)} устанавливает еду в поле food.
      *
      * @param meat Название еды.
      */
@@ -47,7 +47,7 @@ public class Cat {
     }
 
     /**
-     * Метод {@code main} демонстрирует работу класса {@code Cat}.
+     * Метод {@code main(String[] args)} демонстрирует работу класса {@code Cat}.
      * Создаются два объекта: {@code gav} и {@code black}, которым задаются клички и еда.
      *
      * @param args Аргументы командной строки (не используются).

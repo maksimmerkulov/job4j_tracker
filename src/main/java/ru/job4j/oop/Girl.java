@@ -11,7 +11,7 @@ package ru.job4j.oop;
 public class Girl {
 
     /**
-     * Метод {@code help} позволяет Красной Шапочке позвать Петю на помощь.
+     * Метод {@code help(Pioneer pioneer)} позволяет Красной Шапочке позвать Петю на помощь.
      *
      * @param pioneer Объект класса {@code Pioneer}, который может прийти на помощь.
      */

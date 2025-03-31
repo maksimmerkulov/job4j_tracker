@@ -11,7 +11,7 @@ package ru.job4j.oop;
 public class Pioneer {
 
     /**
-     * Метод {@code kill} позволяет Пете победить Волка.
+     * Метод {@code kill(Wolf wolf)} позволяет Пете победить Волка.
      *
      * @param wolf Объект класса {@code Wolf}, которого нужно победить.
      */
