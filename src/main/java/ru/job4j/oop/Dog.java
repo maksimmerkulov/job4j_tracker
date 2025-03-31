@@ -14,7 +14,7 @@ public class Dog {
      * Метод {@code main} создаёт три экземпляра класса {@code Dog}:
      * {@code polkan}, {@code sharik} и {@code zhychka}.
      *
-     * @param args Аргументы командной строки (не используются в этом примере).
+     * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
         Dog polkan  = new Dog();

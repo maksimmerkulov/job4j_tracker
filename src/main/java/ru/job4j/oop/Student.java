@@ -27,7 +27,7 @@ public class Student {
     /**
      * Метод {@code main} создаёт объект студента и вызывает его методы.
      *
-     * @param args Аргументы командной строки (не используются в этом примере).
+     * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
         Student petya = new Student();
