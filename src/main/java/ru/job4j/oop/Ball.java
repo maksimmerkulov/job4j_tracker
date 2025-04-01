@@ -13,7 +13,7 @@ public class Ball {
     /**
      * Метод {@code tryRun(boolean condition)} определяет судьбу Колобка.
      *
-     * @param condition Значение {@code true} - Колобок съеден;
+     * @param condition Значение {@code true}  - Колобок съеден;
      *                  значение {@code false} - Колобок сбежал.
      */
     public void tryRun(boolean condition) {

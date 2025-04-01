@@ -6,8 +6,8 @@ package ru.job4j.oop;
  * Предоставляет методы для вывода информации о компьютере.
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-03-31
+ * @version 1.1
+ * @since 2025-04-01
  */
 public class Computer {
 
@@ -42,8 +42,49 @@ public class Computer {
      */
     public Computer(boolean multiMonitor, int ssd, String cpu) {
         this.multiMonitor = multiMonitor;
-        this.ssd          = ssd;
-        this.cpu          = cpu;
+        this.ssd = ssd;
+        this.cpu = cpu;
+    }
+
+    /**
+     * Конструктор {@code Computer(int ssd, String cpu)} создает компьютер без указания количества мониторов.
+     * Поле {@code multiMonitor} по умолчанию принимает значение {@code false}.
+     *
+     * @param ssd  Объем SSD в гигабайтах.
+     * @param cpu  Модель процессора.
+     */
+    public Computer(int ssd, String cpu) {
+        this.ssd = ssd;
+        this.cpu = cpu;
+    }
+
+    /**
+     * Конструктор {@code Computer(int ssd, String cpu, boolean multiMonitor)}
+     * позволяет задать количество мониторов после характеристик системы.
+     *
+     * @param ssd          Объем SSD в гигабайтах.
+     * @param cpu          Модель процессора.
+     * @param multiMonitor Использование нескольких мониторов.
+     */
+    public Computer(int ssd, String cpu, boolean multiMonitor) {
+        this.multiMonitor = multiMonitor;
+        this.ssd = ssd;
+        this.cpu = cpu;
+    }
+
+    /**
+     * Конструктор {@code Computer(boolean multiMonitor, double ssd, String cpu)}
+     * позволяет передавать объем SSD в виде {@code double},
+     * но округляет его до {@code int}.
+     *
+     * @param multiMonitor Использование нескольких мониторов.
+     * @param ssd          Объем SSD в гигабайтах (тип double).
+     * @param cpu          Модель процессора.
+     */
+    public Computer(boolean multiMonitor, double ssd, String cpu) {
+        this.multiMonitor = multiMonitor;
+        this.ssd = (int) ssd;
+        this.cpu = cpu;
     }
 
     /**
@@ -53,19 +94,22 @@ public class Computer {
         System.out.println("Много мониторов: " + multiMonitor);
         System.out.println("SSD: " + ssd + " GB");
         System.out.println("Модель CPU: " + cpu);
+        System.out.println();
     }
 
     /**
-     * Метод {@code main(String[] arg)} создает несколько объектов {@code Computer} и выводит их характеристики.
+     * Метод {@code main(String[] args)} создает несколько объектов {@code Computer} и выводит их характеристики.
      *
      * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
-        Computer computer = new Computer(true, 500, "Intel Core I7-10700K");
-        computer.printInfo();
-        Computer comp = new Computer(true, 256, "AMD Ryzen 5 3600");
-        comp.printInfo();
-        Computer compDefault  = new Computer();
-        compDefault.printInfo();
+        Computer first = new Computer();
+        first.printInfo();
+        Computer second = new Computer(true, 500, "Intel Core I7-10700K");
+        second.printInfo();
+        Computer third = new Computer(256, "AMD Ryzen 5 3600");
+        third.printInfo();
+        Computer forth = new Computer(true, 512.0, "AMD Ryzen 7 3700X");
+        forth.printInfo();
     }
 }

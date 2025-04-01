@@ -40,8 +40,8 @@ public class Error {
      * @param message Сообщение об ошибке.
      */
     public Error(boolean active, int status, String message) {
-        this.active  = active;
-        this.status  = status;
+        this.active = active;
+        this.status = status;
         this.message = message;
     }
 

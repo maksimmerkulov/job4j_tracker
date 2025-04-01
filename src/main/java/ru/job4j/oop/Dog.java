@@ -17,8 +17,8 @@ public class Dog {
      * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
-        Dog polkan  = new Dog();
-        Dog sharik  = new Dog();
+        Dog polkan = new Dog();
+        Dog sharik = new Dog();
         Dog zhychka = new Dog();
     }
 }
