@@ -6,8 +6,8 @@ package ru.job4j.oop;
  * Предоставляет методы для вывода информации о компьютере.
  *
  * @author Maksim Merkulov
- * @version 1.1
- * @since 2025-04-01
+ * @version 1.2
+ * @since 2025-04-03
  */
 public class Computer {
 
@@ -98,7 +98,7 @@ public class Computer {
     }
 
     /**
-     * Метод {@code main(String[] args)} создает несколько объектов {@code Computer} и выводит их характеристики.
+     * Метод {@code main(String[] args)} создает несколько объектов {@link Computer} и выводит их характеристики.
      *
      * @param args Аргументы командной строки (не используются).
      */

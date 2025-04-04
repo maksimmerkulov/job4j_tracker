@@ -5,8 +5,8 @@ package ru.job4j.oop;
  * который воспроизводит песни на основе заданной позиции.
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-03-30
+ * @version 1.1
+ * @since 2025-04-03
  */
 public class Jukebox {
 
@@ -27,7 +27,7 @@ public class Jukebox {
     }
 
     /**
-     * Метод {@code main(String[] args)} демонстрирует работу класса {@code Jukebox}
+     * Метод {@code main(String[] args)} демонстрирует работу класса {@link Jukebox}
      * путем воспроизведения песен с различными позициями.
      *
      * @param args Аргументы командной строки (не используются).

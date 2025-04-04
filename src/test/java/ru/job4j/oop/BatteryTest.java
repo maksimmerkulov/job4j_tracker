@@ -4,20 +4,21 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Класс {@code BatteryTest} содержит юнит-тесты для класса {@code Battery}.
- * Тестирует функциональность метода {@code exchange()}, который передаёт заряд
- * от одной батареи другой.
+ * Тест-класс {@code BatteryTest} содержит юнит-тесты для класса {@link Battery}.
+ *
+ * <p>Тестирует функциональность метода {@link Battery#exchange(Battery)},
+ * который передает заряд от одной батареи другой.<p>
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-04-01
+ * @version 1.1
+ * @since 2025-04-03
  */
 public class BatteryTest {
 
     /**
-     * Тестирует метод {@code exchange()} для случая, когда заряд первой батареи
-     * составляет 30%, а второй — 50%. Ожидается, что заряд второй батареи
-     * после обмена будет равен 80%.
+     * Тестирует метод {@link Battery#exchange(Battery)} для случая,
+     * когда заряд первой батареи составляет 30%, а второй — 50%.
+     * Ожидается, что заряд второй батареи после обмена будет равен 80%.
      */
     @Test
     public void whenThis30Another50ThenAnotherLoadEqual80() {
@@ -29,9 +30,9 @@ public class BatteryTest {
     }
 
     /**
-     * Тестирует метод {@code exchange()} для случая, когда заряд первой батареи
-     * составляет 80%, а второй — 20%. Ожидается, что заряд первой батареи
-     * после обмена станет равным 0%.
+     * Тестирует метод {@link Battery#exchange(Battery)} для случая,
+     * когда заряд первой батареи составляет 80%, а второй — 20%.
+     * Ожидается, что заряд первой батареи после обмена станет равным 0%.
      */
     @Test
     public void whenThis80Another20ThenThisLoadEqual0() {
@@ -43,9 +44,9 @@ public class BatteryTest {
     }
 
     /**
-     * Тестирует метод {@code exchange()} для случая, когда заряд первой батареи
-     * составляет 95%, а второй — 0%. Ожидается, что заряд второй батареи
-     * после обмена будет равен 95%.
+     * Тестирует метод {@link Battery#exchange(Battery)} для случая,
+     * когда заряд первой батареи составляет 95%, а второй — 0%.
+     * Ожидается, что заряд второй батареи после обмена будет равен 95%.
      */
     @Test
     public void whenThis95Another0ThenAnotherLoadEqual80() {

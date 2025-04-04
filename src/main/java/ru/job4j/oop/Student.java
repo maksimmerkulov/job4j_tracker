@@ -2,11 +2,11 @@ package ru.job4j.oop;
 
 /**
  * Класс {@code Student} представляет студента, который может играть музыку и петь.
- * В методе {@code main(String[] args)} создаётся объект студента и вызываются его методы.
+ * В методе {@link #main(String[])} создается объект студента и вызываются его методы.
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-03-28
+ * @version 1.1
+ * @since 2025-04-03
  */
 public class Student {
 
@@ -25,7 +25,7 @@ public class Student {
     }
 
     /**
-     * Метод {@code main(String[] args)} создаёт объект студента и вызывает его методы.
+     * Метод {@code main(String[] args)} создает объект студента и вызывает его методы.
      *
      * @param args Аргументы командной строки (не используются).
      */

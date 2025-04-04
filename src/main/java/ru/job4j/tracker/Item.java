@@ -6,8 +6,8 @@ package ru.job4j.tracker;
  * Предоставляет методы для управления идентификатором и именем элемента.
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-04-01
+ * @version 1.1
+ * @since 2025-04-03
  */
 public class Item {
 
@@ -28,7 +28,7 @@ public class Item {
     }
 
     /**
-     * Конструктор {@code Item(String name)} создаёт объект с указанным названием.
+     * Конструктор {@code Item(String name)} создает объект с указанным названием.
      *
      * @param name Поле {@code name}, содержащее название элемента.
      */
@@ -37,7 +37,7 @@ public class Item {
     }
 
     /**
-     * Конструктор {@code Item(int id, String name)} создаёт объект с указанными идентификатором и названием.
+     * Конструктор {@code Item(int id, String name)} создает объект с указанными идентификатором и названием.
      *
      * @param id   Поле {@code id}, содержащее уникальный идентификатор элемента.
      * @param name Поле {@code name}, содержащее название элемента.

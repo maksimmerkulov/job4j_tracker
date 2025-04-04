@@ -5,8 +5,8 @@ package ru.job4j.oop;
  * статус активности ошибки, код статуса и сообщение.
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-03-31
+ * @version 1.1
+ * @since 2025-04-03
  */
 public class Error {
 
@@ -55,8 +55,8 @@ public class Error {
     }
 
     /**
-     * Метод {@code main(String[] args)} создаёт несколько объектов {@code Error} и вызывает метод
-     * {@code printInfo()} для вывода их информации.
+     * Метод {@code main(String[] args)} создает несколько объектов {@link Error} и вызывает метод
+     * {@link #printInfo()} для вывода их информации.
      *
      * @param args Аргументы командной строки (не используются).
      */
