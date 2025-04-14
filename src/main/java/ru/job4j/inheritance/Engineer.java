@@ -5,7 +5,7 @@ package ru.job4j.inheritance;
  * Наследуется от {@link Profession}.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-14
  */
 public class Engineer extends Profession {
@@ -16,7 +16,7 @@ public class Engineer extends Profession {
     private int experience;
 
     /**
-     * Конструктор {@code Engineer}.
+     * Конструктор {@code Engineer(int experience, boolean degree)}.
      *
      * @param experience Опыт работы в годах.
      * @param degree     Наличие диплома.

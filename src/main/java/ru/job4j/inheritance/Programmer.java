@@ -5,7 +5,7 @@ package ru.job4j.inheritance;
  * Наследуется от {@link Engineer}.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-14
  */
 public class Programmer extends Engineer {
@@ -17,7 +17,7 @@ public class Programmer extends Engineer {
     private String programLanguage;
 
     /**
-     * Конструктор {@code Programmer}.
+     * Конструктор {@code Programmer(String programLanguage, int experience, boolean degree)}.
      *
      * @param programLanguage Язык программирования.
      * @param experience      Опыт работы.

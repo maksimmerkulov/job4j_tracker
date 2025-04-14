@@ -4,7 +4,7 @@ package ru.job4j.inheritance;
  * Класс {@code Profession} описывает профессию, имеющую или не имеющую диплом.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-14
  */
 public class Profession {
@@ -15,7 +15,7 @@ public class Profession {
     private boolean degree;
 
     /**
-     * Конструктор {@code Profession}.
+     * Конструктор {@code Profession(boolean degree)}.
      *
      * @param degree Наличие диплома.
      */
