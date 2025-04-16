@@ -25,14 +25,14 @@ import ru.job4j.oop.Computer;
  * kitty.staticInvoke();                    Вызов Cat.staticInvoke()
  * }</pre>
  *
- * <p>Этот пример подчёркивает, что:</p>
+ * <p>Этот пример подчеркивает, что:</p>
  * <ul>
  *     <li>Нестатические методы — виртуальные, зависят от объекта.</li>
  *     <li>Статические методы — не виртуальные, зависят от типа ссылки.</li>
  * </ul>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-15
  */
 public class HideExampleMain {

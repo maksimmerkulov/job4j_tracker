@@ -17,13 +17,13 @@ package ru.job4j.inheritance;
  * <p>Демонстрирует принципы переопределения и скрытия методов в иерархии классов.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-15
  */
 public class Cat extends Animal {
 
     /**
-     * Переопределённый метод {@code instanceInvoke()} экземпляра, отражающий поведение {@code Cat}.
+     * Переопределенный метод {@code instanceInvoke()} экземпляра, отражающий поведение {@code Cat}.
      */
     @Override
     public void instanceInvoke() {
