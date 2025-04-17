@@ -1,13 +1,23 @@
 package ru.job4j.tracker;
 
+import java.time.LocalDateTime;
+
 /**
- * Класс {@code Item} представляет собой модель элемента с идентификатором и именем.
- * Используется в системе отслеживания заявок.
- * Предоставляет методы для управления идентификатором и именем элемента.
+ * Класс {@code Item} представляет собой модель элемента с идентификатором, именем и временем создания.
+ * <p>
+ * Используется в системе отслеживания заявок. Предоставляет методы для управления идентификатором, именем
+ * и получения времени создания элемента.
+ * </p>
+ *
+ * <p><b>Пример использования:</b></p>
+ * <pre>{@code
+ *     Item item = new Item(1, "Bug report");
+ *     System.out.println(item.getName());    Bug report
+ * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
- * @since 2025-04-03
+ * @version 1.2
+ * @since 2025-04-17
  */
 public class Item {
 
@@ -20,6 +30,12 @@ public class Item {
      * Поле {@code name} содержит название элемента.
      */
     private String name;
+
+    /**
+     * Поле {@code created} содержит дату и время создания элемента.
+     * Инициализируется текущим моментом при создании объекта.
+     */
+    private LocalDateTime created = LocalDateTime.now();
 
     /**
      * Явный конструктор {@code Item()} по умолчанию. Поля не инициализированы.
@@ -81,5 +97,14 @@ public class Item {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Метод {@code getCreated()} возвращает значение поля {@code created}.
+     *
+     * @return Значение поля {@code created}.
+     */
+    public LocalDateTime getCreated() {
+        return created;
     }
 }
