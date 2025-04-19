@@ -30,7 +30,7 @@ package ru.job4j.pojo;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-19
  */
 public class Library {
@@ -59,14 +59,14 @@ public class Library {
         for (int index = 0; index < books.length; index++) {
             System.out.println(books[index].getName() + " - " + books[index].getPages() + " pages");
         }
-        System.out.println("\nReplace book at index 0 and 3:");
+        System.out.println(System.lineSeparator() + "Replace book at index 0 and 3:");
         Book temp = books[0];
         books[0] = books[3];
         books[3] = temp;
         for (int index = 0; index < books.length; index++) {
             System.out.println(books[index].getName() + " - " + books[index].getPages() + " pages");
         }
-        System.out.println("\nSearch for books titled 'Clean code':");
+        System.out.println(System.lineSeparator() + "Search for books titled 'Clean code':");
         for (int i = 0; i < books.length; i++) {
             if ("Clean code".equals(books[i].getName())) {
                 System.out.println(books[i].getName() + " - " + books[i].getPages() + " pages");
