@@ -1,5 +1,7 @@
 package ru.job4j.pojo;
 
+import java.util.Objects;
+
 /**
  * Класс {@code Product} представляет товар с названием и количеством.
  *
@@ -14,8 +16,8 @@ package ru.job4j.pojo;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-04-19
+ * @version 1.1
+ * @since 2025-04-21
  */
 public class Product {
 
@@ -38,6 +40,31 @@ public class Product {
     public Product(String name, int count) {
         this.name = name;
         this.count = count;
+    }
+
+    /**
+     * Переопределенный метод {@code equals(Object o)} сравнивает продукты по имени и количеству.
+     *
+     * @param o Объект для сравнения.
+     * @return {@code true}, если объекты равны по значению; {@code false} — в противном случае.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Product product = (Product) o;
+        return count == product.count && Objects.equals(name, product.name);
+    }
+
+    /**
+     * Переопределенный метод {@code hashCode()} возвращает хэш-код, соответствующий {@link #equals(Object)}.
+     *
+     * @return Хэш-код объекта.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, count);
     }
 
     /**

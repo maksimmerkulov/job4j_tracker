@@ -1,11 +1,20 @@
 package ru.job4j.pojo;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Класс {@code License} представляет данные лицензии транспортного средства.
  *
- * <p>Содержит информацию о владельце, модели, коде лицензии и дате создания.</p>
+ * <p>Содержит информацию о владельце, марке машины, номере машины и дате сборки.</p>
+ *
+ * <p><b>Поля:</b></p>
+ * <ul>
+ *     <li>{@code String owner} — владелец</li>
+ *     <li>{@code String model} — марка машины</li>
+ *     <li>{@code String code} — номер машины</li>
+ *     <li>{@code Date created} — дата сборки</li>
+ * </ul>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
@@ -17,98 +26,125 @@ import java.util.Date;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-04-17
+ * @version 1.1
+ * @since 2025-04-21
  */
 public class License {
 
     /**
-     * Поле {@code owner} содержит имя владельца лицензии.
+     * Поле {@code owner} содержит имя владельца транспортного средства.
      */
     private String owner;
 
     /**
-     * Поле {@code model} содержит модель транспортного средства.
+     * Поле {@code model} содержит марку машины.
      */
     private String model;
 
     /**
-     * Поле {@code code} содержит идентификационный код лицензии.
+     * Поле {@code code} содержит номер машины.
      */
     private String code;
 
     /**
-     * Поле {@code created} содержит дату выдачи лицензии.
+     * Поле {@code created} содержит дату сборки машины.
      */
     private Date created;
 
     /**
-     * Метод {@code getOwner()} возвращает имя владельца лицензии.
+     * Метод {@code equals(Object o)} сравнивает два объекта {@link License}
+     * по значениям полей {@code owner}, {@code model}, {@code code} и {@code created}.
      *
-     * @return Значение поля {@code owner}.
+     * @param o Объект для сравнения.
+     * @return {@code true}, если объекты равны; {@code false} — в противном случае
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        License license = (License) o;
+        return Objects.equals(owner, license.owner) && Objects.equals(model, license.model) && Objects.equals(code, license.code) && Objects.equals(created, license.created);
+    }
+
+    /**
+     * Метод {@code hashCode()} возвращает хэш-код объекта,
+     * вычисленный на основе полей {@code owner}, {@code model}, {@code code}, {@code created}.
+     *
+     * @return Хэш-код объекта.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(owner, model, code, created);
+    }
+
+    /**
+     * Метод {@code getOwner()} возвращает имя владельца транспортного средства.
+     *
+     * @return Имя владельца.
      */
     public String getOwner() {
         return owner;
     }
 
     /**
-     * Метод {@code setOwner(String owner)} устанавливает имя владельца лицензии.
+     * Метод {@code setOwner(String owner)} устанавливает имя владельца транспортного средства.
      *
-     * @param owner Новое значение поля {@code owner}.
+     * @param owner Имя владельца.
      */
     public void setOwner(String owner) {
         this.owner = owner;
     }
 
     /**
-     * Метод {@code getModel()} возвращает модель транспортного средства.
+     * Метод {@code getModel()} возвращает марку машины.
      *
-     * @return Значение поля {@code model}.
+     * @return Марка машины.
      */
     public String getModel() {
         return model;
     }
 
     /**
-     * Метод {@code setModel(String model)} устанавливает модель транспортного средства.
+     * Метод {@code setModel(String model)} устанавливает марку машины.
      *
-     * @param model Новое значение поля {@code model}.
+     * @param model Марка машины.
      */
     public void setModel(String model) {
         this.model = model;
     }
 
     /**
-     * Метод {@code getCode()} возвращает код лицензии.
+     * Метод {@code getCode()} возвращает номер машины.
      *
-     * @return Значение поля {@code code}.
+     * @return Номер машины.
      */
     public String getCode() {
         return code;
     }
 
     /**
-     * Метод {@code setCode(String code)} устанавливает код лицензии.
+     * Метод {@code setCode(String code)} устанавливает номер машины.
      *
-     * @param code Новое значение поля {@code code}.
+     * @param code Номер машины.
      */
     public void setCode(String code) {
         this.code = code;
     }
 
     /**
-     * Метод {@code getCreated()} возвращает дату выдачи лицензии.
+     * Метод {@code getCreated()} возвращает дату сборки машины.
      *
-     * @return Значение поля {@code created}.
+     * @return Дата сборки.
      */
     public Date getCreated() {
         return created;
     }
 
     /**
-     * Метод {@code setCreated(Date created)} устанавливает дату выдачи лицензии.
+     * Метод {@code setCreated(Date created)} устанавливает дату сборки машины.
      *
-     * @param created Новое значение поля {@code created}.
+     * @param created Дата сборки.
      */
     public void setCreated(Date created) {
         this.created = created;
