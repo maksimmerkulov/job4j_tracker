@@ -26,8 +26,8 @@ import java.util.Objects;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
- * @since 2025-04-21
+ * @version 1.2
+ * @since 2025-04-22
  */
 public class License {
 
@@ -64,7 +64,10 @@ public class License {
             return false;
         }
         License license = (License) o;
-        return Objects.equals(owner, license.owner) && Objects.equals(model, license.model) && Objects.equals(code, license.code) && Objects.equals(created, license.created);
+        return Objects.equals(owner, license.owner)
+                && Objects.equals(model, license.model)
+                && Objects.equals(code, license.code)
+                && Objects.equals(created, license.created);
     }
 
     /**
