@@ -3,11 +3,10 @@ package ru.job4j.tracker;
 import java.time.LocalDateTime;
 
 /**
- * Класс {@code Item} представляет собой модель элемента с идентификатором, именем и временем создания.
- * <p>
- * Используется в системе отслеживания заявок. Предоставляет методы для управления идентификатором, именем
- * и получения времени создания элемента.
- * </p>
+ * Модель заявления.
+ *
+ * <p>Класс {@code Item} используется для хранения данных о заявлении,
+ * включая уникальный идентификатор (ID), название и дату создания.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
@@ -15,24 +14,24 @@ import java.time.LocalDateTime;
  *     System.out.println(item.getName());    Bug report
  * }</pre>
  *
- * @author Maksim Merkulov
- * @version 1.2
- * @since 2025-04-17
+ * @author Maksим Merkulов
+ * @version 1.3
+ * @since 2025-04-22
  */
 public class Item {
 
     /**
-     * Поле {@code id} содержит уникальный идентификатор элемента.
+     * Поле {@code id} содержит уникальный идентификатор (ID) заявления.
      */
     private int id;
 
     /**
-     * Поле {@code name} содержит название элемента.
+     * Поле {@code name} содержит название заявления.
      */
     private String name;
 
     /**
-     * Поле {@code created} содержит дату и время создания элемента.
+     * Поле {@code created} содержит дату и время создания заявления.
      * Инициализируется текущим моментом при создании объекта.
      */
     private LocalDateTime created = LocalDateTime.now();
@@ -44,19 +43,19 @@ public class Item {
     }
 
     /**
-     * Конструктор {@code Item(String name)} создает объект с указанным названием.
+     * Конструктор {@code Item(String name)} с параметром {@code name}.
      *
-     * @param name Поле {@code name}, содержащее название элемента.
+     * @param name Название заявления.
      */
     public Item(String name) {
         this.name = name;
     }
 
     /**
-     * Конструктор {@code Item(int id, String name)} создает объект с указанными идентификатором и названием.
+     * Конструктор с параметрами {@code id} и {@code name}.
      *
-     * @param id   Поле {@code id}, содержащее уникальный идентификатор элемента.
-     * @param name Поле {@code name}, содержащее название элемента.
+     * @param id   Уникальный идентификатор (ID) заявления.
+     * @param name Название заявления.
      */
     public Item(int id, String name) {
         this.id = id;
