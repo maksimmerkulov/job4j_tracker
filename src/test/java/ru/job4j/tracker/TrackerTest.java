@@ -13,10 +13,23 @@ import static org.assertj.core.api.Assertions.assertThat;
  *     <li>{@link Tracker#findByName(String)} — поиск заявок по имени.</li>
  *     <li>{@link Tracker#findById(int)} — поиск заявки по уникальному идентификатору.</li>
  *     <li>{@link Tracker#replace(int, Item)} — замена заявки по уникальному идентификатору.</li>
+ *     <li>{@link Tracker#delete(int)} — удаление заявки по уникальному идентификатору.</li>
+ * </ul>
+ *
+ * <p><b>Тестируемые сценарии:</b></p>
+ * <ul>
+ *     <li>Проверка успешного добавления заявки.</li>
+ *     <li>Проверка поиска заявки по ID.</li>
+ *     <li>Проверка получения всех заявок.</li>
+ *     <li>Проверка поиска заявок по имени.</li>
+ *     <li>Проверка успешной замены заявки по ID.</li>
+ *     <li>Проверка неудачной замены заявки с несуществующим ID.</li>
+ *     <li>Проверка успешного удаления заявки по ID.</li>
+ *     <li>Проверка неудачного удаления заявки с несуществующим ID.</li>
  * </ul>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  * @since 2025-04-22
  */
 public class TrackerTest {
@@ -157,5 +170,48 @@ public class TrackerTest {
         boolean result = tracker.replace(1000, updateItem);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
         assertThat(result).isFalse();
+    }
+
+    /**
+     * Тест {@code whenDeleteItemIsSuccessful()} проверяет успешное удаление заявки методом
+     * {@link Tracker#delete(int)}.
+     *
+     * <p>Сценарий:
+     * <ul>
+     *     <li>Добавляется заявка "Bug".</li>
+     *     <li>Заявка удаляется по ID.</li>
+     *     <li>Проверяется, что заявка была успешно удалена, и поиск по ID возвращает {@code null}.</li>
+     * </ul>
+     * </p>
+     */
+    @Test
+    public void whenDeleteItemIsSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        int id = item.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id)).isNull();
+    }
+
+    /**
+     * Тест {@code whenDeleteItemIsNotSuccessful()} проверяет неудачную попытку удаления заявки методом
+     * {@link Tracker#delete(int)} с несуществующим ID.
+     *
+     * <p>Сценарий:
+     * <ul>
+     *     <li>Добавляется заявка "Bug".</li>
+     *     <li>Пробуется удалить заявку с несуществующим ID (1000).</li>
+     *     <li>Проверяется, что удаление не выполнено, и заявка осталась в хранилище.</li>
+     * </ul>
+     * </p>
+     */
+    @Test
+    public void whenDeleteItemIsNotSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        tracker.delete(1000);
+        assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
     }
 }

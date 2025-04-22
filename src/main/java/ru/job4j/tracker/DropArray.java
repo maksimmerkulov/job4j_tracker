@@ -3,45 +3,38 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 
 /**
- * Класс {@code DropArray} демонстрирует удаление {@code null}-элементов из массива строк.
+ * Класс {@code DropArray} демонстрирует использование метода {@link System#arraycopy(Object, int, Object, int, int)}
+ * для перемещения элементов массива с учетом пропуска {@code null} значений.
  *
- * <p>Создает новый массив без {@code null} и выводит его элементы в консоль.</p>
+ * <p>Пример работы:
+ * <ul>
+ *     <li>Исходный массив содержит элементы: {"Petr", null, "Ivan", "Stepan", "Fedor"}.</li>
+ *     <li>С помощью {@code System.arraycopy} элементы массива с индексами от 2 до 4 копируются
+ *     на позиции с индексом 1.</li>
+ *     <li>После выполнения операции массив изменяется, и {@code null} значение перемещается,
+ *     при этом сохраняются только непустые элементы.</li>
+ * </ul>
+ * </p>
  *
- * <p><b>Пример вывода:</b></p>
- * <pre>{@code
- * Petr
- * Ivan
- * Stepan
- * }</pre>
+ * <p>Результат: массив после копирования выглядит как: {"Petr", "Ivan", "Stepan", "Fedor", null}.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-22
  */
 public class DropArray {
 
     /**
-     * Метод {@code main(String[] args)} демонстрирует работу фильтрации {@code null}-значений из массива строк.
+     * Метод {@code main(String[] args)} выполняет демонстрацию работы с массивами.
      *
-     * <p>В исходном массиве содержатся как строки, так и {@code null}-значения.
-     * В результате создается новый массив без {@code null}, и его содержимое выводится построчно.</p>
+     * <p>Он создает массив строк, выполняет операцию копирования с помощью {@code System.arraycopy},
+     * затем выводит результат в консоль.</p>
      *
      * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
-        String[] names = {"Petr", null, "Ivan", "Stepan", null};
-        String[] result = new String[names.length];
-        int size = 0;
-        for (int index = 0; index < names.length; index++) {
-            String name = names[index];
-            if (name != null) {
-                result[size] = name;
-                size++;
-            }
-        }
-        result = Arrays.copyOf(result, size);
-        for (int index = 0; index < result.length; index++) {
-            System.out.println(result[index]);
-        }
+        String[] names = {"Petr", null, "Ivan", "Stepan", "Fedor"};
+        System.arraycopy(names, 2, names, 1, 3);
+        System.out.println(Arrays.toString(names));
     }
 }
