@@ -8,15 +8,15 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * <p><b>Проверяемые методы:</b></p>
  * <ul>
- *     <li>{@link Tracker#add(Item)} — добавление новой заявки.</li>
+ *     <li>{@link Tracker#add(Item)} — добавление новой заявки в хранилище.</li>
  *     <li>{@link Tracker#findAll()} — получение списка всех заявок.</li>
  *     <li>{@link Tracker#findByName(String)} — поиск заявок по имени.</li>
  *     <li>{@link Tracker#findById(int)} — поиск заявки по уникальному идентификатору.</li>
+ *     <li>{@link Tracker#replace(int, Item)} — замена заявки по уникальному идентификатору.</li>
  * </ul>
  *
- *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-22
  */
 public class TrackerTest {
@@ -110,5 +110,52 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         Item[] result = tracker.findByName(second.getName());
         assertThat(result[1].getName()).isEqualTo(second.getName());
+    }
+
+    /**
+     * Тест {@code whenReplaceItemIsSuccessful()} проверяет успешную замену заявки методом
+     * {@link Tracker#replace(int, Item)}.
+     *
+     * <p>Сценарий:
+     * <ul>
+     *     <li>Добавляется заявка "Bug".</li>
+     *     <li>Заявка заменяется на новую с именем "Bug with description".</li>
+     *     <li>Проверяется, что имя заявки в хранилище после замены совпадает с новым именем.</li>
+     * </ul>
+     * </p>
+     */
+    @Test
+    public void whenReplaceItemIsSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        int id = item.getId();
+        Item updateItem = new Item("Bug with description");
+        tracker.replace(id, updateItem);
+        assertThat(tracker.findById(id).getName()).isEqualTo("Bug with description");
+    }
+
+    /**
+     * Тест {@code whenReplaceItemIsNotSuccessful()} проверяет неудачную попытку замены заявки
+     * методом {@link Tracker#replace(int, Item)}.
+     *
+     * <p>Сценарий:
+     * <ul>
+     *     <li>Добавляется заявка "Bug".</li>
+     *     <li>Пробуется заменить заявку с несуществующим ID (1000).</li>
+     *     <li>Проверяется, что замена не выполнена, и имя заявки осталось прежним.</li>
+     *     <li>Проверяется, что метод {@link Tracker#replace(int, Item)} возвращает {@code false}.</li>
+     * </ul>
+     * </p>
+     */
+    @Test
+    public void whenReplaceItemIsNotSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        Item updateItem = new Item("Bug with description");
+        boolean result = tracker.replace(1000, updateItem);
+        assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
+        assertThat(result).isFalse();
     }
 }
