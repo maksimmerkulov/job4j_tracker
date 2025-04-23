@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Модель заявления.
@@ -15,10 +16,18 @@ import java.time.LocalDateTime;
  * }</pre>
  *
  * @author Maksим Merkulов
- * @version 1.3
- * @since 2025-04-22
+ * @version 1.4
+ * @since 2025-04-23
  */
 public class Item {
+
+    /**
+     * Форматтер для преобразования {@link LocalDateTime} в строку.
+     * Используется для форматирования даты и времени создания заявления
+     * в формате {@code dd-MMMM-EEEE-yyyy HH:mm:ss}.
+     */
+    private static final DateTimeFormatter FORMATTER =
+            DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
     /**
      * Поле {@code id} содержит уникальный идентификатор (ID) заявления.
@@ -105,5 +114,25 @@ public class Item {
      */
     public LocalDateTime getCreated() {
         return created;
+    }
+
+    /**
+     * Метод {@code toString()} возвращает строковое представление объекта {@link Item}.
+     * В строке выводятся значения полей {@code id}, {@code name} и отформатированная дата {@code created}.
+     *
+     * <p>Дата форматируется согласно шаблону {@code dd-MMMM-EEEE-yyyy HH:mm:ss}, например:</p>
+     * <pre>{@code
+     *     Item{id=1, name='Bug report', created=23-апреля-среда-2025 14:50:30}
+     * }</pre>
+     *
+     * @return Строка, представляющая объект {@link Item}.
+     */
+    @Override
+    public String toString() {
+        return "Item{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", created=" + created.format(FORMATTER)
+                + '}';
     }
 }
