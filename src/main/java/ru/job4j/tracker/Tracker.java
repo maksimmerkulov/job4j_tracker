@@ -24,8 +24,8 @@ import java.util.Arrays;
  * <p>Максимальное количество заявок ограничено размером массива — по умолчанию 100 элементов.</p>
  *
  * @author Maksim Merkulov
- * @version 1.2
- * @since 2025-04-22
+ * @version 1.3
+ * @since 2025-04-23
  */
 public class Tracker {
 
@@ -124,12 +124,12 @@ public class Tracker {
      */
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        if (index != -1) {
+        boolean result = index != -1;
+        if (result) {
             item.setId(id);
             items[index] = item;
-            return true;
         }
-        return false;
+        return result;
     }
 
     /**
@@ -143,13 +143,13 @@ public class Tracker {
      */
     public boolean delete(int id) {
         int index = indexOf(id);
-        if (index != -1) {
+        boolean result = index != -1;
+        if (result) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);
             items[size - 1] = null;
             size--;
-            return true;
         }
-        return false;
+        return result;
     }
 
     /**
