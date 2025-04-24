@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
  *     Текущие дата и время после форматирования: 17-04-2025 14:35:20
  * }</pre>
  *
- * @autor Maksim Merkulov
+ * @author Maksim Merkulov
  * @version 1.0
  * @since 2025-04-17
  */
