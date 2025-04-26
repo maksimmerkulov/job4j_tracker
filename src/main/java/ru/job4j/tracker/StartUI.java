@@ -1,44 +1,95 @@
 package ru.job4j.tracker;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 /**
- * Класс {@code StartUI} демонстрирует создание объекта {@link Item}
- * и вывод отформатированной даты его создания.
+ * Класс {@code StartUI} представляет собой консольный пользовательский интерфейс
+ * для управления заявками в системе {@link Tracker}.
  *
- * <p>В классе создается объект {@link Item}, и выводится его дата создания в отформатированном виде.
- * Формат вывода даты: {@code "dd-MMMM-EEEE-yyyy HH:mm:ss"}.</p>
+ * <p>Класс отображает меню и позволяет пользователю выбирать действия, такие как добавление,
+ * отображение, редактирование и удаление заявок, а также завершение работы программы.</p>
+ *
+ * <p><b>Пример использования:</b></p>
+ * <pre>{@code
+ * Scanner scanner = new Scanner(System.in);
+ * Tracker tracker = new Tracker();
+ * new StartUI().init(scanner, tracker);
+ * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- *     Дата создания: 23-апреля-четверг-2025 15:10:42
+ * Меню:
+ * 0. Добавить новую заявку
+ * 1. Показать все заявки
+ * 2. Изменить заявку
+ * 3. Удалить заявку
+ * 4. Показать заявку по id
+ * 5. Показать заявки по имени
+ * 6. Завершить программу
+ * Выбрать:
+ * Пользователь выбрал: 0
  * }</pre>
  *
- * @author Maksим Merkulov
- * @version 1.1
- * @since 2025-04-23
+ * @author Maksim Merkulov
+ * @version 1.2
+ * @since 2025-04-26
  */
 public class StartUI {
 
     /**
-     * Метод {@code main(String[] args)} создает объект {@link Item}, извлекает дату его создания
-     * и выводит эту дату в отформатированном виде.
-     * Формат даты: {@code "dd-MMMM-EEEE-yyyy HH:mm:ss"}.
+     * Инициализирует программу, отображая меню и обрабатывая выбор пользователя.
      *
-     * <p><b>Пример использования:</b></p>
-     * <pre>{@code
-     *     Дата создания: 17-апреля-четверг-2025 15:10:42
-     * }</pre>
+     * <p>Циклично отображает меню и обрабатывает выбор пользователя,
+     * пока тот не выберет завершение программы (выбор 6).</p>
+     *
+     * @param scanner Объект для чтения пользовательского ввода.
+     * @param tracker Хранилище заявок.
+     * @throws NumberFormatException если ввод пользователя не является числом.
+     */
+    public void init(Scanner scanner, Tracker tracker) {
+        boolean run = true;
+        while (run) {
+            showMenu();
+            System.out.print("Выбрать: ");
+            int select = Integer.parseInt(scanner.nextLine());
+            if (select != 6) {
+                System.out.println("Пользователь выбрал: " + select);
+            } else {
+                run = false;
+            }
+        }
+    }
+
+    /**
+     * Отображает меню доступных операций в системе.
+     *
+     * <p>Меню включает в себя действия по добавлению, изменению, удалению
+     * и отображению заявок, а также завершение работы программы.</p>
+     */
+    private void showMenu() {
+        String[] menu = {
+                "Добавить новую заявку", "Показать все заявки", "Изменить заявку",
+                "Удалить заявку", "Показать заявку по id", "Показать заявки по имени",
+                "Завершить программу"
+        };
+        System.out.println("Меню:");
+        for (int i = 0; i < menu.length; i++) {
+            System.out.println(i + ". " + menu[i]);
+        }
+    }
+
+    /**
+     * Точка входа для приложения.
+     *
+     * <p>Создает объекты {@link Scanner} и {@link Tracker}, затем
+     * передает их в {@link StartUI#init(Scanner, Tracker)}.</p>
      *
      * @param args Аргументы командной строки (не используются).
+     * @implSpec Этот метод служит точкой входа для программы.
      */
     public static void main(String[] args) {
-        Item item = new Item();
-        LocalDateTime currentDateTime = item.getCreated();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-        String currentDateTimeFormat = currentDateTime.format(formatter);
-        System.out.println("Дата создания: " + currentDateTimeFormat);
-        System.out.println(item);
+        Scanner scanner = new Scanner(System.in);
+        Tracker tracker = new Tracker();
+        new StartUI().init(scanner, tracker);
     }
 }

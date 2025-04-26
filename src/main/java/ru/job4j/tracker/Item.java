@@ -12,47 +12,60 @@ import java.time.format.DateTimeFormatter;
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  *     Item item = new Item(1, "Bug report");
- *     System.out.println(item.getName());    Bug report
+ *     System.out.println(item);
  * }</pre>
  *
- * @author Maksим Merkulов
- * @version 1.4
- * @since 2025-04-23
+ * <p><b>Пример вывода:</b></p>
+ * <pre>{@code
+ *     Item{id=1, name='Bug report', created=26-апреля-суббота-2025 14:35:12}
+ * }</pre>
+ *
+ * @author Maksим Merkulоv
+ * @version 1.5
+ * @since 2025-04-26
  */
 public class Item {
 
     /**
      * Форматтер для преобразования {@link LocalDateTime} в строку.
-     * Используется для форматирования даты и времени создания заявления
-     * в формате {@code dd-MMMM-EEEE-yyyy HH:mm:ss}.
+     *
+     * <p>Используется для форматирования даты и времени создания заявления
+     * в формате {@code dd-MMMM-EEEE-yyyy HH:mm:ss}.</p>
      */
     private static final DateTimeFormatter FORMATTER =
             DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
     /**
-     * Поле {@code id} содержит уникальный идентификатор (ID) заявления.
+     * Уникальный идентификатор (ID) заявления.
+     *
+     * <p>Поле {@code id} содержит уникальный идентификатор для каждого заявления.</p>
      */
     private int id;
 
     /**
-     * Поле {@code name} содержит название заявления.
+     * Название заявления.
+     *
+     * <p>Поле {@code name} хранит название заявления, которое может быть использовано
+     * для поиска и идентификации.</p>
      */
     private String name;
 
     /**
-     * Поле {@code created} содержит дату и время создания заявления.
-     * Инициализируется текущим моментом при создании объекта.
+     * Дата и время создания заявления.
+     *
+     * <p>Поле {@code created} хранит дату и время создания заявления,
+     * автоматически инициализируется текущим моментом при создании объекта.</p>
      */
     private LocalDateTime created = LocalDateTime.now();
 
     /**
-     * Явный конструктор {@code Item()} по умолчанию. Поля не инициализированы.
+     * Конструктор по умолчанию. Поля не инициализированы.
      */
     public Item() {
     }
 
     /**
-     * Конструктор {@code Item(String name)} с параметром {@code name}.
+     * Конструктор с параметром {@code name}.
      *
      * @param name Название заявления.
      */
@@ -72,7 +85,7 @@ public class Item {
     }
 
     /**
-     * Метод {@code getId()} возвращает значение поля {@code id}.
+     * Возвращает значение поля {@code id}.
      *
      * @return Значение поля {@code id}.
      */
@@ -81,7 +94,7 @@ public class Item {
     }
 
     /**
-     * Метод {@code setId(int id)} устанавливает значение поля {@code id}.
+     * Устанавливает значение поля {@code id}.
      *
      * @param id Новое значение для поля {@code id}.
      */
@@ -90,7 +103,7 @@ public class Item {
     }
 
     /**
-     * Метод {@code getName()} возвращает значение поля {@code name}.
+     * Возвращает значение поля {@code name}.
      *
      * @return Значение поля {@code name}.
      */
@@ -99,7 +112,7 @@ public class Item {
     }
 
     /**
-     * Метод {@code setName(String name)} устанавливает значение поля {@code name}.
+     * Устанавливает значение поля {@code name}.
      *
      * @param name Новое значение для поля {@code name}.
      */
@@ -108,7 +121,7 @@ public class Item {
     }
 
     /**
-     * Метод {@code getCreated()} возвращает значение поля {@code created}.
+     * Возвращает значение поля {@code created}.
      *
      * @return Значение поля {@code created}.
      */
@@ -117,8 +130,9 @@ public class Item {
     }
 
     /**
-     * Метод {@code toString()} возвращает строковое представление объекта {@link Item}.
-     * В строке выводятся значения полей {@code id}, {@code name} и отформатированная дата {@code created}.
+     * Возвращает строковое представление объекта {@link Item}.
+     *
+     * <p>В строке выводятся значения полей {@code id}, {@code name} и отформатированная дата {@code created}.</p>
      *
      * <p>Дата форматируется согласно шаблону {@code dd-MMMM-EEEE-yyyy HH:mm:ss}, например:</p>
      * <pre>{@code
