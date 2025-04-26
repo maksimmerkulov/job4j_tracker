@@ -22,14 +22,13 @@ import java.util.Random;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-04-25
+ * @version 1.1
+ * @since 2025-04-26
  */
 public class MagicBall {
 
     /**
-     * Метод {@code main(String[] args)} реализует ввод вопроса
-     * от пользователя и вывод случайного ответа.
+     * Реализует ввод вопроса от пользователя и вывод случайного ответа.
      *
      * @param args Аргументы командной строки (не используются).
      */

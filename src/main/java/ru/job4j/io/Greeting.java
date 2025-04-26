@@ -19,14 +19,13 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-04-25
+ * @version 1.1
+ * @since 2025-04-26
  */
 public class Greeting {
 
     /**
-     * Метод {@code main(String[] args)} реализует диалог с пользователем:
-     * запрашивает имя и выводит приветствие.
+     * Реализует диалог с пользователем: запрашивает имя и выводит приветствие.
      *
      * @param args Аргументы командной строки (не используются).
      */
