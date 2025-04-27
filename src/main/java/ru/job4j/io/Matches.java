@@ -25,8 +25,8 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
- * @since 2025-04-26
+ * @version 1.2
+ * @since 2025-04-27
  */
 public class Matches {
 
@@ -52,10 +52,10 @@ public class Matches {
                 if (matches <= count) {
                     count -= matches;
                     System.out.println("Осталось спичек: " + count);
+                    turn = !turn;
                 } else {
-                    System.out.println("Число пользователя превышает число спичек на столе!");
+                    System.out.println("Число игрока превышает количество оставшихся спичек!");
                 }
-                turn = !turn;
             } else {
                 System.out.println("Число должно быть в пределах от 1 до 3 (включительно)!");
             }
