@@ -22,8 +22,8 @@ import java.util.Arrays;
  * Максимальное количество заявок ограничено размером массива — 100 элементов.</p>
  *
  * @author Maksim Merkulov
- * @version 1.4
- * @since 2025-04-26
+ * @version 1.5
+ * @since 2025-04-28
  */
 public class Tracker {
 
@@ -105,9 +105,8 @@ public class Tracker {
      * а последний элемент обнуляется. Размер уменьшается на единицу.</p>
      *
      * @param id Уникальный идентификатор заявки, которую необходимо удалить.
-     * @return {@code true}, если заявка найдена и удалена; {@code false} — если не найдена.
      */
-    public boolean delete(int id) {
+    public void delete(int id) {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {
@@ -115,7 +114,6 @@ public class Tracker {
             items[size - 1] = null;
             size--;
         }
-        return result;
     }
 
     /**
