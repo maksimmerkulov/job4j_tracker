@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Класс {@code Tracker} представляет собой хранилище для объектов типа {@link Item}.
  *
  * <p>Предназначен для управления заявками: добавление, получение списка всех заявок,
- * замена, удаление и поиск заявок по имени и идентификатору.</p>
+ * замена, удаление и поиск заявок по идентификатору и имени.</p>
  *
  * <p><b>Основные возможности:</b></p>
  * <ul>
@@ -14,15 +14,15 @@ import java.util.Arrays;
  *     <li>Получение всех добавленных заявок.</li>
  *     <li>Замена заявки по идентификатору.</li>
  *     <li>Удаление заявки по идентификатору.</li>
- *     <li>Поиск заявок по имени.</li>
  *     <li>Поиск заявки по идентификатору.</li>
+ *     <li>Поиск заявок по имени.</li>
  * </ul>
  *
  * <p>Каждой заявке автоматически присваивается уникальный {@code id}, начиная с 1.
  * Максимальное количество заявок ограничено размером массива — 100 элементов.</p>
  *
  * @author Maksim Merkulov
- * @version 1.6
+ * @version 1.7
  * @since 2025-04-28
  */
 public class Tracker {
@@ -117,26 +117,6 @@ public class Tracker {
     }
 
     /**
-     * Возвращает массив заявок с указанным именем.
-     *
-     * <p>Поиск выполняется с использованием метода {@code equals()} для сравнения строк.</p>
-     *
-     * @param key Имя, по которому осуществляется поиск заявок.
-     * @return Массив заявок, имя которых совпадает с {@code key}.
-     * Если заявок с таким именем нет, возвращается пустой массив.
-     */
-    public Item[] findByName(String key) {
-        Item[] rsl = new Item[size];
-        int count = 0;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getName().equals(key)) {
-                rsl[count++] = items[index];
-            }
-        }
-        return Arrays.copyOf(rsl, count);
-    }
-
-    /**
      * Выполняет поиск заявки по уникальному идентификатору {@code id}.
      *
      * <p>Метод ищет заявку в массиве {@code items} по ее идентификатору {@code id}.
@@ -149,6 +129,28 @@ public class Tracker {
     public Item findById(int id) {
         int index = indexOf(id);
         return index != -1 ? items[index] : null;
+    }
+
+    /**
+     * Возвращает массив заявок с указанным именем.
+     *
+     * <p>Поиск выполняется с использованием метода {@code equals()} для сравнения строк.</p>
+     *
+     * @param key Имя, по которому осуществляется поиск заявок.
+     * @return Массив заявок, имя которых совпадает с {@code key}.
+     * Если заявок с таким именем нет, возвращается пустой массив.
+     */
+    public Item[] findByName(String key) {
+        Item[] result = new Item[size];
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            Item item = items[i];
+            if (item.getName().equals(key)) {
+                result[count] = item;
+                count++;
+            }
+        }
+        return Arrays.copyOf(result, count);
     }
 
     /**
