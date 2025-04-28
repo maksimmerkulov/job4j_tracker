@@ -22,7 +22,7 @@ import java.util.Arrays;
  * Максимальное количество заявок ограничено размером массива — 100 элементов.</p>
  *
  * @author Maksim Merkulov
- * @version 1.5
+ * @version 1.6
  * @since 2025-04-28
  */
 public class Tracker {
@@ -162,9 +162,9 @@ public class Tracker {
      */
     private int indexOf(int id) {
         int result = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
-                result = index;
+        for (int i = 0; i < size; i++) {
+            if (items[i].getId() == id) {
+                result = i;
                 break;
             }
         }
