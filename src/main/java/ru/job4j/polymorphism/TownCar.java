@@ -6,7 +6,8 @@ package ru.job4j.polymorphism;
  *
  * <p>Обеспечивает стандартное поведение транспортного средства:
  * автоматическую коробку передач, механическую связь с дроссельной заслонкой,
- * стандартное рулевое управление и торможение.</p>
+ * стандартное рулевое управление и торможение. Также включает дефолтный метод
+ * для зарядки аккумулятора</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
@@ -29,8 +30,25 @@ package ru.job4j.polymorphism;
  * Заправить 60л бензина
  * }</pre>
  *
+ * <p><b>Статические и дефолтные методы:</b></p>
+ * <ul>
+ *   <li><b>chargeBattery():</b> дефолтная реализация метода зарядки
+ *   аккумулятора из интерфейса {@link Vehicle}.</li>
+ * </ul>
+ *
+ * <p><b>Пример использования дефолтного метода:</b></p>
+ * <pre>{@code
+ * Vehicle car = new Car();
+ * car.chargeBattery();
+ * }</pre>
+ *
+ * <p><b>Пример вывода дефолтного метода:</b></p>
+ * <pre>{@code
+ * Аккумулятор под капотом. Зарядить
+ * }</pre>
+ *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-29
  */
 public class TownCar implements Vehicle {
@@ -85,5 +103,16 @@ public class TownCar implements Vehicle {
     @Override
     public void refill() {
         System.out.println("Заправить 60л бензина");
+    }
+
+    /**
+     * Заряжает аккумулятор автомобиля.
+     *
+     * <p>Этот метод вызывается из интерфейса {@link Vehicle},
+     * обеспечивая зарядку аккумулятора по умолчанию.</p>
+     */
+    @Override
+    public void chargeBattery() {
+        Vehicle.super.chargeBattery();
     }
 }

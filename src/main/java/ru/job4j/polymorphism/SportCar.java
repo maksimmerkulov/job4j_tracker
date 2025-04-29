@@ -4,9 +4,10 @@ package ru.job4j.polymorphism;
  * Класс {@code SportCar} представляет собой спортивный автомобиль,
  * реализующий интерфейсы {@link Vehicle} и {@link Fuel}.
  *
- * <p>Предоставляет поведение спортивного автомобиля: механическую коробку передач,
- * электронную педаль газа, укороченную рулевую рейку для быстрого поворота и усиленную
- * тормозную систему для более высокой производительности.</p>
+ * <p>Предоставляет поведение спортивного автомобиля: механическая коробка передач,
+ * электронная педаль газа, укороченная рулевая рейка для быстрого поворота и усиленная
+ * тормозная система для более высокой производительности. Также переопределяет метод
+ * {@link Vehicle#chargeBattery()} с учетом размещения аккумулятора в багажнике.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
@@ -15,6 +16,7 @@ package ru.job4j.polymorphism;
  * sportCar.accelerate();
  * sportCar.steer();
  * sportCar.brake();
+ * sportCar.chargeBattery();
  *
  * Fuel fuel = new SportCar();
  * fuel.refill();
@@ -27,10 +29,11 @@ package ru.job4j.polymorphism;
  * Укороченная рулевая рейка для ускоренного поворота руля
  * Усиленная тормозная система
  * Заправить 100л бензина
+ * Аккумулятор в багажнике. Зарядить
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @since 2025-04-29
  */
 public class SportCar implements Vehicle {
@@ -42,7 +45,8 @@ public class SportCar implements Vehicle {
      */
     @Override
     public void changeGear() {
-        System.out.println("Механическая коробка передач. Включить первую, дальше переключать до шестой");
+        System.out.println("Механическая коробка передач. "
+                + "Включить первую, дальше переключать до шестой");
     }
 
     /**
@@ -83,5 +87,15 @@ public class SportCar implements Vehicle {
     @Override
     public void refill() {
         System.out.println("Заправить 100л бензина");
+    }
+
+    /**
+     * Заряжает аккумулятор автомобиля.
+     *
+     * <p>Зарядка аккумулятора, расположенного в багажнике.</p>
+     */
+    @Override
+    public void chargeBattery() {
+        System.out.println("Аккумулятор в багажнике. Зарядить");
     }
 }
