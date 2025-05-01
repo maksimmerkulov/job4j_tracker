@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Scanner;
-
 /**
  * Класс {@code StartUI} представляет собой консольный пользовательский интерфейс
  * для управления заявками в системе {@link Tracker}.
@@ -11,9 +9,9 @@ import java.util.Scanner;
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * Scanner scanner = new Scanner(System.in);
+ * Input input = new ConsoleInput();
  * Tracker tracker = new Tracker();
- * new StartUI().init(scanner, tracker);
+ * new StartUI().init(input, tracker);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
@@ -31,8 +29,8 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.8
- * @since 2025-04-28
+ * @version 1.9
+ * @since 2025-05-01
  */
 public class StartUI {
 
@@ -42,20 +40,17 @@ public class StartUI {
      * <p>Циклично отображает меню и обрабатывает выбор пользователя,
      * пока тот не выберет завершение программы (выбор 6).</p>
      *
-     * @param scanner Объект для чтения пользовательского ввода.
+     * @param input Объект для чтения пользовательского ввода.
      * @param tracker Хранилище заявок.
-     * @throws NumberFormatException если ввод пользователя не является числом.
      */
-    public void init(Scanner scanner, Tracker tracker) {
+    public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             showMenu();
-            System.out.print("Выбрать: ");
-            int select = Integer.parseInt(scanner.nextLine());
+            int select = input.askInt("Выбрать: ");
             if (select == 0) {
                 System.out.println("=== Создание новой заявки ===");
-                System.out.print("Введите имя: ");
-                String name = scanner.nextLine();
+                String name = input.askStr("Введите имя: ");
                 Item item = new Item(name);
                 tracker.add(item);
                 System.out.println("Добавленная заявка: " + item);
@@ -71,10 +66,8 @@ public class StartUI {
                 }
             } else if (select == 2) {
                 System.out.println("=== Редактирование заявки ===");
-                System.out.print("Введите id: ");
-                int id = Integer.parseInt(scanner.nextLine());
-                System.out.print("Введите имя: ");
-                String name = scanner.nextLine();
+                int id = input.askInt("Введите id: ");
+                String name = input.askStr("Введите имя: ");
                 Item item = new Item(name);
                 if (tracker.replace(id, item)) {
                     System.out.println("Заявка изменена успешно.");
@@ -83,15 +76,13 @@ public class StartUI {
                 }
             } else if (select == 3) {
                 System.out.println("=== Удаление заявки ===");
-                System.out.print("Введите id: ");
-                int id = Integer.parseInt(scanner.nextLine());
+                int id = input.askInt("Введите id: ");
                 Item item = tracker.findById(id);
                 tracker.delete(id);
                 System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
             } else if (select == 4) {
                 System.out.println("=== Вывод заявки по id ===");
-                System.out.print("Введите id: ");
-                int id = Integer.parseInt(scanner.nextLine());
+                int id = input.askInt("Введите id: ");
                 Item item = tracker.findById(id);
                 if (item != null) {
                     System.out.println(item);
@@ -100,8 +91,7 @@ public class StartUI {
                 }
             } else if (select == 5) {
                 System.out.println("=== Вывод заявок по имени ===");
-                System.out.print("Введите имя: ");
-                String name = scanner.nextLine();
+                String name = input.askStr("Введите имя: ");
                 Item[] items = tracker.findByName(name);
                 if (items.length > 0) {
                     for (Item item : items) {
@@ -137,15 +127,14 @@ public class StartUI {
     /**
      * Точка входа для приложения.
      *
-     * <p>Создает объекты {@link Scanner} и {@link Tracker}, затем
-     * передает их в {@link StartUI#init(Scanner, Tracker)}.</p>
+     * <p>Создает объекты {@link ConsoleInput} и {@link Tracker}, затем
+     * передает их в {@link StartUI#init(Input, Tracker)}.</p>
      *
      * @param args Аргументы командной строки (не используются).
-     * @implSpec Этот метод служит точкой входа для программы.
      */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StartUI().init(scanner, tracker);
+        new StartUI().init(input, tracker);
     }
 }

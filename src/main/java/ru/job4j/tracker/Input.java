@@ -5,11 +5,11 @@ package ru.job4j.tracker;
  *
  * <p>Используется для получения строк и целых чисел.</p>
  *
- * <p>Пример реализации: {@link MockInput}</p>
+ * <p>Примеры реализаций: {@link MockInput}, {@link ConsoleInput}.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-04-29
+ * @version 1.1
+ * @since 2025-05-01
  */
 public interface Input {
 
