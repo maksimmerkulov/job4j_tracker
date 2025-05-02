@@ -1,102 +1,72 @@
 package ru.job4j.tracker;
 
-import java.util.Scanner;
-
 /**
- * Класс {@code MockInput} реализует интерфейс {@link Input} и предоставляет методы для получения
- * данных с консоли. Этот класс используется для имитации ввода данных в тестах, что позволяет
- * проверять работу программы, моделируя действия пользователя.
+ * Класс {@code MockInput} представляет собой имитацию пользовательского ввода для тестирования.
  *
- * <p>Используется для автоматического тестирования, когда необходимо задать заранее определенные
- * данные, которые будут "введены" пользователем в тестах.</p>
+ * <p>Используется для автоматизации ввода при тестировании классов, использующих интерфейс {@link Input}.
+ * Позволяет подставлять заранее заданные ответы вместо ввода с клавиатуры.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * Input mockInput = new MockInput();
- * String name = mockInput.askStr("Как тебя зовут?");
- * int age = mockInput.askInt("Сколько тебе лет?");
- * System.out.println("Имя пользователя: " + name);
- * System.out.println("Возраст: " + age);
+ * String[] answers = {"Fix PC"};
+ * Input input = new MockInput(answers);
+ * String name = input.askStr("Введите имя: ");
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- * Как тебя зовут? Максим
- * Сколько тебе лет? 37
- * Имя пользователя: Максим
- * Возраст: 37
+ * Fix PC
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-04-29
+ * @version 1.1
+ * @since 2025-05-02
  */
 public class MockInput implements Input {
 
     /**
-     * Создает объект {@link Scanner}, который используется для получения данных с консоли.
-     *
-     * <p>Объект {@link Scanner} будет считывать данные с консоли, позволяя использовать методы
-     * {@link #askStr(String)} и {@link #askInt(String)} для получения строковых и целочисленных
-     * значений от пользователя.</p>
-     *
-     * @see Scanner
+     * Массив заранее заданных ответов.
      */
-    private final Scanner scanner = new Scanner(System.in);
+    private String[] answers;
 
     /**
-     * Запрашивает строковый ввод от пользователя.
+     * Текущая позиция в массиве ответов.
+     */
+    private int position = 0;
+
+    /**
+     * Создает объект {@code MockInput} с заданными ответами.
      *
-     * <p>Метод выводит вопрос и ожидает ввода строки с консоли. Введенная строка будет возвращена.</p>
+     * @param answers Массив строковых ответов, которые будут возвращаться последовательно.
+     */
+    public MockInput(String[] answers) {
+        this.answers = answers;
+    }
+
+    /**
+     * Возвращает следующий строковый ответ из массива.
      *
-     * @param question Вопрос, который будет выведен пользователю.
-     * @return Введенная пользователем строка.
+     * <p>Игнорирует переданный вопрос. При каждом вызове возвращает следующий элемент массива {@code answers}.</p>
+     *
+     * @param question Игнорируемый вопрос.
+     * @return Следующий строковый ответ.
      */
     @Override
     public String askStr(String question) {
-        System.out.print(question + " ");
-        return scanner.nextLine();
+        return answers[position++];
     }
 
     /**
-     * Запрашивает целое число от пользователя.
+     * Возвращает следующий ответ из массива как целое число.
      *
-     * <p>Метод выводит вопрос и ожидает ввода числа с консоли. Введенная строка проверяется на корректность.
-     * Если ввод не является корректным числом, пользователю будет предложено ввести число заново.</p>
+     * <p>Внутри вызывает {@link #askStr(String)} и преобразует результат в {@code int}.</p>
      *
-     * @param question Вопрос, который будет выведен пользователю.
-     * @return Введенное пользователем число.
+     * @param question Игнорируемый вопрос.
+     * @return Следующий ответ как {@code int}.
+     * @throws NumberFormatException Если строка не может быть преобразована в число.
      */
     @Override
     public int askInt(String question) {
-        int result = 0;
-        boolean valid = false;
-        while (!valid) {
-            System.out.print(question + " ");
-            String input = scanner.nextLine();
-            try {
-                result = Integer.parseInt(input);
-                valid = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка! Пожалуйста, введите целое число.");
-            }
-        }
-        return result;
-    }
-
-    /**
-     * Главный метод для демонстрации работы класса {@code MockInput}.
-     *
-     * <p>Метод вызывает {@link #askStr(String)} и {@link #askInt(String)} для получения имени и возраста
-     * пользователя, а затем выводит эти данные.</p>
-     *
-     * @param args Аргументы командной строки (не используются).
-     */
-    public static void main(String[] args) {
-        Input mockInput = new MockInput();
-        String name = mockInput.askStr("Как тебя зовут?");
-        int age = mockInput.askInt("Сколько тебе лет?");
-        System.out.println("Имя пользователя: " + name);
-        System.out.println("Возраст: " + age);
+        return Integer.parseInt(askStr(question));
     }
 }
