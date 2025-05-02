@@ -23,8 +23,8 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-05-01
+ * @version 1.1
+ * @since 2025-05-02
  */
 public class ConsoleInput implements Input {
 
@@ -54,26 +54,17 @@ public class ConsoleInput implements Input {
     }
 
     /**
-     * Запрашивает целое число от пользователя.
+     * Запрашивает ввод целого числа от пользователя.
      *
-     * <p>Метод выводит вопрос и ожидает ввода числа с консоли. Введенное число проверяется на корректность.
-     * Если ввод не является корректным числом, пользователю будет предложено ввести число заново.</p>
+     * <p>Метод выводит вопрос и ожидает ввода строки с консоли, а затем преобразует его в целое число.
+     * Введенное число будет возвращено.</p>
      *
      * @param question Вопрос, который будет выведен пользователю.
-     * @return Введенное пользователем число.
+     * @return Целое число, введенное пользователем.
+     * @throws NumberFormatException Если введенная строка не является допустимым числом.
      */
     @Override
     public int askInt(String question) {
-        int result = 0;
-        boolean valid = false;
-        while (!valid) {
-            try {
-                result = Integer.parseInt(askStr(question));
-                valid = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка! Пожалуйста, введите целое число.");
-            }
-        }
-        return result;
+        return Integer.parseInt(askStr(question));
     }
 }
