@@ -2,36 +2,46 @@ package ru.job4j.tracker;
 
 /**
  * Класс {@code User} представляет пользователя системы.
- * Содержит информацию о пользователе: уникальный идентификатор, имя пользователя и пароль.
+ *
+ * <p>Содержит информацию о пользователе: уникальный идентификатор, имя и пароль.</p>
+ *
+ * <p><b>Пример использования:</b></p>
+ * <pre>{@code
+ * User user = new User(1, "root", "root");
+ * System.out.println(user.getUsername());
+ * }</pre>
+ *
+ * <p><b>Пример вывода:</b></p>
+ * <pre>{@code
+ * root
+ * }</pre>
  *
  * @author Maksим Merkulov
- * @version 1.0
- * @since 2025-04-23
+ * @version 1.2
  */
 public class User {
 
     /**
-     * Поле {@code id} представляет уникальный идентификатор пользователя.
+     * Уникальный идентификатор пользователя.
      */
     private int id;
 
     /**
-     * Поле {@code username} содержит имя пользователя.
+     * Имя пользователя.
      */
     private String username;
 
     /**
-     * Поле {@code password} хранит пароль пользователя.
+     * Пароль пользователя.
      */
     private String password;
 
     /**
-     * Конструктор {@code User(int id, String username, String password)}
-     * для создания нового объекта {@link User}.
+     * Создает нового пользователя с заданными параметрами.
      *
-     * @param id Уникальный идентификатор пользователя.
-     * @param username Имя пользователя.
-     * @param password Пароль пользователя.
+     * @param id        уникальный идентификатор.
+     * @param username  имя пользователя.
+     * @param password  пароль пользователя.
      */
     public User(int id, String username, String password) {
         this.id = id;
@@ -40,36 +50,36 @@ public class User {
     }
 
     /**
-     * Метод {@code getId()} получает уникальный идентификатор пользователя.
+     * Возвращает идентификатор пользователя.
      *
-     * @return Идентификатор пользователя.
+     * @return уникальный идентификатор.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Метод {@code getUsername()} получает имя пользователя.
+     * Возвращает имя пользователя.
      *
-     * @return Имя пользователя.
+     * @return имя пользователя.
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * Метод {@code getPassword()} получает пароль пользователя.
+     * Возвращает пароль пользователя.
      *
-     * @return Пароль пользователя.
+     * @return пароль пользователя.
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * Метод {@code toString()} возвращает строковое представление объекта {@link User}.
+     * Возвращает строковое представление объекта {@link User}.
      *
-     * @return Строка, представляющая объект {@link User}.
+     * @return строка с данными пользователя.
      */
     @Override
     public String toString() {

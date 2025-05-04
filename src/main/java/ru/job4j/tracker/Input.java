@@ -8,24 +8,23 @@ package ru.job4j.tracker;
  * <p>Примеры реализаций: {@link MockInput}, {@link ConsoleInput}.</p>
  *
  * @author Maksim Merkulov
- * @version 1.1
- * @since 2025-05-01
+ * @version 1.2
  */
 public interface Input {
 
     /**
      * Запрашивает строку у пользователя.
      *
-     * @param question Сообщение для пользователя.
-     * @return Введенная строка.
+     * @param question сообщение для пользователя.
+     * @return введенная строка.
      */
     String askStr(String question);
 
     /**
      * Запрашивает целое число у пользователя.
      *
-     * @param question Сообщение для пользователя.
-     * @return Введенное целое число.
+     * @param question сообщение для пользователя.
+     * @return введенное целое число.
      */
     int askInt(String question);
 }

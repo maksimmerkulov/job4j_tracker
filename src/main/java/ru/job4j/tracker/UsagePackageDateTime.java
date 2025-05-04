@@ -6,10 +6,9 @@ import java.time.format.DateTimeFormatter;
 /**
  * Класс {@code UsagePackageDateTime} демонстрирует работу с классами {@link LocalDateTime}
  * и {@link DateTimeFormatter} из пакета {@code java.time}.
- * <p>
- * В методе {@link #main(String[])} отображаются текущие дата и время — сначала в стандартном формате,
- * затем в формате {@code "dd-MM-yyyy HH:mm:ss"}.
- * </p>
+ *
+ * <p>В методе {@link #main(String[])} отображаются текущие дата и время — сначала в стандартном формате,
+ * затем в формате {@code "dd-MM-yyyy HH:mm:ss"}.</p>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
@@ -18,20 +17,18 @@ import java.time.format.DateTimeFormatter;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
- * @since 2025-04-17
+ * @version 1.1
  */
 public class UsagePackageDateTime {
 
     /**
-     * Метод {@code main(String[] args)} выводит текущие дату и время с использованием классов
+     * Выводит текущие дату и время с использованием классов
      * {@link LocalDateTime} и {@link DateTimeFormatter}.
-     * <p>
-     * Сначала выводится значение без форматирования, затем — отформатированное в шаблоне
-     * {@code "dd-MM-yyyy HH:mm:ss"}.
-     * </p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * <p>Сначала выводится значение без форматирования, затем — отформатированное в шаблоне
+     * {@code "dd-MM-yyyy HH:mm:ss"}.</p>
+     *
+     * @param args аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
         LocalDateTime currentDateTime = LocalDateTime.now();

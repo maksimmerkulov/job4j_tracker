@@ -19,15 +19,14 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
- * @since 2025-05-02
+ * @version 1.2
  */
 public class MockInput implements Input {
 
     /**
      * Массив заранее заданных ответов.
      */
-    private String[] answers;
+    private final String[] answers;
 
     /**
      * Текущая позиция в массиве ответов.
@@ -37,7 +36,7 @@ public class MockInput implements Input {
     /**
      * Создает объект {@code MockInput} с заданными ответами.
      *
-     * @param answers Массив строковых ответов, которые будут возвращаться последовательно.
+     * @param answers массив строковых ответов, которые будут возвращаться последовательно.
      */
     public MockInput(String[] answers) {
         this.answers = answers;
@@ -48,8 +47,8 @@ public class MockInput implements Input {
      *
      * <p>Игнорирует переданный вопрос. При каждом вызове возвращает следующий элемент массива {@code answers}.</p>
      *
-     * @param question Игнорируемый вопрос.
-     * @return Следующий строковый ответ.
+     * @param question игнорируемый вопрос.
+     * @return следующий строковый ответ.
      */
     @Override
     public String askStr(String question) {
@@ -61,9 +60,9 @@ public class MockInput implements Input {
      *
      * <p>Внутри вызывает {@link #askStr(String)} и преобразует результат в {@code int}.</p>
      *
-     * @param question Игнорируемый вопрос.
-     * @return Следующий ответ как {@code int}.
-     * @throws NumberFormatException Если строка не может быть преобразована в число.
+     * @param question игнорируемый вопрос.
+     * @return следующий ответ как {@code int}.
+     * @throws NumberFormatException если строка не может быть преобразована в число.
      */
     @Override
     public int askInt(String question) {

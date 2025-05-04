@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Тест-класс {@code TrackerTest} содержит модульные тесты для проверки методов класса {@link Tracker}.
+ * Класс {@code TrackerTest} содержит модульные тесты для проверки методов класса {@link Tracker}.
  *
  * <p><b>Проверяемые методы:</b></p>
  * <ul>
@@ -29,13 +29,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  * </ul>
  *
  * @author Maksim Merkulov
- * @version 1.2
- * @since 2025-04-22
+ * @version 1.3
  */
 public class TrackerTest {
 
     /**
-     * Тест {@code whenTestFindById()} проверяет работу метода {@link Tracker#findById(int)}.
+     * Проверяет работу метода {@link Tracker#findById(int)}.
      *
      * <p>Сценарий:
      * <ul>
@@ -55,7 +54,7 @@ public class TrackerTest {
     }
 
     /**
-     * Тест {@code whenTestFindAll()} проверяет работу метода {@link Tracker#findAll()}.
+     * Проверяет работу метода {@link Tracker#findAll()}.
      *
      * <p>Сценарий:
      * <ul>
@@ -76,7 +75,7 @@ public class TrackerTest {
     }
 
     /**
-     * Тест {@code whenTestFindByNameCheckArrayLength()} проверяет метод {@link Tracker#findByName(String)}.
+     * Проверяет работу метода {@link Tracker#findByName(String)}.
      *
      * <p>Сценарий:
      * <ul>
@@ -101,7 +100,7 @@ public class TrackerTest {
     }
 
     /**
-     * Тест {@code whenTestFindByNameCheckSecondItemName()} проверяет метод {@link Tracker#findByName(String)}.
+     * Проверяет работу метода {@link Tracker#findByName(String)}.
      *
      * <p>Сценарий:
      * <ul>
@@ -126,8 +125,7 @@ public class TrackerTest {
     }
 
     /**
-     * Тест {@code whenReplaceItemIsSuccessful()} проверяет успешную замену заявки методом
-     * {@link Tracker#replace(int, Item)}.
+     * Проверяет успешную замену заявки методом {@link Tracker#replace(int, Item)}.
      *
      * <p>Сценарий:
      * <ul>
@@ -149,8 +147,7 @@ public class TrackerTest {
     }
 
     /**
-     * Тест {@code whenReplaceItemIsNotSuccessful()} проверяет неудачную попытку замены заявки
-     * методом {@link Tracker#replace(int, Item)}.
+     * Проверяет неудачную попытку замены заявки методом {@link Tracker#replace(int, Item)}.
      *
      * <p>Сценарий:
      * <ul>
@@ -173,8 +170,7 @@ public class TrackerTest {
     }
 
     /**
-     * Тест {@code whenDeleteItemIsSuccessful()} проверяет успешное удаление заявки методом
-     * {@link Tracker#delete(int)}.
+     * Проверяет успешное удаление заявки методом {@link Tracker#delete(int)}.
      *
      * <p>Сценарий:
      * <ul>
@@ -195,8 +191,7 @@ public class TrackerTest {
     }
 
     /**
-     * Тест {@code whenDeleteItemIsNotSuccessful()} проверяет неудачную попытку удаления заявки методом
-     * {@link Tracker#delete(int)} с несуществующим ID.
+     * Проверяет неудачную попытку удаления заявки методом {@link Tracker#delete(int)} с несуществующим ID.
      *
      * <p>Сценарий:
      * <ul>

@@ -21,8 +21,7 @@ import java.time.format.DateTimeFormatter;
  * }</pre>
  *
  * @author Maksим Merkulоv
- * @version 1.5
- * @since 2025-04-26
+ * @version 1.6
  */
 public class Item {
 
@@ -37,26 +36,20 @@ public class Item {
 
     /**
      * Уникальный идентификатор (ID) заявления.
-     *
-     * <p>Поле {@code id} содержит уникальный идентификатор для каждого заявления.</p>
      */
     private int id;
 
     /**
      * Название заявления.
      *
-     * <p>Поле {@code name} хранит название заявления, которое может быть использовано
-     * для поиска и идентификации.</p>
      */
     private String name;
 
     /**
      * Дата и время создания заявления.
      *
-     * <p>Поле {@code created} хранит дату и время создания заявления,
-     * автоматически инициализируется текущим моментом при создании объекта.</p>
      */
-    private LocalDateTime created = LocalDateTime.now();
+    private final LocalDateTime created = LocalDateTime.now();
 
     /**
      * Конструктор по умолчанию. Поля не инициализированы.
@@ -67,7 +60,7 @@ public class Item {
     /**
      * Конструктор с параметром {@code name}.
      *
-     * @param name Название заявления.
+     * @param name название заявления.
      */
     public Item(String name) {
         this.name = name;
@@ -76,8 +69,8 @@ public class Item {
     /**
      * Конструктор с параметрами {@code id} и {@code name}.
      *
-     * @param id   Уникальный идентификатор (ID) заявления.
-     * @param name Название заявления.
+     * @param id   уникальный идентификатор (ID) заявления.
+     * @param name название заявления.
      */
     public Item(int id, String name) {
         this.id = id;
@@ -87,7 +80,7 @@ public class Item {
     /**
      * Возвращает значение поля {@code id}.
      *
-     * @return Значение поля {@code id}.
+     * @return значение поля {@code id}.
      */
     public int getId() {
         return id;
@@ -96,7 +89,7 @@ public class Item {
     /**
      * Устанавливает значение поля {@code id}.
      *
-     * @param id Новое значение для поля {@code id}.
+     * @param id новое значение для поля {@code id}.
      */
     public void setId(int id) {
         this.id = id;
@@ -105,7 +98,7 @@ public class Item {
     /**
      * Возвращает значение поля {@code name}.
      *
-     * @return Значение поля {@code name}.
+     * @return значение поля {@code name}.
      */
     public String getName() {
         return name;
@@ -114,7 +107,7 @@ public class Item {
     /**
      * Устанавливает значение поля {@code name}.
      *
-     * @param name Новое значение для поля {@code name}.
+     * @param name новое значение для поля {@code name}.
      */
     public void setName(String name) {
         this.name = name;
@@ -123,7 +116,7 @@ public class Item {
     /**
      * Возвращает значение поля {@code created}.
      *
-     * @return Значение поля {@code created}.
+     * @return значение поля {@code created}.
      */
     public LocalDateTime getCreated() {
         return created;
@@ -139,7 +132,7 @@ public class Item {
      *     Item{id=1, name='Bug report', created=23-апреля-среда-2025 14:50:30}
      * }</pre>
      *
-     * @return Строка, представляющая объект {@link Item}.
+     * @return строка, представляющая объект {@link Item}.
      */
     @Override
     public String toString() {
