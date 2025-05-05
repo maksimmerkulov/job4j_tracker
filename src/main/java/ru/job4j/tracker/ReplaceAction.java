@@ -1,21 +1,22 @@
 package ru.job4j.tracker;
 
 /**
- * Класс {@code ReplaceAction} реализует операцию редактирования заявки по идентификатору.
+ * Класс {@code ReplaceAction} реализует действие редактирования заявки по идентификатору.
  *
- * <p>Используется в системе {@link Tracker} для замены существующей заявки
- * новой с указанным именем, при условии, что заявка с таким id существует.</p>
+ * <p>Используется для замены существующей заявки новой, если заявка с указанным идентификатором
+ * присутствует в системе {@link Tracker}.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * Input input = new ConsoleInput();
+ * Output output = new ConsoleOutput();
+ * Input input = new StubInput(new String[] {"1", "new name"});
  * Tracker tracker = new Tracker();
  * tracker.add(new Item("old name"));
- * UserAction action = new ReplaceAction();
+ * UserAction action = new ReplaceAction(output);
  * action.execute(input, tracker);
  * }</pre>
  *
- * <p><b>Пример вывода (успех):</b></p>
+ * <p><b>Пример вывода:</b></p>
  * <pre>{@code
  * === Редактирование заявки ===
  * Введите id: 1
@@ -23,18 +24,26 @@ package ru.job4j.tracker;
  * Заявка изменена успешно.
  * }</pre>
  *
- * <p><b>Пример вывода (ошибка):</b></p>
- * <pre>{@code
- * === Редактирование заявки ===
- * Введите id: 999
- * Введите имя: new name
- * Ошибка замены заявки.
- * }</pre>
- *
- * @author Maksим Merkulоv
- * @version 1.0
+ * @author Maksim Merkulov
+ * @version 1.2
  */
 public class ReplaceAction implements UserAction {
+
+    /**
+     * Интерфейс вывода данных.
+     *
+     * <p>Используется для отображения информации пользователю.</p>
+     */
+    private final Output output;
+
+    /**
+     * Конструктор, инициализирующий действие с заданным интерфейсом вывода.
+     *
+     * @param output реализация интерфейса {@link Output} для отображения сообщений.
+     */
+    public ReplaceAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -57,14 +66,14 @@ public class ReplaceAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Редактирование заявки ===");
+        output.println("=== Редактирование заявки ===");
         int id = input.askInt("Введите id: ");
         String name = input.askStr("Введите имя: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
-            System.out.println("Заявка изменена успешно.");
+            output.println("Заявка изменена успешно.");
         } else {
-            System.out.println("Ошибка замены заявки.");
+            output.println("Ошибка замены заявки.");
         }
         return true;
     }

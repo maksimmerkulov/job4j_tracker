@@ -5,27 +5,48 @@ package ru.job4j.tracker;
  * из системы отслеживания заявок {@link Tracker}.
  *
  * <p>Используется для удаления {@link Item} по заданному идентификатору.
- * Пользователь вводит id, после чего производится попытка удаления.</p>
+ * Пользователь вводит id, после чего производится попытка удаления заявки.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Input input = new ConsoleInput();
  * Tracker tracker = new Tracker();
- * UserAction action = new DeleteAction();
+ * UserAction action = new DeleteAction(new ConsoleOutput());
  * action.execute(input, tracker);
  * }</pre>
  *
- * <p><b>Пример вывода:</b></p>
+ * <p><b>Пример вывода (если заявка удалена успешно):</b></p>
  * <pre>{@code
  * === Удаление заявки ===
  * Введите id: 2
  * Заявка удалена успешно.
  * }</pre>
  *
- * @author Maksim Merkulov
- * @version 1.0
+ * <p><b>Пример вывода (если заявка не найдена):</b></p>
+ * <pre>{@code
+ * === Удаление заявки ===
+ * Введите id: 42
+ * Ошибка удаления заявки.
+ * }</pre>
+ *
+ * @author Maksим Merkulov
+ * @version 1.1
  */
 public class DeleteAction implements UserAction {
+
+    /**
+     * Интерфейс вывода информации пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Конструктор, инициализирующий действие с заданным интерфейсом вывода.
+     *
+     * @param output реализация интерфейса {@link Output} для отображения сообщений.
+     */
+    public DeleteAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -49,11 +70,11 @@ public class DeleteAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Удаление заявки ===");
+        output.println("=== Удаление заявки ===");
         int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
         tracker.delete(id);
-        System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
+        output.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
         return true;
     }
 }

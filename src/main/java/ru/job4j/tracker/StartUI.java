@@ -4,23 +4,24 @@ package ru.job4j.tracker;
  * Класс {@code StartUI} реализует консольный пользовательский интерфейс
  * для управления заявками в системе {@link Tracker}.
  *
- * <p>Класс отображает меню и позволяет пользователю выполнять действия:
- * добавление, просмотр, редактирование и удаление заявок, а также завершение работы программы.</p>
+ * <p>Используется для запуска главного цикла приложения, отображения меню и обработки
+ * пользовательского ввода через {@link Input} и {@link UserAction}.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
+ * Output output = new ConsoleOutput();
  * Input input = new ConsoleInput();
  * Tracker tracker = new Tracker();
  * UserAction[] actions = {
- *     new CreateAction(),
- *     new FindAllAction(),
- *     new ReplaceAction(),
- *     new DeleteAction(),
- *     new FindByIdAction(),
- *     new FindByNameAction(),
- *     new ExitAction()
+ *     new CreateAction(output),
+ *     new FindAllAction(output),
+ *     new ReplaceAction(output),
+ *     new DeleteAction(output),
+ *     new FindByIdAction(output),
+ *     new FindByNameAction(output),
+ *     new ExitAction(output)
  * };
- * new StartUI().init(input, tracker, actions);
+ * new StartUI(output).init(input, tracker, actions);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
@@ -37,9 +38,25 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.12
+ * @version 1.13
  */
 public class StartUI {
+
+    /**
+     * Интерфейс вывода данных.
+     *
+     * <p>Используется для отображения информации пользователю.</p>
+     */
+    private final Output output;
+
+    /**
+     * Конструктор, инициализирующий действие с заданным интерфейсом вывода.
+     *
+     * @param output реализация интерфейса {@link Output} для отображения сообщений.
+     */
+    public StartUI(Output output) {
+        this.output = output;
+    }
 
     /**
      * Инициализирует программу, отображает меню и обрабатывает выбор пользователя.
@@ -68,9 +85,9 @@ public class StartUI {
      * @param actions массив действий, доступных в текущей сессии.
      */
     private void showMenu(UserAction[] actions) {
-        System.out.println("Меню:");
+        output.println("Меню:");
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+            output.println(index + ". " + actions[index].name());
         }
     }
 
@@ -83,17 +100,18 @@ public class StartUI {
      * @param args аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
+        Output output = new ConsoleOutput();
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(),
-                new FindAllAction(),
-                new ReplaceAction(),
-                new DeleteAction(),
-                new FindByIdAction(),
-                new FindByNameAction(),
-                new ExitAction()
+                new CreateAction(output),
+                new FindAllAction(output),
+                new ReplaceAction(output),
+                new DeleteAction(output),
+                new FindByIdAction(output),
+                new FindByNameAction(output),
+                new ExitAction(output)
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
     }
 }

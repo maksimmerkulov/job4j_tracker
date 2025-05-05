@@ -3,14 +3,15 @@ package ru.job4j.tracker;
 /**
  * Класс {@code FindByIdAction} реализует поиск и отображение заявки по идентификатору.
  *
- * <p>Используется в системе трекинга заявок {@link Tracker} для вывода информации
- * о конкретной заявке по заданному пользователем {@code id}.</p>
+ * <p>Используется в системе {@link Tracker} для отображения информации
+ * о заявке с указанным пользователем {@code id}.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Input input = new ConsoleInput();
  * Tracker tracker = new Tracker();
- * UserAction action = new FindByIdAction();
+ * tracker.add(new Item("Test Item"));
+ * UserAction action = new FindByIdAction(new ConsoleOutput());
  * action.execute(input, tracker);
  * }</pre>
  *
@@ -28,10 +29,26 @@ package ru.job4j.tracker;
  * Заявка с введенным id: 42 не найдена.
  * }</pre>
  *
- * @author Maksим Merkulоv
- * @version 1.0
+ * @author Maksим Merkulov
+ * @version 1.1
  */
 public class FindByIdAction implements UserAction {
+
+    /**
+     * Интерфейс вывода данных.
+     *
+     * <p>Используется для отображения информации пользователю.</p>
+     */
+    private final Output output;
+
+    /**
+     * Конструктор, инициализирующий действие с заданным интерфейсом вывода.
+     *
+     * @param output реализация интерфейса {@link Output} для отображения сообщений.
+     */
+    public FindByIdAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -54,13 +71,13 @@ public class FindByIdAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Вывод заявки по id ===");
+        output.println("=== Вывод заявки по id ===");
         int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
         if (item != null) {
-            System.out.println(item);
+            output.println(item);
         } else {
-            System.out.println("Заявка с введенным id: " + id + " не найдена.");
+            output.println("Заявка с введенным id: " + id + " не найдена.");
         }
         return true;
     }

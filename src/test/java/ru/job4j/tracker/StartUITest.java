@@ -4,25 +4,28 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Класс {@code StartUITest} представляет собой модульные тесты для проверки
- * пользовательского интерфейса {@link StartUI}, включая действия создания, замены и удаления заявок.
+ * Класс {@code StartUITest} представляет собой модульные тесты для проверки пользовательского интерфейса
+ * {@link StartUI}, включая действия создания, замены, удаления заявок и выхода из программы.
  *
- * <p>Используется для проверки правильности работы интерактивного ввода через {@link Input}
+ * <p>Используется для проверки правильности обработки интерактивного ввода через {@link Input}
  * и корректности выполнения операций над заявками в {@link Tracker}.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * StartUITest test = new StartUITest();
  * test.whenCreateItem();
+ * test.whenReplaceItem();
+ * test.whenDeleteItem();
+ * test.whenExit();
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- * (проверка проходит без исключений и assertion ошибок)
+ * (Проверки проходят без исключений и ошибок утверждений)
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class StartUITest {
 
@@ -34,15 +37,16 @@ class StartUITest {
      */
     @Test
     void whenCreateItem() {
+        Output output = new StubOutput();
         Input input = new MockInput(
                 new String[] {"0", "Item name", "1"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(),
-                new ExitAction()
+                new CreateAction(output),
+                new ExitAction(output)
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
         assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
     }
 
@@ -54,6 +58,7 @@ class StartUITest {
      */
     @Test
     void whenReplaceItem() {
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
@@ -61,10 +66,10 @@ class StartUITest {
                 new String[] {"0", String.valueOf(item.getId()), replacedName, "1"}
         );
         UserAction[] actions = {
-                new ReplaceAction(),
-                new ExitAction()
+                new ReplaceAction(output),
+                new ExitAction(output)
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
     }
 
@@ -76,16 +81,41 @@ class StartUITest {
      */
     @Test
     void whenDeleteItem() {
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input input = new MockInput(
                 new String[] {"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
-                new DeleteAction(),
-                new ExitAction()
+                new DeleteAction(output),
+                new ExitAction(output)
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
         assertThat(tracker.findById(item.getId())).isNull();
+    }
+
+    /**
+     * Проверяет корректное завершение программы по команде выхода.
+     *
+     * <p>Сценарий: пользователь выбирает действие "Завершить программу". Ожидается, что программа
+     * отобразит соответствующее сообщение и завершит выполнение.</p>
+     */
+    @Test
+    void whenExit() {
+        Output output = new StubOutput();
+        Input input = new MockInput(
+                new String[] {"0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new ExitAction(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        assertThat(output.toString()).isEqualTo(
+                "Меню:" + System.lineSeparator()
+                        + "0. Завершить программу" + System.lineSeparator()
+                        + "=== Завершение программы ===" + System.lineSeparator()
+        );
     }
 }

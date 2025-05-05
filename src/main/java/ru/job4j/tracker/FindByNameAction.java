@@ -3,14 +3,17 @@ package ru.job4j.tracker;
 /**
  * Класс {@code FindByNameAction} реализует поиск и отображение всех заявок с заданным именем.
  *
- * <p>Используется в системе трекинга заявок {@link Tracker} для вывода информации
- * обо всех заявках, у которых имя совпадает с введенным пользователем значением.</p>
+ * <p>Используется в системе {@link Tracker} для вывода всех заявок,
+ * у которых имя совпадает с введенным пользователем значением.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Input input = new ConsoleInput();
  * Tracker tracker = new Tracker();
- * UserAction action = new FindByNameAction();
+ * tracker.add(new Item("test"));
+ * tracker.add(new Item("demo"));
+ * tracker.add(new Item("test"));
+ * UserAction action = new FindByNameAction(new ConsoleOutput());
  * action.execute(input, tracker);
  * }</pre>
  *
@@ -19,7 +22,7 @@ package ru.job4j.tracker;
  * === Вывод заявок по имени ===
  * Введите имя: test
  * Item{id=1, name='test'}
- * Item{id=2, name='test'}
+ * Item{id=3, name='test'}
  * }</pre>
  *
  * <p><b>Пример вывода (если заявки не найдены):</b></p>
@@ -30,9 +33,25 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksим Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class FindByNameAction implements UserAction {
+
+    /**
+     * Интерфейс вывода данных.
+     *
+     * <p>Используется для отображения информации пользователю.</p>
+     */
+    private final Output output;
+
+    /**
+     * Конструктор, инициализирующий действие с заданным интерфейсом вывода.
+     *
+     * @param output реализация интерфейса {@link Output} для отображения сообщений.
+     */
+    public FindByNameAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -55,15 +74,15 @@ public class FindByNameAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Вывод заявок по имени ===");
+        output.println("=== Вывод заявок по имени ===");
         String name = input.askStr("Введите имя: ");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
             for (Item item : items) {
-                System.out.println(item);
+                output.println(item);
             }
         } else {
-            System.out.println("Заявки с именем: " + name + " не найдены.");
+            output.println("Заявки с именем: " + name + " не найдены.");
         }
         return true;
     }

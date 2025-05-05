@@ -4,28 +4,50 @@ package ru.job4j.tracker;
  * Класс {@code FindAllAction} реализует отображение всех заявок,
  * находящихся в системе {@link Tracker}.
  *
- * <p>Используется для получения полного списка объектов {@link Item}, сохраненных в {@link Tracker}.
- * Если заявок нет, выводится соответствующее сообщение.</p>
+ * <p>Используется для получения и отображения полного списка объектов {@link Item},
+ * сохраненных в {@link Tracker}. Если заявок нет, выводится соответствующее сообщение.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Input input = new ConsoleInput();
  * Tracker tracker = new Tracker();
- * UserAction action = new FindAllAction();
+ * tracker.add(new Item("Заявка 1"));
+ * tracker.add(new Item("Заявка 2"));
+ * UserAction action = new FindAllAction(new ConsoleOutput());
  * action.execute(input, tracker);
  * }</pre>
  *
- * <p><b>Пример вывода:</b></p>
+ * <p><b>Пример вывода (если заявки есть):</b></p>
  * <pre>{@code
  * === Вывод всех заявок ===
  * Item{id=1, name='Заявка 1'}
  * Item{id=2, name='Заявка 2'}
  * }</pre>
  *
- * @author Maksim Merkulov
- * @version 1.0
+ * <p><b>Пример вывода (если заявок нет):</b></p>
+ * <pre>{@code
+ * === Вывод всех заявок ===
+ * Хранилище еще не содержит заявок
+ * }</pre>
+ *
+ * @author Maksим Merkulov
+ * @version 1.1
  */
 public class FindAllAction implements UserAction {
+
+    /**
+     * Интерфейс вывода информации пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Конструктор, инициализирующий действие с заданным интерфейсом вывода.
+     *
+     * @param output реализация интерфейса {@link Output} для отображения сообщений.
+     */
+    public FindAllAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -49,14 +71,14 @@ public class FindAllAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Вывод всех заявок ===");
+        output.println("=== Вывод всех заявок ===");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : items) {
-                System.out.println(item);
+                output.println(item);
             }
         } else {
-            System.out.println("Хранилище еще не содержит заявок");
+            output.println("Хранилище еще не содержит заявок");
         }
         return true;
     }

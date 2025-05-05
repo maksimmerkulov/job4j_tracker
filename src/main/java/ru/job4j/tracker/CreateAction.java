@@ -11,7 +11,7 @@ package ru.job4j.tracker;
  * <pre>{@code
  * Input input = new ConsoleInput();
  * Tracker tracker = new Tracker();
- * UserAction action = new CreateAction();
+ * UserAction action = new CreateAction(new ConsoleOutput());
  * action.execute(input, tracker);
  * }</pre>
  *
@@ -22,10 +22,24 @@ package ru.job4j.tracker;
  * Добавленная заявка: Item{id=1, name='Заявка 1'}
  * }</pre>
  *
- * @author Maksim Merkulov
- * @version 1.0
+ * @author Maksим Merkulov
+ * @version 1.1
  */
 public class CreateAction implements UserAction {
+
+    /**
+     * Интерфейс вывода информации пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Конструктор, инициализирующий действие с заданным интерфейсом вывода.
+     *
+     * @param output реализация интерфейса {@link Output} для отображения сообщений.
+     */
+    public CreateAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -53,7 +67,7 @@ public class CreateAction implements UserAction {
         String name = input.askStr("Введите имя: ");
         Item item = new Item(name);
         tracker.add(item);
-        System.out.println("Добавленная заявка: " + item);
+        output.println("Добавленная заявка: " + item);
         return true;
     }
 }

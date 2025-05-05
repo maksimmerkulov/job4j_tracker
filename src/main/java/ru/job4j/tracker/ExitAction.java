@@ -3,14 +3,14 @@ package ru.job4j.tracker;
 /**
  * Класс {@code ExitAction} завершает выполнение программы.
  *
- * <p>Используется в меню трекера для выхода из программы. Возвращает {@code false}
- * в методе {@link #execute(Input, Tracker)}, что сигнализирует о завершении цикла работы.</p>
+ * <p>Используется в меню трекера для выхода из приложения. Метод {@link #execute(Input, Tracker)}
+ * возвращает {@code false}, что приводит к завершению основного цикла программы.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Input input = new ConsoleInput();
  * Tracker tracker = new Tracker();
- * UserAction exit = new ExitAction();
+ * UserAction exit = new ExitAction(new ConsoleOutput());
  * exit.execute(input, tracker);
  * }</pre>
  *
@@ -19,10 +19,24 @@ package ru.job4j.tracker;
  * === Завершение программы ===
  * }</pre>
  *
- * @author Maksim Merkulov
- * @version 1.0
+ * @author Maksим Merkulov
+ * @version 1.1
  */
 public class ExitAction implements UserAction {
+
+    /**
+     * Интерфейс вывода информации пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Конструктор, инициализирующий действие с заданным интерфейсом вывода.
+     *
+     * @param output реализация интерфейса {@link Output} для отображения сообщений.
+     */
+    public ExitAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -46,7 +60,7 @@ public class ExitAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Завершение программы ===");
+        output.println("=== Завершение программы ===");
         return false;
     }
 }
