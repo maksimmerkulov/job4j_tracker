@@ -37,7 +37,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.11
+ * @version 1.12
  */
 public class StartUI {
 
@@ -46,7 +46,7 @@ public class StartUI {
      *
      * <p>Работа продолжается в цикле, пока пользователь не выберет завершение программы.</p>
      *
-     * @param input   объект для чтения пользовательского ввода.
+     * @param input   интерфейс получения пользовательского ввода.
      * @param tracker хранилище заявок.
      * @param actions массив доступных действий пользователя.
      */
