@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
 
 /**
  * Интерфейс {@code Input} описывает поведение ввода данных от пользователя.

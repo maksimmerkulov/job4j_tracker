@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
 
 /**
  * Класс {@code MockInput} представляет собой имитацию пользовательского ввода для тестирования.

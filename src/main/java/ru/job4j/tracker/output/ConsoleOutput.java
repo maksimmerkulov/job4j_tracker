@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.output;
 
 /**
  * Класс {@code ConsoleOutput} реализует интерфейс {@link Output} и используется

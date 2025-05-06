@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.output;
 
 /**
  * Интерфейс {@code Output} определяет способ вывода информации пользователю.
