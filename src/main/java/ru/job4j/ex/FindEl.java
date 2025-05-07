@@ -1,30 +1,35 @@
 package ru.job4j.ex;
 
 /**
- * Класс {@code FindEl} реализует поиск строки в массиве.
+ * Класс {@code FindEl} реализует функциональность поиска строки в массиве
+ * и проверку на наличие в списке запрещенных значений.
  *
- * <p>Если элемент не найден, выбрасывается исключение {@link ElementNotFoundException}.</p>
+ * <p>Если строка не найдена, выбрасывается исключение {@link ElementNotFoundException}.</p>
+ * <p>Если строка найдена, но она запрещена, выбрасывается {@link ElementAbuseException}.</p>
+ *
+ * <p><b>Сценарии использования:</b></p>
+ * <ul>
+ *     <li>Поиск строки в массиве значений;</li>
+ *     <li>Проверка строки на соответствие списку запрещенных значений.</li>
+ * </ul>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * String[] value = {"cat", "dog", "bird"};
+ * String[] abuses = {"dog", "mouse"};
  * int index = FindEl.indexOf(value, "dog");
- * System.out.println("Индекс: " + index);
+ * FindEl.sent("dog", abuses);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
  * Индекс: 1
- * }</pre>
- *
- * <p><b>Пример с выброшенным исключением:</b></p>
- * <pre>{@code
- * ru.job4j.ex.ElementNotFoundException: Element not found
- *     at ru.job4j.ex.FindEl.indexOf(FindEl.java:...)
+ * ru.job4j.ex.ElementAbuseException: Element is abusive: dog
+ *     at ru.job4j.ex.FindEl.sent(FindEl.java:...)
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class FindEl {
 
@@ -53,6 +58,49 @@ public class FindEl {
     }
 
     /**
+     * Проверяет, не входит ли значение в список запрещенных слов.
+     *
+     * <p>Если значение содержится в массиве {@code abuses}, выбрасывается исключение.</p>
+     *
+     * @param value значение для проверки.
+     * @param abuses список запрещенных слов.
+     * @return {@code true}, если значение допустимо.
+     * @throws ElementAbuseException если значение считается недопустимым.
+     */
+    public static boolean sent(String value, String[] abuses) throws ElementAbuseException {
+        for (String abuse : abuses) {
+            if (value.equals(abuse)) {
+                throw new ElementAbuseException("Element is abusive: " + value);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Выполняет проверку ключа в массиве и анализирует его на запрещенность.
+     *
+     * <p>Если элемент найден и является запрещенным, выбрасываются соответствующие исключения.
+     * Все исключения перехватываются и печатаются в консоль.</p>
+     *
+     * @param values массив строк для поиска.
+     * @param key ключ для поиска.
+     * @param abuses список запрещенных слов.
+     */
+    public static void process(String[] values, String key, String[] abuses) {
+        try {
+            if (indexOf(values, key) != -1) {
+                sent(key, abuses);
+            }
+        } catch (ElementAbuseException ea) {
+            ea.printStackTrace();
+        } catch (ElementNotFoundException en) {
+            en.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Демонстрирует использование метода {@link #indexOf(String[], String)}.
      *
      * <p>Использует конструкцию try-catch для обработки исключения {@link ElementNotFoundException}.</p>
@@ -60,11 +108,13 @@ public class FindEl {
      * @param args аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
-        String[] value = {"cat", "dog", "bird"};
+        String[] values = {"cat", "dog", "bird"};
+        String[] abuses = {"cat", "dog"};
         String key = "dog";
         try {
-            int index = indexOf(value, key);
+            int index = indexOf(values, key);
             System.out.println("Индекс: " + index);
+            process(values, key, abuses);
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
