@@ -8,21 +8,26 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Класс {@code CountTest} предназначен для модульного тестирования метода {@link Count#add(int, int)}.
  *
- * <p>Проверяет корректность обработки исключительных ситуаций при нарушении условия:
- * начальное значение должно быть меньше конечного.</p>
+ * <p>Тесты охватывают два сценария:</p>
+ * <ul>
+ *     <li>Генерация исключения при нарушении условия: начальное значение больше либо равно конечному.</li>
+ *     <li>Корректный расчет суммы всех целых чисел от {@code start} до {@code finish - 1} при валидном вводе.</li>
+ * </ul>
  *
- * <p><b>Пример использования:</b></p>
+ * <p><b>Примеры использования:</b></p>
  * <pre>{@code
  * Count.add(10, 2);
+ * Count.add(0, 3);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
  * java.lang.IllegalArgumentException: Start should be less than finish.
+ * 3
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class CountTest {
 
@@ -44,5 +49,22 @@ public class CountTest {
                     Count.add(10, 2);
                 });
         assertThat(exception.getMessage()).isEqualTo("Start should be less than finish.");
+    }
+
+    /**
+     * Проверяет корректность вычисления суммы чисел от {@code start} до {@code finish - 1}.
+     *
+     * <p>При передаче 0 и 3 ожидается результат 3 (0 + 1 + 2).</p>
+     *
+     * @apiNote Тест демонстрирует стандартное поведение метода.
+     * @implSpec Метод должен возвращать сумму всех целых чисел от {@code start} до {@code finish - 1}.
+     */
+    @Test
+    public void whenStart0Finish3ThenSum3() {
+        int start = 0;
+        int finish = 3;
+        int expected = 3;
+        int result = Count.add(start, finish);
+        assertThat(result).isEqualTo(expected);
     }
 }

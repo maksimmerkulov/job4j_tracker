@@ -8,20 +8,26 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Класс {@code FactorialTest} предназначен для модульного тестирования метода {@link Factorial#calc(int)}.
  *
- * <p>Тестирует корректность обработки исключительных ситуаций при передаче отрицательного числа.</p>
+ * <p>Тесты охватывают два сценария:</p>
+ * <ul>
+ *     <li>Генерация исключения при передаче отрицательного числа.</li>
+ *     <li>Корректное вычисление факториала положительного числа.</li>
+ * </ul>
  *
- * <p><b>Пример использования:</b></p>
+ * <p><b>Примеры использования:</b></p>
  * <pre>{@code
  * new Factorial().calc(-1);
+ * new Factorial().calc(5);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
  * java.lang.IllegalArgumentException: Number could not be less than 0
+ * 120
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class FactorialTest {
 
@@ -43,5 +49,21 @@ class FactorialTest {
                     new Factorial().calc(-1);
                 });
         assertThat(exception.getMessage()).isEqualTo("Number could not be less than 0");
+    }
+
+    /**
+     * Проверяет корректность вычисления факториала положительного числа.
+     *
+     * <p>Ожидается, что {@link Factorial#calc(int)} вернет 120 при вводе 5.</p>
+     *
+     * @apiNote Проверка стандартного случая вычисления факториала.
+     * @implSpec Метод должен корректно рассчитывать произведение всех целых чисел от 1 до n.
+     */
+    @Test
+    public void whenCalculateFactorialOf5Then120() {
+        int number = 5;
+        int expected = 120;
+        int result = new Factorial().calc(number);
+        assertThat(result).isEqualTo(expected);
     }
 }
