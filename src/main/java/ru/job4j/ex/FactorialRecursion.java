@@ -20,7 +20,7 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class FactorialRecursion {
 
@@ -30,19 +30,15 @@ public class FactorialRecursion {
      * <p>Добавлено условие выхода: {@code if (n == 0 || n == 1)} —
      * предотвращает бесконечную рекурсию и исключение {@link StackOverflowError}.</p>
      *
-     * <p>Результат сохраняется во временную переменную {@code result}, которая затем возвращается.</p>
-     *
      * @param n число, факториал которого необходимо вычислить.
      * @return факториал числа {@code n}.
      */
     public static int calc(int n) {
-        int result;
         if (n == 0 || n == 1) {
-            result = 1;
+            return 1;
         } else {
-            result =  calc(n - 1) * n;
+            return calc(n - 1) * n;
         }
-        return result;
     }
 
     /**
