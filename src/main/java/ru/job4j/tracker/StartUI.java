@@ -1,10 +1,8 @@
 package ru.job4j.tracker;
 
 import ru.job4j.tracker.action.*;
-import ru.job4j.tracker.input.ConsoleInput;
-import ru.job4j.tracker.input.Input;
-import ru.job4j.tracker.output.ConsoleOutput;
-import ru.job4j.tracker.output.Output;
+import ru.job4j.tracker.input.*;
+import ru.job4j.tracker.output.*;
 
 /**
  * Класс {@code StartUI} реализует консольный пользовательский интерфейс
@@ -16,7 +14,7 @@ import ru.job4j.tracker.output.Output;
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Output output = new ConsoleOutput();
- * Input input = new ConsoleInput();
+ * Input input = new ValidateInput();
  * Tracker tracker = new Tracker();
  * UserAction[] actions = {
  *     new CreateAction(output),
@@ -44,7 +42,7 @@ import ru.job4j.tracker.output.Output;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.13
+ * @version 1.14
  */
 public class StartUI {
 
@@ -65,19 +63,29 @@ public class StartUI {
     }
 
     /**
-     * Инициализирует программу, отображает меню и обрабатывает выбор пользователя.
+     * Инициализирует основной цикл работы приложения и обрабатывает действия пользователя.
      *
-     * <p>Работа продолжается в цикле, пока пользователь не выберет завершение программы.</p>
+     * <p>Метод отображает меню доступных действий, запрашивает ввод пользователя,
+     * проверяет корректность выбора и выполняет соответствующее действие.</p>
      *
-     * @param input   интерфейс получения пользовательского ввода.
-     * @param tracker хранилище заявок.
-     * @param actions массив доступных действий пользователя.
+     * <p>Если пользователь вводит неверный номер действия, отображается сообщение об ошибке
+     * и повторный запрос. Цикл продолжается, пока не будет выбрано действие {@link ExitAction},
+     * завершающее программу.</p>
+     *
+     * @param input интерфейс ввода, обеспечивающий получение пользовательских данных.
+     * @param tracker объект хранилища заявок, с которым работают действия.
+     * @param actions массив доступных пользователю действий, каждое реализует {@link UserAction}.
      */
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
             showMenu(actions);
             int select = input.askInt("Выбрать: ");
+            if (select < 0 || select >= actions.length) {
+                output.println("Неверный ввод, вы можете выбрать: 0 .. "
+                        + (actions.length - 1));
+                continue;
+            }
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
@@ -100,14 +108,15 @@ public class StartUI {
     /**
      * Точка входа в приложение.
      *
-     * <p>Создает объекты {@link ConsoleInput}, {@link Tracker} и массив {@link UserAction},
-     * после чего запускает основной цикл приложения.</p>
+     * <p>Создает все необходимые компоненты: консольный вывод, ввод с валидацией,
+     * хранилище заявок и массив действий пользователя. После этого запускается основной
+     * цикл программы через метод {@link #init(Input, Tracker, UserAction[])}.</p>
      *
      * @param args аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
