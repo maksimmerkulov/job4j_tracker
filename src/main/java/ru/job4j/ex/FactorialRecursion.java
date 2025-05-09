@@ -20,7 +20,7 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class FactorialRecursion {
 
@@ -36,9 +36,8 @@ public class FactorialRecursion {
     public static int calc(int n) {
         if (n == 0 || n == 1) {
             return 1;
-        } else {
-            return calc(n - 1) * n;
         }
+        return calc(n - 1) * n;
     }
 
     /**
