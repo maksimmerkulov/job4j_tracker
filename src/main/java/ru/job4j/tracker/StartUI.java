@@ -5,16 +5,16 @@ import ru.job4j.tracker.input.*;
 import ru.job4j.tracker.output.*;
 
 /**
- * Класс {@code StartUI} реализует консольный пользовательский интерфейс
+ * Класс {@code StartUI} реализует пользовательский интерфейс командной строки
  * для управления заявками в системе {@link Tracker}.
  *
- * <p>Используется для запуска главного цикла приложения, отображения меню и обработки
- * пользовательского ввода через {@link Input} и {@link UserAction}.</p>
+ * <p>Используется для организации основного цикла приложения: отображения меню,
+ * получения пользовательского ввода и вызова соответствующих действий.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Output output = new ConsoleOutput();
- * Input input = new ValidateInput();
+ * Input input = new ValidateInput(output, new ConsoleInput());
  * Tracker tracker = new Tracker();
  * UserAction[] actions = {
  *     new CreateAction(output),
@@ -42,7 +42,7 @@ import ru.job4j.tracker.output.*;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.14
+ * @version 1.15
  */
 public class StartUI {
 
@@ -116,7 +116,7 @@ public class StartUI {
      */
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput();
+        Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
