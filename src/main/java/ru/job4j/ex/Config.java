@@ -5,20 +5,8 @@ package ru.job4j.ex;
  *
  * <p>Используется для имитации загрузки конфигурационных данных по строке пути.</p>
  *
- * <p>Если путь равен {@code null}, метод {@link #load(String)} выбрасывает {@link IllegalStateException}.</p>
- *
- * <p><b>Пример использования:</b></p>
- * <pre>{@code
- * Config.load("jdbc://localhost:8080");
- * }</pre>
- *
- * <p><b>Пример вывода:</b></p>
- * <pre>{@code
- * load config by jdbc://localhost:8080
- * }</pre>
- *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Config {
 
