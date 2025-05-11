@@ -17,7 +17,7 @@ import ru.job4j.tracker.output.*;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class ValidateInputTest {
 
@@ -57,15 +57,24 @@ class ValidateInputTest {
      */
     @Test
     void whenMultipleValidInput() {
-        String[] data = {"6", "5", "4", "3", "2", "1", "0"};
-        int[] expected = {6, 5, 4, 3, 2, 1, 0};
+        int selected;
         Output output = new StubOutput();
-        Input in = new MockInput(data);
+        Input in = new MockInput(new String[] {"0", "1", "2", "3", "4", "5", "6"});
         ValidateInput input = new ValidateInput(output, in);
-        for (int i = 0; i < data.length; i++) {
-            int selected = input.askInt("Enter menu:");
-            assertThat(selected).isEqualTo(expected[i]);
-        }
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(0);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(1);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(2);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(3);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(4);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(5);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(6);
     }
 
     /**
