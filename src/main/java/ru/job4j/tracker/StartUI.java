@@ -42,7 +42,7 @@ import ru.job4j.tracker.output.*;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.15
+ * @version 1.16
  */
 public class StartUI {
 
@@ -128,5 +128,8 @@ public class StartUI {
                 new ExitAction(output)
         };
         new StartUI(output).init(input, tracker, actions);
+        Log4File log = Log4File.getInstance();
+        log.add("add new Item");
+        log.save();
     }
 }
