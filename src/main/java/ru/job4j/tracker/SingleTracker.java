@@ -13,7 +13,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class SingleTracker {
 
@@ -25,7 +25,7 @@ public class SingleTracker {
     /**
      * Внутренний объект {@link Tracker}, которому делегируются все действия.
      */
-    private final Tracker tracker = new Tracker();
+    private Tracker tracker = new Tracker();
 
     /**
      * Приватный конструктор. Запрещает создание объекта извне.

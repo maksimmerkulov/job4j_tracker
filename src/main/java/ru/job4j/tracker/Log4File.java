@@ -13,7 +13,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public final class Log4File {
 
@@ -25,7 +25,7 @@ public final class Log4File {
     /**
      * Хранилище сообщений.
      */
-    private final String[] messages = new String[1000];
+    private String[] messages = new String[1000];
 
     /**
      * Индекс следующей позиции для записи.

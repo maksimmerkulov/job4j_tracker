@@ -36,19 +36,19 @@ import ru.job4j.tracker.Tracker;
  * }</pre>
  *
  * @author Maksим Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class FindAllAction implements UserAction {
 
     /**
      * Интерфейс вывода информации пользователю.
      */
-    private final Output output;
+    private Output output;
 
     /**
      * Конструктор, инициализирующий действие с заданным интерфейсом вывода.
      *
-     * @param output реализация интерфейса {@link Output} для отображения сообщений.
+     * @param output реализация интерфейса {@link Output} для отображения сообщений
      */
     public FindAllAction(Output output) {
         this.output = output;
@@ -57,7 +57,7 @@ public class FindAllAction implements UserAction {
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
      *
-     * @return строковое представление действия.
+     * @return строковое представление действия
      */
     @Override
     public String name() {
@@ -70,9 +70,9 @@ public class FindAllAction implements UserAction {
      * <p>Выводит в консоль все объекты {@link Item}, находящиеся в {@link Tracker},
      * или сообщение о пустом хранилище, если заявок нет.</p>
      *
-     * @param input   интерфейс получения пользовательского ввода (не используется).
-     * @param tracker хранилище заявок.
-     * @return {@code true}, чтобы продолжить выполнение программы.
+     * @param input   интерфейс получения пользовательского ввода (не используется)
+     * @param tracker хранилище заявок
+     * @return {@code true}, чтобы продолжить выполнение программы
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
