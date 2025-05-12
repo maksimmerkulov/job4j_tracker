@@ -19,7 +19,7 @@ package ru.job4j.early;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class PasswordValidator {
     private static final String[] FORBIDDEN = {"qwerty", "12345", "password", "admin", "user"};
@@ -40,8 +40,10 @@ public class PasswordValidator {
      *  7. Пароль не содержит подстрок без учета регистра: qwerty, 12345, password, admin, user.
      *     Без учета регистра, значит что, например, ни qwerty ни QWERTY ни qwErty и т.п.
      *     если да, то "Password shouldn't contain substrings: qwerty, 12345, password, admin, user".
-     * @param password Пароль
-     * @return Вернет пароль или выбросит исключение.
+     *
+     * @param password пароль
+     * @return пароль, если он прошел все проверки
+     * @throws IllegalArgumentException если пароль не соответствует хотя бы одному правилу
      */
     public static String validate(String password) {
         if (password == null) {
@@ -70,6 +72,9 @@ public class PasswordValidator {
             }
             if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
+            }
+            if (hasUpCase && hasLowCase && hasDigit && hasSpecial) {
+                break;
             }
         }
         if (!hasUpCase) {
