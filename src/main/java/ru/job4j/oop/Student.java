@@ -5,16 +5,38 @@ package ru.job4j.oop;
  *
  * <p>В методе {@link #main(String[])} создается объект студента и вызываются его методы.</p>
  *
+ * <p><b>Пример использования:</b></p>
+ * <pre>{@code
+ * Student petya = new Student();
+ * String song = "I believe, I can fly";
+ * petya.music(song);
+ * petya.music(song);
+ * petya.music(song);
+ * petya.sing();
+ * petya.sing();
+ * petya.sing();
+ * }</pre>
+ *
+ * <p><b>Пример вывода:</b></p>
+ * <pre>{@code
+ * I can sing a song: I believe, I can fly
+ * I can sing a song: I believe, I can fly
+ * I can sing a song: I believe, I can fly
+ * I believe I can fly
+ * I believe I can fly
+ * I believe I can fly
+ * }</pre>
+ *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Student {
 
     /**
-     * Выводит текст "Tra tra tra", имитируя игру на баяне.
+     * Выводит текст "I can sing a song: I believe, I can fly".
      */
-    public void music() {
-        System.out.println("Tra tra tra");
+    public void music(String lyrics) {
+        System.out.println("I can sing a song: " + lyrics);
     }
 
     /**
@@ -31,9 +53,10 @@ public class Student {
      */
     public static void main(String[] args) {
         Student petya = new Student();
-        petya.music();
-        petya.music();
-        petya.music();
+        String song = "I believe, I can fly";
+        petya.music(song);
+        petya.music(song);
+        petya.music(song);
         petya.sing();
         petya.sing();
         petya.sing();
