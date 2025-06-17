@@ -1,50 +1,91 @@
 package ru.job4j.oop;
 
 /**
- * Класс {@code Cat} представляет собой простой пример модели кота.
+ * Класс {@code Cat} представляет собой простую модель кота.
  *
- * <p>Класс имеет метод {@link #sound()}, позволяющий воспроизводить звук кота.</p>
- *
- * <p>В методе {@link #main(String[])} создаются два объекта класса {@code Cat} —
- * {@code peppy} и {@code sparky} — и вызывается метод {@link #sound()} для одного из них.</p>
+ * <p>У каждого кота есть кличка ({@code name}) и еда ({@code food}), которую он съел.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * Cat peppy = new Cat();
- * String say = peppy.sound();
- * System.out.println("Peppy says " + say);
+ * System.out.println("There is gav's food.");
+ * Cat gav = new Cat();
+ * gav.giveNick("Gav");
+ * gav.eat("cutlet");
+ * gav.show();
+ *
+ * System.out.println("There is black's food.");
+ * Cat black = new Cat();
+ * black.giveNick("Black");
+ * black.eat("fish");
+ * black.show();
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- * Peppy says may-may
+ * There is gav's food.
+ * Gav ate cutlet.
+ *
+ * There is black's food.
+ * Black ate fish.
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Cat {
 
     /**
-     * Возвращает звук, издаваемый котом.
-     *
-     * @return Строка со звуком кота.
+     * Кличка кота.
      */
-    public String sound() {
-        String voice = "may-may";
-        return voice;
+    private String name;
+
+    /**
+     * Еда, которую кот съел.
+     */
+    private String food;
+
+    /**
+     * Выводит в консоль информацию о кличке кота и съеденной им еде.
+     */
+    public void show() {
+        System.out.println(this.name + " ate " + this.food + ".");
     }
 
     /**
-     * Создает два объекта класса {@code Cat} и вызывает
-     * метод {@link #sound()} для одного из них.
+     * Устанавливает кличку кота в поле {@code name}.
+     *
+     * @param nick Кличка кота.
+     */
+    public void giveNick(String nick) {
+        this.name = nick;
+    }
+
+    /**
+     * Устанавливает еду в поле {@code food}.
+     *
+     * @param meat Название еды.
+     */
+    public void eat(String meat) {
+        this.food = meat;
+    }
+
+    /**
+     * Демонстрирует работу класса {@link Cat}.
+     *
+     * <p>Создает два объекта: {@code gav} и {@code black}, которым задаются клички и еда.</p>
      *
      * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
-        Cat peppy = new Cat();
-        Cat sparky = new Cat();
-        String say = peppy.sound();
-        System.out.println("Peppy says " + say);
+        System.out.println("There is gav's food.");
+        Cat gav = new Cat();
+        gav.giveNick("Gav");
+        gav.eat("cutlet");
+        gav.show();
+        System.out.println("There is black's food.");
+        Cat black = new Cat();
+        black.giveNick("Black");
+        black.eat("fish");
+        black.show();
     }
 }
