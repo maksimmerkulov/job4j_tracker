@@ -4,31 +4,51 @@ package ru.job4j.oop;
  * Класс {@code Calculator} предоставляет методы для выполнения различных математических операций:
  * сложение, умножение, вычитание и деление, а также метод для выполнения всех операций одновременно.
  *
+ * <p>Также содержит вложенный статический класс {@link Multiple} для возведения числа в квадрат.</p>
+ *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Calculator calculator = new Calculator();
- * int result1 = Calculator.sum(10);
- * int result2 = calculator.multiply(5);
- * int result3 = Calculator.minus(20);
- * int result4 = calculator.divide(15);
- * int total = calculator.sumAllOperation(10, 5, 20, 15);
+ * Calculator.Multiple multiple = Calculator.getMultiple(3);
+ * System.out.println("Сложение значения x (5) и числа 10: " + sum(10));
+ * System.out.println("Умножение значения x (5) на число 5: " + calculator.multiply(5));
+ * System.out.println("Вычитание из числа 20 значения x (5): " + minus(20));
+ * System.out.println("Деление числа 15 на значение x (5): " + calculator.divide(15));
+ * System.out.println("Сумма всех операций (сложение + умножение + вычитание + деление): "
+ * + calculator.sumAllOperation(10, 5, 20, 15));
+ * System.out.println("Квадрат числа равен: " + multiple.getResult());
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- * Adding value x (5) and number 10: 15
- * Multiplying value x (5) by number 5: 25
- * Subtracting number 20 from value x (5): 15
- * Dividing number 15 by value x (5): 3
- * Sum of all operations (sum + multiply + minus + divide) 58
+ * Сложение значения x (5) и числа 10: 15
+ * Умножение значения x (5) на число 5: 25
+ * Вычитание из числа 20 значения x (5): 15
+ * Деление числа 15 на значение x (5): 3
+ * Сумма всех операций (сложение + умножение + вычитание + деление): 58
+ * Квадрат числа равен: 9
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Calculator {
 
+    /**
+     * Статическое значение, используемое во всех вычислениях.
+     */
     private static int x = 5;
+
+    /**
+     * Возвращает объект {@link Multiple}, содержащий квадрат переданного числа.
+     *
+     * @param value Исходное число.
+     * @return Объект {@code Multiple} с результатом.
+     */
+    public static Multiple getMultiple(int value) {
+        int result = value * value;
+        return new Multiple(result);
+    }
 
     /**
      * Складывает статическое поле {@code x} и переданное значение {@code a}.
@@ -71,13 +91,32 @@ public class Calculator {
     }
 
     /**
-     * Выполняет все операции: сложение, умножение, вычитание
-     * и деление с переданным числом и возвращает их сумму.
+     * Выполняет четыре операции: сложение, умножение, вычитание и деление,
+     * и возвращает сумму всех результатов.
      *
-     * @return Сумма результатов всех операций.
+     * @param a Число для сложения.
+     * @param b Число для умножения.
+     * @param c Число для вычитания.
+     * @param d Число для деления.
+     * @return Сумма всех результатов.
      */
     public int sumAllOperation(int a, int b, int c, int d) {
         return sum(a) + multiply(b) + minus(c) + divide(d);
+    }
+
+    /**
+     * Статический вложенный класс для хранения результата возведения числа в квадрат.
+     */
+    public static class Multiple {
+        private final int result;
+
+        public Multiple(int number) {
+            result = number;
+        }
+
+        public int getResult() {
+            return result;
+        }
     }
 
     /**
@@ -87,11 +126,13 @@ public class Calculator {
      */
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        System.out.println("Adding value x (5) and number 10: " + sum(10));
-        System.out.println("Multiplying value x (5) by number 5: " + calculator.multiply(5));
-        System.out.println("Subtracting number 20 from value x (5): " + minus(20));
-        System.out.println("Dividing number 15 by value x (5): " + calculator.divide(15));
-        System.out.println("Sum of all operations (sum + multiply + minus + divide) "
+        Calculator.Multiple multiple = Calculator.getMultiple(3);
+        System.out.println("Сложение значения x (5) и числа 10: " + sum(10));
+        System.out.println("Умножение значения x (5) на число 5: " + calculator.multiply(5));
+        System.out.println("Вычитание из числа 20 значения x (5): " + minus(20));
+        System.out.println("Деление числа 15 на значение x (5): " + calculator.divide(15));
+        System.out.println("Сумма всех операций (сложение + умножение + вычитание + деление): "
                 + calculator.sumAllOperation(10, 5, 20, 15));
+        System.out.println("Квадрат числа равен: " + multiple.getResult());
     }
 }
