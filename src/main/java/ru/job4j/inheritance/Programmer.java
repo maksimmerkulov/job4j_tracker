@@ -1,33 +1,33 @@
 package ru.job4j.inheritance;
 
 /**
- * Класс {@code Programmer} наследуется от {@link Person} и представляет программиста.
+ * Класс {@code Programmer} наследуется от {@link Engineer} и представляет программиста.
  *
- * <p>Добавляет поведение — умение писать код.</p>
- *
- * <p><b>Пример использования:</b></p>
- * <pre>{@code
- * Programmer programmer = new Programmer();
- * String code = programmer.writeCode();
- * System.out.println(code);
- * }</pre>
- *
- * <p><b>Пример вывода:</b></p>
- * <pre>{@code
- * Я пишу код.
- * }</pre>
+ * <p>Дополнительно содержит информацию о языке программирования.</p>
  *
  * @author Maksim Merkulov
  * @version 1.0
  */
-public class Programmer extends Person {
+public class Programmer extends Engineer {
 
     /**
-     * Возвращает строку с сообщением о том, что программист пишет код.
-     *
-     * @return Строка с сообщением о том, что программист пишет код.
+     * Язык программирования, на котором пишет программист.
      */
-    public String writeCode() {
-        return "Я пишу код.";
+    private String programLanguage;
+
+    /**
+     * Конструктор с тремя параметрами.
+     *
+     * <p>Создает объект {@code Programmer} с заданным языком программирования,
+     * стажем и информацией о наличии диплома.</p>
+     *
+     * @param programLanguage Язык программирования.
+     * @param experience      Стаж работы в годах.
+     * @param degree          Значение {@code true}, если есть диплом;
+     *                        значение {@code false} — если нет.
+     */
+    public Programmer(String programLanguage, int experience, boolean degree) {
+        super(experience, degree);
+        this.programLanguage = programLanguage;
     }
 }
