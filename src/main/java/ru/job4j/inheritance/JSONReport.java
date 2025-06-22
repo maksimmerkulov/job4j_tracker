@@ -22,7 +22,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class JSONReport extends TextReport {
 
@@ -36,6 +36,7 @@ public class JSONReport extends TextReport {
      * @param body Содержимое отчета.
      * @return Строка в формате JSON с полями {@code name} и {@code body}.
      */
+    @Override
     public String generate(String name, String body) {
         return "{" + System.lineSeparator()
                 + "\t\"name\" : \"" + name + "\","

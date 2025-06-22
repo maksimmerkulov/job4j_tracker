@@ -19,7 +19,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class HtmlReport extends TextReport {
 
@@ -32,6 +32,7 @@ public class HtmlReport extends TextReport {
      * @param body Содержимое отчета.
      * @return Строка с HTML-разметкой.
      */
+    @Override
     public String generate(String name, String body) {
         return "<h1>" + name + "</h1>"
                 + "<br/>"
