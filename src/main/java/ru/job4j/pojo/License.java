@@ -1,6 +1,7 @@
 package ru.job4j.pojo;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Класс {@code License} представляет собой модель данных техпаспорта (ПТС) автомобиля.
@@ -35,7 +36,7 @@ import java.util.Date;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class License {
 
@@ -129,5 +130,36 @@ public class License {
      */
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    /**
+     * Сравнивает два объекта {@link License} по значениям полей:
+     * {@code owner}, {@code model}, {@code code} и {@code created}.
+     *
+     * @param o Объект для сравнения.
+     * @return Значение {@code true}, если объекты равны;
+     *         значение {@code false} — в противном случае.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        License license = (License) o;
+        return Objects.equals(owner, license.owner)
+                && Objects.equals(model, license.model)
+                && Objects.equals(code, license.code)
+                && Objects.equals(created, license.created);
+    }
+
+    /**
+     * Возвращает хэш-код объекта, вычисленный на основе полей:
+     * {@code owner}, {@code model}, {@code code}, {@code created}.
+     *
+     * @return Хэш-код объекта.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(owner, model, code, created);
     }
 }
