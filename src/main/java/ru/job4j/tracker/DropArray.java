@@ -3,66 +3,41 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 
 /**
- * Класс {@code DropArray} демонстрирует удаление {@code null}-элементов из массива строк.
+ * Класс {@code DropArray} представляет собой демонстрацию перемещения
+ * элементов массива с учетом пропусков {@code null} значений.
  *
- * <p>Может использоваться для очистки данных, где возможны пропущенные значения.</p>
- *
- * <p>Массив {@code result} заполняется только непустыми значениями из исходного массива
- * и затем обрезается до фактического количества элементов методом {@link Arrays#copyOf(Object[], int)}.</p>
+ * <p>Используется для демонстрации использования метода {@link System#arraycopy(Object, int, Object, int, int)}
+ * для перемещения элементов в массиве с пропуском {@code null} значений.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * String[] names = {"Petr", null, "Ivan", "Stepan", null};
- * String[] result = new String[names.length];
- * int size = 0;
- * for (int index = 0; index < names.length; index++) {
- *     String name = names[index];
- *     if (name != null) {
- *         result[size] = name;
- *         size++;
- *     }
- * }
- *
- * result = Arrays.copyOf(result, size);
- * for (int index = 0; index < result.length; index++) {
- *     System.out.println(result[index]);
- * }
+ * String[] names = {"Petr", null, "Ivan", "Stepan", "Fedor"};
+ * System.arraycopy(names, 2, names, 1, 3);
+ * System.out.println(Arrays.toString(names));
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- * Petr
- * Ivan
- * Stepan
+ * [Petr, Ivan, Stepan, Fedor, Fedor]
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class DropArray {
 
     /**
      * Точка входа в программу.
      *
-     * <p>Фильтрует {@code null}-значения из массива {@code names}
-     * и выводит результат на консоль.</p>
+     * <p>Создает массив строк, выполняет операцию копирования
+     * с помощью {@link System#arraycopy(Object, int, Object, int, int)},
+     * затем выводит результат в консоль.</p>
      *
      * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
-        String[] names = {"Petr", null, "Ivan", "Stepan", null};
-        String[] result = new String[names.length];
-        int size = 0;
-        for (int index = 0; index < names.length; index++) {
-            String name = names[index];
-            if (name != null) {
-                result[size] = name;
-                size++;
-            }
-        }
-        result = Arrays.copyOf(result, size);
-        for (int index = 0; index < result.length; index++) {
-            System.out.println(result[index]);
-        }
+        String[] names = {"Petr", null, "Ivan", "Stepan", "Fedor"};
+        System.arraycopy(names, 2, names, 1, 3);
+        System.out.println(Arrays.toString(names));
     }
 }

@@ -11,7 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * {@link Tracker#findById(int)},
  * {@link Tracker#findAll()},
  * {@link Tracker#findByName(String)},
- * {@link Tracker#replace(int, Item)}.</p>
+ * {@link Tracker#replace(int, Item)},
+ * {@link Tracker#delete(int)}.</p>
  *
  * <p><b>Пример тестирования:</b></p>
  * <pre>{@code
@@ -24,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class TrackerTest {
 
@@ -143,5 +144,35 @@ public class TrackerTest {
         boolean result = tracker.replace(1000, updateItem);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
         assertThat(result).isFalse();
+    }
+
+    /**
+     * Проверяет успешное удаление заявки методом {@link Tracker#delete(int)}.
+     *
+     * <p>Ожидается, что после удаления заявка не будет найдена по {@code id} (будет {@code null}).</p>
+     */
+    @Test
+    public void whenDeleteItemIsSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        int id = item.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id)).isNull();
+    }
+
+    /**
+     * Проверяет, что удаление методом {@link Tracker#delete(int)} не приводит к изменению,
+     * если заявка с указанным {@code id} отсутствует.
+     *
+     * <p>Ожидается, что существующая заявка останется неизменной.</p>
+     */
+    @Test
+    public void whenDeleteItemIsNotSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        tracker.delete(1000);
+        assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
     }
 }

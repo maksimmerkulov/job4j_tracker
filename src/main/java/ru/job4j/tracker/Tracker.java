@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Класс {@code Tracker} представляет собой хранилище для заявок {@link Item}.
  *
- * <p>Используется для добавления, поиска, замены и хранения заявок по имени и идентификатору.</p>
+ * <p>Используется для добавления, поиска, замены, удаления и хранения заявок по имени и идентификатору.</p>
  *
  * <p><b>Ограничение:</b> максимальная вместимость — 100 заявок.</p>
  *
@@ -23,7 +23,7 @@ import java.util.Arrays;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Tracker {
 
@@ -135,6 +135,23 @@ public class Tracker {
             items[index] = item;
         }
         return index != -1;
+    }
+
+    /**
+     * Удаляет заявку по заданному {@code id}.
+     *
+     * <p>Если заявка найдена, все элементы массива {@code items} сдвигаются влево на одну позицию,
+     * а последний элемент обнуляется. Размер уменьшается на единицу.</p>
+     *
+     * @param id Уникальный идентификатор заявки, которую необходимо удалить.
+     */
+    public void delete(int id) {
+        int index = indexOf(id);
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
+            items[size - 1] = null;
+            size--;
+        }
     }
 
     /**
