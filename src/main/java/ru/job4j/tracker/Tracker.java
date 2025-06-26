@@ -5,8 +5,7 @@ import java.util.Arrays;
 /**
  * Класс {@code Tracker} представляет собой хранилище для заявок {@link Item}.
  *
- * <p>Позволяет добавлять заявки, искать их по имени и идентификатору, а также получать
- * список всех добавленных заявок.</p>
+ * <p>Используется для добавления, поиска, замены и хранения заявок по имени и идентификатору.</p>
  *
  * <p><b>Ограничение:</b> максимальная вместимость — 100 заявок.</p>
  *
@@ -24,7 +23,7 @@ import java.util.Arrays;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Tracker {
 
@@ -109,11 +108,49 @@ public class Tracker {
      * @return Объект {@link Item}, если заявка с указанным {@code id} найдена, иначе {@code null}.
      */
     public Item findById(int id) {
-        Item result = null;
-        for (int i = 0; i < size; i++) {
-            Item item = items[i];
-            if (item.getId() == id) {
-                result = item;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
+    /**
+     * Заменяет заявку с указанным {@code id} на новую.
+     *
+     * <p>Если заявка с данным идентификатором найдена, то:</p>
+     * <ul>
+     *     <li>Новому объекту {@code item} присваивается тот же {@code id}, что и у заменяемой заявки.</li>
+     *     <li>Существующая заявка заменяется на новую в массиве {@code items}.</li>
+     * </ul>
+     *
+     * <p>Если заявка с указанным {@code id} не найдена, операция не выполняется.</p>
+     *
+     * @param id   Уникальный идентификатор заявки, которую необходимо заменить.
+     * @param item Новый объект {@link Item}, который подставляется вместо существующей заявки.
+     * @return Значение {@code true}, если заявка найдена и замена выполнена;
+     *         значение {@code false}, если заявка не найдена.
+     */
+    public boolean replace(int id, Item item) {
+        int index = indexOf(id);
+        if (index != -1) {
+            item.setId(id);
+            items[index] = item;
+        }
+        return index != -1;
+    }
+
+    /**
+     * Выполняет поиск индекса заявки в массиве {@code items} по уникальному идентификатору {@code id}.
+     *
+     * <p>Выполняет поиск заявки с заданным идентификатором в массиве и возвращает индекс найденного элемента.
+     * Если заявка не найдена, метод возвращает {@code -1}.</p>
+     *
+     * @param id Уникальный идентификатор заявки, по которому выполняется поиск.
+     * @return Индекс найденной заявки в массиве {@code items}, если заявка найдена, иначе {@code -1}.
+     */
+    private int indexOf(int id) {
+        int result = -1;
+        for (int index = 0; index < size; index++) {
+            if (items[index].getId() == id) {
+                result = index;
                 break;
             }
         }
