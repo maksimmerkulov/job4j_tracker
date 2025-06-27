@@ -1,32 +1,30 @@
 package ru.job4j.tracker;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 /**
- * Класс {@code StartUI} демонстрирует получение и форматирование
- * даты создания объекта {@link Item}.
+ * Класс {@code StartUI} демонстрирует создание объекта {@link Item}
+ * и вывод его строкового представления в консоль.
  *
- * <p>В методе {@link #main(String[])} создается объект {@code Item},
- * затем извлекается дата его создания и форматируется по шаблону
- * {@code dd-MMMM-EEEE-yyyy HH:mm:ss}.</p>
+ * <p>В методе {@link #main(String[])} создается объект {@link Item},
+ * и результат его метода {@link Item#toString()} выводится в стандартный поток вывода.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * Item item = new Item();
- * LocalDateTime currentDateTime = item.getCreated();
- * DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
- * String currentDateTimeFormat = currentDateTime.format(formatter);
- * System.out.println(currentDateTimeFormat);
+ * Item item = new Item(1, "Bug report");
+ * System.out.println(item);
  * }</pre>
  *
- * <p><b>Пример вывода:</b></p>
+ * <p><b>Пример вывода (если переопределен метод toString):</b></p>
  * <pre>{@code
- * 17-April-Thursday-2025 13:50:00
+ * Item{id=1, name='Bug report', created=23-апреля-среда-2025 15:05:40}
+ * }</pre>
+ *
+ * <p><b>Пример вывода (если toString() не переопределен):</b></p>
+ * <pre>{@code
+ * ru.job4j.tracker.Item@1a2b3c4d
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class StartUI {
 
@@ -36,10 +34,7 @@ public class StartUI {
      * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
-        Item item = new Item();
-        LocalDateTime currentDateTime = item.getCreated();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-        String currentDateTimeFormat = currentDateTime.format(formatter);
-        System.out.println(currentDateTimeFormat);
+        Item item = new Item(1, "Bug report");
+        System.out.println(item);
     }
 }
