@@ -2,18 +2,19 @@ package ru.job4j.tracker;
 
 import java.util.Scanner;
 
- /**
+/**
  * Класс {@code StartUI} управляет взаимодействием пользователя с приложением трекера заявок.
  *
  * <p>Используется для запуска консольного интерфейса, отображения меню,
  * обработки пользовательского ввода и выполнения операций над заявками через {@link Tracker}.</p>
  *
-  * <p><b>Сценарии использования:</b></p>
-  * <ul>
-  *     <li>Инициализация с {@link Scanner} и {@link Tracker}.</li>
-  *     <li>Вывод пользовательского меню и обработка выбора до завершения программы.</li>
-  *     <li>Добавление новой заявки по вводу пользователя.</li>
-  * </ul>
+ * <p><b>Сценарии использования:</b></p>
+ * <ul>
+ *     <li>Инициализация с {@link Scanner} и {@link Tracker}.</li>
+ *     <li>Вывод пользовательского меню и обработка выбора до завершения программы.</li>
+ *     <li>Добавление новой заявки по вводу пользователя.</li>
+ *     <li>Отображение всех сохраненных заявок.</li>
+ * </ul>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
@@ -37,7 +38,7 @@ import java.util.Scanner;
   * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.3
+ * @version 1.4
  */
 public class StartUI {
 
@@ -63,6 +64,16 @@ public class StartUI {
                  Item item = new Item(name);
                  tracker.add(item);
                  System.out.println("Добавленная заявка: " + item);
+             } else if (select == 1) {
+                 System.out.println("=== Вывод всех заявок ===");
+                 Item[] items = tracker.findAll();
+                 if (items.length > 0) {
+                     for (Item item : items) {
+                         System.out.println(item);
+                     }
+                 } else {
+                     System.out.println("Хранилище еще не содержит заявок");
+                 }
              } else if (select == 6) {
                  run = false;
              }
