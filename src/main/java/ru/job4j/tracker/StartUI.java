@@ -16,6 +16,7 @@ import java.util.Scanner;
  *     <li>Отображение всех заявок.</li>
  *     <li>Редактирование существующей заявки.</li>
  *     <li>Удаление заявки по идентификатору.</li>
+ *     <li>Поиск заявки по идентификатору.</li>
  * </ul>
  *
  * <p><b>Пример использования:</b></p>
@@ -40,18 +41,18 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.6
+ * @version 1.7
  */
 public class StartUI {
 
     /**
      * Запускает главный цикл пользовательского интерфейса.
      *
-     * <p>Метод отображает меню, обрабатывает выбор пользователя
-     * и выполняет действия: создание, просмотр, редактирование и удаление заявок.</p>
+     * <p>Метод отображает меню, обрабатывает выбор пользователя и выполняет действия:
+     * создание, просмотр, редактирование, удаление и поиск заявок.</p>
      *
      * @param scanner Источник пользовательского ввода.
-     * @param tracker Трекер для хранения и управления заявками.
+     * @param tracker Хранилище для работы с заявками.
      */
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
@@ -95,6 +96,16 @@ public class StartUI {
                 Item item = tracker.findById(id);
                 tracker.delete(id);
                 System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
+            } else if (select == 4) {
+                System.out.println("=== Вывод заявки по id ===");
+                System.out.print("Введите id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                if (item != null) {
+                    System.out.println(item);
+                } else {
+                    System.out.println("Заявка с введенным id: " + id + " не найдена.");
+                }
             } else if (select == 6) {
                 run = false;
             }

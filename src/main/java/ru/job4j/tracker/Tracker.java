@@ -12,18 +12,17 @@ import java.util.Arrays;
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Tracker tracker = new Tracker();
- * Item item = new Item("Bug");
- * tracker.add(item);
+ * tracker.add(new Item("Test"));
  * Item[] all = tracker.findAll();
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- * Bug
+ * Item{id=1, name='Test', created=...}
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.3
+ * @version 1.4
  */
 public class Tracker {
 
@@ -167,9 +166,9 @@ public class Tracker {
      */
     private int indexOf(int id) {
         int result = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
-                result = index;
+        for (int i = 0; i < size; i++) {
+            if (items[i].getId() == id) {
+                result = i;
                 break;
             }
         }
