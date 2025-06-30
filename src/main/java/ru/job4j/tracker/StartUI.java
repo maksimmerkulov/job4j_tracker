@@ -12,7 +12,10 @@ import java.util.Scanner;
  * <ul>
  *     <li>Инициализация с {@link Scanner} и {@link Tracker}.</li>
  *     <li>Вывод пользовательского меню и обработка выбора до завершения программы.</li>
- *     <li>Добавление новой заявки, редактирование, просмотр и завершение работы.</li>
+ *     <li>Добавление новой заявки.</li>
+ *     <li>Отображение всех заявок.</li>
+ *     <li>Редактирование существующей заявки.</li>
+ *     <li>Удаление заявки по идентификатору.</li>
  * </ul>
  *
  * <p><b>Пример использования:</b></p>
@@ -37,7 +40,7 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.5
+ * @version 1.6
  */
 public class StartUI {
 
@@ -45,51 +48,58 @@ public class StartUI {
      * Запускает главный цикл пользовательского интерфейса.
      *
      * <p>Метод отображает меню, обрабатывает выбор пользователя
-     * и выполняет действия: создание, просмотр и изменение заявок.</p>
+     * и выполняет действия: создание, просмотр, редактирование и удаление заявок.</p>
      *
      * @param scanner Источник пользовательского ввода.
      * @param tracker Трекер для хранения и управления заявками.
      */
-     public void init(Scanner scanner, Tracker tracker) {
-         boolean run = true;
-         while (run) {
-             showMenu();
-             System.out.print("Выбрать: ");
-             int select = Integer.parseInt(scanner.nextLine());
-             if (select == 0) {
-                 System.out.println("=== Создание новой заявки ===");
-                 System.out.print("Введите имя: ");
-                 String name = scanner.nextLine();
-                 Item item = new Item(name);
-                 tracker.add(item);
-                 System.out.println("Добавленная заявка: " + item);
-             } else if (select == 1) {
-                 System.out.println("=== Вывод всех заявок ===");
-                 Item[] items = tracker.findAll();
-                 if (items.length > 0) {
-                     for (Item item : items) {
-                         System.out.println(item);
-                     }
-                 } else {
-                     System.out.println("Хранилище еще не содержит заявок");
-                 }
-             } else if (select == 2) {
-                 System.out.println("=== Редактирование заявки ===");
-                 System.out.print("Введите id: ");
-                 int id = Integer.parseInt(scanner.nextLine());
-                 System.out.print("Введите имя: ");
-                 String name = scanner.nextLine();
-                 Item item = new Item(name);
-                 if (tracker.replace(id, item)) {
-                     System.out.println("Заявка изменена успешно.");
-                 } else {
-                     System.out.println("Ошибка замены заявки.");
-                 }
-             } else if (select == 6) {
-                 run = false;
-             }
-         }
-     }
+    public void init(Scanner scanner, Tracker tracker) {
+        boolean run = true;
+        while (run) {
+            showMenu();
+            System.out.print("Выбрать: ");
+            int select = Integer.parseInt(scanner.nextLine());
+            if (select == 0) {
+                System.out.println("=== Создание новой заявки ===");
+                System.out.print("Введите имя: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                tracker.add(item);
+                System.out.println("Добавленная заявка: " + item);
+            } else if (select == 1) {
+                System.out.println("=== Вывод всех заявок ===");
+                Item[] items = tracker.findAll();
+                if (items.length > 0) {
+                    for (Item item : items) {
+                        System.out.println(item);
+                    }
+                } else {
+                    System.out.println("Хранилище еще не содержит заявок");
+                }
+            } else if (select == 2) {
+                System.out.println("=== Редактирование заявки ===");
+                System.out.print("Введите id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                System.out.print("Введите имя: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                if (tracker.replace(id, item)) {
+                    System.out.println("Заявка изменена успешно.");
+                } else {
+                    System.out.println("Ошибка замены заявки.");
+                }
+            } else if (select == 3) {
+                System.out.println("=== Удаление заявки ===");
+                System.out.print("Введите id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                tracker.delete(id);
+                System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
+            } else if (select == 6) {
+                run = false;
+            }
+        }
+    }
 
     /**
      * Отображает текстовое меню команд на экран.
