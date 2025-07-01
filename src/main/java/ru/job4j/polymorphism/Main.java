@@ -4,9 +4,9 @@ package ru.job4j.polymorphism;
  * Класс {@code Main} демонстрирует использование интерфейса {@link Vehicle}
  * на примере реализации {@link SportCar}.
  *
- * <p>Создает экземпляр {@link SportCar} и вызывает его методы, чтобы продемонстрировать
- * типичное поведение спортивного автомобиля: переключение передач, ускорение, управление,
- * торможение и заправка.</p>
+ * <p>Создает экземпляр {@link SportCar} и вызывает его методы, чтобы показать
+ * типичное поведение спортивного автомобиля: переключение передач, ускорение,
+ * рулевое управление, торможение, заправка и расчет аэродинамики.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
@@ -16,6 +16,7 @@ package ru.job4j.polymorphism;
  * sportCar.steer();
  * sportCar.brake();
  * sportCar.refill();
+ * Vehicle.getDragCoefficient();
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
@@ -25,10 +26,11 @@ package ru.job4j.polymorphism;
  * Укороченная рулевая рейка для ускоренного поворота руля
  * Усиленная тормозная система
  * Заправить 100л бензина
+ * Формула расчета коэффициента аэродинамического сопротивления автомобиля
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Main {
 
@@ -47,5 +49,6 @@ public class Main {
         sportCar.steer();
         sportCar.brake();
         sportCar.refill();
+        Vehicle.getDragCoefficient();
     }
 }

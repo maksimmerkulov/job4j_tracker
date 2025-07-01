@@ -5,7 +5,7 @@ package ru.job4j.polymorphism;
  * использующего автоматическую коробку передач и стандартные механизмы управления.
  *
  * <p>Реализует интерфейс {@link Vehicle}, предоставляя конкретные реализации методов
- * ускорения, торможения, управления, переключения передач и заправки топливом.</p>
+ * ускорения, торможения, управления, переключения передач, зарядки аккумулятора и заправки топливом.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
@@ -15,6 +15,7 @@ package ru.job4j.polymorphism;
  * car.steer();
  * car.brake();
  * car.refill();
+ * car.chargeBattery();
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
@@ -24,10 +25,11 @@ package ru.job4j.polymorphism;
  * Стандартное рулевое управление
  * Стандартная тормозная система
  * Заправить 60л бензина
+ * Аккумулятор под капотом. Зарядить.
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class TownCar implements Vehicle {
 
@@ -80,5 +82,15 @@ public class TownCar implements Vehicle {
     @Override
     public void refill() {
         System.out.println("Заправить 60л бензина");
+    }
+
+    /**
+     * Заряжает аккумулятор автомобиля.
+     *
+     * <p>Вызывает реализацию по умолчанию из интерфейса {@link Vehicle}.</p>
+     */
+    @Override
+    public void chargeBattery() {
+        Vehicle.super.chargeBattery();
     }
 }
