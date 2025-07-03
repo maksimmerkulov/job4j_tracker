@@ -42,9 +42,125 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.9
+ * @version 1.10
  */
 public class StartUI {
+
+    /**
+     * Создает новую заявку, запрашивая у пользователя имя, и добавляет ее в трекер.
+     *
+     * <p>После создания выводит информацию о добавленной заявке.</p>
+     *
+     * @param input Интерфейс для получения пользовательского ввода.
+     * @param tracker Хранилище заявок.
+     */
+    public static void createItem(Input input, Tracker tracker) {
+        System.out.println("=== Создание новой заявки ===");
+        String name = input.askStr("Введите имя: ");
+        Item item = new Item(name);
+        tracker.add(item);
+        System.out.println("Добавленная заявка: " + item);
+    }
+
+    /**
+     * Отображает все заявки, содержащиеся в хранилище.
+     *
+     * <p>Если заявки есть — они выводятся построчно.
+     * Если хранилище пусто — выводится сообщение об отсутствии заявок.</p>
+     *
+     * @param tracker Хранилище заявок.
+     */
+    public static void findAllItems(Tracker tracker) {
+        System.out.println("=== Вывод всех заявок ===");
+        Item[] items = tracker.findAll();
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("Хранилище еще не содержит заявок");
+        }
+    }
+
+    /**
+     * Редактирует существующую заявку, заменяя ее имя на новое.
+     *
+     * <p>Пользователь вводит id и новое имя. Если заявка с таким id найдена,
+     * происходит замена и выводится сообщение об успехе. Иначе — сообщение об ошибке.</p>
+     *
+     * @param input Интерфейс для получения пользовательского ввода.
+     * @param tracker Хранилище заявок.
+     */
+    public static void replaceItem(Input input, Tracker tracker) {
+        System.out.println("=== Редактирование заявки ===");
+        int id = input.askInt("Введите id: ");
+        String name = input.askStr("Введите имя: ");
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            System.out.println("Заявка изменена успешно.");
+        } else {
+            System.out.println("Ошибка замены заявки.");
+        }
+    }
+
+    /**
+     * Удаляет заявку по введенному пользователем id.
+     *
+     * <p>Если заявка найдена, она удаляется и выводится сообщение об успешном удалении.
+     * В противном случае — сообщение об ошибке.</p>
+     *
+     * @param input Интерфейс для получения пользовательского ввода.
+     * @param tracker Хранилище заявок.
+     */
+    public static void deleteItem(Input input, Tracker tracker) {
+        System.out.println("=== Удаление заявки ===");
+        int id = input.askInt("Введите id: ");
+        Item item = tracker.findById(id);
+        tracker.delete(id);
+        System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
+    }
+
+    /**
+     * Выполняет поиск заявки по ее идентификатору.
+     *
+     * <p>Пользователь вводит id. Если заявка найдена, она отображается на экране.
+     * Если не найдена — выводится соответствующее сообщение.</p>
+     *
+     * @param input Интерфейс для получения пользовательского ввода.
+     * @param tracker Хранилище заявок.
+     */
+    public static void findItemById(Input input, Tracker tracker) {
+        System.out.println("=== Вывод заявки по id ===");
+        int id = input.askInt("Введите id: ");
+        Item item = tracker.findById(id);
+        if (item != null) {
+            System.out.println(item);
+        } else {
+            System.out.println("Заявка с введенным id: " + id + " не найдена.");
+        }
+    }
+
+    /**
+     * Выполняет поиск заявок по имени.
+     *
+     * <p>Пользователь вводит имя. Все найденные заявки выводятся на экран.
+     * Если ни одной заявки не найдено, выводится сообщение об этом.</p>
+     *
+     * @param input Интерфейс для получения пользовательского ввода.
+     * @param tracker Хранилище заявок.
+     */
+    public static void findItemByName(Input input, Tracker tracker) {
+        System.out.println("=== Вывод заявок по имени ===");
+        String name = input.askStr("Введите имя: ");
+        Item[] items = tracker.findByName(name);
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("Заявки с именем: " + name + " не найдены.");
+        }
+    }
 
     /**
      * Запускает главный цикл пользовательского интерфейса.
@@ -61,57 +177,17 @@ public class StartUI {
             showMenu();
             int select = input.askInt("Выбрать: ");
             if (select == 0) {
-                System.out.println("=== Создание новой заявки ===");
-                String name = input.askStr("Введите имя: ");
-                Item item = new Item(name);
-                tracker.add(item);
-                System.out.println("Добавленная заявка: " + item);
+                createItem(input, tracker);
             } else if (select == 1) {
-                System.out.println("=== Вывод всех заявок ===");
-                Item[] items = tracker.findAll();
-                if (items.length > 0) {
-                    for (Item item : items) {
-                        System.out.println(item);
-                    }
-                } else {
-                    System.out.println("Хранилище еще не содержит заявок");
-                }
+                findAllItems(tracker);
             } else if (select == 2) {
-                System.out.println("=== Редактирование заявки ===");
-                int id = input.askInt("Введите id: ");
-                String name = input.askStr("Введите имя: ");
-                Item item = new Item(name);
-                if (tracker.replace(id, item)) {
-                    System.out.println("Заявка изменена успешно.");
-                } else {
-                    System.out.println("Ошибка замены заявки.");
-                }
+                replaceItem(input, tracker);
             } else if (select == 3) {
-                System.out.println("=== Удаление заявки ===");
-                int id = input.askInt("Введите id: ");
-                Item item = tracker.findById(id);
-                tracker.delete(id);
-                System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
+                deleteItem(input, tracker);
             } else if (select == 4) {
-                System.out.println("=== Вывод заявки по id ===");
-                int id = input.askInt("Введите id: ");
-                Item item = tracker.findById(id);
-                if (item != null) {
-                    System.out.println(item);
-                } else {
-                    System.out.println("Заявка с введенным id: " + id + " не найдена.");
-                }
+                findItemById(input, tracker);
             } else if (select == 5) {
-                System.out.println("=== Вывод заявок по имени ===");
-                String name = input.askStr("Введите имя: ");
-                Item[] items = tracker.findByName(name);
-                if (items.length > 0) {
-                    for (Item item : items) {
-                        System.out.println(item);
-                    }
-                } else {
-                    System.out.println("Заявки с именем: " + name + " не найдены.");
-                }
+                findItemByName(input, tracker);
             } else if (select == 6) {
                 run = false;
             }
@@ -148,5 +224,6 @@ public class StartUI {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         new StartUI().init(input, tracker);
+        StartUI.createItem(input, tracker);
     }
 }
