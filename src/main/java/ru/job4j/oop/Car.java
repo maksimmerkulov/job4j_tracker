@@ -33,9 +33,9 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
-public class Car {
+public class Car extends Transport {
 
     /**
      * Марка автомобиля.
@@ -46,6 +46,12 @@ public class Car {
      * Модель автомобиля.
      */
     private String model;
+
+    /**
+     * Конструктор без параметров.
+     */
+    public Car() {
+    }
 
     /**
      * Конструктор для инициализации марки и модели автомобиля.
