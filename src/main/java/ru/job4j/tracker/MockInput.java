@@ -1,52 +1,82 @@
 package ru.job4j.tracker;
 
 /**
- * Класс {@code MockInput} представляет заглушку для пользовательского ввода.
+ * Класс {@code MockInput} представляет имитацию пользовательского ввода
+ * на основе заранее заданного массива строк.
  *
- * <p>Реализует интерфейс {@link Input} и возвращает фиксированные значения —
- * {@code null} для строк и {@code 0} для чисел. Используется для тестирования
- * компонентов, зависящих от ввода, без реального взаимодействия с пользователем.</p>
+ * <p>Реализует интерфейс {@link Input} и используется в модульных тестах
+ * для подстановки последовательности ответов без участия пользователя.</p>
+ *
+ * <p>При каждом вызове {@link #askStr(String)} возвращает очередной элемент
+ * из массива {@code answers}. Метод {@link #askInt(String)} преобразует
+ * его в целое число.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * Input input = new MockInput();
- * String answer = input.askStr("Введите имя:");
- * int number = input.askInt("Введите число:");
- * System.out.println("Ответ на строковый вопрос: " + answer);
- * System.out.println("Ответ на числовой вопрос: " + number);
+ * String[] predefined = {"test", "42"};
+ * Input input = new MockInput(predefined);
+ *
+ * String name = input.askStr("Введите имя: ");
+ * int id = input.askInt("Введите число: ");
+ * System.out.println(name);
+ * System.out.println(id);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- * Ответ на строковый вопрос: null
- * Ответ на числовой вопрос: 0
+ * test
+ * 42
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see Input
  */
 public class MockInput implements Input {
 
     /**
-     * Возвращает {@code null} независимо от переданного вопроса.
-     *
-     * @param question Текст вопроса (игнорируется).
-     * @return Значение {@code null}.
+     * Массив заранее заданных ответов.
      */
-    @Override
-    public String askStr(String question) {
-        return null;
+    private String[] answers;
+
+    /**
+     * Текущая позиция в массиве ответов.
+     */
+    private int position = 0;
+
+    /**
+     * Создает объект {@code MockInput} с заданными ответами.
+     *
+     * @param answers Массив строковых ответов, которые будут возвращаться последовательно.
+     */
+    public MockInput(String[] answers) {
+        this.answers = answers;
     }
 
     /**
-     * Возвращает {@code 0} независимо от переданного вопроса.
+     * Возвращает следующий строковый ответ из массива.
      *
-     * @param question Текст вопроса (игнорируется).
-     * @return Значение {@code 0}.
+     * <p>Игнорирует переданный вопрос. При каждом вызове возвращает следующий элемент массива {@code answers}.</p>
+     *
+     * @param question Игнорируемый вопрос.
+     * @return Следующий строковый ответ.
+     */
+    @Override
+    public String askStr(String question) {
+        return answers[position++];
+    }
+
+    /**
+     * Возвращает следующий ответ из массива как целое число.
+     *
+     * <p>Внутри вызывает {@link #askStr(String)} и преобразует результат в {@code int}.</p>
+     *
+     * @param question Игнорируемый вопрос.
+     * @return Следующий ответ как {@code int}.
+     * @throws NumberFormatException если строка не может быть преобразована в число.
      */
     @Override
     public int askInt(String question) {
-        return 0;
+        return Integer.parseInt(askStr(question));
     }
 }
