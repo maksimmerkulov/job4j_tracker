@@ -1,31 +1,59 @@
 package ru.job4j.tracker;
 
 /**
- * Класс {@code CreateAction} реализует действие по добавлению новой заявки в хранилище.
+ * Класс {@code CreateAction} реализует действие по добавлению новой заявки
+ * в хранилище {@link Tracker}.
  *
- * <p>Реализует интерфейс {@link UserAction}, обеспечивая возможность взаимодействия
- * с пользователем для ввода имени заявки и добавления ее в {@link Tracker}.</p>
+ * <p>Реализует интерфейс {@link UserAction}, предоставляя пользователю
+ * возможность ввести имя заявки, создать объект {@link Item} и сохранить его
+ * в трекере.</p>
+ *
+ * <p>После успешного добавления заявки выводится ее представление в консоль.</p>
+ *
+ * <p><b>Сценарии использования:</b></p>
+ * <ul>
+ *     <li>Создание новой заявки с вводом имени.</li>
+ *     <li>Добавление заявки в хранилище.</li>
+ *     <li>Вывод результата пользователю.</li>
+ * </ul>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
+ * Output output = new ConsoleOutput();
  * Input input = new ConsoleInput();
  * Tracker tracker = new Tracker();
- * UserAction action = new CreateAction();
+ * UserAction action = new CreateAction(output);
  * action.execute(input, tracker);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
  * === Создание новой заявки ===
- * Введите имя: test
- * Добавленная заявка: Item{id=1, name='test', created=...}
+ * Введите имя: Fix PC
+ * Добавленная заявка: Item{id=1, name='Fix PC', created=05-мая-понедельник-2025 16:15:49}
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see UserAction
+ * @see Tracker
+ * @see Item
  */
 public class CreateAction implements UserAction {
+
+    /**
+     * Объект вывода, используемый для отображения сообщений пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Создает объект действия создания новой заявки.
+     *
+     * @param output Объект вывода сообщений пользователю.
+     */
+    public CreateAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -49,11 +77,11 @@ public class CreateAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Создание новой заявки ===");
+        output.println("=== Создание новой заявки ===");
         String name = input.askStr("Введите имя: ");
         Item item = new Item(name);
         tracker.add(item);
-        System.out.println("Добавленная заявка: " + item);
+        output.println("Добавленная заявка: " + item);
         return true;
     }
 }

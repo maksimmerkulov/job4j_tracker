@@ -1,15 +1,26 @@
 package ru.job4j.tracker;
 
 /**
- * Класс {@code DeleteAction} реализует действие удаления заявки по идентификатору.
+ * Класс {@code DeleteAction} реализует действие удаления заявки по ее идентификатору
+ * из хранилища заявок {@link Tracker}.
  *
- * <p>Реализует интерфейс {@link UserAction} и позволяет пользователю удалить
- * существующую заявку из хранилища {@link Tracker}.</p>
+ * <p>Реализует интерфейс {@link UserAction}, предоставляя пользователю
+ * возможность удалить ранее добавленную заявку, если она существует.</p>
+ *
+ * <p>Во время выполнения действия запрашивается ID заявки. Если заявка найдена —
+ * она удаляется и отображается сообщение об успехе. Если не найдена — сообщение об ошибке.</p>
+ *
+ * <p><b>Сценарии использования:</b></p>
+ * <ul>
+ *     <li>Удаление существующей заявки по ее ID.</li>
+ *     <li>Обработка случая, когда заявка не найдена.</li>
+ * </ul>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * UserAction action = new DeleteAction();
- * action.execute(new ConsoleInput(), tracker);
+ * Output output = new ConsoleOutput();
+ * UserAction action = new DeleteAction(output);
+ * boolean result = action.execute(input, tracker);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
@@ -20,10 +31,26 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see UserAction
+ * @see Tracker
+ * @see Item
  */
 public class DeleteAction implements UserAction {
+
+    /**
+     * Объект вывода, используемый для отображения сообщений пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Создает объект действия удаления заявки.
+     *
+     * @param output Объект вывода сообщений пользователю.
+     */
+    public DeleteAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -47,11 +74,11 @@ public class DeleteAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Удаление заявки ===");
+        output.println("=== Удаление заявки ===");
         int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
         tracker.delete(id);
-        System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
+        output.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
         return true;
     }
 }

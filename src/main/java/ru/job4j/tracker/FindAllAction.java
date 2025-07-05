@@ -1,29 +1,56 @@
 package ru.job4j.tracker;
 
 /**
- * Класс {@code FindAllAction} реализует действие отображения всех заявок.
+ * Класс {@code FindAllAction} реализует действие отображения всех заявок
+ * из хранилища {@link Tracker}.
  *
- * <p>Реализует интерфейс {@link UserAction}, предоставляя возможность
- * вывести список всех сохраненных заявок из {@link Tracker} в консоль.</p>
+ * <p>Реализует интерфейс {@link UserAction}, предоставляя пользователю возможность
+ * просматривать весь список добавленных заявок.</p>
+ *
+ * <p>Если заявки присутствуют, каждая из них выводится построчно. В противном случае
+ * отображается сообщение о том, что хранилище пусто.</p>
+ *
+ * <p><b>Сценарии использования:</b></p>
+ * <ul>
+ *     <li>Просмотр всех заявок.</li>
+ *     <li>Обработка случая пустого хранилища.</li>
+ * </ul>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * UserAction action = new FindAllAction();
- * action.execute(new ConsoleInput(), tracker);
+ * Output output = new ConsoleOutput();
+ * UserAction action = new FindAllAction(output);
+ * action.execute(input, tracker);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
  * === Вывод всех заявок ===
- * Item{id=1, name='Fix PC', created=...}
- * Item{id=2, name='Fix bug', created=...}
+ * Item{id=1, name='Fix PC', created=05-мая-понедельник-2025 16:15:40}
+ * Item{id=2, name='Bug', created=05-мая-понедельник-2025 16:15:45}
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see UserAction
+ * @see Tracker
+ * @see Item
  */
 public class FindAllAction implements UserAction {
+
+    /**
+     * Объект вывода, используемый для отображения сообщений пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Создает объект действия отображения всех заявок.
+     *
+     * @param output Объект вывода сообщений пользователю.
+     */
+    public FindAllAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -47,14 +74,14 @@ public class FindAllAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Вывод всех заявок ===");
+        output.println("=== Вывод всех заявок ===");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : items) {
-                System.out.println(item);
+                output.println(item);
             }
         } else {
-            System.out.println("Хранилище еще не содержит заявок");
+            output.println("Хранилище еще не содержит заявок");
         }
         return true;
     }

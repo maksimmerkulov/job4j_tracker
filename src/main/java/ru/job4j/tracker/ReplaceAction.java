@@ -1,15 +1,26 @@
 package ru.job4j.tracker;
 
 /**
- * Класс {@code ReplaceAction} реализует действие изменения существующей заявки.
+ * Класс {@code ReplaceAction} реализует действие изменения существующей заявки
+ * в хранилище заявок {@link Tracker}.
  *
- * <p>Реализует интерфейс {@link UserAction}, предоставляя возможность
- * изменить имя заявки по ее идентификатору в {@link Tracker}.</p>
+ * <p>Реализует интерфейс {@link UserAction}, предоставляя пользователю возможность
+ * редактировать имя заявки по ее идентификатору.</p>
+ *
+ * <p>Во время выполнения действия запрашивается ID заявки и новое имя. Если заявка
+ * с указанным ID существует, она будет заменена новой.</p>
+ *
+ * <p><b>Сценарии использования:</b></p>
+ * <ul>
+ *     <li>Редактирование существующей заявки по ID.</li>
+ *     <li>Вывод сообщения об успешной замене или ошибке, если заявка не найдена.</li>
+ * </ul>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * UserAction action = new ReplaceAction();
- * action.execute(new ConsoleInput(), tracker);
+ * Output output = new ConsoleOutput();
+ * UserAction action = new ReplaceAction(output);
+ * boolean result = action.execute(input, tracker);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
@@ -21,10 +32,26 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see UserAction
+ * @see Tracker
+ * @see Item
  */
 public class ReplaceAction implements UserAction {
+
+    /**
+     * Объект вывода, используемый для отображения сообщений пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Создает объект действия редактирования заявки.
+     *
+     * @param output Объект вывода сообщений пользователю.
+     */
+    public ReplaceAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -48,14 +75,14 @@ public class ReplaceAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Редактирование заявки ===");
+        output.println("=== Редактирование заявки ===");
         int id = input.askInt("Введите id: ");
         String name = input.askStr("Введите имя: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
-            System.out.println("Заявка изменена успешно.");
+            output.println("Заявка изменена успешно.");
         } else {
-            System.out.println("Ошибка замены заявки.");
+            output.println("Ошибка замены заявки.");
         }
         return true;
     }

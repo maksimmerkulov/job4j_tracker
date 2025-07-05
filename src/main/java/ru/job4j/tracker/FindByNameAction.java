@@ -1,23 +1,34 @@
 package ru.job4j.tracker;
 
 /**
- * Класс {@code FindByNameAction} реализует действие поиска заявок по имени.
+ * Класс {@code FindByNameAction} реализует действие поиска заявок по имени
+ * в хранилище {@link Tracker}.
  *
- * <p>Реализует интерфейс {@link UserAction} и позволяет пользователю ввести строку имени,
- * по которой осуществляется поиск всех заявок в {@link Tracker}.</p>
+ * <p>Реализует интерфейс {@link UserAction} и предоставляет пользователю
+ * возможность ввести строку имени, по которой выполняется поиск всех совпадающих заявок.</p>
+ *
+ * <p>Если заявки найдены — каждая из них выводится построчно.
+ * Если не найдены — отображается соответствующее сообщение.</p>
+ *
+ * <p><b>Сценарии использования:</b></p>
+ * <ul>
+ *     <li>Поиск всех заявок по указанному имени.</li>
+ *     <li>Вывод найденных заявок или уведомление об отсутствии совпадений.</li>
+ * </ul>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * UserAction action = new FindByNameAction();
- * action.execute(new ConsoleInput(), tracker);
+ * Output output = new ConsoleOutput();
+ * UserAction action = new FindByNameAction(output);
+ * action.execute(input, tracker);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
  * === Вывод заявок по имени ===
- * Введите имя: Test
- * Item{id=1, name='Test', created=...}
- * Item{id=3, name='Test', created=...}
+ * Введите имя: Fix PC
+ * Item{id=1, name='Fix PC', created=05-мая-понедельник-2025 16:15:40}
+ * Item{id=3, name='Fix PC', created=05-мая-понедельник-2025 16:15:55}
  *
  * === Вывод заявок по имени ===
  * Введите имя: Bug
@@ -25,10 +36,26 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see UserAction
+ * @see Tracker
+ * @see Item
  */
 public class FindByNameAction implements UserAction {
+
+    /**
+     * Объект вывода, используемый для отображения сообщений пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Создает объект действия поиска заявок по имени.
+     *
+     * @param output Объект вывода сообщений пользователю.
+     */
+    public FindByNameAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -52,15 +79,15 @@ public class FindByNameAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Вывод заявок по имени ===");
+        output.println("=== Вывод заявок по имени ===");
         String name = input.askStr("Введите имя: ");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
             for (Item item : items) {
-                System.out.println(item);
+                output.println(item);
             }
         } else {
-            System.out.println("Заявки с именем: " + name + " не найдены.");
+            output.println("Заявки с именем: " + name + " не найдены.");
         }
         return true;
     }

@@ -1,23 +1,31 @@
 package ru.job4j.tracker;
 
 /**
- * Класс {@code FindByIdAction} реализует действие поиска заявки по идентификатору.
+ * Класс {@code FindByIdAction} реализует действие поиска заявки по ее идентификатору
+ * в хранилище {@link Tracker}.
  *
- * <p>Реализует интерфейс {@link UserAction} и позволяет пользователю ввести id
- * для поиска заявки в хранилище {@link Tracker}. В случае успеха — заявка отображается,
- * иначе выводится сообщение об ошибке.</p>
+ * <p>Реализует интерфейс {@link UserAction} и позволяет пользователю ввести ID,
+ * чтобы найти конкретную заявку. При успешном поиске заявка отображается.
+ * Если заявка не найдена — выводится соответствующее сообщение.</p>
+ *
+ * <p><b>Сценарии использования:</b></p>
+ * <ul>
+ *     <li>Поиск заявки по ID.</li>
+ *     <li>Отображение найденной заявки или сообщение об ошибке.</li>
+ * </ul>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * UserAction action = new FindByIdAction();
- * action.execute(new ConsoleInput(), tracker);
+ * Output output = new ConsoleOutput();
+ * UserAction action = new FindByIdAction(output);
+ * action.execute(input, tracker);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
  * === Вывод заявки по id ===
  * Введите id: 1
- * Item{id=1, name='Fix PC', created=...}
+ * Item{id=1, name='Fix PC', created=05-мая-понедельник-2025 16:15:40}
  *
  * === Вывод заявки по id ===
  * Введите id: 100
@@ -25,10 +33,26 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see UserAction
+ * @see Tracker
+ * @see Item
  */
 public class FindByIdAction implements UserAction {
+
+    /**
+     * Объект вывода, используемый для отображения сообщений пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Создает объект действия поиска заявки по идентификатору.
+     *
+     * @param output Объект вывода сообщений пользователю.
+     */
+    public FindByIdAction(Output output) {
+        this.output = output;
+    }
 
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
@@ -52,13 +76,13 @@ public class FindByIdAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Вывод заявки по id ===");
+        output.println("=== Вывод заявки по id ===");
         int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
         if (item != null) {
-            System.out.println(item);
+            output.println(item);
         } else {
-            System.out.println("Заявка с введенным id: " + id + " не найдена.");
+            output.println("Заявка с введенным id: " + id + " не найдена.");
         }
         return true;
     }

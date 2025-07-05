@@ -41,17 +41,31 @@ package ru.job4j.tracker;
  * 6. Завершить программу
  * Выбрать: 0
  * === Создание новой заявки ===
- * Введите имя: test
- * Добавленная заявка: Item{id=1, name='test', created=28-апреля-понедельник-2025 06:22:49}
+ * Введите имя: Fix PC
+ * Добавленная заявка: Item{id=1, name='Fix PC', created=05-мая-понедельник-2025 16:15:49}
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.11
+ * @version 1.12
  * @see UserAction
  * @see Tracker
  * @see Input
  */
 public class StartUI {
+
+    /**
+     * Объект вывода, используемый для отображения сообщений пользователю.
+     */
+    private final Output output;
+
+    /**
+     * Создает экземпляр пользовательского интерфейса с указанным объектом вывода.
+     *
+     * @param output Объект для вывода сообщений пользователю.
+     */
+    public StartUI(Output output) {
+        this.output = output;
+    }
 
     /**
      * Запускает главный цикл пользовательского интерфейса.
@@ -82,9 +96,9 @@ public class StartUI {
      * @param actions Массив доступных действий, реализующих интерфейс {@link UserAction}.
      */
     private void showMenu(UserAction[] actions) {
-        System.out.println("Меню:");
+        output.println("Меню:");
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+            output.println(index + ". " + actions[index].name());
         }
     }
 
@@ -97,17 +111,18 @@ public class StartUI {
      * @param args Аргументы командной строки (не используются).
      */
     public static void main(String[] args) {
+        Output output = new ConsoleOutput();
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(),
-                new FindAllAction(),
-                new ReplaceAction(),
-                new DeleteAction(),
-                new FindByIdAction(),
-                new FindByNameAction(),
-                new ExitAction()
+                new CreateAction(output),
+                new FindAllAction(output),
+                new ReplaceAction(output),
+                new DeleteAction(output),
+                new FindByIdAction(output),
+                new FindByNameAction(output),
+                new ExitAction(output)
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
     }
 }
