@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
 
 /**
  * Класс {@code MockInput} представляет имитацию пользовательского ввода
@@ -29,7 +29,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  * @see Input
  */
 public class MockInput implements Input {

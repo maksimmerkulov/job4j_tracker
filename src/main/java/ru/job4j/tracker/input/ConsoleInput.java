@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
 
 import java.util.Scanner;
 
@@ -23,7 +23,7 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ConsoleInput implements Input {
 

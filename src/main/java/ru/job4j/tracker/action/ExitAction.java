@@ -1,4 +1,9 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.output.Output;
+import ru.job4j.tracker.StartUI;
+import ru.job4j.tracker.Tracker;
 
 /**
  * Класс {@code ExitAction} представляет действие завершения работы программы
@@ -29,7 +34,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  * @see UserAction
  * @see Tracker
  */

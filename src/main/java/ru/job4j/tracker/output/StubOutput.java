@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.output;
 
 /**
  * Класс {@code StubOutput} реализует интерфейс {@link Output} и используется
@@ -15,7 +15,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see Output
  * @see ConsoleOutput
  */

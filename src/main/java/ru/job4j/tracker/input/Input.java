@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
 
 /**
  * Интерфейс {@code Input} определяет контракт для получения ввода от пользователя.
@@ -14,7 +14,7 @@ package ru.job4j.tracker;
  * <p>Интерфейс применяется в приложении трекера заявок для взаимодействия с пользователем.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public interface Input {
 

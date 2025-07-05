@@ -1,4 +1,7 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+
+import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.input.Input;
 
 /**
  * Интерфейс {@code UserAction} описывает обобщенное действие в пользовательском интерфейсе приложения "Трекер заявок".
@@ -35,7 +38,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.2
  * @see Input
  * @see Tracker
  */

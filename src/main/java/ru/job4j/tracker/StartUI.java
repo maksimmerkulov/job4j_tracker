@@ -1,5 +1,11 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.action.*;
+import ru.job4j.tracker.input.ConsoleInput;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.output.ConsoleOutput;
+import ru.job4j.tracker.output.Output;
+
 /**
  * Класс {@code StartUI} управляет пользовательским интерфейсом приложения "Трекер заявок".
  *
@@ -46,7 +52,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.12
+ * @version 1.13
  * @see UserAction
  * @see Tracker
  * @see Input
