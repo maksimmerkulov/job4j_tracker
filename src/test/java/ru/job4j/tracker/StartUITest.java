@@ -12,20 +12,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Класс {@code StartUITest} содержит модульные тесты для проверки поведения класса {@link StartUI}.
  *
- * <p>Проверяются действия над заявками: создание, замена, удаление, поиск по id и имени,
- * вывод всех заявок, а также корректность вывода меню и интерфейса.</p>
+ * <p>Проверяются основные пользовательские сценарии работы с заявками:
+ * создание, замена, удаление, поиск, вывод и завершение программы.</p>
  *
- * <p>Для имитации пользовательского ввода используется {@link MockInput}, а для перехвата вывода — {@link StubOutput}.</p>
+ * <p>Для имитации пользовательского ввода используется {@link MockInput},
+ * а для перехвата и анализа вывода — {@link StubOutput}.</p>
  *
  * <p><b>Покрываемые сценарии:</b></p>
  * <ul>
- *     <li>Создание новой заявки ({@link CreateAction}).</li>
- *     <li>Замена заявки по id ({@link ReplaceAction}).</li>
- *     <li>Удаление заявки ({@link DeleteAction}).</li>
- *     <li>Завершение программы ({@link ExitAction}).</li>
- *     <li>Вывод всех заявок ({@link FindAllAction}).</li>
- *     <li>Поиск заявки по имени ({@link FindByNameAction}).</li>
- *     <li>Поиск заявки по id ({@link FindByIdAction}).</li>
+ *     <li>Создание новой заявки через {@link CreateAction}</li>
+ *     <li>Редактирование заявки через {@link ReplaceAction}</li>
+ *     <li>Удаление заявки через {@link DeleteAction}</li>
+ *     <li>Вывод всех заявок через {@link FindAllAction}</li>
+ *     <li>Поиск по имени через {@link FindByNameAction}</li>
+ *     <li>Поиск по ID через {@link FindByIdAction}</li>
+ *     <li>Завершение работы через {@link ExitAction}</li>
+ *     <li>Обработка некорректного ввода меню</li>
  * </ul>
  *
  * <p><b>Пример тестирования:</b></p>
@@ -44,7 +46,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.6
+ * @version 1.7
  */
 class StartUITest {
 
@@ -270,6 +272,36 @@ class StartUITest {
                         + "Меню:" + ln
                         + "0. Показать заявку по id" + ln
                         + "1. Завершить программу" + ln
+                        + "=== Завершение программы ===" + ln
+        );
+    }
+
+    /**
+     * Проверяет поведение системы при вводе недопустимого номера пункта меню.
+     *
+     * <p>Сначала пользователь вводит некорректное значение "1", которое не соответствует доступным
+     * действиям (только "0" — выход).
+     * Ожидается, что программа выведет сообщение об ошибке и повторно отобразит меню.
+     * После этого пользователь вводит корректное значение "0", и программа корректно завершается.</p>
+     */
+    @Test
+    void whenInvalidExit() {
+        Output output = new StubOutput();
+        Input input = new MockInput(
+                new String[] {"1", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[] {
+                new ExitAction(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(output.toString()).isEqualTo(
+                "Меню:" + ln
+                        + "0. Завершить программу" + ln
+                        + "Неверный ввод, вы можете выбрать: 0 .. 0" + ln
+                        + "Меню:" + ln
+                        + "0. Завершить программу" + ln
                         + "=== Завершение программы ===" + ln
         );
     }
