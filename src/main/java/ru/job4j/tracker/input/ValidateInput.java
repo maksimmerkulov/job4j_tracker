@@ -1,36 +1,72 @@
 package ru.job4j.tracker.input;
 
+import ru.job4j.tracker.output.Output;
+
 /**
- * Класс {@code ValidateInput} расширяет {@link ConsoleInput} и добавляет валидацию ввода чисел.
+ * Класс {@code ValidateInput} реализует обертку над {@link Input}, добавляющую
+ * проверку корректности пользовательского ввода при запросе целого числа.
  *
- * <p>Используется для безопасного ввода целочисленных значений с консоли,
- * повторяя запрос до тех пор, пока пользователь не введет корректное число.</p>
+ * <p>Используется для безопасного ввода целочисленных значений от пользователя,
+ * предотвращая выброс {@link NumberFormatException} в случае некорректного ввода.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
- * Input input = new ValidateInput();
+ * Output output = new ConsoleOutput();
+ * Input input = new ValidateInput(output, new ConsoleInput());
  * int select = input.askInt("Выбрать: ");
  * }</pre>
  *
- * <p><b>Пример вывода:</b></p>
+ * <p><b>Пример вывода при ошибке:</b></p>
  * <pre>{@code
  * Выбрать: abc
  * Пожалуйста, введите корректные данные
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
-public class ValidateInput extends ConsoleInput {
+public class ValidateInput implements Input {
 
     /**
-     * Запрашивает у пользователя ввод целого числа с проверкой корректности.
+     * Интерфейс для вывода сообщений пользователю, включая сообщения об ошибках.
+     */
+    private final Output output;
+
+    /**
+     * Интерфейс ввода, оборачиваемый с добавлением логики валидации.
+     */
+    private final Input input;
+
+    /**
+     * Создает экземпляр {@code ValidateInput}.
      *
-     * <p>Если пользователь вводит нечисловое значение, метод выведет сообщение
-     * об ошибке и повторно запросит ввод.</p>
+     * @param output Объект для вывода сообщений пользователю.
+     * @param input  Объект для получения пользовательского ввода.
+     */
+    public ValidateInput(Output output, Input input) {
+        this.output = output;
+        this.input = input;
+    }
+
+    /**
+     * Запрашивает у пользователя строку без дополнительной валидации.
      *
-     * @param question Вопрос, отображаемый пользователю.
-     * @return Введенное пользователем целое число.
+     * @param question Сообщение, выводимое пользователю.
+     * @return Строка, введенная пользователем.
+     */
+    @Override
+    public String askStr(String question) {
+        return input.askStr(question);
+    }
+
+    /**
+     * Запрашивает у пользователя целое число с валидацией.
+     *
+     * <p>Если пользователь вводит некорректное значение (например, строку),
+     * выводится сообщение об ошибке и повторяется запрос до успешного ввода числа.</p>
+     *
+     * @param question Сообщение, выводимое пользователю.
+     * @return Целое число, введенное пользователем.
      */
     @Override
     public int askInt(String question) {
@@ -38,10 +74,10 @@ public class ValidateInput extends ConsoleInput {
         int value = -1;
         do {
             try {
-                value = super.askInt(question);
+                value = input.askInt(question);
                 invalid = false;
             } catch (NumberFormatException nfe) {
-                System.out.println("Пожалуйста, введите корректные данные");
+                output.println("Пожалуйста, введите корректные данные");
             }
         } while (invalid);
         return value;

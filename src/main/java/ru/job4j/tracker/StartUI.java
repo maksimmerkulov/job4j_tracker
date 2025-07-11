@@ -23,7 +23,7 @@ import ru.job4j.tracker.output.Output;
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Output output = new ConsoleOutput();
- * Input input = new ValidateInput();
+ * Input input = new ValidateInput(output, new ConsoleInput());
  * Tracker tracker = new Tracker();
  * UserAction[] actions = {
  *         new CreateAction(output),
@@ -54,7 +54,7 @@ import ru.job4j.tracker.output.Output;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.14
+ * @version 1.15
  * @see UserAction
  * @see Tracker
  * @see Input
@@ -124,7 +124,7 @@ public class StartUI {
      */
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput();
+        Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
