@@ -1,38 +1,37 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Класс {@code Tracker} представляет собой хранилище для заявок {@link Item}.
  *
- * <p>Используется для добавления, поиска, замены, удаления и хранения заявок по имени и идентификатору.</p>
- *
- * <p><b>Ограничение:</b> максимальная вместимость — 100 заявок.</p>
+ * <p>Используется для добавления, поиска, замены, удаления и хранения заявок
+ * по имени и идентификатору.</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * Tracker tracker = new Tracker();
  * tracker.add(new Item("Test"));
- * Item[] all = tracker.findAll();
+ * List<Item> all = tracker.findAll();
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- * Item{id=1, name='Test', created=...}
+ * [Item{id=1, name='Test', created=08-августа-пятница-2025 12:48:15}]
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.4
+ * @version 1.5
  */
 public class Tracker {
 
     /**
-     * Массив для хранения всех заявок.
+     * Список для хранения заявок.
      *
-     * <p>Максимальная вместимость — 100 элементов.
-     * Заявки размещаются в порядке добавления.</p>
+     * <p>Заявки размещаются в порядке добавления.</p>
      */
-    private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<>();
 
     /**
      * Счетчик для генерации уникальных идентификаторов.
@@ -42,63 +41,51 @@ public class Tracker {
     private int ids = 1;
 
     /**
-     * Текущее количество заявок в хранилище.
-     *
-     * <p>Используется для определения фактического размера массива {@code items} при поиске и добавлении.</p>
-     */
-    private int size = 0;
-
-    /**
      * Добавляет новую заявку в хранилище.
      *
-     * <p>Присваивает заявке уникальный идентификатор {@code id} и увеличивает счетчик {@code ids}.</p>
+     * <p>Присваивает заявке уникальный идентификатор {@code id}
+     * и увеличивает счетчик {@code ids}.</p>
      *
      * @param item Объект {@link Item}, который необходимо добавить в хранилище.
      * @return Объект {@link Item} с присвоенным {@code id}.
      */
     public Item add(Item item) {
         item.setId(ids++);
-        items[size++] = item;
+        items.add(item);
         return item;
     }
 
     /**
-     * Возвращает массив всех добавленных заявок.
+     * Возвращает список всех добавленных заявок.
      *
-     * <p>Массив не содержит {@code null}-значений и имеет длину,
-     * равную количеству добавленных заявок.</p>
-     *
-     * @return Массив всех заявок в порядке добавления.
+     * @return Список всех заявок в порядке добавления.
      */
-    public Item[] findAll() {
-        return Arrays.copyOf(items, size);
+    public List<Item> findAll() {
+        return new ArrayList<>(items);
     }
 
     /**
-     * Возвращает массив заявок с указанным именем.
+     * Возвращает список заявок с указанным именем.
      *
      * <p>Поиск выполняется с использованием метода {@link String#equals(Object)}
      * для сравнения имени каждой заявки с заданным ключом.</p>
      *
      * @param key Имя, по которому осуществляется поиск заявок.
-     * @return Массив заявок, имя которых совпадает с {@code key}.
-     * Если заявок с таким именем нет, возвращается пустой массив.
+     * @return Список заявок, имя которых совпадает с {@code key}.
+     * Если заявок с таким именем нет, возвращается пустой список.
      */
-    public Item[] findByName(String key) {
-        Item[] result = new Item[size];
-        int count = 0;
-        for (int i = 0; i < size; i++) {
-            Item item = items[i];
+    public List<Item> findByName(String key) {
+        List<Item> result = new ArrayList<>();
+        for (Item item : items) {
             if (item.getName().equals(key)) {
-                result[count] = item;
-                count++;
+                result.add(item);
             }
         }
-        return Arrays.copyOf(result, count);
+        return result;
     }
 
     /**
-     * Выполняет поиск заявки в массиве {@code items} по уникальному идентификатору {@code id}.
+     * Выполняет поиск заявки в списке {@code items} по уникальному идентификатору {@code id}.
      *
      * <p>Если заявка с указанным идентификатором найдена, возвращается соответствующий объект {@link Item}.
      * В противном случае возвращается {@code null}.</p>
@@ -108,7 +95,7 @@ public class Tracker {
      */
     public Item findById(int id) {
         int index = indexOf(id);
-        return index != -1 ? items[index] : null;
+        return index != -1 ? items.get(index) : null;
     }
 
     /**
@@ -117,22 +104,22 @@ public class Tracker {
      * <p>Если заявка с данным идентификатором найдена, то:</p>
      * <ul>
      *     <li>Новому объекту {@code item} присваивается тот же {@code id}, что и у заменяемой заявки.</li>
-     *     <li>Существующая заявка заменяется на новую в массиве {@code items}.</li>
+     *     <li>Существующая заявка заменяется на новую в списке {@code items}.</li>
      * </ul>
      *
      * <p>Если заявка с указанным {@code id} не найдена, операция не выполняется.</p>
      *
      * @param id   Уникальный идентификатор заявки, которую необходимо заменить.
      * @param item Новый объект {@link Item}, который подставляется вместо существующей заявки.
-     * @return Значение {@code true}, если заявка найдена и замена выполнена;
-     *         значение {@code false}, если заявка не найдена.
+     * @return {@code true}, если заявка найдена и замена выполнена;
+     *         {@code false}, если заявка не найдена.
      */
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {
             item.setId(id);
-            items[index] = item;
+            items.set(index, item);
         }
         return result;
     }
@@ -140,34 +127,28 @@ public class Tracker {
     /**
      * Удаляет заявку по заданному {@code id}.
      *
-     * <p>Если заявка найдена, все элементы массива {@code items} сдвигаются влево на одну позицию,
-     * а последний элемент обнуляется. Размер уменьшается на единицу.</p>
-     *
      * @param id Уникальный идентификатор заявки, которую необходимо удалить.
      */
     public void delete(int id) {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {
-            System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items[size - 1] = null;
-            size--;
+            items.remove(index);
         }
     }
 
     /**
-     * Выполняет поиск индекса заявки в массиве {@code items} по уникальному идентификатору {@code id}.
-     *
-     * <p>Выполняет поиск заявки с заданным идентификатором в массиве и возвращает индекс найденного элемента.
-     * Если заявка не найдена, метод возвращает {@code -1}.</p>
+     * Выполняет поиск заявки с заданным идентификатором в списке
+     * и возвращает индекс найденного элемента.
      *
      * @param id Уникальный идентификатор заявки, по которому выполняется поиск.
-     * @return Индекс найденной заявки в массиве {@code items}, если заявка найдена, иначе {@code -1}.
+     * @return Индекс найденной заявки в списке {@code items}.
+     * Если заявка не найдена, возвращается {@code -1}.
      */
     private int indexOf(int id) {
         int result = -1;
-        for (int i = 0; i < size; i++) {
-            if (items[i].getId() == id) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getId() == id) {
                 result = i;
                 break;
             }

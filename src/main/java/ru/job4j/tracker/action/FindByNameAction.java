@@ -1,16 +1,18 @@
 package ru.job4j.tracker.action;
 
-import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.Item;
-import ru.job4j.tracker.output.Output;
 import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.output.Output;
+
+import java.util.List;
 
 /**
  * Класс {@code FindByNameAction} реализует действие поиска заявок по имени
  * в хранилище {@link Tracker}.
  *
- * <p>Реализует интерфейс {@link UserAction} и предоставляет пользователю
- * возможность ввести строку имени, по которой выполняется поиск всех совпадающих заявок.</p>
+ * <p>Реализует интерфейс {@link UserAction} и предоставляет пользователю возможность
+ * ввести строку имени, по которой выполняется поиск всех совпадающих заявок.</p>
  *
  * <p>Если заявки найдены — каждая из них выводится построчно.
  * Если не найдены — отображается соответствующее сообщение.</p>
@@ -41,7 +43,7 @@ import ru.job4j.tracker.Tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  * @see UserAction
  * @see Tracker
  * @see Item
@@ -86,8 +88,8 @@ public class FindByNameAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         output.println("=== Вывод заявок по имени ===");
         String name = input.askStr("Введите имя: ");
-        Item[] items = tracker.findByName(name);
-        if (items.length > 0) {
+        List<Item> items = tracker.findByName(name);
+        if (!items.isEmpty()) {
             for (Item item : items) {
                 output.println(item);
             }

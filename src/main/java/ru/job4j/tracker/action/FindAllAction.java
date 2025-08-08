@@ -1,9 +1,11 @@
 package ru.job4j.tracker.action;
 
-import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.Item;
-import ru.job4j.tracker.output.Output;
 import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.output.Output;
+
+import java.util.List;
 
 /**
  * Класс {@code FindAllAction} реализует действие отображения всех заявок
@@ -36,7 +38,7 @@ import ru.job4j.tracker.Tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  * @see UserAction
  * @see Tracker
  * @see Item
@@ -80,8 +82,8 @@ public class FindAllAction implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         output.println("=== Вывод всех заявок ===");
-        Item[] items = tracker.findAll();
-        if (items.length > 0) {
+        List<Item> items = tracker.findAll();
+        if (!items.isEmpty()) {
             for (Item item : items) {
                 output.println(item);
             }

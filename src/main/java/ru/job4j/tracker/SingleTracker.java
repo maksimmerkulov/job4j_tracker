@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 /**
  * Класс {@code SingleTracker} реализует шаблон проектирования <b>Одиночка (Singleton)</b>.
  *
@@ -13,7 +15,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class SingleTracker {
 
@@ -58,9 +60,9 @@ public class SingleTracker {
     /**
      * Возвращает все заявки.
      *
-     * @return Массив всех заявок.
+     * @return Список всех заявок.
      */
-    public Item[] findAll() {
+    public List<Item> findAll() {
         return tracker.findAll();
     }
 
@@ -88,7 +90,8 @@ public class SingleTracker {
      * Находит заявку по идентификатору.
      *
      * @param id Идентификатор заявки.
-     * @return Найденная заявка или {@code null}, если не найдена.
+     * @return Найденная заявка.
+     * Если заявка не найдена возвращает {@code null}.
      */
     public Item findById(int id) {
         return tracker.findById(id);
@@ -98,9 +101,9 @@ public class SingleTracker {
      * Находит заявки по имени.
      *
      * @param key Имя заявки.
-     * @return Массив найденных заявок.
+     * @return Список найденных заявок.
      */
-    public Item[] findByName(String key) {
+    public List<Item> findByName(String key) {
         return tracker.findByName(key);
     }
 }

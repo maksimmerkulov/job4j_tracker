@@ -1,18 +1,25 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Класс {@code TrackerTest} содержит модульные тесты для проверки работы методов класса {@link Tracker}.
+ * Класс {@code TrackerTest} содержит модульные тесты
+ * для проверки работы методов класса {@link Tracker}.
  *
- * <p>Тестируются методы:
- * {@link Tracker#add(Item)},
- * {@link Tracker#findById(int)},
- * {@link Tracker#findAll()},
- * {@link Tracker#findByName(String)},
- * {@link Tracker#replace(int, Item)},
- * {@link Tracker#delete(int)}.</p>
+ * <p><b>Тестируемые методы класса {@link Tracker}:</b></p>
+ *
+ * <ul>
+ *     <li>{@link Tracker#add(Item)} — добавление новой заявки</li>
+ *     <li>{@link Tracker#findById(int)} — поиск заявки по идентификатору</li>
+ *     <li>{@link Tracker#findAll()} — получение списка всех заявок</li>
+ *     <li>{@link Tracker#findByName(String)} — поиск заявок по имени</li>
+ *     <li>{@link Tracker#replace(int, Item)} — замена заявки по идентификатору</li>
+ *     <li>{@link Tracker#delete(int)} — удаление заявки по идентификатору</li>
+ * </ul>
  *
  * <p><b>Пример тестирования:</b></p>
  * <pre>{@code
@@ -25,7 +32,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  */
 public class TrackerTest {
 
@@ -61,7 +68,7 @@ public class TrackerTest {
     /**
      * Проверяет метод {@link Tracker#findAll()} на возвращение всех добавленных заявок.
      *
-     * <p>Ожидается, что первая заявка в массиве соответствует первой добавленной.</p>
+     * <p>Ожидается, что первая заявка в списке соответствует первой добавленной.</p>
      */
     @Test
     public void whenTestFindAll() {
@@ -70,15 +77,15 @@ public class TrackerTest {
         Item second = new Item("Second");
         tracker.add(first);
         tracker.add(second);
-        Item result = tracker.findAll()[0];
+        Item result = tracker.findAll().get(0);
         assertThat(result.getName()).isEqualTo(first.getName());
     }
 
     /**
-     * Проверяет метод {@link Tracker#findByName(String)} на корректную длину массива результатов.
+     * Проверяет метод {@link Tracker#findByName(String)} на корректную длину списка результатов.
      *
-     * <p>Добавляются заявки с одинаковыми именами. Ожидается, что метод вернет массив
-     * соответствующей длины.</p>
+     * <p>Добавляются заявки с одинаковыми именами.
+     * Ожидается, что метод вернет список соответствующей длины.</p>
      */
     @Test
     public void whenTestFindByNameCheckArrayLength() {
@@ -90,8 +97,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(first.getName());
-        assertThat(result.length).isEqualTo(3);
+        List<Item> result = tracker.findByName(first.getName());
+        assertThat(result.size()).isEqualTo(3);
     }
 
     /**
@@ -109,8 +116,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(second.getName());
-        assertThat(result[1].getName()).isEqualTo(second.getName());
+        List<Item> result = tracker.findByName(second.getName());
+        assertThat(result.get(1).getName()).isEqualTo(second.getName());
     }
 
     /**
