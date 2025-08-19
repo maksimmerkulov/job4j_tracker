@@ -30,7 +30,7 @@ import java.util.Map;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class BankService {
 
@@ -60,10 +60,7 @@ public class BankService {
      * @param passport Паспорт пользователя, которого нужно удалить.
      */
     public void deleteUser(String passport) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            users.remove(user);
-        }
+        users.remove(new User(passport, ""));
     }
 
     /**
