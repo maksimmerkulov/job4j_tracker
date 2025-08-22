@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 /**
  * Модель заявления.
@@ -10,7 +11,7 @@ import java.time.format.DateTimeFormatter;
  * включая уникальный идентификатор (ID), название и дату создания.</p>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  */
 public class Item {
 
@@ -49,7 +50,7 @@ public class Item {
      * Создает новый экземпляр класса {@code Item}
      * и инициализирует его поле {@code name}.</p>
      *
-     * @param name Название заявки.
+     * @param name название заявки
      */
     public Item(String name) {
         this.name = name;
@@ -59,8 +60,8 @@ public class Item {
      * Создает новый экземпляр класса {@code Item}
      * и инициализирует его поля {@code id} и {@code name}.</p>
      *
-     * @param id Уникальный идентификатор (ID) заявки.
-     * @param name Название заявки.
+     * @param id уникальный идентификатор (ID) заявки
+     * @param name название заявки
      */
     public Item(int id, String name) {
         this.id = id;
@@ -70,7 +71,7 @@ public class Item {
     /**
      * Возвращает уникальный идентификатор (ID) заявки.
      *
-     * @return Уникальный идентификатор (ID) заявки.
+     * @return уникальный идентификатор (ID) заявки
      */
     public int getId() {
         return id;
@@ -79,7 +80,7 @@ public class Item {
     /**
      * Устанавливает новый уникальный идентификатор (ID) заявки.
      *
-     * @param id Новый идентификатор (ID) заявки.
+     * @param id новый идентификатор (ID) заявки
      */
     public void setId(int id) {
         this.id = id;
@@ -88,7 +89,7 @@ public class Item {
     /**
      * Возвращает название заявки.
      *
-     * @return Название заявки.
+     * @return название заявки
      */
     public String getName() {
         return name;
@@ -97,7 +98,7 @@ public class Item {
     /**
      * Устанавливает новое название заявки.
      *
-     * @param name Новое название заявки.
+     * @param name новое название заявки
      */
     public void setName(String name) {
         this.name = name;
@@ -106,10 +107,41 @@ public class Item {
     /**
      * Возвращает дату и время создания заявки.
      *
-     * @return Дата и время создания заявки.
+     * @return дата и время создания заявки
      */
     public LocalDateTime getCreated() {
         return created;
+    }
+
+    /**
+     * Сравнивает данный объект {@code Item} с другим.
+     *
+     * <p>Объекты считаются равными, если у них одинаковые
+     * значения {@code id} и {@code name}.</p>
+     *
+     * @param o объект для сравнения
+     * @return {@code true}, если объекты равны; {@code false} в противном случае
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Item)) {
+            return false;
+        }
+        Item item = (Item) o;
+        return id == item.id && Objects.equals(name, item.name);
+    }
+
+    /**
+     * Возвращает хеш-код объекта {@code Item}.
+     *
+     * @return хеш-код объекта
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 
     /**
@@ -122,7 +154,7 @@ public class Item {
      *     Item{id=1, name='Bug report', created=23-апреля-среда-2025 14:50:30}
      * }</pre>
      *
-     * @return Строка, представляющая объект {@link Item}.
+     * @return строка, представляющая объект {@link Item}
      */
     @Override
     public String toString() {
