@@ -1,59 +1,66 @@
 package ru.job4j.collection;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
- * Класс {@code JobSorter} демонстрирует сортировку списка работ.
+ * Класс {@code JobSorter} демонстрирует сортировку списка объектов {@link Job}.
  *
- * <p>В примере создается список объектов {@link Job}, который сначала
- * выводится в исходном порядке, а затем сортируется по названию в порядке
- * убывания с использованием {@link SortDescByNameJob}.</p>
+ * <p>В примере создается список работ, который сортируется с использованием комбинированного компаратора:
+ * сначала по длине названия в порядке убывания ({@link JobDescByNameLength}),
+ * затем по названию в порядке убывания ({@link JobDescByName}),
+ * а при совпадении названий и длины — по приоритету в порядке убывания ({@link JobDescByPriority}).</p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
  * List<Job> jobs = Arrays.asList(
- *     new Job("Fix bugs", 4),
- *     new Job("Impl task", 2),
- *     new Job("Reboot server", 1)
+ *         new Job("Fix bug", 1),
+ *         new Job("Fix bug", 4),
+ *         new Job("Fix bug", 2),
+ *         new Job("X task", 0)
  * );
- * System.out.println(jobs);
- * jobs.sort(new SortDescByNameJob());
+ * Comparator<Job> combine = new JobDescByNameLength()
+ *         .thenComparing(new JobDescByName())
+ *         .thenComparing(new JobDescByPriority());
+ * Collections.sort(jobs, combine);
  * System.out.println(jobs);
  * }</pre>
  *
  * <p><b>Пример вывода:</b></p>
  * <pre>{@code
- * [Job{name='Fix bugs', priority=4},
- *  Job{name='Impl task', priority=2},
- *  Job{name='Reboot server', priority=1}]
- *
- * [Job{name='Reboot server', priority=1},
- *  Job{name='Impl task', priority=2},
- *  Job{name='Fix bugs', priority=4}]
+ * [Job{name='X task', priority=0},
+ *  Job{name='Fix bug', priority=4},
+ *  Job{name='Fix bug', priority=2},
+ *  Job{name='Fix bug', priority=1}]
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class JobSorter {
-
     /**
      * Точка входа в программу.
      *
-     * <p>Создает список работ, выводит его, сортирует по убыванию
-     * названия и выводит отсортированный список.</p>
+     * <p>Создает список работ, сортирует его с использованием
+     * комбинированного компаратора по длине названия,
+     * затем по названию и при совпадении — по приоритету,
+     * после чего выводит отсортированный список.</p>
      *
      * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         List<Job> jobs = Arrays.asList(
-                new Job("Fix bugs", 4),
-                new Job("Impl task", 2),
-                new Job("Reboot server", 1)
+                new Job("Fix bug", 1),
+                new Job("Fix bug", 4),
+                new Job("Fix bug", 2),
+                new Job("X task", 0)
         );
-        System.out.println(jobs);
-        jobs.sort(new SortDescByNameJob());
+        Comparator<Job> combine = new JobDescByNameLength()
+                .thenComparing(new JobDescByName())
+                .thenComparing(new JobDescByPriority());
+        Collections.sort(jobs, combine);
         System.out.println(jobs);
     }
 }

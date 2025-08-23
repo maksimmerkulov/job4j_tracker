@@ -1,0 +1,47 @@
+package ru.job4j.collection;
+
+import java.util.Comparator;
+
+/**
+ * Компаратор {@code JobDescByNameLength} выполняет сравнение объектов {@link Job}
+ * по длине их названия в порядке убывания.
+ *
+ * <p>Используется, когда необходимо сортировать список работ сначала по длине названия,
+ * а при необходимости комбинировать с другими компараторами.</p>
+ *
+ * <p><b>Пример использования:</b></p>
+ * <pre>{@code
+ * List<Job> jobs = Arrays.asList(
+ *     new Job("Fix bug", 1),
+ *     new Job("X task", 2),
+ *     new Job("Implement feature", 3)
+ * );
+ * jobs.sort(new JobDescByNameLength());
+ * System.out.println(jobs);
+ * }</pre>
+ *
+ * <p><b>Пример вывода:</b></p>
+ * <pre>{@code
+ * [Job{name='Implement feature', priority=3},
+ *  Job{name='Fix bug', priority=1},
+ *  Job{name='X task', priority=2}]
+ * }</pre>
+ *
+ * @author Maksim Merkulov
+ * @version 1.0
+ */
+public class JobDescByNameLength implements Comparator<Job> {
+    /**
+     * Сравнивает два объекта {@link Job} по длине их названия в порядке убывания.
+     *
+     * @param o1 первый объект для сравнения
+     * @param o2 второй объект для сравнения
+     * @return отрицательное число, если длина названия o2 больше o1,
+     *         положительное число, если длина названия o2 меньше o1,
+     *         ноль, если длины равны
+     */
+    @Override
+    public int compare(Job o1, Job o2) {
+        return Integer.compare(o2.getName().length(), o1.getName().length());
+    }
+}
