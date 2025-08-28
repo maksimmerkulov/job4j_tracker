@@ -15,7 +15,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class DummyDic {
 
@@ -23,8 +23,8 @@ public class DummyDic {
      * Принимает английское слово и возвращает строку
      * с сообщением "Неизвестное слово. " + переданное слово.
      *
-     * @param eng Английское слово.
-     * @return Сообщение с переданным словом.
+     * @param eng английское слово
+     * @return сообщение с переданным словом
      */
     public String engToRus(String eng) {
         return "Неизвестное слово. " + eng;
@@ -33,7 +33,7 @@ public class DummyDic {
     /**
      * Демонстрирует использование метода {@link #engToRus(String)}.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         DummyDic dummyDic = new DummyDic();

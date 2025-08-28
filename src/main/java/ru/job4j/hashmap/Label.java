@@ -24,7 +24,7 @@ package ru.job4j.hashmap;
  * <p>Сортировка осуществляется по полю {@code score} в порядке возрастания.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public record Label(String name, double score) implements Comparable<Label> {
 
@@ -32,8 +32,8 @@ public record Label(String name, double score) implements Comparable<Label> {
      * Сравнивает текущий объект с другим {@code Label} по значению {@code score}.
      *
      * @param o объект {@code Label} для сравнения
-     * @return отрицательное число, если текущий {@code score} меньше {@code o.score},
-     *         ноль, если они равны,
+     * @return отрицательное число, если текущий {@code score} меньше {@code o.score};
+     *         ноль, если они равны;
      *         положительное число, если текущий {@code score} больше {@code o.score}
      */
     @Override

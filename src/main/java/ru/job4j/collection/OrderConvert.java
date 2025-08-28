@@ -23,7 +23,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class OrderConvert {
 
@@ -32,8 +32,8 @@ public class OrderConvert {
      *
      * <p>Ключом будет номер заказа, значением — объект {@link Order}.</p>
      *
-     * @param orders Список заказов.
-     * @return Карта заказов с номерами в качестве ключей.
+     * @param orders список заказов
+     * @return карта заказов с номерами в качестве ключей
      */
     public static HashMap<String, Order> process(List<Order> orders) {
         HashMap<String, Order> map = new HashMap<>();

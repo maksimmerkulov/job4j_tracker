@@ -35,7 +35,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Error {
 
@@ -64,9 +64,9 @@ public class Error {
     /**
      * Конструктор с параметрами.
      *
-     * @param active Наличие ошибки.
-     * @param status Код ошибки.
-     * @param message Описание ошибки.
+     * @param active наличие ошибки
+     * @param status код ошибки
+     * @param message описание ошибки
      */
     public Error(boolean active, int status, String message) {
         this.active = active;
@@ -87,7 +87,7 @@ public class Error {
      * Создает несколько объектов {@link Error} и вызывает метод
      * {@link #printInfo()} для вывода их информации.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Error errorDefault = new Error();

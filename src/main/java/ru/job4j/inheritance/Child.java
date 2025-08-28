@@ -7,7 +7,7 @@ package ru.job4j.inheritance;
  * <p>Расширяет базовый класс {@link Parent}, добавляя поле {@code patronymic}.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Child extends Parent {
 
@@ -21,9 +21,9 @@ public class Child extends Parent {
      *
      * <p>Создает объект {@code Child} с заданными именем, возрастом и отчеством.</p>
      *
-     * @param name        Имя ребенка (наследуется).
-     * @param age         Возраст ребенка (наследуется).
-     * @param patronymic  Отчество ребенка.
+     * @param name        имя ребенка (наследуется).
+     * @param age         возраст ребенка (наследуется)
+     * @param patronymic  отчество ребенка
      */
     public Child(String name, int age, String patronymic) {
         super(name, age);

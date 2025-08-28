@@ -68,7 +68,7 @@ package ru.job4j.escapesequences;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class EscapeExample {
 
@@ -79,7 +79,7 @@ public class EscapeExample {
      * и управляющих последовательностей в строках.
      * Выводит на экран различные примеры работы с ними.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         System.out.println('\'');

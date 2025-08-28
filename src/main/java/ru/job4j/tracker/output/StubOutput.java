@@ -15,7 +15,7 @@ package ru.job4j.tracker.output;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  * @see Output
  * @see ConsoleOutput
  */
@@ -31,7 +31,7 @@ public class StubOutput implements Output {
      *
      * <p>Если объект {@code null}, добавляется строка {@code "null"}.</p>
      *
-     * @param object Объект, который необходимо вывести.
+     * @param object объект, который необходимо вывести
      */
     @Override
     public void println(Object object) {
@@ -46,7 +46,7 @@ public class StubOutput implements Output {
     /**
      * Возвращает содержимое буфера вывода в виде строки.
      *
-     * @return Все выведенные строки, разделенные символами перевода строки.
+     * @return все выведенные строки, разделенные символами перевода строки
      */
     @Override
     public String toString() {

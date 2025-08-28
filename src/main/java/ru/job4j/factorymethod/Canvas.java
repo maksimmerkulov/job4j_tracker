@@ -27,7 +27,7 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Canvas {
 
@@ -39,7 +39,7 @@ public class Canvas {
     /**
      * Создает экземпляр {@code Canvas} с заданным оператором фигур.
      *
-     * @param shapeOperator Оператор для работы с конкретной фигурой.
+     * @param shapeOperator оператор для работы с конкретной фигурой
      */
     public Canvas(ShapeOperator shapeOperator) {
         this.shapeOperator = shapeOperator;
@@ -58,7 +58,7 @@ public class Canvas {
      * <p>Запрашивает у пользователя тип фигуры, создает соответствующего
      * оператора и запускает демонстрацию работы шаблона.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

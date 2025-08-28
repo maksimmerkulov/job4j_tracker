@@ -19,7 +19,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Local {
 
@@ -52,7 +52,7 @@ public class Local {
     /**
      * Точка входа в программу.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Local local = new Local();

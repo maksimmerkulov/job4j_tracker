@@ -22,9 +22,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class JobAscByNameTest {
+
     /**
      * Проверяет, что компаратор {@link JobAscByName}
      * сортирует задачи по имени в алфавитном порядке.

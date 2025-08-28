@@ -61,7 +61,7 @@ package ru.job4j.pojo;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Library {
 
@@ -75,7 +75,7 @@ public class Library {
      * <p>3. Замена книг с индексами 0 и 3, повторный вывод массива.</p>
      * <p>4. Поиск и вывод книг с названием "Clean code".</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Book cleanCode = new Book("Clean code", 464);

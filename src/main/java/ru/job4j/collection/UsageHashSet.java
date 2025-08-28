@@ -30,7 +30,7 @@ import java.util.HashSet;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UsageHashSet {
 
@@ -40,7 +40,7 @@ public class UsageHashSet {
      * <p>Создает {@link HashSet} строк, добавляет несколько значений
      * (включая повторяющееся) и выводит уникальные значения в консоль.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         HashSet<String> autos = new HashSet<>();

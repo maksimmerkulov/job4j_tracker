@@ -14,7 +14,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Service {
 
@@ -27,7 +27,7 @@ public class Service {
     /**
      * Создает объект сервиса с заданным хранилищем данных.
      *
-     * @param store Объект, реализующий интерфейс {@code Store},
+     * @param store объект, реализующий интерфейс {@code Store},
      *              используемый для сохранения данных.
      */
     public Service(Store store) {
@@ -48,7 +48,7 @@ public class Service {
      * <p>Демонстрирует создание и использование объекта {@link Service}
      * с реализацией хранилища {@link FileStore}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         FileStore store = new FileStore();

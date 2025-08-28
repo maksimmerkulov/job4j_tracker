@@ -21,7 +21,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.2
  */
 public class FileStore implements Store {
 
@@ -36,15 +36,15 @@ public class FileStore implements Store {
      * <p>Перед использованием необходимо установить путь к файлу через соответствующий
      * сеттер или напрямую изменить поле {@code path}, если он доступен.</p>
      *
-     * @apiNote Использование этого конструктора требует ручной установки пути
-     * перед вызовом {@link #save(String)} или {@link #read()}.
+     * <p>Важно: использование этого конструктора требует ручной установки пути
+     * перед вызовом {@link #save(String)} или {@link #read()}.</p>
      */
     public FileStore() { }
 
     /**
      * Создает экземпляр {@code FileStore} с заданным путем к файлу.
      *
-     * @param path Путь к файлу для сохранения и чтения данных.
+     * @param path путь к файлу для сохранения и чтения данных
      */
     public FileStore(String path) {
         this.path = path;
@@ -55,7 +55,7 @@ public class FileStore implements Store {
      *
      * <p>Если файл не существует, он будет создан. При повторном вызове данные могут быть перезаписаны.</p>
      *
-     * @param data Строка данных, которую необходимо сохранить.
+     * @param data строка данных, которую необходимо сохранить
      */
     @Override
     public void save(String data) {
@@ -66,7 +66,8 @@ public class FileStore implements Store {
      *
      * <p>Если файл существует и доступен для чтения, возвращает его содержимое.</p>
      *
-     * @return Строка, содержащая данные из файла, либо {@code null}, если произошла ошибка чтения.
+     * @return строка, содержащая данные из файла;
+     *         {@code null}, если произошла ошибка чтения
      */
     @Override
     public String read() {

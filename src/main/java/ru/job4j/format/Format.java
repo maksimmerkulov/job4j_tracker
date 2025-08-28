@@ -36,7 +36,7 @@ import java.util.Calendar;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Format {
 
@@ -47,8 +47,8 @@ public class Format {
      * <p>Спецификатор {@code %s} используется для вставки строкового значения (имени),<br>
      * а {@code %d} — для вывода целого числа (возраста).</p>
      *
-     * @param name Имя пользователя.
-     * @param age  Возраст пользователя.
+     * @param name имя пользователя
+     * @param age  возраст пользователя
      */
     public static void getGreeting(String name, int age) {
         System.out.println(String.format("Привет! Я %s, мой возраст: %d", name, age));
@@ -57,7 +57,7 @@ public class Format {
     /**
      * Демонстрирует использование спецификатора {@code %b} для отображения булевского значения.
      *
-     * @param value Объект, который будет интерпретирован как булевское значение.
+     * @param value объект, который будет интерпретирован как булевское значение
      */
     public static void getBooleanExample(Object value) {
         System.out.println(String.format("Аргумент передан? %b", value));
@@ -66,7 +66,7 @@ public class Format {
     /**
      * Демонстрирует использование спецификатора {@code %c} для подстановки символа в строку.
      *
-     * @param symbol Символ, который будет вставлен в строку.
+     * @param symbol символ, который будет вставлен в строку
      */
     public static void getCharExample(char symbol) {
         System.out.println(String.format("Jo%c4j", symbol));
@@ -75,8 +75,8 @@ public class Format {
     /**
      * Демонстрирует использование спецификатора {@code %n} для вывода строк с переносом.
      *
-     * @param line1 Первая строка.
-     * @param line2 Вторая строка.
+     * @param line1 первая строка
+     * @param line2 вторая строка
      */
     public static void getMultilineText(String line1, String line2) {
         System.out.format("%s%n%s%n", line1, line2);
@@ -86,7 +86,7 @@ public class Format {
      * Демонстрирует использование спецификаторов {@code %tF} и {@code %tT}
      * для форматирования текущей даты и времени.
      *
-     * @param name Имя пользователя.
+     * @param name имя пользователя
      */
     public static void getGreetingAndTime(String name) {
         Calendar instance = Calendar.getInstance();
@@ -102,7 +102,7 @@ public class Format {
      * Демонстрирует использование спецификатора {@code %.2f} для вывода числа
      * с двумя знаками после запятой.
      *
-     * @param value Вещественное число, которое будет отформатировано.
+     * @param value вещественное число, которое будет отформатировано
      */
     public static void getFormattedDecimal(double value) {
         System.out.println(String.format("Задаем число 0.99 - %.2f", value));
@@ -118,7 +118,7 @@ public class Format {
      *     <li>Двумя знаками после запятой {@code .2f}.</li>
      * </ul>
      *
-     * @param value Вещественное число, которое будет отформатировано.
+     * @param value вещественное число, которое будет отформатировано
      */
     public static void getFormattedBigDecimal(double value) {
         System.out.println(String.format("%1$,+016.2f", value));
@@ -127,7 +127,7 @@ public class Format {
     /**
      * Точка входа в программу.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         getGreeting("Максим", 37);

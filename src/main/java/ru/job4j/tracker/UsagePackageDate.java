@@ -25,7 +25,7 @@ import java.time.format.DateTimeFormatter;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UsagePackageDate {
 
@@ -35,7 +35,7 @@ public class UsagePackageDate {
      * <p>Выводит текущие дату и время в исходном виде и отформатированные по шаблону
      * {@code dd-MM-yyyy HH:mm:ss}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         LocalDateTime currentDateTime = LocalDateTime.now();

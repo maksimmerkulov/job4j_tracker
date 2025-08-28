@@ -27,7 +27,7 @@ import java.util.Set;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class FullSearch {
 
@@ -38,8 +38,8 @@ public class FullSearch {
      * получает значение {@link Task#getNumber()} и добавляет его в {@link HashSet}.
      * Поскольку {@link HashSet} хранит только уникальные элементы, дубликаты будут отброшены.</p>
      *
-     * @param tasks Список задач.
-     * @return Множество уникальных номеров задач.
+     * @param tasks список задач
+     * @return множество уникальных номеров задач
      */
     public Set<String> extractNumber(List<Task> tasks) {
         Set<String> numbers = new HashSet<>();

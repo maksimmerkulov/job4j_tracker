@@ -33,7 +33,7 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Count {
 
@@ -42,10 +42,10 @@ public class Count {
      *
      * <p>Если {@code start > finish}, выбрасывается исключение {@link IllegalArgumentException}.</p>
      *
-     * @param start Начало диапазона (включительно).
-     * @param finish Конец диапазона (исключительно).
-     * @return Сумма всех чисел от {@code start} до {@code finish - 1}.
-     * @throws IllegalArgumentException если {@code start > finish}.
+     * @param start начало диапазона (включительно)
+     * @param finish конец диапазона (исключительно)
+     * @return сумма всех чисел от {@code start} до {@code finish - 1}
+     * @throws IllegalArgumentException если {@code start > finish}
      */
     public static int add(int start, int finish) {
         if (start > finish) {
@@ -63,7 +63,7 @@ public class Count {
      *
      * <p>Демонстрирует поведение метода {@link #add(int, int)}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         System.out.println("Sum of 2 to 10 is : " + add(10, 2));

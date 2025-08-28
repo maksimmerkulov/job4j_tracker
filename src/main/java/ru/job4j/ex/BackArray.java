@@ -31,7 +31,7 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class BackArray {
 
@@ -45,10 +45,8 @@ public class BackArray {
      * и двигаясь к центру. Это предотвращает ошибку {@link ArrayIndexOutOfBoundsException},
      * которая могла бы возникнуть при неправильной индексации.</p>
      *
-     * @apiNote Метод изменяет входной массив и возвращает ту же ссылку на него.
-     * @implSpec Алгоритм использует симметричный обмен элементов от краев массива к центру.
-     * @param names Массив строк, который требуется развернуть.
-     * @return Тот же массив {@code names}, но с элементами в обратном порядке.
+     * @param names массив строк, который требуется развернуть
+     * @return тот же массив {@code names}, но с элементами в обратном порядке
      */
     public String[] turn(String[] names) {
         int middle = names.length / 2;

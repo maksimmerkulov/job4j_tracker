@@ -30,7 +30,7 @@ import java.util.Scanner;
  * @see Rectangle
  * @see Shape
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class RectangleOperator extends ShapeOperator {
 
@@ -42,7 +42,7 @@ public class RectangleOperator extends ShapeOperator {
     /**
      * Реализация фабричного метода для создания прямоугольника на основе пользовательского ввода.
      *
-     * @return Объект {@link Rectangle} с заданными размерами.
+     * @return объект {@link Rectangle} с заданными размерами
      */
     @Override
     public Shape createShape() {

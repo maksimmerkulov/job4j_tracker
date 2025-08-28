@@ -38,7 +38,7 @@ import ru.job4j.tracker.input.Input;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  * @see Input
  * @see Tracker
  */
@@ -47,7 +47,7 @@ public interface UserAction {
     /**
      * Возвращает текстовое представление действия, отображаемое в пользовательском меню.
      *
-     * @return Название действия (например, "Добавить новую заявку").
+     * @return название действия (например, "Добавить новую заявку")
      */
     String name();
 
@@ -57,10 +57,10 @@ public interface UserAction {
      * <p>Реализация может выполнять различные операции над {@link Tracker},
      * взаимодействуя с пользователем через {@link Input}.</p>
      *
-     * @param input   Интерфейс для ввода данных от пользователя.
-     * @param tracker Хранилище заявок.
+     * @param input   интерфейс для ввода данных от пользователя
+     * @param tracker хранилище заявок
      * @return {@code true}, если программа должна продолжить выполнение;
-     *         {@code false}, если следует завершить работу.
+     *         {@code false}, если следует завершить работу
      */
     boolean execute(Input input, Tracker tracker);
 }

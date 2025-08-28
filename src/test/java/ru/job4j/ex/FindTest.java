@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class FindTest {
 

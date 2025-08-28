@@ -23,7 +23,7 @@ import java.util.Comparator;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class TaskByPositionAsc implements Comparator<Task> {
 
@@ -32,9 +32,9 @@ public class TaskByPositionAsc implements Comparator<Task> {
      *
      * @param o1 первая задача
      * @param o2 вторая задача
-     * @return отрицательное число, если o1 < o2;
+     * @return отрицательное число, если o1 &lt; o2;
      *         ноль, если равны;
-     *         положительное число, если o1 > o2
+     *         положительное число, если o1 &gt; o2
      */
     @Override
     public int compare(Task o1, Task o2) {

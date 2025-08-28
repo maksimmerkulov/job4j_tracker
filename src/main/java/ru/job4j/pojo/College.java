@@ -30,7 +30,7 @@ import java.time.format.DateTimeFormatter;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class College {
 
@@ -40,7 +40,7 @@ public class College {
      * <p>Создает и инициализирует объект {@link Student},
      * затем выводит его данные в консоль.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Student student = new Student();

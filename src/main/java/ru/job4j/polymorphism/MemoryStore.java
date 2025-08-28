@@ -22,7 +22,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class MemoryStore implements Store {
 
@@ -42,7 +42,7 @@ public class MemoryStore implements Store {
      * <p>Добавляет строку в массив {@code memoryStore}.
      * Если массив заполнен, новые данные не сохраняются.</p>
      *
-     * @param data Строка, которую необходимо сохранить.
+     * @param data строка, которую необходимо сохранить
      */
     @Override
     public void save(String data) {
@@ -54,7 +54,7 @@ public class MemoryStore implements Store {
      *
      * <p>Проходит по всем сохраненным строкам и объединяет их в одну.</p>
      *
-     * @return Строка, содержащая все сохраненные значения.
+     * @return строка, содержащая все сохраненные значения
      */
     @Override
     public String read() {

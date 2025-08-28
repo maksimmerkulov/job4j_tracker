@@ -22,11 +22,27 @@ package ru.job4j.queue;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public enum Position {
+
+    /**
+     * Директор.
+     */
     DIRECTOR,
+
+    /**
+     * Заместитель директора.
+     */
     DEPUTY_DIRECTOR,
+
+    /**
+     * Руководитель отдела.
+     */
     DEPARTMENT_HEAD,
+
+    /**
+     * Менеджер.
+     */
     MANAGER
 }

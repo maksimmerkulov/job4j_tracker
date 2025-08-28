@@ -5,13 +5,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 /**
- * Модель заявления.
- *
- * <p>Класс {@code Item} используется для хранения данных о заявках,
- * включая уникальный идентификатор (ID), название и дату создания.</p>
+ * Класс {@code Item} используется для хранения данных о заявках,
+ * включая уникальный идентификатор (ID), название и дату создания.
  *
  * @author Maksim Merkulov
- * @version 1.3
+ * @version 1.4
  */
 public class Item {
 
@@ -41,14 +39,14 @@ public class Item {
 
     /**
      * Создает новый экземпляр класса {@code Item}
-     * и инициализирует его поля значениями по умолчанию.</p>
+     * и инициализирует его поля значениями по умолчанию.
      */
     public Item() {
     }
 
     /**
      * Создает новый экземпляр класса {@code Item}
-     * и инициализирует его поле {@code name}.</p>
+     * и инициализирует его поле {@code name}.
      *
      * @param name название заявки
      */
@@ -58,7 +56,7 @@ public class Item {
 
     /**
      * Создает новый экземпляр класса {@code Item}
-     * и инициализирует его поля {@code id} и {@code name}.</p>
+     * и инициализирует его поля {@code id} и {@code name}.
      *
      * @param id уникальный идентификатор (ID) заявки
      * @param name название заявки
@@ -120,7 +118,8 @@ public class Item {
      * значения {@code id} и {@code name}.</p>
      *
      * @param o объект для сравнения
-     * @return {@code true}, если объекты равны; {@code false} в противном случае
+     * @return {@code true}, если объекты равны;
+     *         {@code false} в противном случае
      */
     @Override
     public boolean equals(Object o) {

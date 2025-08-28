@@ -26,17 +26,17 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UserStore {
 
     /**
      * Выполняет поиск пользователя по логину в массиве.
      *
-     * @param users Массив пользователей.
-     * @param login Логин для поиска.
-     * @return Найденный пользователь.
-     * @throws UserNotFoundException если пользователь не найден.
+     * @param users массив пользователей
+     * @param login логин для поиска
+     * @return найденный пользователь
+     * @throws UserNotFoundException если пользователь не найден
      */
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         for (User user : users) {
@@ -56,9 +56,9 @@ public class UserStore {
      *   <li>Имя содержит менее 3 символов.</li>
      * </ul>
      *
-     * @param user Пользователь для проверки.
-     * @return {@code true}, если пользователь валидный.
-     * @throws UserInvalidException если пользователь невалидный.
+     * @param user пользователь для проверки
+     * @return {@code true}, если пользователь валидный
+     * @throws UserInvalidException если пользователь невалидный
      */
     public static boolean validate(User user) throws UserInvalidException {
         if (!user.isValid() || user.getUsername().length() < 3) {
@@ -72,7 +72,7 @@ public class UserStore {
      *
      * <p>Обрабатываются пользовательские исключения через множественный блок {@code catch}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         User[] users = {

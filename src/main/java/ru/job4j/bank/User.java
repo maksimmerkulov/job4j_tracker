@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Класс {@code User} представляет модель пользователя банковской системы.
  *
- <p>Пользователь идентифицируется уникальным номером паспорта и хранит свое полное имя (ФИО).</p>
+ * <p>Пользователь идентифицируется уникальным номером паспорта и хранит свое полное имя (ФИО).</p>
  *
  * <p><b>Поля:</b></p>
  * <ul>
@@ -27,7 +27,7 @@ import java.util.Objects;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class User {
 
@@ -44,8 +44,8 @@ public class User {
     /**
      * Конструктор для инициализации пользователя.
      *
-     * @param passport Номер паспорта.
-     * @param username ФИО пользователя.
+     * @param passport номер паспорта
+     * @param username ФИО пользователя
      */
     public User(String passport, String username) {
         this.passport = passport;
@@ -55,7 +55,7 @@ public class User {
     /**
      * Возвращает номер паспорта пользователя.
      *
-     * @return Номер паспорта пользователя.
+     * @return номер паспорта пользователя
      */
     public String getPassport() {
         return passport;
@@ -64,7 +64,7 @@ public class User {
     /**
      * Устанавливает номер паспорта пользователя.
      *
-     * @param passport Новый номер паспорта.
+     * @param passport новый номер паспорта
      */
     public void setPassport(String passport) {
         this.passport = passport;
@@ -73,16 +73,16 @@ public class User {
     /**
      * Возвращает ФИО пользователя.
      *
-     * @return ФИО пользователя.
+     * @return ФИО пользователя
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * Устанавливает ФМО пользователя.
+     * Устанавливает ФИО пользователя.
      *
-     * @param username ФИО пользователя.
+     * @param username ФИО пользователя
      */
     public void setUsername(String username) {
         this.username = username;
@@ -91,8 +91,8 @@ public class User {
     /**
      * Сравнивает пользователей только по номеру паспорта.
      *
-     * @param o Другой объект для сравнения.
-     * @return {@code true}, если номера паспортов совпадают, иначе {@code false}.
+     * @param o другой объект для сравнения
+     * @return {@code true}, если номера паспортов совпадают, иначе {@code false}
      */
     @Override
     public boolean equals(Object o) {
@@ -109,7 +109,7 @@ public class User {
     /**
      * Вычисляет хэш-код на основе номера паспорта.
      *
-     * @return Хэш-код объекта.
+     * @return хэш-код объекта
      */
     @Override
     public int hashCode() {

@@ -6,14 +6,14 @@ package ru.job4j.oop;
  * <p>В этом примере создаются три экземпляра собаки в методе {@link #main(String[])}.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Dog {
 
     /**
      * Создает три объекта типа {@code Dog}: {@code polkan}, {@code sharik} и {@code zhychka}.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Dog polkan = new Dog();

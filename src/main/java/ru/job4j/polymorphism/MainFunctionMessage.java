@@ -19,7 +19,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class MainFunctionMessage {
 
@@ -28,7 +28,7 @@ public class MainFunctionMessage {
      *
      * <p>Создает объект {@link FunctionMessage} и вызывает его метод {@code FunctionTwo#functionMessage()}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         FunctionMessage functionMessage = new FunctionMessage();

@@ -20,7 +20,7 @@ package ru.job4j.search;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Task {
 
@@ -37,8 +37,8 @@ public class Task {
     /**
      * Создает задачу с заданным описанием и приоритетом.
      *
-     * @param description Текстовое описание задачи.
-     * @param priority Приоритет задачи.
+     * @param description текстовое описание задачи
+     * @param priority приоритет задачи
      */
     public Task(String description, int priority) {
         this.description = description;
@@ -48,7 +48,7 @@ public class Task {
     /**
      * Возвращает описание задачи.
      *
-     * @return Описание задачи.
+     * @return описание задачи
      */
     public String getDescription() {
         return description;
@@ -57,7 +57,7 @@ public class Task {
     /**
      * Возвращает приоритет задачи.
      *
-     * @return Приоритет задачи.
+     * @return приоритет задачи
      */
     public int getPriority() {
         return priority;

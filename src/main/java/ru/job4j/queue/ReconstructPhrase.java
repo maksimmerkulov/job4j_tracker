@@ -33,7 +33,7 @@ import java.util.Deque;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ReconstructPhrase {
 
@@ -52,8 +52,8 @@ public class ReconstructPhrase {
     /**
      * Конструктор инициализирует объект с двумя очередями символов.
      *
-     * @param descendingElements Очередь символов для обработки в обратном порядке.
-     * @param evenElements       Очередь символов, из которой выбираются элементы с четными индексами.
+     * @param descendingElements очередь символов для обработки в обратном порядке
+     * @param evenElements       очередь символов, из которой выбираются элементы с четными индексами
      */
     public ReconstructPhrase(Deque<Character> descendingElements, Deque<Character> evenElements) {
         this.descendingElements = descendingElements;
@@ -64,7 +64,7 @@ public class ReconstructPhrase {
      * Извлекает символы из очереди {@code evenElements}, беря только элементы с четными индексами,
      * при этом элементы удаляются из очереди.
      *
-     * @return Строка, состоящая из символов с четными индексами из {@code evenElements}.
+     * @return строка, состоящая из символов с четными индексами из {@code evenElements}
      */
     private String getEvenElements() {
         StringBuilder builder = new StringBuilder();
@@ -82,7 +82,7 @@ public class ReconstructPhrase {
      * Извлекает символы из очереди {@code descendingElements} в обратном порядке,
      * при этом элементы удаляются из очереди.
      *
-     * @return Строка, состоящая из символов из {@code descendingElements} в обратном порядке.
+     * @return строка, состоящая из символов из {@code descendingElements} в обратном порядке
      */
     private String getDescendingElements() {
         StringBuilder builder = new StringBuilder();
@@ -96,7 +96,7 @@ public class ReconstructPhrase {
      * Возвращает реконструированную фразу, которая получается конкатенацией
      * результатов методов {@link #getEvenElements()} и {@link #getDescendingElements()}.
      *
-     * @return Реконструированная строка из двух очередей символов.
+     * @return реконструированная строка из двух очередей символов
      */
     public String getReconstructPhrase() {
         return getEvenElements() + getDescendingElements();

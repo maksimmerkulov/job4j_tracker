@@ -1,6 +1,7 @@
 package ru.job4j.pojo;
 
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -27,7 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ShopTest {
 

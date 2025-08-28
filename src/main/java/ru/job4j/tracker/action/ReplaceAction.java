@@ -1,9 +1,9 @@
 package ru.job4j.tracker.action;
 
-import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.Item;
-import ru.job4j.tracker.output.Output;
 import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.output.Output;
 
 /**
  * Класс {@code ReplaceAction} реализует действие изменения существующей заявки
@@ -37,7 +37,7 @@ import ru.job4j.tracker.Tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  * @see UserAction
  * @see Tracker
  * @see Item
@@ -52,7 +52,7 @@ public class ReplaceAction implements UserAction {
     /**
      * Создает объект действия редактирования заявки.
      *
-     * @param output Объект вывода сообщений пользователю.
+     * @param output объект вывода сообщений пользователю
      */
     public ReplaceAction(Output output) {
         this.output = output;
@@ -61,7 +61,7 @@ public class ReplaceAction implements UserAction {
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
      *
-     * @return Строка "Изменить заявку".
+     * @return строка "Изменить заявку"
      */
     @Override
     public String name() {
@@ -74,9 +74,9 @@ public class ReplaceAction implements UserAction {
      * <p>Запрашивает у пользователя id и новое имя, создает новый {@link Item}
      * и заменяет им заявку в {@link Tracker}. Выводит сообщение об успехе или ошибке.</p>
      *
-     * @param input   Интерфейс получения пользовательского ввода.
-     * @param tracker Хранилище заявок.
-     * @return {@code true}, чтобы продолжить выполнение программы.
+     * @param input   интерфейс получения пользовательского ввода
+     * @param tracker хранилище заявок
+     * @return {@code true}, чтобы продолжить выполнение программы
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {

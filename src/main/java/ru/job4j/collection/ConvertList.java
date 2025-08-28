@@ -24,7 +24,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ConvertList {
 
@@ -34,11 +34,11 @@ public class ConvertList {
      * <p>Проходит по каждому массиву в списке и добавляет его элементы
      * в результирующий список {@code List<Integer>}.</p>
      *
-     * @apiNote Используется при необходимости линейного доступа к элементам,
-     * изначально представленным в виде набора массивов.
+     * <p><b>Примечание:</b> Используется при необходимости линейного доступа к элементам,
+     * изначально представленным в виде набора массивов.</p>
      *
-     * @param list Список массивов типа {@code int[]}.
-     * @return Список целых чисел, содержащий все значения из массивов.
+     * @param list список массивов типа {@code int[]}
+     * @return список целых чисел, содержащий все значения из массивов
      */
     public static List<Integer> convert(List<int[]> list) {
         List<Integer> result = new ArrayList<>();

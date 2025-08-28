@@ -26,7 +26,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class CatMain {
 
@@ -36,7 +36,7 @@ public class CatMain {
      * <p>Создает объекты {@link Cat} и {@link ToyCat}, вызывает их методы
      * и выводит результат в консоль.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Cat cat = new Cat();

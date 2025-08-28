@@ -24,7 +24,7 @@ package ru.job4j.max;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Reduce {
 
@@ -36,7 +36,7 @@ public class Reduce {
     /**
      * Сохраняет переданный массив в поле класса {@code array}.
      *
-     * @param array Массив целых чисел, который нужно сохранить.
+     * @param array массив целых чисел, который нужно сохранить
      */
     public void to(int[] array) {
         this.array = array;
@@ -58,7 +58,7 @@ public class Reduce {
      * <p>Создает массив из трех чисел, сохраняет его в объекте класса
      * {@code Reduce}, затем выводит все элементы массива в консоль.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         int[] array = {1, 2, 3};

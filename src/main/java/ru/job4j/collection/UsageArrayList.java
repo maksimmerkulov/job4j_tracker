@@ -8,14 +8,14 @@ import java.util.ArrayList;
  * <p>Создает список имен и выводит каждое имя в консоль.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UsageArrayList {
 
     /**
      * Точка входа в программу.
      *
-     * @param args аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         ArrayList<String> names = new ArrayList<>();

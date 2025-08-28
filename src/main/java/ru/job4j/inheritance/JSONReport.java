@@ -22,7 +22,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class JSONReport extends TextReport {
 
@@ -32,9 +32,9 @@ public class JSONReport extends TextReport {
      * <p>Каждое поле располагается на новой строке с отступом. В конце тела JSON
      * добавляется символ новой строки, соответствующий {@link System#lineSeparator()}.</p>
      *
-     * @param name Имя отчета.
-     * @param body Содержимое отчета.
-     * @return Строка в формате JSON с полями {@code name} и {@code body}.
+     * @param name имя отчета
+     * @param body содержимое отчета
+     * @return строка в формате JSON с полями {@code name} и {@code body}
      */
     @Override
     public String generate(String name, String body) {

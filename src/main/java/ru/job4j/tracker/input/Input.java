@@ -14,23 +14,23 @@ package ru.job4j.tracker.input;
  * <p>Интерфейс применяется в приложении трекера заявок для взаимодействия с пользователем.</p>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public interface Input {
 
     /**
      * Запрашивает строку у пользователя.
      *
-     * @param question Текст вопроса, отображаемый пользователю.
-     * @return Введенная строка.
+     * @param question текст вопроса, отображаемый пользователю
+     * @return введенная строка
      */
     String askStr(String question);
 
     /**
      * Запрашивает целое число у пользователя.
      *
-     * @param question Текст вопроса, отображаемый пользователю.
-     * @return Введенное число.
+     * @param question текст вопроса, отображаемый пользователю
+     * @return введенное число
      */
     int askInt(String question);
 }

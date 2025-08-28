@@ -42,7 +42,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Computer {
 
@@ -74,8 +74,8 @@ public class Computer {
      *
      * <p>Поле {@code multiMonitor} по умолчанию принимает значение {@code false}.</p>
      *
-     * @param ssd Объем SSD диска, в гигабайтах.
-     * @param cpu Модель процессора.
+     * @param ssd объем SSD диска, в гигабайтах
+     * @param cpu модель процессора
      */
     public Computer(int ssd, String cpu) {
         this.ssd = ssd;
@@ -85,9 +85,9 @@ public class Computer {
     /**
      * Конструктор с тремя параметрами.
      *
-     * @param multiMonitor Наличие нескольких мониторов.
-     * @param ssd Объем SSD диска, в гигабайтах.
-     * @param cpu Модель процессора.
+     * @param multiMonitor наличие нескольких мониторов
+     * @param ssd объем SSD диска, в гигабайтах
+     * @param cpu модель процессора
      */
     public Computer(boolean multiMonitor, int ssd, String cpu) {
         this.multiMonitor = multiMonitor;
@@ -101,9 +101,9 @@ public class Computer {
      * <p>Позволяет передавать объем SSD в виде {@code double},
      * но округляет его до {@code int}.</p>
      *
-     * @param multiMonitor Наличие нескольких мониторов.
-     * @param ssd Объем SSD диска, в гигабайтах (тип {@code double}).
-     * @param cpu Модель процессора.
+     * @param multiMonitor наличие нескольких мониторов
+     * @param ssd объем SSD диска, в гигабайтах (тип {@code double})
+     * @param cpu модель процессора
      */
     public Computer(boolean multiMonitor, double ssd, String cpu) {
         this.multiMonitor = multiMonitor;
@@ -123,7 +123,7 @@ public class Computer {
     /**
      * Создает несколько объектов {@link Computer} и выводит их характеристики.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Computer first = new Computer();

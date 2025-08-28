@@ -40,7 +40,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class HideExampleMain {
 
@@ -49,7 +49,7 @@ public class HideExampleMain {
      *
      * <p>Демонстрирует разницу между переопределением и сокрытием методов.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Animal animal = new Animal();

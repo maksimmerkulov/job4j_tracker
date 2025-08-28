@@ -36,7 +36,7 @@ import java.util.Objects;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class License {
 
@@ -63,7 +63,7 @@ public class License {
     /**
      * Возвращает имя владельца.
      *
-     * @return Строка с именем владельца.
+     * @return строка с именем владельца
      */
     public String getOwner() {
         return owner;
@@ -72,7 +72,7 @@ public class License {
     /**
      * Устанавливает имя владельца.
      *
-     * @param owner Имя владельца.
+     * @param owner имя владельца
      */
     public void setOwner(String owner) {
         this.owner = owner;
@@ -81,7 +81,7 @@ public class License {
     /**
      * Возвращает марку автомобиля.
      *
-     * @return Строка с маркой автомобиля.
+     * @return строка с маркой автомобиля
      */
     public String getModel() {
         return model;
@@ -90,7 +90,7 @@ public class License {
     /**
      * Устанавливает марку автомобиля.
      *
-     * @param model Марка автомобиля.
+     * @param model марка автомобиля
      */
     public void setModel(String model) {
         this.model = model;
@@ -99,7 +99,7 @@ public class License {
     /**
      * Возвращает государственный номер автомобиля.
      *
-     * @return Строка с государственным номером автомобиля.
+     * @return строка с государственным номером автомобиля
      */
     public String getCode() {
         return code;
@@ -108,7 +108,7 @@ public class License {
     /**
      * Устанавливает государственный номер автомобиля.
      *
-     * @param code Государственный номер автомобиля.
+     * @param code государственный номер автомобиля
      */
     public void setCode(String code) {
         this.code = code;
@@ -117,7 +117,7 @@ public class License {
     /**
      * Возвращает дату сборки автомобиля.
      *
-     * @return Объект {@link Date}, указывающий дату сборки автомобиля.
+     * @return объект {@link Date}, указывающий дату сборки автомобиля
      */
     public Date getCreated() {
         return created;
@@ -126,7 +126,7 @@ public class License {
     /**
      * Устанавливает дату сборки автомобиля.
      *
-     * @param created Дата сборки автомобиля.
+     * @param created дата сборки автомобиля
      */
     public void setCreated(Date created) {
         this.created = created;
@@ -136,9 +136,9 @@ public class License {
      * Сравнивает два объекта {@link License} по значениям полей:
      * {@code owner}, {@code model}, {@code code} и {@code created}.
      *
-     * @param o Объект для сравнения.
-     * @return Значение {@code true}, если объекты равны;
-     *         значение {@code false} — в противном случае.
+     * @param o объект для сравнения
+     * @return {@code true}, если объекты равны;
+     *         {@code false} — в противном случае
      */
     @Override
     public boolean equals(Object o) {
@@ -156,7 +156,7 @@ public class License {
      * Возвращает хэш-код объекта, вычисленный на основе полей:
      * {@code owner}, {@code model}, {@code code}, {@code created}.
      *
-     * @return Хэш-код объекта.
+     * @return хэш-код объекта
      */
     @Override
     public int hashCode() {

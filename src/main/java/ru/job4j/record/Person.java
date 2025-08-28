@@ -24,7 +24,7 @@ import java.util.Objects;
  * }</pre>
  *
  * @author Maksiм Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Person {
 
@@ -41,8 +41,8 @@ public class Person {
     /**
      * Создает объект {@link Person} с заданным именем и возрастом.
      *
-     * @param name Имя человека.
-     * @param age Возраст человека.
+     * @param name имя человека
+     * @param age возраст человека
      */
     public Person(String name, int age) {
         this.name = name;
@@ -52,7 +52,7 @@ public class Person {
     /**
      * Возвращает имя человека.
      *
-     * @return Имя человека.
+     * @return имя человека
      */
     public String getName() {
         return name;
@@ -61,7 +61,7 @@ public class Person {
     /**
      * Возвращает возраст человека.
      *
-     * @return Возраст человека.
+     * @return возраст человека
      */
     public int getAge() {
         return age;
@@ -72,9 +72,9 @@ public class Person {
      *
      * <p>Объекты считаются равными, если у них совпадают имя и возраст.</p>
      *
-     * @param o Объект для сравнения.
-     * @return Значение {@code true}, если объекты равны;
-     *         значение {@code false} в противном случае.
+     * @param o объект для сравнения
+     * @return {@code true}, если объекты равны;
+     *         {@code false} в противном случае
      */
     @Override
     public boolean equals(Object o) {
@@ -91,7 +91,7 @@ public class Person {
     /**
      * Возвращает хеш-код объекта {@link Person}, основанный на имени и возрасте.
      *
-     * @return Хеш-код.
+     * @return хеш-код
      */
     @Override
     public int hashCode() {
@@ -101,7 +101,7 @@ public class Person {
     /**
      * Возвращает строковое представление объекта {@link Person}.
      *
-     * @return Строка в формате {@code Person{name='Имя', age=Возраст}}.
+     * @return строка в формате {@code Person{name='Имя', age=Возраст}}
      */
     @Override
     public String toString() {

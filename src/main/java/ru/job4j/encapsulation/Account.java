@@ -18,7 +18,7 @@ package ru.job4j.encapsulation;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Account {
 
@@ -30,7 +30,8 @@ public class Account {
     /**
      * Добавляет указанную сумму к балансу, если сумма положительная.
      *
-     * @param money Сумма для пополнения счета. Должна быть больше нуля.
+     * @param money сумма для пополнения счета;
+     *              должна быть больше нуля
      */
     public void addMoney(int money) {
         if (money > 0) {

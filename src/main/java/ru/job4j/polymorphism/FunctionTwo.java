@@ -20,7 +20,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see FunctionOne
  */
 public interface FunctionTwo extends FunctionOne {
@@ -31,9 +31,9 @@ public interface FunctionTwo extends FunctionOne {
      * <p>Вычисляет выражение {@code x * x - y + 5}, отличающееся от базовой реализации
      * в {@link FunctionOne}.</p>
      *
-     * @param x Первое значение.
-     * @param y Второе значение.
-     * @return Результат вычисления.
+     * @param x первое значение
+     * @param y второе значение
+     * @return результат вычисления
      */
     @Override
     default double function(double x, double y) {

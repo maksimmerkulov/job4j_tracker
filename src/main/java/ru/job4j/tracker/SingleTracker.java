@@ -15,7 +15,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class SingleTracker {
 
@@ -38,7 +38,7 @@ public class SingleTracker {
     /**
      * Возвращает единственный экземпляр {@link SingleTracker}.
      *
-     * @return Объект {@link SingleTracker}
+     * @return объект {@link SingleTracker}
      */
     public static SingleTracker getInstance() {
         if (instance == null) {
@@ -50,8 +50,8 @@ public class SingleTracker {
     /**
      * Добавляет новую заявку.
      *
-     * @param item Добавляемая заявка.
-     * @return Добавленная заявка.
+     * @param item добавляемая заявка
+     * @return добавленная заявка
      */
     public Item add(Item item) {
         return tracker.add(item);
@@ -60,7 +60,7 @@ public class SingleTracker {
     /**
      * Возвращает все заявки.
      *
-     * @return Список всех заявок.
+     * @return список всех заявок
      */
     public List<Item> findAll() {
         return tracker.findAll();
@@ -69,9 +69,9 @@ public class SingleTracker {
     /**
      * Заменяет заявку по идентификатору.
      *
-     * @param id Идентификатор заявки.
-     * @param item Новая заявка.
-     * @return {@code true}, если замена успешна; иначе {@code false}.
+     * @param id идентификатор заявки
+     * @param item новая заявка
+     * @return {@code true}, если замена успешна; иначе {@code false}
      */
     public boolean replace(int id, Item item) {
         return tracker.replace(id, item);
@@ -80,7 +80,7 @@ public class SingleTracker {
     /**
      * Удаляет заявку по идентификатору.
      *
-     * @param id Идентификатор заявки.
+     * @param id идентификатор заявки
      */
     public void delete(int id) {
         tracker.delete(id);
@@ -89,9 +89,9 @@ public class SingleTracker {
     /**
      * Находит заявку по идентификатору.
      *
-     * @param id Идентификатор заявки.
-     * @return Найденная заявка.
-     * Если заявка не найдена возвращает {@code null}.
+     * @param id идентификатор заявки
+     * @return найденная заявка;
+     *         {@code null}, если не найдена
      */
     public Item findById(int id) {
         return tracker.findById(id);
@@ -100,8 +100,8 @@ public class SingleTracker {
     /**
      * Находит заявки по имени.
      *
-     * @param key Имя заявки.
-     * @return Список найденных заявок.
+     * @param key имя заявки
+     * @return список найденных заявок
      */
     public List<Item> findByName(String key) {
         return tracker.findByName(key);

@@ -21,7 +21,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class NotifyAccount {
 
@@ -29,8 +29,8 @@ public class NotifyAccount {
      * Принимает список аккаунтов и возвращает множество уникальных аккаунтов.
      * Уникальность определяется методом equals() класса Account (по паспорту).
      *
-     * @param accounts Список аккаунтов.
-     * @return Множество уникальных аккаунтов без дубликатов.
+     * @param accounts список аккаунтов
+     * @return множество уникальных аккаунтов без дубликатов
      */
     public static HashSet<Account> sent(List<Account> accounts) {
         HashSet<Account> result = new HashSet<>();

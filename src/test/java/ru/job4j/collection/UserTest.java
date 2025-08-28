@@ -34,9 +34,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UserTest {
+
     /**
      * Проверяет, что пользователи сортируются по имени
      * в алфавитном порядке.

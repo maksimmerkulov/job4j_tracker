@@ -19,7 +19,7 @@ package ru.job4j.enumeration;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class CarService {
 
@@ -29,7 +29,7 @@ public class CarService {
      * <p>Создает и выводит различные статусы, показывает порядок и имена,
      * а также демонстрирует использование {@code switch} с {@link Status}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Status toyota = Status.FINISHED;

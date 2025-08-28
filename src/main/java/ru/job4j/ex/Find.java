@@ -19,7 +19,7 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Find {
 
@@ -29,10 +29,10 @@ public class Find {
      * <p>Метод предварительно проверяет, что индекс находится в допустимых границах. В противном случае
      * генерируется исключение {@link IllegalArgumentException} с соответствующим сообщением.</p>
      *
-     * @param data  Массив строк, из которого извлекается элемент.
-     * @param index Индекс искомого элемента.
-     * @return Строка из массива по заданному индексу.
-     * @throws IllegalArgumentException если индекс меньше 0 или больше либо равен длине массива.
+     * @param data  массив строк, из которого извлекается элемент
+     * @param index индекс искомого элемента
+     * @return строка из массива по заданному индексу
+     * @throws IllegalArgumentException если индекс меньше 0 или больше либо равен длине массива
      */
     public static String get(String[] data, int index) {
         if (index < 0 || index >= data.length) {

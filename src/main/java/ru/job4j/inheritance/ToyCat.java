@@ -20,7 +20,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ToyCat extends Cat {
 
@@ -29,7 +29,7 @@ public class ToyCat extends Cat {
      *
      * <p>У настоящих кошек такого метода нет, так как их нельзя стирать в машинке.</p>
      *
-     * @return Значение {@code true}, если игрушечную кошку можно стирать.
+     * @return {@code true}, если игрушечную кошку можно стирать
      */
     public boolean canBeWashByWashMachine() {
         return true;

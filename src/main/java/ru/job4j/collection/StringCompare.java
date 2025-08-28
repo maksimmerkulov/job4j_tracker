@@ -34,9 +34,10 @@ import java.util.Comparator;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class StringCompare implements Comparator<String> {
+
     /**
      * Сравнивает две строки лексикографически без {@link String#compareTo(String)}.
      *
@@ -47,7 +48,8 @@ public class StringCompare implements Comparator<String> {
      *
      * @param left  левая строка для сравнения (не {@code null})
      * @param right правая строка для сравнения (не {@code null})
-     * @return отрицательное число, если {@code left < right}; ноль, если равны;
+     * @return отрицательное число, если {@code left < right};
+     *         ноль, если равны;
      *         положительное число, если {@code left > right}
      * @throws NullPointerException если любая из строк равна {@code null}
      */

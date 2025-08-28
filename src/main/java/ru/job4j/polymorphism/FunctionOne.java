@@ -31,7 +31,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public interface FunctionOne {
 
@@ -41,9 +41,9 @@ public interface FunctionOne {
      * <p>Может использоваться для тестирования математических операций
      * или как простая обучающая функция.</p>
      *
-     * @param x Первое значение.
-     * @param y Второе значение.
-     * @return Результат вычисления.
+     * @param x первое значение
+     * @param y второе значение
+     * @return результат вычисления
      */
     default double function(double x, double y) {
         return x * x - 2 * y + 30;
@@ -61,8 +61,8 @@ public interface FunctionOne {
     /**
      * Возвращает удвоенную сумму всех элементов массива.
      *
-     * @param numbers Массив целых чисел.
-     * @return Удвоенная сумма элементов.
+     * @param numbers массив целых чисел
+     * @return удвоенная сумма элементов
      */
     default int getDoubleSum(int[] numbers) {
         return getSum(numbers) * 2;
@@ -71,8 +71,8 @@ public interface FunctionOne {
     /**
      * Вычисляет среднее значение элементов массива.
      *
-     * @param numbers Массив целых чисел.
-     * @return Среднее арифметическое значение.
+     * @param numbers массив целых чисел
+     * @return среднее арифметическое значение
      */
     default double getAverage(int[] numbers) {
         return getSum(numbers) * 1.0 / numbers.length;
@@ -84,8 +84,8 @@ public interface FunctionOne {
      * <p>Является приватным методом интерфейса и используется внутренне
      * другими методами интерфейса.</p>
      *
-     * @param numbers Массив целых чисел.
-     * @return Сумма элементов.
+     * @param numbers массив целых чисел
+     * @return сумма элементов
      */
     private int getSum(int[] numbers) {
         int sum = 0;

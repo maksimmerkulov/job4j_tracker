@@ -39,7 +39,7 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Matches {
 
@@ -50,7 +50,7 @@ public class Matches {
      * Каждый игрок может забрать от 1 до 3 спичек, но не больше оставшихся на столе.
      * В конце игры объявляется победитель, забравший последнюю спичку.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

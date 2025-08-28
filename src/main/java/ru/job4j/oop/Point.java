@@ -1,7 +1,7 @@
 package ru.job4j.oop;
 
-import static java.lang.Math.sqrt;
 import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
 
 /**
  * Класс {@code Point} представляет точку на двумерной плоскости с координатами {@code x} и {@code y}.
@@ -22,7 +22,7 @@ import static java.lang.Math.pow;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Point {
 
@@ -40,8 +40,8 @@ public class Point {
      * Конструктор с параметрами.
      * Создает точку с заданными координатами.
      *
-     * @param first Координата {@code x} точки.
-     * @param second Координата {@code y} точки.
+     * @param first координата {@code x} точки
+     * @param second координата {@code y} точки
      */
     public Point(int first, int second) {
         this.x = first;
@@ -60,8 +60,8 @@ public class Point {
      * <p>Где {@code x1}, {@code y1} — координаты текущей точки,
      * а {@code x2}, {@code y2} — координаты точки {@code that}.</p>
      *
-     * @param that Точка, до которой нужно вычислить расстояние.
-     * @return Расстояние между текущей точкой и точкой {@code that}.
+     * @param that точка, до которой нужно вычислить расстояние
+     * @return расстояние между текущей точкой и точкой {@code that}
      */
     public double distance(Point that) {
         return sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2));

@@ -37,9 +37,10 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class JobSorter {
+
     /**
      * Точка входа в программу.
      *

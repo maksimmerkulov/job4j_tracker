@@ -21,7 +21,7 @@ package ru.job4j.strategy;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Square implements Shape {
 
@@ -30,7 +30,7 @@ public class Square implements Shape {
      *
      * <p>Каждая строка содержит символы, формирующие визуальный квадрат.</p>
      *
-     * @return Строка с изображением квадрата.
+     * @return строка с изображением квадрата
      */
     @Override
     public String draw() {

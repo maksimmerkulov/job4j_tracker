@@ -28,16 +28,17 @@ import java.util.Comparator;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class JobAscByPriority implements Comparator<Job> {
+
     /**
      * Сравнивает два объекта {@link Job} по приоритету в порядке возрастания.
      *
      * @param o1 первый объект для сравнения
      * @param o2 второй объект для сравнения
-     * @return отрицательное число, если приоритет o1 меньше o2,
-     *         положительное число, если приоритет o1 больше o2,
+     * @return отрицательное число, если приоритет o1 меньше o2;
+     *         положительное число, если приоритет o1 больше o2;
      *         ноль, если приоритеты равны
      */
     @Override

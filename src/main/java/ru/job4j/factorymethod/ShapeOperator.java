@@ -29,7 +29,7 @@ package ru.job4j.factorymethod;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public abstract class ShapeOperator {
 
@@ -48,7 +48,7 @@ public abstract class ShapeOperator {
      *
      * <p>Должен быть реализован в подклассах для создания конкретного типа {@link Shape}.</p>
      *
-     * @return Созданная фигура.
+     * @return созданная фигура
      */
     public abstract Shape createShape();
 }

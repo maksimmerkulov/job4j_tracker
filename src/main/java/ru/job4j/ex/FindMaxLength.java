@@ -39,7 +39,7 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class FindMaxLength {
 
@@ -50,7 +50,7 @@ public class FindMaxLength {
      *
      * <p>Игнорирует {@code null}-значения, чтобы избежать {@link NullPointerException}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         String[] shops = {"Ebay", null, "Amazon", null, "Ozon"};

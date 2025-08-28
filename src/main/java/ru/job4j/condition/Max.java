@@ -18,7 +18,7 @@ package ru.job4j.condition;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Max {
 
@@ -27,9 +27,9 @@ public class Max {
      *
      * <p>Если оба значения равны — возвращается любое из них.</p>
      *
-     * @param left  Первое число.
-     * @param right Второе число.
-     * @return Наибольшее из двух чисел.
+     * @param left  первое число
+     * @param right второе число
+     * @return наибольшее из двух чисел
      */
     public static int max(int left, int right) {
         int max = left;

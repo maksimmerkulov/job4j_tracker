@@ -21,7 +21,7 @@ package ru.job4j.record;
  * }</pre>
  *
  * @author Maksiм Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public record PersonRecord(String name, int age) {
 
@@ -35,9 +35,9 @@ public record PersonRecord(String name, int age) {
      *
      * <p>Выбрасывает исключение, если возраст человека превышает 101 год.</p>
      *
-     * @param name Имя человека.
-     * @param age  Возраст человека.
-     * @throws IllegalArgumentException Если возраст превышает 101 год.
+     * @param name имя человека
+     * @param age  возраст человека
+     * @throws IllegalArgumentException если возраст превышает 101 год
      */
     public PersonRecord {
         if (age > 101) {
@@ -48,7 +48,7 @@ public record PersonRecord(String name, int age) {
     /**
      * Возвращает максимально допустимый возраст.
      *
-     * @return Значение {@code maxAge}.
+     * @return максимально допустимый возраст человека {@code maxAge}
      */
     public static int getMaxAge() {
         return maxAge;
@@ -64,7 +64,7 @@ public record PersonRecord(String name, int age) {
     /**
      * Возвращает строковое представление объекта {@link PersonRecord}.
      *
-     * @return Строка в формате {@code Person{name='Имя', age=Возраст}}.
+     * @return строка в формате {@code Person{name='Имя', age=Возраст}}
      */
     @Override
     public String toString() {

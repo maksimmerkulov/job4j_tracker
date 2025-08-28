@@ -27,7 +27,7 @@ import java.util.PriorityQueue;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class TransactionSortDescByAmount implements Comparator<Transaction> {
 
@@ -36,8 +36,9 @@ public class TransactionSortDescByAmount implements Comparator<Transaction> {
      *
      * @param o1 первая транзакция для сравнения
      * @param o2 вторая транзакция для сравнения
-     * @return отрицательное число, если {@code o2.amount > o1.amount},
-     *         положительное, если {@code o2.amount < o1.amount}, 0 если равны
+     * @return отрицательное число, если {@code o2.amount > o1.amount};
+     *         положительное, если {@code o2.amount < o1.amount};
+     *         0 если равны
      */
     @Override
     public int compare(Transaction o1, Transaction o2) {

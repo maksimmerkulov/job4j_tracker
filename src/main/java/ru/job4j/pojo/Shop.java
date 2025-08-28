@@ -43,7 +43,7 @@ package ru.job4j.pojo;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Shop {
 
@@ -52,8 +52,8 @@ public class Shop {
      *
      * <p>Если все ячейки массива заполнены (не {@code null}), возвращается {@code -1}.</p>
      *
-     * @param products Массив объектов {@link Product}.
-     * @return Индекс первой {@code null}-ячейки или {@code -1}, если таких нет.
+     * @param products массив объектов {@link Product}
+     * @return индекс первой {@code null}-ячейки или {@code -1}, если таких нет
      */
     public static int indexOfNull(Product[] products) {
         for (int i = 0; i < products.length; i++) {
@@ -69,7 +69,7 @@ public class Shop {
      *
      * <p>Создает массив продуктов, выводит все непустые элементы и определяет первую пустую ячейку.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Product[] products = new Product[5];

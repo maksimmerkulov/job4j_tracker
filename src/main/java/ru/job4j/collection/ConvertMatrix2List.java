@@ -24,7 +24,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ConvertMatrix2List {
 
@@ -33,9 +33,10 @@ public class ConvertMatrix2List {
      *
      * <p>Элементы добавляются в список построчно, начиная с первой строки массива.</p>
      *
-     * @apiNote Метод полезен при необходимости линейной обработки двумерных структур.
-     * @param array Двумерный массив целых чисел.
-     * @return Список, содержащий все элементы массива по порядку.
+     * <p>Метод полезен при необходимости линейной обработки двумерных структур.</p>
+     *
+     * @param array двумерный массив целых чисел
+     * @return список, содержащий все элементы массива по порядку
      */
     public List<Integer> toList(int[][] array) {
         List<Integer> list = new ArrayList<>();

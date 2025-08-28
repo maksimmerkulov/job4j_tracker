@@ -20,17 +20,17 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Jukebox {
 
     /**
      * Воспроизводит песню в зависимости от переданной позиции.
      *
-     * @param position Номер песни для воспроизведения:
-     *                 1 — "Пусть бегут неуклюже",
-     *                 2 — "Спокойной ночи".
-     *                 Для всех остальных значений выводится "Песня не найдена".
+     * @param position номер песни для воспроизведения:
+     *                 1 — "Пусть бегут неуклюже";
+     *                 2 — "Спокойной ночи";
+     *                 для всех остальных значений выводится "Песня не найдена"
      */
     public void music(int position) {
         switch (position) {
@@ -44,7 +44,7 @@ public class Jukebox {
      * Демонстрирует работу класса {@link Jukebox}
      * путем воспроизведения песен с различными позициями.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Jukebox jukebox = new Jukebox();

@@ -24,7 +24,7 @@ import java.util.HashMap;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UsageMap {
 
@@ -34,7 +34,7 @@ public class UsageMap {
      * <p>Создает объект {@link HashMap}, добавляет в него одну запись
      * и выводит содержимое на экран, проходя по ключам с помощью {@code keySet()}.</p>
      *
-     * @param args Аргументы командной строки (не используется).
+     * @param args аргументы командной строки (не используется)
      */
     public static void main(String[] args) {
         HashMap<String, String> map = new HashMap<>();

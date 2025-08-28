@@ -18,7 +18,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ReportUsage {
 
@@ -27,7 +27,7 @@ public class ReportUsage {
      *
      * <p>Создает экземпляр {@link HtmlReport}, формирует HTML-отчет и выводит его в консоль.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         HtmlReport report = new HtmlReport();

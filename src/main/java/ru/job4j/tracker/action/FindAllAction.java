@@ -38,7 +38,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.3
+ * @version 1.4
  * @see UserAction
  * @see Tracker
  * @see Item
@@ -53,7 +53,7 @@ public class FindAllAction implements UserAction {
     /**
      * Создает объект действия отображения всех заявок.
      *
-     * @param output Объект вывода сообщений пользователю.
+     * @param output объект вывода сообщений пользователю
      */
     public FindAllAction(Output output) {
         this.output = output;
@@ -62,7 +62,7 @@ public class FindAllAction implements UserAction {
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
      *
-     * @return Строка "Показать все заявки".
+     * @return строка "Показать все заявки"
      */
     @Override
     public String name() {
@@ -75,9 +75,9 @@ public class FindAllAction implements UserAction {
      * <p>Выводит в консоль все объекты {@link Item}, находящиеся в {@link Tracker},
      * или сообщение о пустом хранилище, если заявок нет.</p>
      *
-     * @param input   Интерфейс получения пользовательского ввода (не используется).
-     * @param tracker Хранилище заявок.
-     * @return {@code true}, чтобы продолжить выполнение программы.
+     * @param input   интерфейс получения пользовательского ввода (не используется)
+     * @param tracker хранилище заявок
+     * @return {@code true}, чтобы продолжить выполнение программы
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {

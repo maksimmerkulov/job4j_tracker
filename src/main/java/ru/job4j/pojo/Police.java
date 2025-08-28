@@ -27,7 +27,7 @@ import java.util.Date;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Police {
 
@@ -37,7 +37,7 @@ public class Police {
      * <p>Создает объект {@link License}, устанавливает значения полей
      * и выводит информацию в консоль.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         License license = new License();

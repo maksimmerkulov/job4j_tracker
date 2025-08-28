@@ -23,7 +23,7 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class ConsoleInput implements Input {
 
@@ -40,8 +40,8 @@ public class ConsoleInput implements Input {
      *
      * <p>Выводит вопрос и ожидает ввода строки с консоли. Введенная строка будет возвращена.</p>
      *
-     * @param question Вопрос, который будет выведен пользователю.
-     * @return Строка, введенная пользователем.
+     * @param question вопрос, который будет выведен пользователю
+     * @return строка, введенная пользователем
      */
     @Override
     public String askStr(String question) {
@@ -55,9 +55,9 @@ public class ConsoleInput implements Input {
      * <p>Выводит вопрос и ожидает ввода строки с консоли, а затем преобразует его в целое число.
      * Введенное число будет возвращено.</p>
      *
-     * @param question Вопрос, который будет выведен пользователю.
-     * @return Целое число, введенное пользователем.
-     * @throws NumberFormatException если введенная строка не является допустимым числом.
+     * @param question вопрос, который будет выведен пользователю
+     * @return целое число, введенное пользователем
+     * @throws NumberFormatException если введенная строка не является допустимым числом
      */
     @Override
     public int askInt(String question) {

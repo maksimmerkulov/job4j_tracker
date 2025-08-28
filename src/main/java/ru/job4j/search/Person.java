@@ -18,7 +18,7 @@ package ru.job4j.search;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Person {
 
@@ -45,10 +45,10 @@ public class Person {
     /**
      * Создает объект {@code Person} с заданными данными.
      *
-     * @param name    Имя пользователя.
-     * @param surname Фамилия пользователя.
-     * @param phone   Номер телефона пользователя.
-     * @param address Адрес пользователя.
+     * @param name    имя пользователя
+     * @param surname фамилия пользователя
+     * @param phone   номер телефона пользователя
+     * @param address адрес пользователя
      */
     public Person(String name, String surname, String phone, String address) {
         this.name = name;
@@ -60,7 +60,7 @@ public class Person {
     /**
      * Возвращает имя пользователя.
      *
-     * @return Имя пользователя.
+     * @return имя пользователя
      */
     public String getName() {
         return name;
@@ -69,7 +69,7 @@ public class Person {
     /**
      * Возвращает фамилию пользователя.
      *
-     * @return Фамилия пользователя.
+     * @return фамилия пользователя
      */
     public String getSurname() {
         return surname;
@@ -78,7 +78,7 @@ public class Person {
     /**
      * Возвращает номер телефона пользователя.
      *
-     * @return Номер телефона пользователя.
+     * @return номер телефона пользователя
      */
     public String getPhone() {
         return phone;
@@ -87,7 +87,7 @@ public class Person {
     /**
      * Возвращает адрес пользователя.
      *
-     * @return Адрес пользователя.
+     * @return адрес пользователя
      */
     public String getAddress() {
         return address;

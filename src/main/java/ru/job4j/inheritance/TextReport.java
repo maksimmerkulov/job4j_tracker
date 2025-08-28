@@ -20,7 +20,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class TextReport {
 
@@ -30,9 +30,9 @@ public class TextReport {
      * <p>Имя и тело отчета разделяются символом новой строки,
      * полученным через {@link System#lineSeparator()}.</p>
      *
-     * @param name Имя отчета.
-     * @param body Содержимое отчета.
-     * @return Строка с отчетом, в которой имя и тело находятся на отдельных строках.
+     * @param name имя отчета
+     * @param body содержимое отчета
+     * @return строка с отчетом, в которой имя и тело находятся на отдельных строках
      */
     public String generate(String name, String body) {
         return name + System.lineSeparator() + body;

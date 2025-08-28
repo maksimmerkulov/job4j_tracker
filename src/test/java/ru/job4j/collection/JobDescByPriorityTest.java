@@ -22,9 +22,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class JobDescByPriorityTest {
+
     /**
      * Проверяет, что компаратор {@link JobDescByPriority}
      * сортирует задачи по приоритету в порядке убывания.

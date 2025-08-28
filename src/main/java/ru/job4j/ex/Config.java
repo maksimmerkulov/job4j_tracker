@@ -6,7 +6,7 @@ package ru.job4j.ex;
  * <p>Используется для имитации загрузки конфигурационных данных по строке пути.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Config {
 
@@ -15,8 +15,8 @@ public class Config {
      *
      * <p>Если путь {@code null}, выбрасывается исключение.</p>
      *
-     * @param path Путь к конфигурационному источнику.
-     * @throws IllegalStateException если путь равен {@code null}.
+     * @param path путь к конфигурационному источнику
+     * @throws IllegalStateException если путь равен {@code null}
      */
     public static void load(String path) {
         if (path == null) {
@@ -30,7 +30,7 @@ public class Config {
      *
      * <p>Загружает конфигурацию с демонстрационным путем.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         load("jdbc://localhost:8080");

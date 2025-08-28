@@ -26,7 +26,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Battery {
 
@@ -38,7 +38,7 @@ public class Battery {
     /**
      * Создает аккумулятор с заданным уровнем заряда.
      *
-     * @param load Уровень заряда в процентах.
+     * @param load уровень заряда в процентах
      */
     public Battery(int load) {
         this.load = load;
@@ -47,7 +47,7 @@ public class Battery {
     /**
      * Возвращает строку с текущим уровнем заряда аккумулятора.
      *
-     * @return Строка, содержащая информацию о заряде.
+     * @return строка, содержащая информацию о заряде
      */
     public String about() {
         return "My charge: " + load + "%";
@@ -58,7 +58,7 @@ public class Battery {
      *
      * <p>Текущий аккумулятор обнуляется.</p>
      *
-     * @param another Аккумулятор, которому передается заряд.
+     * @param another аккумулятор, которому передается заряд
      */
     public void exchange(Battery another) {
         another.load = this.load + another.load;
@@ -69,7 +69,7 @@ public class Battery {
      * Демонстрирует работу метода {@link #exchange(Battery)}
      * и выводит уровень заряда до и после передачи.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Battery first = new Battery(70);

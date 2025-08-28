@@ -21,7 +21,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class HierarchyUsage {
 
@@ -32,7 +32,7 @@ public class HierarchyUsage {
      * {@link Transport} и {@link Object}, а также выполняет приведение типа обратно.
      * Затем выводятся строки, полученные вызовом {@link #toString()} у новых объектов.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Car car = new Car();

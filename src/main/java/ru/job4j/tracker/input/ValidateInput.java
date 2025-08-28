@@ -23,7 +23,7 @@ import ru.job4j.tracker.output.Output;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class ValidateInput implements Input {
 
@@ -40,8 +40,8 @@ public class ValidateInput implements Input {
     /**
      * Создает экземпляр {@code ValidateInput}.
      *
-     * @param output Объект для вывода сообщений пользователю.
-     * @param input  Объект для получения пользовательского ввода.
+     * @param output объект для вывода сообщений пользователю
+     * @param input  объект для получения пользовательского ввода
      */
     public ValidateInput(Output output, Input input) {
         this.output = output;
@@ -51,8 +51,8 @@ public class ValidateInput implements Input {
     /**
      * Запрашивает у пользователя строку без дополнительной валидации.
      *
-     * @param question Сообщение, выводимое пользователю.
-     * @return Строка, введенная пользователем.
+     * @param question сообщение, выводимое пользователю
+     * @return строка, введенная пользователем
      */
     @Override
     public String askStr(String question) {
@@ -65,8 +65,8 @@ public class ValidateInput implements Input {
      * <p>Если пользователь вводит некорректное значение (например, строку),
      * выводится сообщение об ошибке и повторяется запрос до успешного ввода числа.</p>
      *
-     * @param question Сообщение, выводимое пользователю.
-     * @return Целое число, введенное пользователем.
+     * @param question сообщение, выводимое пользователю
+     * @return целое число, введенное пользователем
      */
     @Override
     public int askInt(String question) {

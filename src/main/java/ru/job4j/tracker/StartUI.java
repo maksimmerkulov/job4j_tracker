@@ -55,7 +55,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.18
+ * @version 1.19
  * @see UserAction
  * @see Tracker
  * @see Input
@@ -70,7 +70,7 @@ public class StartUI {
     /**
      * Создает экземпляр пользовательского интерфейса с указанным объектом вывода.
      *
-     * @param output Объект для вывода сообщений пользователю.
+     * @param output объект для вывода сообщений пользователю
      */
     public StartUI(Output output) {
         this.output = output;
@@ -82,9 +82,9 @@ public class StartUI {
      * <p>Метод отображает меню, получает выбор пользователя и выполняет соответствующее действие.
      * Выполнение продолжается, пока метод {@link UserAction#execute(Input, Tracker)} возвращает {@code true}.</p>
      *
-     * @param input   Источник пользовательского ввода (например, {@link ConsoleInput}).
-     * @param tracker Хранилище заявок.
-     * @param actions Список доступных пользовательских действий.
+     * @param input   источник пользовательского ввода (например, {@link ConsoleInput})
+     * @param tracker хранилище заявок
+     * @param actions список доступных пользовательских действий
      */
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
@@ -107,7 +107,7 @@ public class StartUI {
      * <p>Меню содержит пункты для добавления, редактирования, удаления
      * и поиска заявок, а также пункт для выхода из программы.</p>
      *
-     * @param actions Список доступных действий, реализующих интерфейс {@link UserAction}.
+     * @param actions список доступных действий, реализующих интерфейс {@link UserAction}
      */
     private void showMenu(List<UserAction> actions) {
         output.println("Меню:");
@@ -122,7 +122,7 @@ public class StartUI {
      * <p>Создает необходимые компоненты (ввод, хранилище, действия)
      * и запускает пользовательский интерфейс.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Output output = new ConsoleOutput();

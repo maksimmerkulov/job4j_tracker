@@ -23,7 +23,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class IceCream {
 
@@ -35,7 +35,7 @@ public class IceCream {
     /**
      * Создает новый экземпляр класса {@code IceCream} с заданным количеством шариков.
      *
-     * @param weight Количество шариков мороженого.
+     * @param weight количество шариков мороженого
      */
     public IceCream(int weight) {
         this.weight = weight;
@@ -44,7 +44,7 @@ public class IceCream {
     /**
      * Возвращает стоимость мороженого без учета топпингов.
      *
-     * @return Стоимость мороженого в рублях.
+     * @return стоимость мороженого в рублях
      */
     public int price() {
         return weight * 100;

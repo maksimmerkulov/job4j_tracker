@@ -31,7 +31,7 @@ package ru.job4j.pojo;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Book {
 
@@ -49,8 +49,8 @@ public class Book {
      * Создает новый экземпляр класса {@code Book}
      * с указанным названием и количеством страниц.
      *
-     * @param name  Название книги.
-     * @param pages Количество страниц.
+     * @param name  название книги
+     * @param pages количество страниц
      */
     public Book(String name, int pages) {
         this.name = name;
@@ -60,7 +60,7 @@ public class Book {
     /**
      * Возвращает название книги.
      *
-     * @return Название книги.
+     * @return название книги
      */
     public String getName() {
         return name;
@@ -69,7 +69,7 @@ public class Book {
     /**
      * Устанавливает новое название книги.
      *
-     * @param name Новое название книги.
+     * @param name новое название книги
      */
     public void setName(String name) {
         this.name = name;
@@ -78,7 +78,7 @@ public class Book {
     /**
      * Возвращает количество страниц в книге.
      *
-     * @return Количество страниц в книге.
+     * @return количество страниц в книге
      */
     public int getPages() {
         return pages;
@@ -87,7 +87,7 @@ public class Book {
     /**
      * Устанавливает новое количество страниц в книге.
      *
-     * @param pages Новое количество страниц в книге.
+     * @param pages новое количество страниц в книге
      */
     public void setPages(int pages) {
         this.pages = pages;

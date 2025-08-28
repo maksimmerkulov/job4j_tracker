@@ -21,7 +21,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Tamagotchi {
 
@@ -42,7 +42,7 @@ public class Tamagotchi {
     /**
      * Возвращает строку с текущим весом питомца.
      *
-     * @return Строка с текущим весом питомца.
+     * @return строка с текущим весом питомца
      */
     public String info() {
         return "weight: " + weight;
@@ -53,7 +53,7 @@ public class Tamagotchi {
      *
      * <p>Принимает объект {@code Tamagotchi} и вызывает у него метод {@link #feed()}.</p>
      *
-     * @param petCopy Объект питомца, которого нужно накормить.
+     * @param petCopy объект питомца, которого нужно накормить
      */
     public static void feedPet(Tamagotchi petCopy) {
         petCopy.feed();
@@ -65,7 +65,7 @@ public class Tamagotchi {
      * <p>Создает экземпляр питомца, выводит его вес, кормит его
      * и снова выводит вес.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Tamagotchi pet = new Tamagotchi();

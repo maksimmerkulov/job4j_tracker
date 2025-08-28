@@ -26,7 +26,7 @@ import java.util.Map;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UsageMapDemo {
 
@@ -105,7 +105,7 @@ public class UsageMapDemo {
      *
      * <p>Последовательно вызывает методы для демонстрации работы с {@link HashMap}.</p>
      *
-     * @param args Аргументы командной строки (не используется).
+     * @param args аргументы командной строки (не используется)
      */
     public static void main(String[] args) {
         addElement();

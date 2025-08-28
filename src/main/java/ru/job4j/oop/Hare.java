@@ -5,7 +5,7 @@ package ru.job4j.oop;
  * который пытается съесть Колобка.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Hare {
 
@@ -13,7 +13,7 @@ public class Hare {
      * Позволяет Зайцу попытаться съесть Колобка.
      * Колобок сбежит.
      *
-     * @param ball Объект класса {@link Ball}, которого Заяц хочет съесть.
+     * @param ball объект класса {@link Ball}, которого Заяц хочет съесть
      */
     public void tryEat(Ball ball) {
         System.out.println("Заяц попытался съесть Колобка...");

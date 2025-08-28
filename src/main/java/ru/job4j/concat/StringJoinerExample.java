@@ -22,7 +22,7 @@ import java.util.StringJoiner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class StringJoinerExample {
 
@@ -32,7 +32,7 @@ public class StringJoinerExample {
      * <p>Создает объект {@link StringJoiner} с разделителем {@code ", "}, префиксом {@code "["}
      * и суффиксом {@code "]"}, добавляет в него строки и выводит результат.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         StringJoiner stringJoiner = new StringJoiner(", ", "[", "]");

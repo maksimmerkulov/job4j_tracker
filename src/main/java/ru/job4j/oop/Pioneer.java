@@ -5,14 +5,14 @@ package ru.job4j.oop;
  * который может защитить Красную Шапочку от Волка.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Pioneer {
 
     /**
      * Позволяет Пете победить Волка.
      *
-     * @param wolf Объект класса {@link Wolf}, которого нужно победить.
+     * @param wolf объект класса {@link Wolf}, которого нужно победить
      */
     public void kill(Wolf wolf) {
         System.out.println("Петя победил волка.");

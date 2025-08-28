@@ -23,7 +23,7 @@ import java.util.ArrayList;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class PhoneDictionary {
 
@@ -35,7 +35,7 @@ public class PhoneDictionary {
     /**
      * Добавляет пользователя в справочник.
      *
-     * @param person Пользователь.
+     * @param person пользователь
      */
     public void add(Person person) {
         this.persons.add(person);
@@ -44,8 +44,8 @@ public class PhoneDictionary {
     /**
      * Возвращает список всех пользователей, который содержат key в любых полях.
      *
-     * @param key Ключ поиска.
-     * @return Список пользователей, которые прошли проверку.
+     * @param key ключ поиска
+     * @return список пользователей, которые прошли проверку
      */
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();

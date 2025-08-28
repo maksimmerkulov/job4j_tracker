@@ -20,20 +20,19 @@ package ru.job4j.ex;
  * <p>Если передано отрицательное число, выбрасывается {@link IllegalArgumentException}.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Factorial {
 
     /**
      * Вычисляет факториал числа {@code number}.
      *
-     * <p>Факториал — это произведение всех натуральных чисел от {@code 1} до {@code number}.</p>
+     * <p>Факториал — это произведение всех натуральных чисел от {@code 1} до {@code number}.
+     * Метод не поддерживает отрицательные числа. Используется цикл от {@code 2} до {@code number} включительно.</p>
      *
-     * @apiNote Метод не поддерживает отрицательные числа.
-     * @implSpec Используется цикл от {@code 2} до {@code number} включительно.
-     * @param number Число, факториал которого необходимо вычислить.
-     * @return Факториал числа.
-     * @throws IllegalArgumentException если {@code number < 0}.
+     * @param number число, факториал которого необходимо вычислить
+     * @return факториал числа
+     * @throws IllegalArgumentException если {@code number < 0}
      */
     public int calc(int number) {
         if (number < 0) {
@@ -51,7 +50,7 @@ public class Factorial {
      *
      * <p>Вызывает метод {@link #calc(int)} с примером неправильного ввода.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         new Factorial().calc(-1);

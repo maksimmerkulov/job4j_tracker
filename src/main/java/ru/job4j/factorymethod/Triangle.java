@@ -22,7 +22,7 @@ package ru.job4j.factorymethod;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Triangle implements Shape {
 
@@ -39,8 +39,8 @@ public class Triangle implements Shape {
     /**
      * Создает треугольник с заданным основанием и высотой.
      *
-     * @param a Основание треугольника.
-     * @param h Высота треугольника.
+     * @param a основание треугольника
+     * @param h высота треугольника
      */
     public Triangle(int a, int h) {
         this.a = a;
@@ -50,7 +50,7 @@ public class Triangle implements Shape {
     /**
      * Отображает схематическое изображение треугольника.
      *
-     * @return Строка, содержащая "рисунок" треугольника.
+     * @return строка, содержащая "рисунок" треугольника
      */
     @Override
     public String draw() {
@@ -64,7 +64,7 @@ public class Triangle implements Shape {
     /**
      * Вычисляет площадь треугольника по формуле {@code 0.5 * a * h}.
      *
-     * @return Площадь треугольника.
+     * @return площадь треугольника
      */
     @Override
     public double square() {

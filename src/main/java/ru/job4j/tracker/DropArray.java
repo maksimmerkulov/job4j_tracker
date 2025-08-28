@@ -22,7 +22,7 @@ import java.util.Arrays;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class DropArray {
 
@@ -33,7 +33,7 @@ public class DropArray {
      * с помощью {@link System#arraycopy(Object, int, Object, int, int)},
      * затем выводит результат в консоль.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         String[] names = {"Petr", null, "Ivan", "Stepan", "Fedor"};

@@ -32,7 +32,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class QueueRunner {
 
@@ -189,7 +189,7 @@ public class QueueRunner {
      *
      * <p>Последовательно вызывает все методы демонстрации работы с очередью.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         add();

@@ -17,14 +17,14 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Pizza {
 
     /**
      * Возвращает название пиццы.
      *
-     * @return Строка с базовым названием пиццы.
+     * @return строка с базовым названием пиццы
      */
     public String name() {
         return "Just tasty pizza";

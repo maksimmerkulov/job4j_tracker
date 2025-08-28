@@ -20,7 +20,7 @@ package ru.job4j.collection;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Task {
 
@@ -37,8 +37,8 @@ public class Task {
     /**
      * Конструктор для создания задачи.
      *
-     * @param number Уникальный номер задачи.
-     * @param description Текстовое описание задачи.
+     * @param number уникальный номер задачи
+     * @param description текстовое описание задачи
      */
     public Task(String number, String description) {
         this.number = number;
@@ -48,7 +48,7 @@ public class Task {
     /**
      * Возвращает уникальный номер задачи.
      *
-     * @return Номер задачи.
+     * @return номер задачи
      */
     public String getNumber() {
         return number;
@@ -57,7 +57,7 @@ public class Task {
     /**
      * Возвращает описание задачи.
      *
-     * @return Текстовое описание задачи.
+     * @return текстовое описание задачи
      */
     public String getDescription() {
         return description;

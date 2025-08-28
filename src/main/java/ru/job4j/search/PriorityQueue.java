@@ -3,7 +3,8 @@ package ru.job4j.search;
 import java.util.LinkedList;
 
 /**
- * Класс {@code PriorityQueue} реализует очередь задач с приоритетом.
+ * Класс {@code PriorityQueue} описывает работу простейшей очереди по приоритету,
+ * которая работает по принципу FIFO (first in - first out).
  *
  * <p>Задачи сортируются по возрастанию значения приоритета:
  * чем меньше значение, тем выше задача в очереди.</p>
@@ -27,19 +28,22 @@ import java.util.LinkedList;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class PriorityQueue {
 
     /**
-     * Очередь задач.
+     * Хранение задания осуществляется в коллекции типа LinkedList.
      */
     private LinkedList<Task> tasks = new LinkedList<>();
 
     /**
-     * Вставляет задачу в очередь в соответствии с ее приоритетом.
+     * Принимает на вход заявку и добавляет ее в очередь.
      *
-     * @param task Задача, которую нужно добавить.
+     * <p>Если встречаются 2 задания с одинаковым приоритетом,
+     * то в очереди они распределяются по принципу FIFO.</p>
+     *
+     * @param task задача, которая добавляется в очередь
      */
     public void put(Task task) {
         int index = 0;
@@ -53,9 +57,10 @@ public class PriorityQueue {
     }
 
     /**
-     * Извлекает и удаляет задачу с наивысшим приоритетом.
+     * Возвращает первую задачу из очереди.
      *
-     * @return Первая задача в очереди или {@code null}, если очередь пуста.
+     * @return задача из головы очереди;
+     *         {@code null}, если очередь пуста
      */
     public Task take() {
         return tasks.poll();

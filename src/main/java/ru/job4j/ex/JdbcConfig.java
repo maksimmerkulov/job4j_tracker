@@ -19,15 +19,15 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class JdbcConfig {
 
     /**
      * Загружает конфигурацию JDBC по переданному URL.
      *
-     * @param url Строка подключения к базе данных.
-     * @throws UserInputException если URL равен {@code null}.
+     * @param url строка подключения к базе данных
+     * @throws UserInputException если URL равен {@code null}
      */
     public static void load(String url) throws UserInputException {
         if (url == null) {
@@ -40,7 +40,7 @@ public class JdbcConfig {
      *
      * <p>Использует конструкцию {@code try-catch} для обработки исключения {@link UserInputException}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         try {

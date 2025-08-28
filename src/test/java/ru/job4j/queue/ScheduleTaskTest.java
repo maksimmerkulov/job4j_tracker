@@ -33,7 +33,7 @@ import static ru.job4j.queue.Position.*;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class ScheduleTaskTest {
 

@@ -25,7 +25,7 @@ import java.util.Objects;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Citizen {
 
@@ -47,8 +47,8 @@ public class Citizen {
     /**
      * Конструктор для инициализации гражданина.
      *
-     * @param passport Номер паспорта.
-     * @param username Имя гражданина.
+     * @param passport номер паспорта
+     * @param username имя гражданина
      */
     public Citizen(String passport, String username) {
         this.passport = passport;
@@ -58,7 +58,7 @@ public class Citizen {
     /**
      * Возвращает номер паспорта.
      *
-     * @return Строка с номером паспорта.
+     * @return строка с номером паспорта
      */
     public String getPassport() {
         return passport;
@@ -67,7 +67,7 @@ public class Citizen {
     /**
      * Возвращает имя гражданина.
      *
-     * @return Строка с именем гражданина.
+     * @return строка с именем гражданина
      */
     public String getUsername() {
         return username;
@@ -76,9 +76,9 @@ public class Citizen {
     /**
      * Сравнивает текущий объект с другим по номеру паспорта.
      *
-     * @param o Другой объект.
-     * @return {@code true}, если паспорта совпадают,
-     *         {@code false} в противном случае.
+     * @param o другой объект
+     * @return {@code true}, если паспорта совпадают;
+     *         {@code false} в противном случае
      */
     @Override
     public boolean equals(Object o) {
@@ -95,7 +95,7 @@ public class Citizen {
     /**
      * Вычисляет хэш-код гражданина на основе паспорта.
      *
-     * @return Хэш-код, зависящий только от паспорта.
+     * @return хэш-код, зависящий только от паспорта
      */
     @Override
     public int hashCode() {

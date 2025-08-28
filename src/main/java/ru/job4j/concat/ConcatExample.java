@@ -19,7 +19,7 @@ package ru.job4j.concat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ConcatExample {
 
@@ -29,7 +29,7 @@ public class ConcatExample {
      * <p>Создает строку путем последовательного объединения строк с помощью метода
      * {@link String#concat(String)} и выводит результат в консоль.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         String string = "abc".concat("def").concat("ghi").concat("jkl");

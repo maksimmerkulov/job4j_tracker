@@ -21,7 +21,7 @@ import java.util.Objects;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Account {
 
@@ -44,9 +44,9 @@ public class Account {
      * Создает объект {@code Account} с заданными паспортом,
      * именем пользователя и депозитом.
      *
-     * @param passport Уникальный номер паспорта.
-     * @param username Имя владельца аккаунта.
-     * @param deposit Сумма депозита в виде строки.
+     * @param passport уникальный номер паспорта
+     * @param username имя владельца аккаунта
+     * @param deposit сумма депозита в виде строки
      */
     public Account(String passport, String username, String deposit) {
         this.passport = passport;
@@ -57,8 +57,8 @@ public class Account {
     /**
      * Сравнивает текущий объект с другим на равенство по полю {@code passport}.
      *
-     * @param o Объект для сравнения.
-     * @return {@code true}, если поля совпадают; иначе {@code false}.
+     * @param o объект для сравнения
+     * @return {@code true}, если поля совпадают; иначе {@code false}
      */
     @Override
     public boolean equals(Object o) {
@@ -75,7 +75,7 @@ public class Account {
     /**
      * Вычисляет хэш-код объекта на основе паспорта.
      *
-     * @return Хэш-код объекта.
+     * @return хэш-код объекта
      */
     @Override
     public int hashCode() {
@@ -86,7 +86,7 @@ public class Account {
      * Возвращает строковое представление аккаунта с паспортом,
      * именем пользователя и суммой депозита.
      *
-     * @return Строка с описанием аккаунта.
+     * @return строка с описанием аккаунта
      */
     @Override
     public String toString() {

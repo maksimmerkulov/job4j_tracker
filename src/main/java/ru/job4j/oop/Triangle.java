@@ -24,7 +24,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Triangle {
 
@@ -50,9 +50,9 @@ public class Triangle {
      * Конструктор с параметрами.
      * Создает треугольник с заданными точками.
      *
-     * @param ap Первая точка треугольника.
-     * @param bp Вторая точка треугольника.
-     * @param cp Третья точка треугольника.
+     * @param ap первая точка треугольника
+     * @param bp вторая точка треугольника
+     * @param cp третья точка треугольника
      */
     public Triangle(Point ap, Point bp, Point cp) {
         this.first = ap;
@@ -63,10 +63,10 @@ public class Triangle {
     /**
      * Вычисляет полупериметр треугольника.
      *
-     * @param a Длина первой стороны треугольника.
-     * @param b Длина второй стороны треугольника.
-     * @param c Длина третьей стороны треугольника.
-     * @return Полупериметр треугольника.
+     * @param a длина первой стороны треугольника
+     * @param b длина второй стороны треугольника
+     * @param c длина третьей стороны треугольника
+     * @return полупериметр треугольника
      */
     public double semiPerimeter(double a, double b, double c) {
         return (a + b + c) / 2;
@@ -77,11 +77,11 @@ public class Triangle {
      *
      * <p>Треугольник существует, если сумма длин любых двух сторон больше длины третьей стороны.</p>
      *
-     * @param ab Длина первой стороны треугольника.
-     * @param ac Длина второй стороны треугольника.
-     * @param bc Длина третьей стороны треугольника.
-     * @return Значение {@code true}, если треугольник существует,
-     * значение {@code false} в противном случае.
+     * @param ab длина первой стороны треугольника
+     * @param ac длина второй стороны треугольника
+     * @param bc длина третьей стороны треугольника
+     * @return {@code true}, если треугольник существует;
+     *         {@code false} в противном случае
      */
     public boolean exist(double ab, double ac, double bc) {
         return (ab + ac > bc) && (ab + bc > ac) && (ac + bc > ab);
@@ -108,7 +108,8 @@ public class Triangle {
      *
      * <p>Вычисление длин сторон производится с использованием метода {@link Point#distance(Point)}.</p>
      *
-     * @return Площадь треугольника, если он существует; {@code -1} — если треугольник невозможно построить.
+     * @return площадь треугольника, если он существует;
+     *         {@code -1} — если треугольник невозможно построить
      */
     public double area() {
         double ab = first.distance(second);

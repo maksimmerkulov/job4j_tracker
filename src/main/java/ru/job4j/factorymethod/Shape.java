@@ -29,21 +29,21 @@ package ru.job4j.factorymethod;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public interface Shape {
 
     /**
      * Генерирует строковое представление фигуры в виде псевдографики.
      *
-     * @return Строка с ASCII-рисунком фигуры.
+     * @return строка с ASCII-рисунком фигуры
      */
     String draw();
 
     /**
      * Вычисляет площадь фигуры.
      *
-     * @return Значение площади фигуры.
+     * @return значение площади фигуры
      */
     double square();
 }

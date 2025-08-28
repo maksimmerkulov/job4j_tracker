@@ -31,12 +31,14 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  */
 public class Student {
 
     /**
      * Выводит текст "I can sing a song: I believe, I can fly".
+     *
+     * @param lyrics текст песни для воспроизведения
      */
     public void music(String lyrics) {
         System.out.println("I can sing a song: " + lyrics);
@@ -52,7 +54,7 @@ public class Student {
     /**
      * Создает объект студента и вызывает его методы.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Student petya = new Student();

@@ -27,7 +27,7 @@ import java.util.Objects;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Account {
 
@@ -44,8 +44,8 @@ public class Account {
     /**
      * Конструктор для инициализации счета.
      *
-     * @param requisite Реквизиты счета.
-     * @param balance Начальный баланс счета.
+     * @param requisite реквизиты счета
+     * @param balance начальный баланс счета
      */
     public Account(String requisite, double balance) {
         this.requisite = requisite;
@@ -55,7 +55,7 @@ public class Account {
     /**
      * Возвращает реквизиты счета.
      *
-     * @return Реквизиты счета.
+     * @return реквизиты счета
      */
     public String getRequisite() {
         return requisite;
@@ -64,7 +64,7 @@ public class Account {
     /**
      * Устанавливает новые реквизиты счета.
      *
-     * @param requisite Новые реквизиты счета.
+     * @param requisite новые реквизиты счета
      */
     public void setRequisite(String requisite) {
         this.requisite = requisite;
@@ -73,7 +73,7 @@ public class Account {
     /**
      * Возвращает текущий баланс счета.
      *
-     * @return Баланс счета.
+     * @return баланс счета
      */
     public double getBalance() {
         return balance;
@@ -82,7 +82,7 @@ public class Account {
     /**
      * Устанавливает баланс счета.
      *
-     * @param balance Новый баланс счета.
+     * @param balance новый баланс счета
      */
     public void setBalance(double balance) {
         this.balance = balance;
@@ -91,8 +91,8 @@ public class Account {
     /**
      * Сравнивает счета по реквизитам.
      *
-     * @param o Другой объект для сравнения.
-     * @return {@code true}, если реквизиты совпадают, иначе {@code false}.
+     * @param o другой объект для сравнения
+     * @return {@code true}, если реквизиты совпадают, иначе {@code false}
      */
     @Override
     public boolean equals(Object o) {
@@ -109,7 +109,7 @@ public class Account {
     /**
      * Вычисляет хэш-код на основе реквизитов счета.
      *
-     * @return Хэш-код объекта.
+     * @return хэш-код объекта
      */
     @Override
     public int hashCode() {

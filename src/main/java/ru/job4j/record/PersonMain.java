@@ -27,14 +27,14 @@ package ru.job4j.record;
  * }</pre>
  *
  * @author Maksiм Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class PersonMain {
 
     /**
      * Точка входа в приложение.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Person person = new Person("Иван", 30);

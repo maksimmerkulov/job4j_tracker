@@ -20,7 +20,7 @@ package ru.job4j.strategy;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Triangle implements Shape {
 
@@ -29,7 +29,7 @@ public class Triangle implements Shape {
      *
      * <p>Каждая строка содержит символы, формирующие визуальный треугольник.</p>
      *
-     * @return Строка с изображением треугольника.
+     * @return строка с изображением треугольника
      */
     @Override
     public String draw() {

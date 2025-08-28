@@ -22,7 +22,7 @@ package ru.job4j.factorymethod;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Rectangle implements Shape {
 
@@ -39,8 +39,8 @@ public class Rectangle implements Shape {
     /**
      * Создает прямоугольник с заданными размерами.
      *
-     * @param a Ширина прямоугольника.
-     * @param b Высота прямоугольника.
+     * @param a ширина прямоугольника
+     * @param b высота прямоугольника
      */
     public Rectangle(int a, int b) {
         this.a = a;
@@ -50,7 +50,7 @@ public class Rectangle implements Shape {
     /**
      * Отображает схематическое изображение прямоугольника.
      *
-     * @return Строка, содержащая "рисунок" прямоугольника.
+     * @return строка, содержащая "рисунок" прямоугольника
      */
     @Override
     public String draw() {
@@ -64,7 +64,7 @@ public class Rectangle implements Shape {
     /**
      * Вычисляет площадь прямоугольника по формуле {@code a * b}.
      *
-     * @return Площадь прямоугольника.
+     * @return площадь прямоугольника
      */
     @Override
     public double square() {

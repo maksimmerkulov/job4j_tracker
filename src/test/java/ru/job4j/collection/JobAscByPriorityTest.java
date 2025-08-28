@@ -22,9 +22,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class JobAscByPriorityTest {
+
     /**
      * Проверяет, что при сортировке по возрастанию приоритета
      * задача с меньшим приоритетом считается "меньше".

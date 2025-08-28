@@ -30,12 +30,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class ItemDescByNameTest {
 
     /**
-     * Тест проверяет, что после сортировки список элементов
+     * Проверяет, что после сортировки список элементов
      * располагается в алфавитном порядке по полю {@code name}
      * в порядке убывания.
      */

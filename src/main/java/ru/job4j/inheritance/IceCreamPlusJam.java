@@ -22,7 +22,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class IceCreamPlusJam extends IceCream {
 
@@ -32,9 +32,9 @@ public class IceCreamPlusJam extends IceCream {
     private static final int JAM_PRICE = 50;
 
     /**
-     * Создает новый экземпляр класса {@link IceCream} с заданным количеством шариков.</p>
+     * Создает новый экземпляр класса {@link IceCream} с заданным количеством шариков.
      *
-     * @param weight Количество шариков мороженого.
+     * @param weight количество шариков мороженого
      */
     public IceCreamPlusJam(int weight) {
         super(weight);
@@ -43,7 +43,7 @@ public class IceCreamPlusJam extends IceCream {
     /**
      * Возвращает стоимость мороженого с добавленным топпингом "Jam".
      *
-     * @return Стоимость мороженого с джемом в рублях.
+     * @return стоимость мороженого с джемом в рублях
      */
     @Override
     public int price() {

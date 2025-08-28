@@ -18,16 +18,16 @@ package ru.job4j.validate;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class DivideByZero {
 
     /**
-     * Делит {@code first} на {@code second}, предварительно проверяя делитель на ноль.
+     * Выполняет деление {@code first} на {@code second}, предварительно проверяя делитель на ноль.
      *
-     * @param first  Числитель.
-     * @param second Знаменатель.
-     * @return Результат деления, либо -1, если {@code second} равен 0.
+     * @param first  числитель
+     * @param second знаменатель
+     * @return результат деления, либо -1, если {@code second} равен 0
      */
     public static int divide(int first, int second) {
         int result = -1;
@@ -42,7 +42,7 @@ public class DivideByZero {
     /**
      * Точка входа в программу.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         int result = divide(10, 0);

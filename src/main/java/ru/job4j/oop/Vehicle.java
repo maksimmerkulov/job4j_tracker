@@ -6,7 +6,7 @@ package ru.job4j.oop;
  * <p>Содержит общие свойства и поведение, характерные для любых видов транспорта.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public abstract class Vehicle {
 

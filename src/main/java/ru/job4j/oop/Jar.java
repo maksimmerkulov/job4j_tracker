@@ -21,7 +21,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Jar {
 
@@ -33,7 +33,7 @@ public class Jar {
     /**
      * Создает объект {@code Jar} с указанным объемом.
      *
-     * @param size Исходное значение объема.
+     * @param size исходное значение объема
      */
     public Jar(int size) {
         this.value = size;
@@ -42,7 +42,7 @@ public class Jar {
     /**
      * Переливает содержимое из другого сосуда в текущий, обнуляя объем в исходном.
      *
-     * @param another Сосуд, из которого переливают.
+     * @param another сосуд, из которого переливают
      */
     public void pour(Jar another) {
         this.value = this.value + another.value;
@@ -52,7 +52,7 @@ public class Jar {
     /**
      * Демонстрирует поведение метода {@link #pour(Jar)} на двух сосудах.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Jar first = new Jar(10);

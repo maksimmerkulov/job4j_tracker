@@ -40,15 +40,15 @@ import java.util.*;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class AnalyzeByMap {
 
     /**
      * Вычисляет общий средний балл всех учеников по всем предметам.
      *
-     * @param pupils Список учеников.
-     * @return Общий средний балл.
+     * @param pupils список учеников
+     * @return общий средний балл
      */
     public static double averageScore(List<Pupil> pupils) {
         double sum = 0;
@@ -65,8 +65,8 @@ public class AnalyzeByMap {
     /**
      * Вычисляет средний балл по каждому ученику.
      *
-     * @param pupils Список учеников.
-     * @return Список объектов Label (имя ученика и средний балл).
+     * @param pupils список учеников
+     * @return список объектов {@code Label} (имя ученика и средний балл)
      */
     public static List<Label> averageScoreByPupil(List<Pupil> pupils) {
         List<Label> result = new ArrayList<>();
@@ -84,8 +84,8 @@ public class AnalyzeByMap {
     /**
      * Вычисляет средний балл по каждому предмету.
      *
-     * @param pupils Список учеников.
-     * @return Список объектов Label (название предмета и средний балл).
+     * @param pupils список учеников
+     * @return список объектов {@code Label} (название предмета и средний балл)
      */
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
         Map<String, Integer> sumMap = new LinkedHashMap<>();
@@ -106,8 +106,8 @@ public class AnalyzeByMap {
     /**
      * Определяет лучшего ученика по сумме баллов по всем предметам.
      *
-     * @param pupils Список учеников
-     * @return Объект Label (имя ученика и суммарный балл).
+     * @param pupils список учеников
+     * @return объект {@code Label} (имя ученика и суммарный балл)
      */
     public static Label bestStudent(List<Pupil> pupils) {
         List<Label> list = new ArrayList<>();
@@ -125,8 +125,8 @@ public class AnalyzeByMap {
     /**
      * Определяет предмет с наибольшим суммарным баллом всех учеников.
      *
-     * @param pupils Список учеников.
-     * @return Объект Label (название предмета и суммарный балл).
+     * @param pupils список учеников
+     * @return объект {@code Label} (название предмета и суммарный балл)
      */
     public static Label bestSubject(List<Pupil> pupils) {
         Map<String, Integer> sumMap = new LinkedHashMap<>();

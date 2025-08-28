@@ -24,16 +24,16 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class OverloadRunner {
 
     /**
      * Выводит имя, возраст (целое число) и статус допуска.
      *
-     * @param name  Имя пользователя.
-     * @param age   Возраст пользователя (целое число).
-     * @param allow Допуск к действию.
+     * @param name  имя пользователя
+     * @param age   возраст пользователя (целое число)
+     * @param allow допуск к действию
      */
     public void print(String name, int age, boolean allow) {
         System.out.println("Your name: " + name);
@@ -44,9 +44,9 @@ public class OverloadRunner {
     /**
      * Выводит имя, возраст (с плавающей точкой) и статус допуска.
      *
-     * @param name  Имя пользователя.
-     * @param age   Возраст пользователя (дробное число).
-     * @param allow Допуск к действию.
+     * @param name  имя пользователя
+     * @param age   возраст пользователя (дробное число)
+     * @param allow допуск к действию
      */
     public void print(String name, double age, boolean allow) {
         System.out.println("Your name: " + name);
@@ -57,9 +57,9 @@ public class OverloadRunner {
     /**
      * Выводит статус допуска, возраст и имя (в другом порядке аргументов).
      *
-     * @param allow Допуск к действию.
-     * @param age   Возраст пользователя.
-     * @param name  Имя пользователя.
+     * @param allow допуск к действию
+     * @param age   возраст пользователя
+     * @param name  имя пользователя
      */
     public void print(boolean allow, int age, String name) {
         System.out.println("Your name: " + name);
@@ -70,8 +70,8 @@ public class OverloadRunner {
     /**
      * Выводит имя и возраст без статуса допуска.
      *
-     * @param name Имя пользователя.
-     * @param age  Возраст пользователя.
+     * @param name имя пользователя
+     * @param age  возраст пользователя
      */
     public void print(String name, int age) {
         System.out.println("Your name: " + name);

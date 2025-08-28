@@ -14,14 +14,14 @@ import java.util.List;
  * суммирование значений и работу с коллекциями.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Box {
 
     /**
      * Выводит значение типа {@code Integer}.
      *
-     * @param x объект типа {@code Integer}.
+     * @param x объект типа {@code Integer}
      */
     public static void num(Integer x) {
         System.out.println("Значение типа Integer: " + x);
@@ -30,7 +30,7 @@ public class Box {
     /**
      * Выводит значение типа {@code int}.
      *
-     * @param x значение типа {@code int}.
+     * @param x значение типа {@code int}
      */
     public static void num(int x) {
         System.out.println("Значение типа int: " + x);
@@ -39,7 +39,7 @@ public class Box {
     /**
      * Точка входа в программу.
      *
-     * @param args аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         int a = 1;

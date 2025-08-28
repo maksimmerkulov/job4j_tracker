@@ -20,7 +20,7 @@ package ru.job4j.encapsulation;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Config {
 
@@ -42,7 +42,7 @@ public class Config {
     /**
      * Конструктор создает объект конфигурации с заданным именем.
      *
-     * @param name Название конфигурации.
+     * @param name название конфигурации
      */
     public Config(String name) {
         this.name = name;
@@ -58,8 +58,8 @@ public class Config {
     /**
      * Возвращает значение свойства по заданному ключу.
      *
-     * @param key Ключ свойства.
-     * @return Значение, соответствующее ключу.
+     * @param key ключ свойства
+     * @return значение, соответствующее ключу
      */
     public String getProperty(String key) {
         return search(key);
@@ -68,8 +68,8 @@ public class Config {
     /**
      * Выполняет поиск свойства по ключу.
      *
-     * @param key Ключ свойства.
-     * @return Значение свойства (в текущей реализации возвращает сам ключ).
+     * @param key ключ свойства
+     * @return значение свойства (в текущей реализации возвращает сам ключ)
      */
     private String search(String key) {
         return key;

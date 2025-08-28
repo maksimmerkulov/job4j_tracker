@@ -21,7 +21,7 @@ package ru.job4j.pojo;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ProductContains {
 
@@ -31,7 +31,7 @@ public class ProductContains {
      * <p>Создает два экземпляра класса {@link Product} с одинаковыми данными,
      * сравнивает их методом {@link Product#equals(Object)} и выводит результат сравнения.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Product first = new Product("Milk", 100);

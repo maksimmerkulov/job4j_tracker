@@ -29,10 +29,10 @@ import java.time.LocalDate;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Student {
-
+    
     /**
      * Полное имя студента (ФИО).
      */
@@ -51,7 +51,7 @@ public class Student {
     /**
      * Возвращает полное имя студента.
      *
-     * @return Строка с ФИО студента.
+     * @return строка с ФИО студента
      */
     public String getFullName() {
         return fullName;
@@ -60,7 +60,7 @@ public class Student {
     /**
      * Устанавливает полное имя студента.
      *
-     * @param fullName Фамилия, имя, отчество студента.
+     * @param fullName ФИО студента
      */
     public void setFullName(String fullName) {
         this.fullName = fullName;
@@ -69,7 +69,7 @@ public class Student {
     /**
      * Возвращает название группы студента.
      *
-     * @return Строка с названием группы студента.
+     * @return строка с названием группы студента
      */
     public String getGroup() {
         return group;
@@ -78,7 +78,7 @@ public class Student {
     /**
      * Устанавливает название группы студента.
      *
-     * @param group Название группы студента.
+     * @param group название группы студента
      */
     public void setGroup(String group) {
         this.group = group;
@@ -87,7 +87,7 @@ public class Student {
     /**
      * Возвращает дату поступления студента.
      *
-     * @return Объект {@link LocalDate}, представляющий дату поступления студента.
+     * @return объект {@link LocalDate}, представляющий дату поступления студента
      */
     public LocalDate getAdmissionDate() {
         return admissionDate;
@@ -96,7 +96,7 @@ public class Student {
     /**
      * Устанавливает дату поступления студента.
      *
-     * @param admissionDate Объект {@link LocalDate} — дата поступления студента.
+     * @param admissionDate объект {@link LocalDate} — дата поступления студента
      */
     public void setAdmissionDate(LocalDate admissionDate) {
         this.admissionDate = admissionDate;

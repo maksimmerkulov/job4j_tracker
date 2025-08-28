@@ -23,7 +23,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ConvertList2Array {
 
@@ -33,10 +33,10 @@ public class ConvertList2Array {
      * <p>Размер строк определяется параметром {@code cells} — количество столбцов.</p>
      * <p>Количество строк вычисляется автоматически с округлением вверх.</p>
      *
-     * @param list Список чисел для преобразования.
-     * @param cells Количество ячеек в каждой строке (то есть столбцов).
-     * @return Двумерный массив, в который скопированы все элементы списка.
-     *         Недостающие ячейки заполняются значением по умолчанию (нулями).
+     * @param list список чисел для преобразования
+     * @param cells количество ячеек в каждой строке (то есть столбцов)
+     * @return двумерный массив, в который скопированы все элементы списка;
+     *         недостающие ячейки заполняются значением по умолчанию (нулями)
      */
     public static int[][] toArray(List<Integer> list, int cells) {
         int groups = (int) Math.ceil((double) list.size() / cells);
@@ -59,7 +59,7 @@ public class ConvertList2Array {
      *
      * <p>Демонстрирует работу метода {@link #toArray(List, int)}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7);

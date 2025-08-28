@@ -18,14 +18,14 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UserNotFoundException extends Exception {
 
     /**
      * Создает исключение с заданным сообщением.
      *
-     * @param message Сообщение об ошибке.
+     * @param message сообщение об ошибке, описывающее причину исключения
      */
     public UserNotFoundException(String message) {
         super(message);

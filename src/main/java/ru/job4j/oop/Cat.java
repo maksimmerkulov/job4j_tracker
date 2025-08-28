@@ -30,7 +30,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  */
 public class Cat {
 
@@ -54,7 +54,7 @@ public class Cat {
     /**
      * Устанавливает кличку кота в поле {@code name}.
      *
-     * @param nick Кличка кота.
+     * @param nick кличка кота
      */
     public void giveNick(String nick) {
         this.name = nick;
@@ -63,7 +63,7 @@ public class Cat {
     /**
      * Устанавливает еду в поле {@code food}.
      *
-     * @param meat Название еды.
+     * @param meat название еды
      */
     public void eat(String meat) {
         this.food = meat;
@@ -74,7 +74,7 @@ public class Cat {
      *
      * <p>Создает два объекта: {@code gav} и {@code black}, которым задаются клички и еда.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         System.out.println("There is gav's food.");

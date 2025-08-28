@@ -6,7 +6,7 @@ package ru.job4j.inheritance;
  * <p>Может использоваться как базовый класс для конкретных профессий.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Profession {
 
@@ -20,8 +20,8 @@ public class Profession {
      *
      * <p>Создает объект {@code Profession} с информацией о наличии диплома.</p>
      *
-     * @param degree Значение {@code true}, если есть диплом;
-     *               значение {@code false} — если нет.
+     * @param degree {@code true}, если есть диплом;
+     *               {@code false}, если нет
      */
     public Profession(boolean degree) {
         this.degree = degree;

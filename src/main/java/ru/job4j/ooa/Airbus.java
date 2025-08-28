@@ -19,7 +19,7 @@ package ru.job4j.ooa;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public final class Airbus extends Aircraft {
 
@@ -36,7 +36,7 @@ public final class Airbus extends Aircraft {
     /**
      * Создает экземпляр {@code Airbus} с заданной моделью.
      *
-     * @param name Модель самолета.
+     * @param name модель самолета
      */
     public Airbus(String name) {
         this.name = name;
@@ -45,7 +45,7 @@ public final class Airbus extends Aircraft {
     /**
      * Возвращает название модели самолета.
      *
-     * @return Модель самолета.
+     * @return модель самолета
      */
     public String getName() {
         return name;
@@ -54,7 +54,7 @@ public final class Airbus extends Aircraft {
     /**
      * Устанавливает новую модель самолета.
      *
-     * @param name Новая модель.
+     * @param name новая модель самолета
      */
     public void setName(String name) {
         this.name = name;
@@ -80,7 +80,7 @@ public final class Airbus extends Aircraft {
     /**
      * Возвращает строковое представление объекта {@code Airbus}.
      *
-     * @return Строка в формате {@code Airbus{name='...'}}.
+     * @return строка в формате {@code Airbus{name='...'}}
      */
     @Override
     public String toString() {

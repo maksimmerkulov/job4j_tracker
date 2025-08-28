@@ -19,14 +19,14 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ElementNotFoundException extends Exception {
 
     /**
      * Создает исключение с заданным сообщением.
      *
-     * @param message Сообщение об ошибке, описывающее причину исключения.
+     * @param message сообщение об ошибке, описывающее причину исключения
      */
     public ElementNotFoundException(String message) {
         super(message);

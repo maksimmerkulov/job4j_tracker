@@ -1,9 +1,9 @@
 package ru.job4j.tracker.action;
 
-import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.Item;
-import ru.job4j.tracker.output.Output;
 import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.output.Output;
 
 /**
  * Класс {@code FindByIdAction} реализует действие поиска заявки по ее идентификатору
@@ -38,7 +38,7 @@ import ru.job4j.tracker.Tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  * @see UserAction
  * @see Tracker
  * @see Item
@@ -53,7 +53,7 @@ public class FindByIdAction implements UserAction {
     /**
      * Создает объект действия поиска заявки по идентификатору.
      *
-     * @param output Объект вывода сообщений пользователю.
+     * @param output объект вывода сообщений пользователю
      */
     public FindByIdAction(Output output) {
         this.output = output;
@@ -62,7 +62,7 @@ public class FindByIdAction implements UserAction {
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
      *
-     * @return Строка "Показать заявку по id".
+     * @return строка "Показать заявку по id"
      */
     @Override
     public String name() {
@@ -75,9 +75,9 @@ public class FindByIdAction implements UserAction {
      * <p>Пользователь вводит id. Если заявка найдена, она отображается на экране.
      * Если не найдена — выводится соответствующее сообщение.</p>
      *
-     * @param input Интерфейс для получения пользовательского ввода.
-     * @param tracker Хранилище заявок.
-     * @return {@code true}, чтобы продолжить выполнение программы.
+     * @param input интерфейс для получения пользовательского ввода
+     * @param tracker хранилище заявок
+     * @return {@code true}, чтобы продолжить выполнение программы
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {

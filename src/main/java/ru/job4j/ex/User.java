@@ -19,7 +19,7 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class User {
 
@@ -36,8 +36,8 @@ public class User {
     /**
      * Создает пользователя с заданным именем и статусом валидности.
      *
-     * @param username Имя пользователя.
-     * @param valid Флаг, указывающий на валидность пользователя.
+     * @param username имя пользователя
+     * @param valid флаг, указывающий на валидность пользователя
      */
     public User(String username, boolean valid) {
         this.username = username;
@@ -47,7 +47,7 @@ public class User {
     /**
      * Возвращает имя пользователя.
      *
-     * @return Строка с именем пользователя.
+     * @return строка с именем пользователя
      */
     public String getUsername() {
         return username;
@@ -56,7 +56,7 @@ public class User {
     /**
      * Проверяет, является ли пользователь валидным.
      *
-     * @return {@code true}, если пользователь валидный; иначе {@code false}.
+     * @return {@code true}, если пользователь валидный; иначе {@code false}
      */
     public boolean isValid() {
         return valid;

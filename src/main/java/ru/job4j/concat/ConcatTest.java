@@ -26,7 +26,7 @@ package ru.job4j.concat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ConcatTest {
 
@@ -36,7 +36,7 @@ public class ConcatTest {
      * <p>Создает строку с помощью {@link StringBuilder}, к которой последовательно добавляются числа от 0 до 9998.
      * В конце программа выводит количество миллисекунд, затраченных на выполнение операции.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();

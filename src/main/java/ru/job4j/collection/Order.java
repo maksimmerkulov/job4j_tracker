@@ -24,7 +24,7 @@ import java.util.Objects;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Order {
 
@@ -41,8 +41,8 @@ public class Order {
     /**
      * Конструктор для инициализации заказа.
      *
-     * @param number Уникальный номер заказа.
-     * @param name   Имя клиента.
+     * @param number уникальный номер заказа
+     * @param name   имя клиента
      */
     public Order(String number, String name) {
         this.number = number;
@@ -52,7 +52,7 @@ public class Order {
     /**
      * Возвращает номер заказа.
      *
-     * @return Строка с номером заказа.
+     * @return строка с номером заказа
      */
     public String getNumber() {
         return number;
@@ -61,7 +61,7 @@ public class Order {
     /**
      * Возвращает строковое представление заказа.
      *
-     * @return Строка вида {@code Order{number='...', name='...'}}.
+     * @return строка вида {@code Order{number='...', name='...'}}
      */
     @Override
     public String toString() {
@@ -74,8 +74,8 @@ public class Order {
     /**
      * Сравнивает два заказа по номеру и имени.
      *
-     * @param o Другой объект.
-     * @return {@code true}, если номер и имя совпадают, иначе {@code false}.
+     * @param o другой объект
+     * @return {@code true}, если номер и имя совпадают, иначе {@code false}
      */
     @Override
     public boolean equals(Object o) {
@@ -93,7 +93,7 @@ public class Order {
     /**
      * Вычисляет хэш-код заказа на основе номера и имени.
      *
-     * @return Хэш-код заказа.
+     * @return хэш-код заказа
      */
     @Override
     public int hashCode() {

@@ -13,7 +13,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public final class Log4File {
 
@@ -41,7 +41,7 @@ public final class Log4File {
     /**
      * Возвращает единственный экземпляр {@link Log4File}.
      *
-     * @return Объект {@link Log4File}
+     * @return объект {@link Log4File}
      */
     public static Log4File getInstance() {
         if (instance == null) {
@@ -53,7 +53,7 @@ public final class Log4File {
     /**
      * Добавляет сообщение в лог.
      *
-     * @param message Строка сообщения.
+     * @param message строка сообщения
      */
     public void add(String message) {
         messages[index++] = message;

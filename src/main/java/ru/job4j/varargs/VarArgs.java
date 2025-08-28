@@ -23,7 +23,7 @@ package ru.job4j.varargs;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class VarArgs {
 
@@ -32,8 +32,8 @@ public class VarArgs {
      *
      * <p>Если аргументы не переданы, возвращается пустая строка.</p>
      *
-     * @param strings Аргументы переменной длины, которые нужно объединить.
-     * @return Строка, полученная объединением всех переданных аргументов.
+     * @param strings аргументы переменной длины, которые нужно объединить
+     * @return строка, полученная объединением всех переданных аргументов
      */
     public static String text(String... strings) {
         StringBuilder builder = new StringBuilder();
@@ -49,8 +49,8 @@ public class VarArgs {
      * <p>Этот метод демонстрирует перегрузку: он отличается от метода
      * {@link #text(String...)} тем, что принимает ровно один аргумент, а не varargs.</p>
      *
-     * @param string Строка, которую нужно вернуть.
-     * @return Та же строка, которая была передана в качестве аргумента.
+     * @param string строка, которую нужно вернуть
+     * @return та же строка, которая была передана в качестве аргумента
      */
     public static String text(String string) {
         return string;
@@ -62,9 +62,9 @@ public class VarArgs {
      * <p>Целое число добавляется в начало результирующей строки, после чего
      * следуют все строки из массива аргументов.</p>
      *
-     * @param x Целое число, добавляемое в начало строки.
-     * @param strings Аргументы переменной длины, которые будут добавлены после числа.
-     * @return Строка, полученная объединением числа и строк.
+     * @param x целое число, добавляемое в начало строки
+     * @param strings аргументы переменной длины, которые будут добавлены после числа
+     * @return строка, полученная объединением числа и строк
      */
     public static String text(int x, String... strings) {
         StringBuilder builder = new StringBuilder();
@@ -80,7 +80,7 @@ public class VarArgs {
      *
      * <p>Выводит на экран результат вызова методов с различными наборами аргументов.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         System.out.println(text());

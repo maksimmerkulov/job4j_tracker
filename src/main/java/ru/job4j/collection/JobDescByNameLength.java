@@ -28,16 +28,17 @@ import java.util.Comparator;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class JobDescByNameLength implements Comparator<Job> {
+
     /**
      * Сравнивает два объекта {@link Job} по длине их названия в порядке убывания.
      *
      * @param o1 первый объект для сравнения
      * @param o2 второй объект для сравнения
-     * @return отрицательное число, если длина названия o2 больше o1,
-     *         положительное число, если длина названия o2 меньше o1,
+     * @return отрицательное число, если длина названия o2 больше o1;
+     *         положительное число, если длина названия o2 меньше o1;
      *         ноль, если длины равны
      */
     @Override

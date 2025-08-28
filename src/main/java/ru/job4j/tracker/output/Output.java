@@ -20,14 +20,14 @@ package ru.job4j.tracker.output;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public interface Output {
 
     /**
      * Выводит строковое представление объекта.
      *
-     * @param object Объект, который необходимо отобразить.
+     * @param object объект, который необходимо отобразить
      */
     void println(Object object);
 }

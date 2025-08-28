@@ -32,7 +32,7 @@ import java.util.Objects;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Product {
 
@@ -50,8 +50,8 @@ public class Product {
      * Создает новый экземпляр класса {@code Product}
      * с указанным названием и количеством.
      *
-     * @param name  Название продукта.
-     * @param count Количество продукта.
+     * @param name  название продукта
+     * @param count количество продукта
      */
     public Product(String name, int count) {
         this.name = name;
@@ -61,7 +61,7 @@ public class Product {
     /**
      * Возвращает название продукта.
      *
-     * @return Строка с названием продукта.
+     * @return строка с названием продукта
      */
     public String getName() {
         return name;
@@ -70,7 +70,7 @@ public class Product {
     /**
      * Устанавливает название продукта.
      *
-     * @param name Новое название продукта.
+     * @param name новое название продукта
      */
     public void setName(String name) {
         this.name = name;
@@ -79,7 +79,7 @@ public class Product {
     /**
      * Возвращает количество продукта.
      *
-     * @return Количество продукта.
+     * @return количество продукта
      */
     public int getCount() {
         return count;
@@ -88,7 +88,7 @@ public class Product {
     /**
      * Устанавливает количество продукта.
      *
-     * @param count Новое количество продукта.
+     * @param count новое количество продукта
      */
     public void setCount(int count) {
         this.count = count;
@@ -97,9 +97,9 @@ public class Product {
     /**
      * Сравнивает продукты по имени и количеству.
      *
-     * @param o Объект для сравнения.
-     * @return Значение {@code true}, если объекты равны по значению;
-     *         значение {@code false} — в противном случае.
+     * @param o объект для сравнения
+     * @return {@code true}, если объекты равны по значению;
+     *         {@code false} — в противном случае
      */
     @Override
     public boolean equals(Object o) {
@@ -113,7 +113,7 @@ public class Product {
     /**
      * Возвращает хэш-код, соответствующий {@link #equals(Object)}.
      *
-     * @return Хэш-код объекта.
+     * @return хэш-код объекта
      */
     @Override
     public int hashCode() {

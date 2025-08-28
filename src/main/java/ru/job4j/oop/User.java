@@ -18,7 +18,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class User {
 
@@ -37,8 +37,8 @@ public class User {
      *
      * <p>Пользователь может водить, если ему исполнилось 18 лет и более.</p>
      *
-     * @return Значение {@code true}, если возраст пользователя 18 лет или больше;
-     * значение {@code false} — в противном случае.
+     * @return {@code true}, если возраст пользователя 18 лет или больше;
+     *         {@code false} — в противном случае
      */
     public boolean canDrive() {
         boolean can = false;

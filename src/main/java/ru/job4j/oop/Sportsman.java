@@ -7,7 +7,7 @@ package ru.job4j.oop;
  * который должен быть реализован в подклассах для описания поведения спортсмена при беге.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public abstract class Sportsman {
 

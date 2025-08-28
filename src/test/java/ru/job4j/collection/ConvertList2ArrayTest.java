@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * с фиксированным количеством столбцов, включая заполнение "хвоста" нулями.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ConvertList2ArrayTest {
 

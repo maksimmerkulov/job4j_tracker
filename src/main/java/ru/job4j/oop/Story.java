@@ -30,14 +30,14 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Story {
 
     /**
      * Запускает историю "Пионер Петя и Красная Шапочка".
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Pioneer petya = new Pioneer();

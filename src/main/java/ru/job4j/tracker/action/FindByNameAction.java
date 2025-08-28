@@ -43,7 +43,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.3
+ * @version 1.4
  * @see UserAction
  * @see Tracker
  * @see Item
@@ -58,7 +58,7 @@ public class FindByNameAction implements UserAction {
     /**
      * Создает объект действия поиска заявок по имени.
      *
-     * @param output Объект вывода сообщений пользователю.
+     * @param output объект вывода сообщений пользователю
      */
     public FindByNameAction(Output output) {
         this.output = output;
@@ -67,7 +67,7 @@ public class FindByNameAction implements UserAction {
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
      *
-     * @return Строка "Показать заявки по имени".
+     * @return строка "Показать заявки по имени"
      */
     @Override
     public String name() {
@@ -80,9 +80,9 @@ public class FindByNameAction implements UserAction {
      * <p>Пользователь вводит имя. Все найденные заявки выводятся на экран.
      * Если ни одной заявки не найдено — отображается соответствующее сообщение.</p>
      *
-     * @param input Интерфейс для получения пользовательского ввода.
-     * @param tracker Хранилище заявок.
-     * @return {@code true}, чтобы продолжить выполнение программы.
+     * @param input интерфейс для получения пользовательского ввода
+     * @param tracker хранилище заявок
+     * @return {@code true}, чтобы продолжить выполнение программы
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {

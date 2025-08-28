@@ -19,7 +19,7 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Greeting {
 
@@ -28,7 +28,7 @@ public class Greeting {
      *
      * <p>Реализует диалог с пользователем: запрашивает имя и выводит приветствие.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

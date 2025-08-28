@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * в линейный список целых чисел.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ConvertListTest {
 

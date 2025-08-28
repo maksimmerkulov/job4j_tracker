@@ -38,7 +38,7 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class FindEl {
 
@@ -47,10 +47,10 @@ public class FindEl {
      *
      * <p>Если строка найдена в массиве, метод возвращает ее индекс.</p>
      *
-     * @param value Массив строк для поиска.
-     * @param key Строка, которую нужно найти.
-     * @return Индекс строки в массиве.
-     * @throws ElementNotFoundException если элемент не найден.
+     * @param value массив строк для поиска
+     * @param key строка, которую нужно найти
+     * @return индекс строки в массиве
+     * @throws ElementNotFoundException если элемент не найден
      */
     public static int indexOf(String[] value, String key) throws ElementNotFoundException {
         int result = -1;
@@ -71,10 +71,10 @@ public class FindEl {
      *
      * <p>Если значение содержится в массиве {@code abuses}, выбрасывается исключение.</p>
      *
-     * @param value Значение для проверки.
-     * @param abuses Список запрещенных слов.
-     * @return {@code true}, если значение допустимо.
-     * @throws ElementAbuseException если значение считается недопустимым.
+     * @param value значение для проверки
+     * @param abuses список запрещенных слов
+     * @return {@code true}, если значение допустимо
+     * @throws ElementAbuseException если значение считается недопустимым
      */
     public static boolean sent(String value, String[] abuses) throws ElementAbuseException {
         for (String abuse : abuses) {
@@ -91,9 +91,9 @@ public class FindEl {
      * <p>Если элемент найден и является запрещенным, выбрасываются соответствующие исключения.
      * Все исключения перехватываются и печатаются в консоль.</p>
      *
-     * @param values Массив строк для поиска.
-     * @param key Ключ для поиска.
-     * @param abuses Список запрещенных слов.
+     * @param values массив строк для поиска
+     * @param key ключ для поиска
+     * @param abuses список запрещенных слов
      */
     public static void process(String[] values, String key, String[] abuses) {
         try {
@@ -114,7 +114,7 @@ public class FindEl {
      *
      * <p>Использует конструкцию {@code try-catch} для обработки исключения {@link ElementNotFoundException}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         String[] values = {"cat", "dog", "bird"};

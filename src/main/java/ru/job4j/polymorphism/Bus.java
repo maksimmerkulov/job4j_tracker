@@ -22,7 +22,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see Transport
  */
 public class Bus implements Transport {
@@ -42,7 +42,7 @@ public class Bus implements Transport {
      *
      * <p>Реализация метода {@link Transport#passengers(int)}.</p>
      *
-     * @param count Количество пассажиров.
+     * @param count количество пассажиров
      */
     @Override
     public void passengers(int count) {
@@ -54,8 +54,8 @@ public class Bus implements Transport {
      *
      * <p>Реализация метода {@link Transport#refuel(int)}.</p>
      *
-     * @param fuel Количество топлива в литрах.
-     * @return Стоимость заправки (fuel × pricePerLiter).
+     * @param fuel количество топлива в литрах
+     * @return стоимость заправки (fuel × pricePerLiter)
      */
     @Override
     public int refuel(int fuel) {
@@ -69,7 +69,7 @@ public class Bus implements Transport {
      * <p>В методе выполняются операции с автобусом: движение,
      * посадка пассажиров, заправка и вывод результатов.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Transport bus = new Bus();

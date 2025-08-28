@@ -24,7 +24,7 @@ package ru.job4j.strategy;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public interface Shape {
 
@@ -33,7 +33,7 @@ public interface Shape {
      *
      * <p>Каждая реализация формирует свой уникальный рисунок.</p>
      *
-     * @return Строка с изображением фигуры.
+     * @return строка с изображением фигуры
      */
     String draw();
 }

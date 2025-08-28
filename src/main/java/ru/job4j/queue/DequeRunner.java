@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * Класс {@code DequeRunner} демонстрирует работу с интерфейсом {@link Deque}
  * и основными методами добавления, удаления и итерации по элементам.
  *
- * <p>Используются методы:
+ * <p>Используются методы:</p>
  * <ul>
  *     <li>Добавление элементов:
  *     {@link Deque#add(Object)}, {@link Deque#addFirst(Object)}, {@link Deque#addLast(Object)}</li>
@@ -17,7 +17,6 @@ import java.util.LinkedList;
  *     {@link Deque#removeFirst()}</li>
  *     <li>Итерация по элементам: обычный итератор и обратный {@link Deque#descendingIterator()}</li>
  * </ul>
- * </p>
  *
  * <p><b>Пример использования:</b></p>
  * <pre>{@code
@@ -38,7 +37,7 @@ import java.util.LinkedList;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class DequeRunner {
 
@@ -119,7 +118,7 @@ public class DequeRunner {
      *
      * <p>Последовательно вызывает методы демонстрации работы с {@link Deque}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         add();

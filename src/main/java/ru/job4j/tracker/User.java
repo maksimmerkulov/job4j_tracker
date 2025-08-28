@@ -17,7 +17,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksiм Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class User {
 
@@ -39,9 +39,9 @@ public class User {
     /**
      * Создает нового пользователя с заданными параметрами.
      *
-     * @param id        Уникальный идентификатор.
-     * @param username  Имя пользователя.
-     * @param password  Пароль пользователя.
+     * @param id        уникальный идентификатор
+     * @param username  имя пользователя
+     * @param password  пароль пользователя
      */
     public User(int id, String username, String password) {
         this.id = id;
@@ -52,7 +52,7 @@ public class User {
     /**
      * Возвращает идентификатор пользователя.
      *
-     * @return Уникальный идентификатор.
+     * @return уникальный идентификатор
      */
     public int getId() {
         return id;
@@ -61,7 +61,7 @@ public class User {
     /**
      * Возвращает имя пользователя.
      *
-     * @return Имя пользователя.
+     * @return имя пользователя
      */
     public String getUsername() {
         return username;
@@ -70,7 +70,7 @@ public class User {
     /**
      * Возвращает пароль пользователя.
      *
-     * @return Пароль пользователя.
+     * @return пароль пользователя
      */
     public String getPassword() {
         return password;
@@ -79,7 +79,7 @@ public class User {
     /**
      * Возвращает строковое представление объекта {@link User}.
      *
-     * @return Строка с данными пользователя.
+     * @return строка с данными пользователя
      */
     @Override
     public String toString() {

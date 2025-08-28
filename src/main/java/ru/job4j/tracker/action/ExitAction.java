@@ -1,9 +1,9 @@
 package ru.job4j.tracker.action;
 
-import ru.job4j.tracker.input.Input;
-import ru.job4j.tracker.output.Output;
 import ru.job4j.tracker.StartUI;
 import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.output.Output;
 
 /**
  * Класс {@code ExitAction} представляет действие завершения работы программы
@@ -34,7 +34,7 @@ import ru.job4j.tracker.Tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  * @see UserAction
  * @see Tracker
  */
@@ -48,7 +48,7 @@ public class ExitAction implements UserAction {
     /**
      * Создает объект действия завершения программы.
      *
-     * @param output Объект вывода сообщений пользователю.
+     * @param output объект вывода сообщений пользователю
      */
     public ExitAction(Output output) {
         this.output = output;
@@ -57,7 +57,7 @@ public class ExitAction implements UserAction {
     /**
      * Возвращает название действия, отображаемое в пользовательском меню.
      *
-     * @return Строка "Завершить программу".
+     * @return строка "Завершить программу"
      */
     @Override
     public String name() {
@@ -70,9 +70,9 @@ public class ExitAction implements UserAction {
      * <p>Выводит на экран сообщение о завершении и возвращает {@code false},
      * сигнализируя основному циклу о необходимости остановки.</p>
      *
-     * @param input   Интерфейс получения пользовательского ввода (не используется).
-     * @param tracker Хранилище заявок (не используется).
-     * @return {@code false}, чтобы завершить выполнение программы.
+     * @param input   интерфейс получения пользовательского ввода (не используется)
+     * @param tracker хранилище заявок (не используется)
+     * @return {@code false}, чтобы завершить выполнение программы
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {

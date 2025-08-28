@@ -26,7 +26,7 @@ import java.util.HashSet;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UniqueText {
 
@@ -40,10 +40,10 @@ public class UniqueText {
      * на наличие в этом множестве. Если хотя бы одно слово отсутствует,
      * возвращается {@code false}, иначе {@code true}.</p>
      *
-     * @param originText Исходный текст, содержащий набор слов.
-     * @param duplicateText Проверяемый текст на наличие слов в {@code originText}.
+     * @param originText исходный текст, содержащий набор слов
+     * @param duplicateText проверяемый текст на наличие слов в {@code originText}
      * @return {@code true}, если все слова из {@code duplicateText} содержатся в {@code originText},
-     * иначе {@code false}.
+     * иначе {@code false}
      */
     public boolean isEquals(String originText, String duplicateText) {
         boolean result = true;

@@ -7,21 +7,21 @@ package ru.job4j.polymorphism;
  * и {@link #read()} для получения ранее сохраненной информации.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public interface Store {
 
     /**
      * Сохраняет переданную строку данных.
      *
-     * @param data Строка, которую необходимо сохранить.
+     * @param data строка, которую необходимо сохранить
      */
     void save(String data);
 
     /**
      * Возвращает сохраненные данные в виде строки.
      *
-     * @return Строка с сохраненной информацией.
+     * @return строка с сохраненной информацией
      */
     String read();
 }

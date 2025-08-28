@@ -20,7 +20,7 @@ import static java.lang.Character.isDigit;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class PhoneNumberValidator {
 
@@ -35,12 +35,19 @@ public class PhoneNumberValidator {
      * <p>Содержит статус (валидна/невалидна) и сообщение с пояснением.</p>
      */
     public static class ValidationResult {
-
         /**
          * Возможные статусы проверки.
          */
         public enum Status {
-            VALID, INVALID
+            /**
+             * Статус: номер телефона валиден.
+             */
+            VALID,
+
+            /**
+             * Статус: номер телефона невалиден.
+             */
+            INVALID
         }
 
         /**
@@ -56,14 +63,13 @@ public class PhoneNumberValidator {
         /**
          * Создает результат проверки.
          *
-         * @param status  Статус результата.
-         * @param message Поясняющее сообщение.
+         * @param status  статус результата
+         * @param message поясняющее сообщение
          */
         public ValidationResult(Status status, String message) {
             this.status = status;
             this.message = message;
         }
-
     }
 
     /**
@@ -71,8 +77,8 @@ public class PhoneNumberValidator {
      *
      * <p>Формат: {@code <числовой_код> <основной_номер>}, где основной номер содержит дефис.</p>
      *
-     * @param phoneNumber Строка с номером телефона.
-     * @return Результат проверки в виде {@link ValidationResult}.
+     * @param phoneNumber строка с номером телефона
+     * @return результат проверки в виде {@link ValidationResult}
      */
     public static ValidationResult validPhoneNumber(String phoneNumber) {
         String[] totalParts = phoneNumber.split(" ");
@@ -102,8 +108,8 @@ public class PhoneNumberValidator {
     /**
      * Вспомогательный метод для проверки, содержит ли строка только цифры и разрешенные символы.
      *
-     * @param string Проверяемая строка.
-     * @return {@code true}, если строка допустима.
+     * @param string проверяемая строка
+     * @return {@code true}, если строка допустима
      */
     private static boolean isNumeric(String string) {
         for (var i = 0; i < string.length(); i++) {

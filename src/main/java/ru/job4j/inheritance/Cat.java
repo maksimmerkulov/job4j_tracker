@@ -24,7 +24,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Cat extends Animal {
 
@@ -33,7 +33,7 @@ public class Cat extends Animal {
      *
      * <p>У всех живых кошек этот метод возвращает {@code true}.</p>
      *
-     * @return Значение {@code true}, если кошка может мурлыкать.
+     * @return значение {@code true}, если кошка может мурлыкать
      */
     public boolean canPurr() {
         return true;

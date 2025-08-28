@@ -23,7 +23,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see FunctionOne
  * @see FunctionTwo
  */
@@ -35,9 +35,9 @@ public class MainFunction implements FunctionOne, FunctionTwo {
      * <p>Это необходимо, поскольку интерфейсы {@link FunctionOne} и {@link FunctionTwo}
      * содержат {@code default}-метод с одинаковой сигнатурой.</p>
      *
-     * @param x Первое значение.
-     * @param y Второе значение.
-     * @return Результат вычисления по формуле {@code x * x - y + 5}.
+     * @param x первое значение
+     * @param y второе значение
+     * @return результат вычисления по формуле {@code x * x - y + 5}
      */
     @Override
     public double function(double x, double y) {

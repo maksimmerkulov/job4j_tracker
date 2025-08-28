@@ -33,7 +33,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Car extends Transport {
 
@@ -56,8 +56,8 @@ public class Car extends Transport {
     /**
      * Конструктор для инициализации марки и модели автомобиля.
      *
-     * @param brand Марка автомобиля.
-     * @param model Модель автомобиля.
+     * @param brand марка автомобиля
+     * @param model модель автомобиля
      */
     public Car(String brand, String model) {
         this.brand = brand;
@@ -70,7 +70,7 @@ public class Car extends Transport {
      * <p>Создает внутренний объект {@code Car} с маркой "Марка" и моделью "Модель",
      * и возвращает его {@link TripComputer}.</p>
      *
-     * @return Новый экземпляр {@link TripComputer}.
+     * @return новый экземпляр {@link TripComputer}
      */
     public static TripComputer getTripComputer() {
         Car car = new Car("Марка", "Модель");

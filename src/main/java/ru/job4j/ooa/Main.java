@@ -26,7 +26,7 @@ package ru.job4j.ooa;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Main {
 
@@ -36,7 +36,7 @@ public class Main {
      * <p>Создает объект {@link User} с фиксированной ссылкой ({@code final}) и демонстрирует,
      * что можно изменять его поля с помощью методов {@code setName()} и {@code setAge()}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         final User FIRST_USER = new User("Maksim", 36);

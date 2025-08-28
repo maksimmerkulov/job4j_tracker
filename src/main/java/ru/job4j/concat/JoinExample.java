@@ -20,7 +20,7 @@ package ru.job4j.concat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class JoinExample {
 
@@ -30,7 +30,7 @@ public class JoinExample {
      * <p>Создает строку путем объединения нескольких строк с пробелом в качестве разделителя
      * с использованием метода {@link String#join(CharSequence, CharSequence...)}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         String string = String.join(" ", "abc", "def", "ghi");

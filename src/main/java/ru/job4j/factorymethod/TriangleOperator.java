@@ -30,7 +30,7 @@ import java.util.Scanner;
  * @see Triangle
  * @see Shape
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class TriangleOperator extends ShapeOperator {
 
@@ -42,7 +42,7 @@ public class TriangleOperator extends ShapeOperator {
     /**
      * Реализация фабричного метода для создания треугольника на основе пользовательского ввода.
      *
-     * @return Объект {@link Triangle} с заданными размерами.
+     * @return объект {@link Triangle} с заданными размерами
      */
     @Override
     public Shape createShape() {

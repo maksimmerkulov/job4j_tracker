@@ -6,7 +6,7 @@ package ru.job4j.inheritance;
  * <p>Используется как базовый класс для наследования.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Parent {
 
@@ -25,8 +25,8 @@ public class Parent {
      *
      * <p>Создает объект {@code Parent} с заданными именем и возрастом.</p>
      *
-     * @param name Имя родителя.
-     * @param age  Возраст родителя.
+     * @param name имя родителя
+     * @param age  возраст родителя
      */
     public Parent(String name, int age) {
         this.name = name;

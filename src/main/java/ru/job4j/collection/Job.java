@@ -33,7 +33,7 @@ package ru.job4j.collection;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Job implements Comparable<Job> {
 
@@ -101,7 +101,7 @@ public class Job implements Comparable<Job> {
      * @param another другая работа для сравнения
      * @return отрицательное число, если текущая работа имеет меньший приоритет;
      *         0, если приоритеты равны;
-     *         положительное число, если текущая работа имеет больший приоритет.
+     *         положительное число, если текущая работа имеет больший приоритет
      */
     @Override
     public int compareTo(Job another) {

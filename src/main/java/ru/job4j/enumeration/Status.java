@@ -23,7 +23,7 @@ package ru.job4j.enumeration;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public enum Status {
 
@@ -84,7 +84,7 @@ public enum Status {
      * Инициализирует краткое описание статуса,
      * которое сохраняется в поле {@code info}.
      *
-     * @param info Строка с кратким описанием статуса.
+     * @param info строка с кратким описанием статуса
      */
     Status(String info) {
         this.info = info;
@@ -93,7 +93,7 @@ public enum Status {
     /**
      * Возвращает краткую информацию о статусе.
      *
-     * @return Краткое описание статуса.
+     * @return краткое описание статуса
      */
     public String getInfo() {
         return info;
@@ -102,7 +102,7 @@ public enum Status {
     /**
      * Возвращает подробное сообщение о статусе.
      *
-     * @return Подробное текстовое сообщение.
+     * @return подробное текстовое сообщение
      */
     public abstract String getMessage();
 }

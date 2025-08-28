@@ -23,7 +23,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class IceCreamPlusJamPlusNuts extends IceCreamPlusJam {
 
@@ -33,9 +33,9 @@ public class IceCreamPlusJamPlusNuts extends IceCreamPlusJam {
     private static final int NUTS_PRICE = 25;
 
     /**
-     * Создает новый экземпляр класса {@link IceCream} с заданным количеством шариков.</p>
+     * Создает новый экземпляр класса {@link IceCream} с заданным количеством шариков.
      *
-     * @param weight Количество шариков мороженого.
+     * @param weight количество шариков мороженого
      */
     public IceCreamPlusJamPlusNuts(int weight) {
         super(weight);
@@ -44,7 +44,7 @@ public class IceCreamPlusJamPlusNuts extends IceCreamPlusJam {
     /**
      * Возвращает стоимость мороженого с джемом и орехами.
      *
-     * @return Стоимость мороженого с джемом и орехами в рублях.
+     * @return стоимость мороженого с джемом и орехами в рублях
      */
     @Override
     public int price() {
@@ -54,7 +54,7 @@ public class IceCreamPlusJamPlusNuts extends IceCreamPlusJam {
     /**
      * Демонстрирует создание мороженого с 4 шариками, джемом и орехами.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         IceCreamPlusJamPlusNuts iceCream = new IceCreamPlusJamPlusNuts(4);

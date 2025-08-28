@@ -24,7 +24,7 @@ package ru.job4j.oop;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class WoodDoll {
 
@@ -41,8 +41,8 @@ public class WoodDoll {
     /**
      * Создает экземпляр {@code WoodDoll} с именем и вложенной куклой.
      *
-     * @param child Вложенная кукла (может быть {@code null}).
-     * @param name  Имя куклы.
+     * @param child вложенная кукла (может быть {@code null})
+     * @param name  имя куклы
      */
     public WoodDoll(WoodDoll child, String name) {
         this.child = child;
@@ -65,7 +65,7 @@ public class WoodDoll {
     /**
      * Создает цепочку вложенных кукол и вызывает метод {@link #about()} у самой внешней.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         WoodDoll little = new WoodDoll(null, "little doll");

@@ -19,7 +19,7 @@ package ru.job4j.encapsulation;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ATM {
 
@@ -29,7 +29,7 @@ public class ATM {
      * <p>Создает объект {@link Account}, выполняет два пополнения
      * и выводит баланс после каждого действия.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Account account = new Account();

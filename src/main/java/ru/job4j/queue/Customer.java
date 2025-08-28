@@ -19,10 +19,10 @@ package ru.job4j.queue;
  * 5
  * }</pre>
  *
- * @param name   Имя клиента.
- * @param amount Количество товара, которое хочет купить клиент.
+ * @param name   имя клиента
+ * @param amount количество товара, которое хочет купить клиент
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public record Customer(String name, int amount) {
 }

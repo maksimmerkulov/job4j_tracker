@@ -5,7 +5,7 @@ package ru.job4j.oop;
  * убежать от других персонажей: {@link Hare}, {@link Wolf} и {@link Fox}.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Ball {
 
@@ -13,7 +13,7 @@ public class Ball {
      * Определяет судьбу Колобка.
      *
      * @param condition {@code true} – Колобок съеден,
-     *                  {@code false} – Колобок сбежал.
+     *                  {@code false} – Колобок сбежал
      */
     public void tryRun(boolean condition) {
         if (condition) {

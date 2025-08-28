@@ -18,14 +18,14 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksiм Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class UserStore {
 
     /**
      * Точка входа в приложение.
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         User user = new User(1, "root", "root");

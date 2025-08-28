@@ -28,16 +28,17 @@ import java.util.Comparator;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class JobAscByName implements Comparator<Job> {
+
     /**
      * Сравнивает два объекта {@link Job} по имени в порядке возрастания.
      *
      * @param o1 первый объект для сравнения
      * @param o2 второй объект для сравнения
-     * @return отрицательное число, если имя o1 меньше имени o2,
-     *         положительное число, если имя o1 больше имени o2,
+     * @return отрицательное число, если имя o1 меньше имени o2;
+     *         положительное число, если имя o1 больше имени o2;
      *         ноль, если имена равны
      */
     @Override

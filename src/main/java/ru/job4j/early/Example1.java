@@ -20,7 +20,7 @@ import java.util.List;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Example1 {
 
@@ -33,16 +33,16 @@ public class Example1 {
      * Вычисляет значения функции {@code y = k / x} в заданном диапазоне.
      *
      * <p>Равномерно делит отрезок от {@code x1} до {@code x2} на {@code n} точек и
-     * вычисляет соответствующие значения функции.</p>
+     * вычисляет соответствующие значения функции. Внутри используется сравнение с
+     * погрешностью и проверка согласованности параметров.</p>
      *
-     * @apiNote Внутри используется сравнение с погрешностью и проверка согласованности параметров.
-     * @param k Коэффициент обратной пропорциональности.
-     * @param x1 Левая граница диапазона.
-     * @param x2 Правая граница диапазона.
-     * @param n Количество точек.
-     * @return Список значений функции {@code y = k / x}.
+     * @param k коэффициент обратной пропорциональности
+     * @param x1 левая граница диапазона
+     * @param x2 правая граница диапазона
+     * @param n количество точек
+     * @return список значений функции {@code y = k / x}
      * @throws IllegalArgumentException если {@code k == 0}, {@code n <= 0},
-     *         {@code x1 == x2} при {@code n > 1}, или параметры не согласованы.
+     *         {@code x1 == x2} при {@code n > 1}, или параметры не согласованы
      */
     public static List<Double> calculateInverseProportionality(double k, double x1, double x2, int n) {
         if (isEquals(k, 0)) {
@@ -63,9 +63,9 @@ public class Example1 {
     /**
      * Сравнивает два значения с учетом допустимой погрешности.
      *
-     * @param a Первое число.
-     * @param b Второе число.
-     * @return {@code true}, если числа практически равны.
+     * @param a первое число
+     * @param b второе число
+     * @return {@code true}, если числа практически равны
      */
     private static boolean isEquals(double a, double b) {
         return Math.abs(a - b) < COMPARING_PRECISION;
@@ -74,11 +74,11 @@ public class Example1 {
     /**
      * Выполняет вычисления функции {@code y = k / x} на равномерных отрезках.
      *
-     * @param k Коэффициент обратной пропорциональности.
-     * @param x1 Левая граница диапазона.
-     * @param x2 Правая граница диапазона.
-     * @param n Количество точек.
-     * @return Список значений функции {@code y = k / x}.
+     * @param k коэффициент обратной пропорциональности
+     * @param x1 левая граница диапазона
+     * @param x2 правая граница диапазона
+     * @param n количество точек
+     * @return список значений функции {@code y = k / x}
      */
     private static List<Double> calculateFunction(double k, double x1, double x2, int n) {
         List<Double> result = new ArrayList<>(n);

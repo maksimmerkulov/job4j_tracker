@@ -39,7 +39,7 @@ package ru.job4j.pojo;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ShopDrop {
 
@@ -47,9 +47,9 @@ public class ShopDrop {
      * Удаляет элемент массива по заданному индексу, сдвигая последующие элементы влево.
      * Последняя ячейка массива обнуляется.
      *
-     * @param products Массив товаров.
-     * @param index Индекс удаляемого элемента.
-     * @return Обновленный массив товаров.
+     * @param products массив товаров
+     * @param index индекс удаляемого элемента
+     * @return обновленный массив товаров
      */
     public static Product[] delete(Product[] products, int index) {
         for (int i = index; i < products.length - 1; i++) {
@@ -65,7 +65,7 @@ public class ShopDrop {
      * <p>Демонстрирует удаление элемента из массива товаров по индексу с последующим
      * смещением элементов влево и обнулением последней ячейки.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Product[] products = new Product[3];

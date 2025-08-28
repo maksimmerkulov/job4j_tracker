@@ -30,7 +30,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Main {
 
@@ -40,7 +40,7 @@ public class Main {
      * <p>Создает объект {@link SportCar} и демонстрирует вызов его методов
      * через интерфейсную переменную {@link Vehicle}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Vehicle sportCar = new SportCar();

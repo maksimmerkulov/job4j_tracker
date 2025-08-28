@@ -22,7 +22,7 @@ import java.util.Scanner;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class MagicBall {
 
@@ -31,7 +31,7 @@ public class MagicBall {
      *
      * <p>Реализует ввод вопроса от пользователя и вывод случайного ответа.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

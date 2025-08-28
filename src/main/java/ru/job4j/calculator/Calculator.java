@@ -19,16 +19,16 @@ package ru.job4j.calculator;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Calculator {
 
     /**
      * Складывает два числа типа {@code double}.
      *
-     * @param first  Первое слагаемое.
-     * @param second Второе слагаемое.
-     * @return Сумма двух чисел.
+     * @param first  первое слагаемое
+     * @param second второе слагаемое
+     * @return сумма двух чисел
      */
     public double add(double first, double second) {
         return first + second;
@@ -39,10 +39,10 @@ public class Calculator {
      *
      * <p>Использует перегрузку метода {@link #add(double, double)} для последовательного сложения.</p>
      *
-     * @param first  Первое слагаемое.
-     * @param second Второе слагаемое.
-     * @param third  Третье слагаемое.
-     * @return Сумма трех чисел.
+     * @param first  первое слагаемое
+     * @param second второе слагаемое
+     * @param third  третье слагаемое
+     * @return сумма трех чисел
      */
     public double add(double first, double second, double third) {
         double temp = add(second, third);

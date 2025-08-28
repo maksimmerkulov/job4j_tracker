@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * и поведение при отсутствии совпадений.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class PhoneDictionaryTest {
 

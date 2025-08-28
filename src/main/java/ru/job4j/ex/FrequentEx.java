@@ -33,7 +33,7 @@ package ru.job4j.ex;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class FrequentEx {
 
@@ -42,7 +42,7 @@ public class FrequentEx {
      *
      * <p>Печатает все элементы массива {@code shops}.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         String[] shops = {"Ebay", "Amazon", "Ozon"};

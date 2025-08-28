@@ -40,7 +40,7 @@ package ru.job4j.ooa;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Airport {
 
@@ -49,7 +49,7 @@ public class Airport {
      *
      * <p>Создает объекты {@code Airbus}, выводит информацию о моделях и количестве двигателей.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Airbus airbus = new Airbus("A320");

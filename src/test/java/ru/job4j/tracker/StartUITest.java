@@ -46,7 +46,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.8
+ * @version 1.9
  */
 class StartUITest {
 

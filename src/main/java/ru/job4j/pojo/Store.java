@@ -55,7 +55,7 @@ package ru.job4j.pojo;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Store {
 
@@ -65,7 +65,7 @@ public class Store {
      * <p>Создает массив продуктов, выводит их, заменяет один элемент,
      * затем фильтрует и отображает продукты с количеством более 10.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Product milk = new Product("Milk", 10);

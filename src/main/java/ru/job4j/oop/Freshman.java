@@ -8,7 +8,7 @@ package ru.job4j.oop;
  * наследования и восходящего приведения.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Freshman extends Student {
 }

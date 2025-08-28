@@ -9,12 +9,11 @@ import java.util.Queue;
  * <p>Поле {@link #queue} содержит очередь клиентов, ожидающих покупки.</p>
  * <p>Поле {@link #count} задает количество доступного товара.</p>
  *
- * <p>Методы позволяют определить:
+ * <p>Методы позволяют определить:</p>
  * <ul>
  *     <li>Имя последнего клиента, который успел купить товар ({@link #getLastHappyCustomer()})</li>
  *     <li>Имя первого клиента, которому не хватило товара ({@link #getFirstUpsetCustomer()})</li>
  * </ul>
- * </p>
  *
  * <p>Для получения клиентов используется метод {@link Queue#poll()}, который извлекает и удаляет
  * первый элемент очереди.</p>
@@ -43,7 +42,7 @@ import java.util.Queue;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class AppleStore {
 
@@ -60,8 +59,8 @@ public class AppleStore {
     /**
      * Конструктор инициализирует магазин с очередью клиентов и количеством товара.
      *
-     * @param queue Очередь клиентов.
-     * @param count Количество доступного товара.
+     * @param queue очередь клиентов
+     * @param count количество доступного товара
      */
     public AppleStore(Queue<Customer> queue, int count) {
         this.queue = queue;
@@ -74,7 +73,7 @@ public class AppleStore {
      * <p>Метод последовательно извлекает из очереди {@code count} клиентов
      * с помощью {@link Queue#poll()} и возвращает имя последнего из них.</p>
      *
-     * @return Имя последнего счастливого клиента.
+     * @return имя последнего счастливого клиента
      */
     public String getLastHappyCustomer() {
         Customer lastHappy = null;
@@ -90,7 +89,7 @@ public class AppleStore {
      * <p>Метод сначала извлекает из очереди {@code count} счастливчиков, затем
      * возвращает имя следующего клиента, который остался без товара.</p>
      *
-     * @return Имя первого недовольного клиента.
+     * @return имя первого недовольного клиента
      */
     public String getFirstUpsetCustomer() {
         for (int i = 0; i < count; i++) {

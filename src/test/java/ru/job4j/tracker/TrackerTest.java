@@ -32,7 +32,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.3
+ * @version 1.4
  */
 public class TrackerTest {
 

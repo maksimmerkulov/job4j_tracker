@@ -15,7 +15,7 @@ package ru.job4j.tracker;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public final class Singleton {
 
@@ -38,7 +38,7 @@ public final class Singleton {
      * <p>При первом вызове создает новый объект. При последующих —
      * возвращает уже созданный экземпляр.</p>
      *
-     * @return Объект {@link Singleton}.
+     * @return объект {@link Singleton}
      */
     public static Singleton getInstance() {
         if (instance == null) {

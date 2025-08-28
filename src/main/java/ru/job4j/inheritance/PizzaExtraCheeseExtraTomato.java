@@ -19,7 +19,7 @@ package ru.job4j.inheritance;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class PizzaExtraCheeseExtraTomato extends PizzaExtraCheese {
 
@@ -31,7 +31,7 @@ public class PizzaExtraCheeseExtraTomato extends PizzaExtraCheese {
     /**
      * Возвращает название пиццы с добавками "extra cheese" и "extra tomato".
      *
-     * @return Строка с названием пиццы и указанием дополнительного сыра и томатов.
+     * @return строка с названием пиццы и указанием дополнительного сыра и томатов
      */
     @Override
     public String name() {

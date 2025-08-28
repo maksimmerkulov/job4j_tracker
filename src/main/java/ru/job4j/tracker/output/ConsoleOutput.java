@@ -14,7 +14,7 @@ package ru.job4j.tracker.output;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  * @see Output
  * @see StubOutput
  */
@@ -23,7 +23,7 @@ public class ConsoleOutput implements Output {
     /**
      * Выводит объект в стандартный поток вывода.
      *
-     * @param object Объект, который необходимо вывести.
+     * @param object объект, который необходимо вывести
      */
     @Override
     public void println(Object object) {

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <p>Проверяется корректность преобразования двумерного массива в список.</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class ConvertMatrix2ListTest {
 

@@ -26,7 +26,7 @@ package ru.job4j.polymorphism;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  * @see FunctionOne
  * @see FunctionTwo
  */

@@ -29,6 +29,7 @@ import java.util.TreeSet;
  * @version 1.0
  */
 public class TreeSort {
+
     /**
      * Точка входа в программу.
      *

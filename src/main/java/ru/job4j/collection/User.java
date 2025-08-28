@@ -31,6 +31,7 @@ import java.util.Objects;
  * @version 1.0
  */
 public class User implements Comparable<User> {
+
     /**
      * Имя пользователя.
      */

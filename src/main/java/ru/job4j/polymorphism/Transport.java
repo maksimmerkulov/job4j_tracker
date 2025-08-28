@@ -8,7 +8,7 @@ package ru.job4j.polymorphism;
  * <p>Пример реализации: {@link Bus}</p>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public interface Transport {
 
@@ -20,15 +20,15 @@ public interface Transport {
     /**
      * Устанавливает количество пассажиров.
      *
-     * @param count Количество пассажиров.
+     * @param count количество пассажиров
      */
     void passengers(int count);
 
     /**
      * Заправляет транспорт.
      *
-     * @param fuel Количество топлива в литрах.
-     * @return Стоимость заправки.
+     * @param fuel количество топлива в литрах
+     * @return стоимость заправки
      */
     int refuel(int fuel);
 }

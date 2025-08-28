@@ -19,7 +19,7 @@ package ru.job4j.ooa;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class User {
 
@@ -36,8 +36,8 @@ public class User {
     /**
      * Создает нового пользователя с заданными именем и возрастом.
      *
-     * @param name Имя пользователя
-     * @param age  Возраст пользователя
+     * @param name имя пользователя
+     * @param age  возраст пользователя
      */
     public User(String name, int age) {
         this.name = name;
@@ -47,7 +47,7 @@ public class User {
     /**
      * Устанавливает новое имя пользователя.
      *
-     * @param name Новое имя пользователя.
+     * @param name новое имя пользователя
      */
     public void setName(String name) {
         this.name = name;
@@ -56,7 +56,7 @@ public class User {
     /**
      * Устанавливает новый возраст пользователя.
      *
-     * @param age Новый возраст пользователя.
+     * @param age новый возраст пользователя
      */
     public void setAge(int age) {
         this.age = age;
@@ -65,7 +65,7 @@ public class User {
     /**
      * Возвращает строковое представление объекта {@code User}.
      *
-     * @return Строка формата {@code User{name='...', age=...}}.
+     * @return строка формата {@code User{name='...', age=...}}.
      */
     @Override
     public String toString() {

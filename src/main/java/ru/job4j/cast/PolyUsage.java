@@ -27,7 +27,7 @@ package ru.job4j.cast;
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class PolyUsage {
 
@@ -36,7 +36,7 @@ public class PolyUsage {
      *
      * <p>Создает массив животных и вызывает метод {@code sound()} для каждого объекта.</p>
      *
-     * @param args Аргументы командной строки (не используются).
+     * @param args аргументы командной строки (не используются)
      */
     public static void main(String[] args) {
         Animal cow = new Cow();
