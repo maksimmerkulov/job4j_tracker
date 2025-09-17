@@ -1,55 +1,29 @@
 package ru.job4j.collection;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 /**
- * Класс {@code JobSorter} демонстрирует сортировку списка объектов {@link Job}.
+ * Demonstrates the sorting of {@link Job} objects using combined comparators.
  *
- * <p>В примере создается список работ, который сортируется с использованием комбинированного компаратора:
- * сначала по длине названия в порядке убывания ({@link JobDescByNameLength}),
- * затем по названию в порядке убывания ({@link JobDescByName}),
- * а при совпадении названий и длины — по приоритету в порядке убывания ({@link JobDescByPriority}).</p>
- *
- * <p><b>Пример использования:</b></p>
- * <pre>{@code
- * List<Job> jobs = Arrays.asList(
- *         new Job("Fix bug", 1),
- *         new Job("Fix bug", 4),
- *         new Job("Fix bug", 2),
- *         new Job("X task", 0)
- * );
- * Comparator<Job> combine = new JobDescByNameLength()
- *         .thenComparing(new JobDescByName())
- *         .thenComparing(new JobDescByPriority());
- * Collections.sort(jobs, combine);
- * System.out.println(jobs);
- * }</pre>
- *
- * <p><b>Пример вывода:</b></p>
+ * <p>Example output:
  * <pre>{@code
  * [Job{name='X task', priority=0},
- *  Job{name='Fix bug', priority=4},
- *  Job{name='Fix bug', priority=2},
- *  Job{name='Fix bug', priority=1}]
+ * Job{name='Fix bug', priority=4},
+ * Job{name='Fix bug', priority=2},
+ * Job{name='Fix bug', priority=1}]
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  */
 public class JobSorter {
 
     /**
-     * Точка входа в программу.
+     * Entry point of the program.
      *
-     * <p>Создает список работ, сортирует его с использованием
-     * комбинированного компаратора по длине названия,
-     * затем по названию и при совпадении — по приоритету,
-     * после чего выводит отсортированный список.</p>
-     *
-     * @param args аргументы командной строки (не используются)
+     * @param args command-line arguments; not used
      */
     public static void main(String[] args) {
         List<Job> jobs = Arrays.asList(
@@ -58,10 +32,14 @@ public class JobSorter {
                 new Job("Fix bug", 2),
                 new Job("X task", 0)
         );
-        Comparator<Job> combine = new JobDescByNameLength()
-                .thenComparing(new JobDescByName())
-                .thenComparing(new JobDescByPriority());
-        Collections.sort(jobs, combine);
+        jobs.sort(new JobDescByName().thenComparing(new JobDescByPriority()));
         System.out.println(jobs);
+
+        Comparator<Job> compareName = Comparator.comparing(Job::getName);
+        Comparator<Job> comparePriority =
+                Comparator.comparingInt(Job::getPriority);
+        Comparator<Job> combine = compareName.thenComparing(comparePriority);
+
+        jobs.sort(combine);
     }
 }

@@ -1,54 +1,32 @@
 package ru.job4j.search;
 
 /**
- * Класс {@code Person} представляет собой модель данных для хранения информации о человеке.
- *
- * <p>Содержит поля имени, фамилии, номера телефона и адреса. Используется, например,
- * в поисковых приложениях, справочниках или базах данных пользователей.</p>
- *
- * <p><b>Пример использования:</b></p>
- * <pre>{@code
- * Person person = new Person("Иван", "Иванов", "+7 999 123 45 67", "Москва, ул. Ленина, д. 1");
- * String phone = person.getPhone();
- * }</pre>
- *
- * <p><b>Пример вывода:</b></p>
- * <pre>{@code
- * +7 999 123 45 67
- * }</pre>
+ * Model of a person with personal and contact information.
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Person {
 
-    /**
-     * Имя пользователя.
-     */
+    /** The name of the person. */
     private String name;
 
-    /**
-     * Фамилия пользователя.
-     */
+    /** The surname of the person. */
     private String surname;
 
-    /**
-     * Номер телефона пользователя.
-     */
+    /** The phone number of the person. */
     private String phone;
 
-    /**
-     * Адрес пользователя.
-     */
+    /** The address of the person. */
     private String address;
 
     /**
-     * Создает объект {@code Person} с заданными данными.
+     * Creates a new {@code Person} with the specified data.
      *
-     * @param name    имя пользователя
-     * @param surname фамилия пользователя
-     * @param phone   номер телефона пользователя
-     * @param address адрес пользователя
+     * @param name the name of the person
+     * @param surname the surname of the person
+     * @param phone the phone number of the person
+     * @param address the address of the person
      */
     public Person(String name, String surname, String phone, String address) {
         this.name = name;
@@ -58,36 +36,36 @@ public class Person {
     }
 
     /**
-     * Возвращает имя пользователя.
+     * Returns the name of the person.
      *
-     * @return имя пользователя
+     * @return the person name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Возвращает фамилию пользователя.
+     * Returns the surname of the person.
      *
-     * @return фамилия пользователя
+     * @return the person surname
      */
     public String getSurname() {
         return surname;
     }
 
     /**
-     * Возвращает номер телефона пользователя.
+     * Returns the phone number of the person.
      *
-     * @return номер телефона пользователя
+     * @return the person phone number
      */
     public String getPhone() {
         return phone;
     }
 
     /**
-     * Возвращает адрес пользователя.
+     * Returns the address of the person.
      *
-     * @return адрес пользователя
+     * @return the person address
      */
     public String getAddress() {
         return address;

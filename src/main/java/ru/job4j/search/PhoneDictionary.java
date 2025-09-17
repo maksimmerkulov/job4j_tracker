@@ -1,60 +1,49 @@
 package ru.job4j.search;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 /**
- * Класс {@code PhoneDictionary} представляет телефонный справочник,
- * позволяющий добавлять пользователей и выполнять поиск по ключевому слову.
- *
- * <p>Поиск осуществляется по всем полям класса {@link Person}:
- * {@code name}, {@code surname}, {@code phone} и {@code address}
- * с помощью {@code String.contains()}.</p>
- *
- * <p><b>Пример использования:</b></p>
- * <pre>{@code
- * PhoneDictionary dictionary = new PhoneDictionary();
- * dictionary.add(new Person("Петр", "Арсентьев", "53742", "Брянск"));
- * List<Person> result = dictionary.find("нск");
- * }</pre>
- *
- * <p><b>Пример вывода:</b></p>
- * <pre>{@code
- * Петр Арсентьев
- * }</pre>
+ * Provides a phone dictionary for storing and searching {@link Person} objects.
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class PhoneDictionary {
 
-    /**
-     * Список пользователей.
-     */
+    /** The list of persons in the dictionary. */
     private ArrayList<Person> persons = new ArrayList<>();
 
     /**
-     * Добавляет пользователя в справочник.
+     * Adds a person to the dictionary.
      *
-     * @param person пользователь
+     * @param person the person to add
      */
     public void add(Person person) {
         this.persons.add(person);
     }
 
     /**
-     * Возвращает список всех пользователей, который содержат key в любых полях.
+     * Returns a list of all persons matching the specified search key.
      *
-     * @param key ключ поиска
-     * @return список пользователей, которые прошли проверку
+     * @param key the search key
+     * @return a list of persons matching the search criteria
      */
     public ArrayList<Person> find(String key) {
+        Predicate<Person> combineName = p -> p.getName().contains(key);
+        Predicate<Person> combineSurname = p -> p.getSurname().contains(key);
+        Predicate<Person> combinePhone = p -> p.getPhone().contains(key);
+        Predicate<Person> combineAddress = p -> p.getAddress().contains(key);
+
+        Predicate<Person> combine = combineName
+                .or(combineSurname)
+                .or(combinePhone)
+                .or(combineAddress);
+
         ArrayList<Person> result = new ArrayList<>();
-        for (Person persona : persons) {
-            if (persona.getName().contains(key)
-                    || persona.getSurname().contains(key)
-                    || persona.getPhone().contains(key)
-                    || persona.getAddress().contains(key)) {
-                result.add(persona);
+        for (Person person : persons) {
+            if (combine.test(person)) {
+                result.add(person);
             }
         }
         return result;
