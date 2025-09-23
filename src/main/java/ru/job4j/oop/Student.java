@@ -5,24 +5,26 @@ package ru.job4j.oop;
  *
  * <p>Example output:
  * <pre>{@code
- * Tra tra tra
- * Tra tra tra
- * Tra tra tra
+ * I can sing a song : I believe, I can fly
+ * I can sing a song : I believe, I can fly
+ * I can sing a song : I believe, I can fly
  * I believe I can fly
  * I believe I can fly
  * I believe I can fly
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Student {
 
     /**
-     * Plays the accordion music.
+     * Plays music with the specified lyrics.
+     *
+     * @param lyrics the text to be played
      */
-    public void music() {
-        System.out.println("Tra tra tra");
+    public void music(String lyrics) {
+        System.out.println("I can sing a song : " + lyrics);
     }
 
     /**
@@ -39,9 +41,10 @@ public class Student {
      */
     public static void main(String[] args) {
         Student petya = new Student();
-        petya.music();
-        petya.music();
-        petya.music();
+        String song = "I believe, I can fly";
+        petya.music(song);
+        petya.music(song);
+        petya.music(song);
         petya.sing();
         petya.sing();
         petya.sing();
