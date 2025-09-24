@@ -1,27 +1,54 @@
 package ru.job4j.oop;
 
 /**
- * Represents a cat that can produce sounds.
+ * Represents a cat with a name and food preferences.
  *
  * <p>Example output:
  * <pre>{@code
- * Peppy says meow-meow
- * Sparky says meow-meow
+ * There are gav's food.
+ * gav ate cutlet
+ * There are black's food.
+ * black ate fish
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Cat {
 
     /**
-     * Returns the sound this cat makes.
-     *
-     * @return the voice of the cat
+     * Name of the cat.
      */
-    public String sound() {
-        String voice = "meow-meow";
-        return voice;
+    private String name;
+
+    /**
+     * Type of food the cat ate.
+     */
+    private String food;
+
+    /**
+     * Sets the nickname for the cat.
+     *
+     * @param nick the name to assign
+     */
+    public void giveNick(String nick) {
+        this.name = nick;
+    }
+
+    /**
+     * Sets the food for the cat.
+     *
+     * @param meat the food to eat
+     */
+    public void eat(String meat) {
+        this.food = meat;
+    }
+
+    /**
+     * Displays the cat's name and its food to the console.
+     */
+    public void show() {
+        System.out.println(this.name + " ate " + this.food);
     }
 
     /**
@@ -30,11 +57,15 @@ public class Cat {
      * @param args command-line arguments; not used
      */
     public static void main(String[] args) {
-        Cat peppy = new Cat();
-        String sayPeppy = peppy.sound();
-        System.out.println("Peppy says " + sayPeppy);
-        Cat sparky = new Cat();
-        String saySparky = sparky.sound();
-        System.out.println("Sparky says " + saySparky);
+        System.out.println("There are gav's food.");
+        Cat gav = new Cat();
+        gav.giveNick("gav");
+        gav.eat("cutlet");
+        gav.show();
+        System.out.println("There are black's food.");
+        Cat black = new Cat();
+        black.giveNick("black");
+        black.eat("fish");
+        black.show();
     }
 }
