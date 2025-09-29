@@ -1,10 +1,12 @@
 package ru.job4j.tracker;
 
+import java.time.LocalDateTime;
+
 /**
  * An item in the tracker system.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Item {
 
@@ -17,6 +19,11 @@ public class Item {
      * Name of the item.
      */
     private String name;
+
+    /**
+     * Date and time when the item was created.
+     */
+    private LocalDateTime created = LocalDateTime.now();
 
     /**
      * Creates a new {@code Item} with default values.
@@ -78,5 +85,14 @@ public class Item {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Returns the creation date and time of the item.
+     *
+     * @return the creation timestamp
+     */
+    public LocalDateTime getCreated() {
+        return created;
     }
 }
