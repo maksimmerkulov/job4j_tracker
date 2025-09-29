@@ -1,19 +1,25 @@
 package ru.job4j.inheritance;
 
 /**
- * Represents a cat in the inheritance hierarchy.
+ * Represents a cat, demonstrating method overriding and hiding.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
-public class Cat {
+public class Cat extends Animal {
 
     /**
-     * Indicates whether the cat can purr.
-     *
-     * @return {@code true} if the cat can purr, {@code false} otherwise
+     * Hides the static method of the {@link Animal} class.
      */
-    public boolean canPurr() {
-        return true;
+    public static void staticInvoke() {
+        System.out.println("Static method call in Cat");
+    }
+
+    /**
+     * Overrides the instance method of the {@link Animal} class.
+     */
+    @Override
+    public void instanceInvoke() {
+        System.out.println("Instance method call in Cat");
     }
 }
