@@ -4,7 +4,7 @@ package ru.job4j.inheritance;
  * Generates reports in JSON format.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class JSONReport extends TextReport {
 
@@ -15,6 +15,7 @@ public class JSONReport extends TextReport {
      * @param body the report body
      * @return the formatted JSON report string
      */
+    @Override
     public String generate(String name, String body) {
         String ln = System.lineSeparator();
         return "{" + ln
