@@ -1,10 +1,12 @@
 package ru.job4j.pojo;
 
+import java.util.Objects;
+
 /**
  * A product model in the warehouse system.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Product {
 
@@ -63,5 +65,33 @@ public class Product {
      */
     public void setCount(int count) {
         this.count = count;
+    }
+
+    /**
+     * Tests if some other object is equal to this one.
+     *
+     * @param o the reference object
+     * @return {@code true} if this object is equal, {@code false} otherwise
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Product product = (Product) o;
+        return count == product.count && Objects.equals(name, product.name);
+    }
+
+    /**
+     * Returns a hash code value for the object.
+     *
+     * @return a hash code value
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, count);
     }
 }
