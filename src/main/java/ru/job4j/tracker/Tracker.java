@@ -7,7 +7,7 @@ import java.util.Arrays;
  * with {@link Item} objects.
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  */
 public class Tracker {
 
@@ -101,7 +101,8 @@ public class Tracker {
      */
     public void delete(int id) {
         int index = indexOf(id);
-        if (index != -1) {
+        boolean result = index != -1;
+        if (result) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);
             items[size - 1] = null;
             size--;
