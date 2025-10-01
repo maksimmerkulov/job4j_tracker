@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Tests for the {@link Tracker} class.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 class TrackerTest {
 
@@ -70,5 +70,35 @@ class TrackerTest {
         tracker.add(new Item("First"));
         Item[] result = tracker.findByName(second.getName());
         assertThat(result[1].getName()).isEqualTo(second.getName());
+    }
+
+    /**
+     * Verifies that an item is successfully replaced.
+     */
+    @Test
+    void whenReplaceItemIsSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        int id = item.getId();
+        Item updateItem = new Item("Bug with description");
+        tracker.replace(id, updateItem);
+        assertThat(tracker.findById(id).getName())
+                .isEqualTo("Bug with description");
+    }
+
+    /**
+     * Verifies that an item replacement fails for non-existent ID.
+     */
+    @Test
+    void whenReplaceItemIsNotSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        Item updateItem = new Item("Bug with description");
+        boolean result = tracker.replace(1000, updateItem);
+        assertThat(tracker.findById(item.getId()).getName())
+                .isEqualTo("Bug");
+        assertThat(result).isFalse();
     }
 }

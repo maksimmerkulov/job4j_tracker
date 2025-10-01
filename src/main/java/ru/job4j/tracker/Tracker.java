@@ -7,7 +7,7 @@ import java.util.Arrays;
  * with {@link Item} objects.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Tracker {
 
@@ -72,11 +72,39 @@ public class Tracker {
      * @return the found item, or {@code null} if not found
      */
     public Item findById(int id) {
-        Item result = null;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
+    /**
+     * Replaces the item with the specified identifier.
+     *
+     * @param id   the item id to replace
+     * @param item the new item to store
+     * @return {@code true} if replacement is successful,
+     * otherwise {@code false}
+     */
+    public boolean replace(int id, Item item) {
+        int index = indexOf(id);
+        boolean result = index != -1;
+        if (result) {
+            item.setId(id);
+            items[index] = item;
+        }
+        return result;
+    }
+
+    /**
+     * Finds the index of an item by its unique identifier.
+     *
+     * @param id the item id to search for
+     * @return the index of the item, or {@code -1} if not found
+     */
+    private int indexOf(int id) {
+        int result = -1;
         for (int i = 0; i < size; i++) {
-            Item item = items[i];
-            if (item.getId() == id) {
-                result = item;
+            if (items[i].getId() == id) {
+                result = i;
                 break;
             }
         }
