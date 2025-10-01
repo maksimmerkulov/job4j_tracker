@@ -3,18 +3,16 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 
 /**
- * Demonstrates how to remove null elements from an array by creating
- * a new compressed array.
+ * Demonstrates how to shift elements in an array using
+ * the {@link System#arraycopy(Object, int, Object, int, int)} method.
  *
  * <p>Example output:
  * <pre>{@code
- * Petr
- * Ivan
- * Stepan
+ * [Petr, Ivan, Stepan, Fedor, Fedor]
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class DropArray {
 
@@ -24,19 +22,8 @@ public class DropArray {
      * @param args command-line arguments; not used
      */
     public static void main(String[] args) {
-        String[] names = {"Petr", null, "Ivan", "Stepan", null};
-        String[] result = new String[names.length];
-        int size = 0;
-        for (int i = 0; i < names.length; i++) {
-            String name = names[i];
-            if (name != null) {
-                result[size] = name;
-                size++;
-            }
-        }
-        result = Arrays.copyOf(result, size);
-        for (int i = 0; i < result.length; i++) {
-            System.out.println(result[i]);
-        }
+        String[] names = {"Petr", null, "Ivan", "Stepan", "Fedor"};
+        System.arraycopy(names, 2, names, 1, 3);
+        System.out.println(Arrays.toString(names));
     }
 }

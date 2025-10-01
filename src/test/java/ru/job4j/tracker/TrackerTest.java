@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Tests for the {@link Tracker} class.
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 class TrackerTest {
 
@@ -100,5 +100,31 @@ class TrackerTest {
         assertThat(tracker.findById(item.getId()).getName())
                 .isEqualTo("Bug");
         assertThat(result).isFalse();
+    }
+
+    /**
+     * Verifies successful item deletion.
+     */
+    @Test
+    void whenDeleteItemIsSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        int id = item.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id)).isNull();
+    }
+
+    /**
+     * Verifies that deletion does not affect other items on non-existent ID.
+     */
+    @Test
+    void whenDeleteItemIsNotSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        tracker.delete(1000);
+        assertThat(tracker.findById(item.getId()).getName())
+                .isEqualTo("Bug");
     }
 }
