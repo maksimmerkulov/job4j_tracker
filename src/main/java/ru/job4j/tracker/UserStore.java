@@ -1,17 +1,17 @@
 package ru.job4j.tracker;
 
 /**
- * Provides an entry point to demonstrate item operations.
+ * Provides an entry point to demonstrate user data operations.
  *
  * <p>Example output:
  * <pre>{@code
- * Item{id=1, name='Fix bugs', created=02-October-Thursday-2025 15:00:00}
+ * User{id=1, username='root', password='root'}
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.0
  */
-public class StartUI {
+public class UserStore {
 
     /**
      * Entry point of the program.
@@ -19,7 +19,7 @@ public class StartUI {
      * @param args command-line arguments; not used
      */
     public static void main(String[] args) {
-        Item item = new Item(1, "Fix bugs");
-        System.out.println(item);
+        User user = new User(1, "root", "root");
+        System.out.println(user);
     }
 }

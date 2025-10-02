@@ -1,14 +1,21 @@
 package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
- * An item in the tracker system.
+ * Represents an item in the tracker system.
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
 public class Item {
+
+    /**
+     * The formatter for displaying creation date and time.
+     */
+    private static final DateTimeFormatter FORMATTER =
+            DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
     /**
      * Unique identifier of the item.
@@ -94,5 +101,19 @@ public class Item {
      */
     public LocalDateTime getCreated() {
         return created;
+    }
+
+    /**
+     * Returns a string representation of the item with a formatted date.
+     *
+     * @return a string containing the item data
+     */
+    @Override
+    public String toString() {
+        return "Item{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", created=" + created.format(FORMATTER)
+                + '}';
     }
 }
