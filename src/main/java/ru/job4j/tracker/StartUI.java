@@ -15,11 +15,14 @@ import java.util.Scanner;
  * 4. Find item by id
  * 5. Find items by name
  * 6. Exit program
- * Select: 6
+ * Select: 0
+ * === Add new item ===
+ * Enter name: Fix bugs
+ * Added item: Item{id=1, name='Fix bugs', created=06-October-Monday-2025 15:00:00}
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  */
 public class StartUI {
 
@@ -35,9 +38,14 @@ public class StartUI {
             showMenu();
             System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
-            if (select != 6) {
-                System.out.println("User selected: " + select);
-            } else {
+            if (select == 0) {
+                System.out.println("=== Add new item ===");
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                tracker.add(item);
+                System.out.println("Added item: " + item);
+            } else if (select == 6) {
                 run = false;
             }
         }
