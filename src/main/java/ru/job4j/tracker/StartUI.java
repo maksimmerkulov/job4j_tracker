@@ -27,22 +27,11 @@ import java.util.Scanner;
  * 4. Find item by id
  * 5. Find items by name
  * 6. Exit program
- * Select: 0
- * === Add new item ===
+ * Select: 2
+ * === Edit item ===
+ * Enter id: 1
  * Enter name: Refactor code
- * Added item: Item{id=2, name='Refactor code', created=06-October-Monday-2025 15:15:00}
- * Menu:
- * 0. Add new item
- * 1. Show all items
- * 2. Edit item
- * 3. Delete item
- * 4. Find item by id
- * 5. Find items by name
- * 6. Exit program
- * Select: 0
- * === Add new item ===
- * Enter name: Write tests
- * Added item: Item{id=3, name='Write tests', created=06-October-Monday-2025 15:30:00}
+ * Item changed successfully
  * Menu:
  * 0. Add new item
  * 1. Show all items
@@ -53,13 +42,11 @@ import java.util.Scanner;
  * 6. Exit program
  * Select: 1
  * === Show all items ===
- * Item{id=1, name='Fix bugs', created=06-October-Monday-2025 15:00:00}
- * Item{id=2, name='Refactor code', created=06-October-Monday-2025 15:15:00}
- * Item{id=3, name='Write tests', created=06-October-Monday-2025 15:30:00}
+ * Item{id=1, name='Refactor code', created=06-October-Monday-2025 15:00:00}
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.4
+ * @version 1.5
  */
 public class StartUI {
 
@@ -91,6 +78,18 @@ public class StartUI {
                     }
                 } else {
                     System.out.println("Storage does not contain items yet");
+                }
+            } else if (select == 2) {
+                System.out.println("=== Edit item ===");
+                System.out.print("Enter id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                if (tracker.replace(id, item)) {
+                    System.out.println("Item changed successfully");
+                } else {
+                    System.out.println("Error changing item");
                 }
             } else if (select == 6) {
                 run = false;
