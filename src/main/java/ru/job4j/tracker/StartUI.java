@@ -18,7 +18,7 @@ import java.util.Scanner;
  * Select: 0
  * === Add new item ===
  * Enter name: Fix bugs
- * Added item: Item{id=1, name='Fix bugs', created=06-October-Monday-2025 15:00:00}
+ * Added item: Item{id=1, name='Fix bugs', created=06-October-Monday-2025 16:00:00}
  * Menu:
  * 0. Add new item
  * 1. Show all items
@@ -27,11 +27,34 @@ import java.util.Scanner;
  * 4. Find item by id
  * 5. Find items by name
  * 6. Exit program
- * Select: 2
- * === Edit item ===
- * Enter id: 1
+ * Select: 0
+ * === Add new item ===
+ * Enter name: Write tests
+ * Added item: Item{id=2, name='Write tests', created=06-October-Monday-2025 16:15:00}
+ * Menu:
+ * 0. Add new item
+ * 1. Show all items
+ * 2. Edit item
+ * 3. Delete item
+ * 4. Find item by id
+ * 5. Find items by name
+ * 6. Exit program
+ * Select: 0
+ * === Add new item ===
  * Enter name: Refactor code
- * Item changed successfully
+ * Added item: Item{id=3, name='Refactor code', created=06-October-Monday-2025 16:30:00}
+ * Menu:
+ * 0. Add new item
+ * 1. Show all items
+ * 2. Edit item
+ * 3. Delete item
+ * 4. Find item by id
+ * 5. Find items by name
+ * 6. Exit program
+ * Select: 3
+ * === Delete item ===
+ * Enter id: 2
+ * Item deleted successfully
  * Menu:
  * 0. Add new item
  * 1. Show all items
@@ -42,11 +65,12 @@ import java.util.Scanner;
  * 6. Exit program
  * Select: 1
  * === Show all items ===
- * Item{id=1, name='Refactor code', created=06-October-Monday-2025 15:00:00}
+ * Item{id=1, name='Fix bugs', created=06-October-Monday-2025 16:00:00}
+ * Item{id=3, name='Refactor code', created=06-October-Monday-2025 16:30:00}
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.5
+ * @version 1.6
  */
 public class StartUI {
 
@@ -91,6 +115,17 @@ public class StartUI {
                 } else {
                     System.out.println("Error changing item");
                 }
+            } else if (select == 3) {
+                System.out.println("=== Delete item ===");
+                System.out.print("Enter id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                tracker.delete(id);
+                System.out.println(
+                        item != null
+                                ? "Item deleted successfully"
+                                : "Error deleting item"
+                );
             } else if (select == 6) {
                 run = false;
             }
