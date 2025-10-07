@@ -1,12 +1,13 @@
 package ru.job4j.oop;
 
 /**
- * Represents a car with internal components.
+ * Represents a car with internal components that inherits from the
+ * {@link Transport} class.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
-public class Car {
+public class Car extends Transport {
 
     /**
      * The brand of the car.
@@ -17,6 +18,12 @@ public class Car {
      * The model of the car.
      */
     private String model;
+
+    /**
+     * Creates a new default car instance with empty fields.
+     */
+    public Car() {
+    }
 
     /**
      * Creates a new {@code Car} with the specified brand and model.
@@ -48,7 +55,7 @@ public class Car {
     }
 
     /**
-     * Inner class representing the car transmission.
+     * Manages the car transmission and acceleration mechanics.
      */
     public class Transmission {
 
@@ -61,7 +68,7 @@ public class Car {
     }
 
     /**
-     * Inner class representing the car brakes.
+     * Handles the car braking system and deceleration operations.
      */
     public class Brakes {
 
@@ -74,7 +81,7 @@ public class Car {
     }
 
     /**
-     * Inner class representing the car trip computer.
+     * Computes and monitors trip diagnostics data from the vehicle.
      */
     public class TripComputer {
 
