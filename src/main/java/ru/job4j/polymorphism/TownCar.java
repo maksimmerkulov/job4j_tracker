@@ -4,7 +4,7 @@ package ru.job4j.polymorphism;
  * Implements the {@link Vehicle} contract for a standard town car.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class TownCar implements Vehicle {
 
@@ -51,5 +51,14 @@ public class TownCar implements Vehicle {
     @Override
     public void refill() {
         System.out.println("Refuel with 60 liters of gasoline.");
+    }
+
+    /**
+     * Charges the vehicle battery by delegating to the default interface
+     * implementation.
+     */
+    @Override
+    public void chargeBattery() {
+        Vehicle.super.chargeBattery();
     }
 }

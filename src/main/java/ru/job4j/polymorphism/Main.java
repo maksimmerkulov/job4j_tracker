@@ -11,10 +11,11 @@ package ru.job4j.polymorphism;
  * Shortened steering rack for faster turning.
  * Reinforced braking system.
  * Refuel with 100 liters of gasoline.
+ * Formula for calculating the aerodynamic drag coefficient.
  * }</pre>
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Main {
 
@@ -30,5 +31,6 @@ public class Main {
         sportCar.steer();
         sportCar.brake();
         sportCar.refill();
+        Vehicle.getDragCoefficient();
     }
 }

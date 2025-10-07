@@ -4,7 +4,7 @@ package ru.job4j.polymorphism;
  * Implements the {@link Vehicle} contract for a high-performance sports car.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class SportCar implements Vehicle {
 
@@ -51,5 +51,13 @@ public class SportCar implements Vehicle {
     @Override
     public void refill() {
         System.out.println("Refuel with 100 liters of gasoline.");
+    }
+
+    /**
+     * Charges the vehicle battery located in the trunk of the sports car.
+     */
+    @Override
+    public void chargeBattery() {
+        System.out.println("The battery is in the trunk. Charge it.");
     }
 }
