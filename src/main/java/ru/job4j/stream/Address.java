@@ -6,7 +6,7 @@ import java.util.Objects;
  * Address model representing a physical location.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Address {
 
@@ -35,6 +35,15 @@ public class Address {
         this.street = street;
         this.home = home;
         this.apartment = apartment;
+    }
+
+    /**
+     * Returns the city name.
+     *
+     * @return the city
+     */
+    public String getCity() {
+        return city;
     }
 
     /**
