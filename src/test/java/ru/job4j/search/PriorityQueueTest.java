@@ -5,41 +5,36 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Класс {@code PriorityQueueTest} содержит модульные тесты для проверки работы {@link PriorityQueue}.
- *
- * <p>Тестируются различные сценарии поведения метода {@link PriorityQueue#put(Task)},
- * включая вставку задач с разным и одинаковым приоритетом, а также корректность работы
- * метода {@link PriorityQueue#take()}.</p>
+ * Tests for the {@link PriorityQueue} class.
  *
  * @author Maksim Merkulov
- * @version 1.1
+ * @version 1.2
  */
-public class PriorityQueueTest {
+class PriorityQueueTest {
 
     /**
-     * Проверяет, что задача с более высоким приоритетом (меньшим числом)
-     * возвращается первой, даже если она была добавлена не первой.
+     * Verifies that the task with higher priority is returned first.
      */
     @Test
-    public void whenHigherPrioritySecond() {
-        PriorityQueue queue = new PriorityQueue();
+    void whenHigherPriority() {
+        var queue = new PriorityQueue();
         queue.put(new Task("low", 5));
         queue.put(new Task("urgent", 1));
         queue.put(new Task("middle", 3));
-        Task result = queue.take();
+        var result = queue.take();
         assertThat(result.getDescription()).isEqualTo("urgent");
     }
 
     /**
-     * Проверяет, что при одинаковом приоритете задачи возвращаются в порядке добавления.
+     * Verifies FIFO behavior for tasks with equal priority.
      */
     @Test
-    public void whenHigherPriorityEquals() {
-        PriorityQueue queue = new PriorityQueue();
+    void whenEqualPriority() {
+        var queue = new PriorityQueue();
         queue.put(new Task("low", 5));
         queue.put(new Task("urgent", 5));
         queue.put(new Task("middle", 5));
-        Task result = queue.take();
+        var result = queue.take();
         assertThat(result.getDescription()).isEqualTo("low");
     }
 }

@@ -7,7 +7,7 @@ import java.util.function.Predicate;
  * Provides a phone dictionary for storing and searching {@link Person} objects.
  *
  * @author Maksim Merkulov
- * @version 1.2
+ * @version 1.3
  */
 public class PhoneDictionary {
 
@@ -34,14 +34,12 @@ public class PhoneDictionary {
         Predicate<Person> combineSurname = p -> p.getSurname().contains(key);
         Predicate<Person> combinePhone = p -> p.getPhone().contains(key);
         Predicate<Person> combineAddress = p -> p.getAddress().contains(key);
-
-        Predicate<Person> combine = combineName
+        var combine = combineName
                 .or(combineSurname)
                 .or(combinePhone)
                 .or(combineAddress);
-
-        ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
+        var result = new ArrayList<Person>();
+        for (var person : persons) {
             if (combine.test(person)) {
                 result.add(person);
             }
