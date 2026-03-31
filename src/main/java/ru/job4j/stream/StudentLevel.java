@@ -1,14 +1,14 @@
 package ru.job4j.stream;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Service for filtering students by score levels using Stream API.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class StudentLevel {
 
@@ -23,8 +23,9 @@ public class StudentLevel {
     public static List<Student> levelOf(List<Student> students, int bound) {
         return students.stream()
                 .filter(Objects::nonNull)
-                .sorted(Comparator.comparingInt(Student::getScore).reversed())
+                .sorted((left, right) ->
+                        Integer.compare(right.getScore(), left.getScore()))
                 .takeWhile(student -> student.getScore() >= bound)
-                .toList();
+                .collect(Collectors.toList());
     }
 }
