@@ -1,0 +1,160 @@
+package ru.job4j.stream;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
+
+/**
+ * Tests for the {@link Analyze} class.
+ *
+ * @author Maksim Merkulov
+ * @version 1.0
+ */
+class AnalyzeByMapTest {
+
+    /**
+     * Verifies the overall average score calculation.
+     */
+    @Test
+    void whenAverageScore() {
+        double average = Analyze.averageScore(
+                List.of(
+                        new Pupil("Ivanov", List.of(
+                                new Subject("Math", 100),
+                                new Subject("Lang", 70),
+                                new Subject("Philosophy", 80)
+                        )),
+                        new Pupil("Petrov", List.of(
+                                new Subject("Math", 80),
+                                new Subject("Lang", 90),
+                                new Subject("Philosophy", 70)
+                        )),
+                        new Pupil("Sidorov", List.of(
+                                new Subject("Math", 70),
+                                new Subject("Lang", 60),
+                                new Subject("Philosophy", 50)
+                        ))
+                ).stream()
+        );
+        assertThat(average).isCloseTo(74.44, offset(0.01D));
+    }
+
+    /**
+     * Verifies the list of average scores for each pupil.
+     */
+    @Test
+    void whenListOfPupilAverage() {
+        List<Tuple> average = Analyze.averageScoreByPupil(
+                List.of(
+                        new Pupil("Ivanov", List.of(
+                                new Subject("Math", 100),
+                                new Subject("Lang", 60),
+                                new Subject("Philosophy", 80)
+                        )),
+                        new Pupil("Petrov", List.of(
+                                new Subject("Math", 80),
+                                new Subject("Lang", 90),
+                                new Subject("Philosophy", 70)
+                        )),
+                        new Pupil("Sidorov", List.of(
+                                new Subject("Math", 70),
+                                new Subject("Lang", 60),
+                                new Subject("Philosophy", 50)
+                        ))
+                ).stream()
+        );
+        assertThat(average).hasSameElementsAs(List.of(
+                new Tuple("Ivanov", 80D),
+                new Tuple("Petrov", 80D),
+                new Tuple("Sidorov", 60D)
+        ));
+    }
+
+    /**
+     * Verifies the list of average scores for each subject.
+     */
+    @Test
+    void whenListOfSubjectAverage() {
+        List<Tuple> average = Analyze.averageScoreBySubject(
+                List.of(
+                        new Pupil("Ivanov", List.of(
+                                new Subject("Math", 70),
+                                new Subject("Lang", 90),
+                                new Subject("Philosophy", 100)
+                        )),
+                        new Pupil("Petrov", List.of(
+                                new Subject("Math", 60),
+                                new Subject("Lang", 60),
+                                new Subject("Philosophy", 60)
+                        )),
+                        new Pupil("Sidorov", List.of(
+                                new Subject("Math", 80),
+                                new Subject("Lang", 60),
+                                new Subject("Philosophy", 50)
+                        ))
+                ).stream()
+        );
+        assertThat(average).hasSameElementsAs(List.of(
+                new Tuple("Math", 70D),
+                new Tuple("Lang", 70D),
+                new Tuple("Philosophy", 70D)
+        ));
+    }
+
+    /**
+     * Verifies finding the student with the highest total score.
+     */
+    @Test
+    void whenBestPupil() {
+        Tuple best = Analyze.bestStudent(
+                List.of(
+                        new Pupil("Ivanov", List.of(
+                                new Subject("Math", 100),
+                                new Subject("Lang", 60),
+                                new Subject("Philosophy", 80)
+                        )),
+                        new Pupil("Petrov", List.of(
+                                new Subject("Math", 80),
+                                new Subject("Lang", 80),
+                                new Subject("Philosophy", 70)
+                        )),
+                        new Pupil("Sidorov", List.of(
+                                new Subject("Math", 70),
+                                new Subject("Lang", 60),
+                                new Subject("Philosophy", 50)
+                        ))
+                ).stream()
+        );
+        assertThat(best).isEqualTo(new Tuple("Ivanov", 240D));
+    }
+
+    /**
+     * Verifies finding the subject with the highest total score.
+     */
+    @Test
+    void whenBestSubject() {
+        Tuple best = Analyze.bestSubject(
+                List.of(
+                        new Pupil("Ivanov", List.of(
+                                new Subject("Math", 100),
+                                new Subject("Lang", 60),
+                                new Subject("Philosophy", 80)
+                        )),
+                        new Pupil("Petrov", List.of(
+                                new Subject("Math", 80),
+                                new Subject("Lang", 90),
+                                new Subject("Philosophy", 70)
+                        )),
+                        new Pupil("Sidorov", List.of(
+                                new Subject("Math", 70),
+                                new Subject("Lang", 60),
+                                new Subject("Philosophy", 50)
+                        ))
+                ).stream()
+        );
+        assertThat(best).isEqualTo(new Tuple("Math", 250D));
+    }
+}
