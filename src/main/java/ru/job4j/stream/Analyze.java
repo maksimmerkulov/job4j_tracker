@@ -10,7 +10,7 @@ import java.util.stream.Stream;
  * School statistics analysis using Stream API.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
 public class Analyze {
 
@@ -81,7 +81,7 @@ public class Analyze {
                                 .sum()
                 ))
                 .max(Comparator.comparingDouble(Tuple::score))
-                .orElse(new Tuple("", 0D));
+                .orElse(null);
     }
 
     /**
@@ -101,6 +101,6 @@ public class Analyze {
                 .stream()
                 .map(entry -> new Tuple(entry.getKey(), entry.getValue()))
                 .max(Comparator.comparingDouble(Tuple::score))
-                .orElse(new Tuple("", 0D));
+                .orElse(null);
     }
 }

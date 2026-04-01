@@ -11,9 +11,9 @@ import static org.assertj.core.api.Assertions.offset;
  * Tests for the {@link Analyze} class.
  *
  * @author Maksim Merkulov
- * @version 1.0
+ * @version 1.1
  */
-class AnalyzeByMapTest {
+class AnalyzeTest {
 
     /**
      * Verifies the overall average score calculation.
